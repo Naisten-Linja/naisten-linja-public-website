@@ -1,0 +1,6 @@
+# Contentful Production Space and Token
+export CONTENTFUL_SPACE_ID=
+export CONTENTFUL_SPACE_TOKEN=
+
+# Check required Node version
+nvm use
