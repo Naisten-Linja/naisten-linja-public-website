@@ -1,3 +1,7 @@
+# Contentful Preview Space and Token
+export CONTENTFUL_SPACE_ID=
+export CONTENTFUL_SPACE_TOKEN=
+
 # Contentful Production Space and Token
 export CONTENTFUL_SPACE_ID=
 export CONTENTFUL_SPACE_TOKEN=
