@@ -1,0 +1,14 @@
+@font-face {
+    font-family: 'Leafy';
+    src: url('Leafy.eot');
+    src: local('Leafy'),
+        url('Leafy.eot?#iefix') format('embedded-opentype'),
+        url('Leafy.woff2') format('woff2'),
+        url('Leafy.woff') format('woff'),
+        url('Leafy.ttf') format('truetype'),
+        url('Leafy.svg#Leafy') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+

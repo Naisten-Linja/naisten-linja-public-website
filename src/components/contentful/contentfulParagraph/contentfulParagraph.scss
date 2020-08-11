@@ -1,0 +1,14 @@
+@import '../../../scss/grid.scss';
+
+.Paragraph {
+  max-width: 1440px;
+  margin: 0 auto;
+
+  .column-count-2 {
+    column-count: 2;
+  }
+
+  .column-count-3 {
+    column-count: 3;
+  }
+}

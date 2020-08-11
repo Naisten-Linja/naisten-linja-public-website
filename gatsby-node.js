@@ -49,3 +49,13 @@ exports.createPages = ({ graphql, actions }) => {
       console.log('Error retrieving contentful data', error);
     });
 };
+
+exports.createSchemaCustomization = ({ actions }) => {
+  const { createTypes } = actions;
+  const typeDefs = `
+    type ContentfulParagraph implements Node {
+      paragraphColumns: String
+    }
+  `;
+  createTypes(typeDefs);
+};

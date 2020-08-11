@@ -1,0 +1,196 @@
+@font-face {
+    font-family: 'Alegreya Sans';
+    src: url('AlegreyaSans-Medium.eot');
+    src: local('Alegreya Sans Medium'), local('AlegreyaSans-Medium'),
+        url('AlegreyaSans-Medium.eot?#iefix') format('embedded-opentype'),
+        url('AlegreyaSans-Medium.woff2') format('woff2'),
+        url('AlegreyaSans-Medium.woff') format('woff'),
+        url('AlegreyaSans-Medium.ttf') format('truetype'),
+        url('AlegreyaSans-Medium.svg#AlegreyaSans-Medium') format('svg');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Alegreya Sans';
+    src: url('AlegreyaSans-ExtraBoldItalic.eot');
+    src: local('Alegreya Sans ExtraBold Italic'), local('AlegreyaSans-ExtraBoldItalic'),
+        url('AlegreyaSans-ExtraBoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('AlegreyaSans-ExtraBoldItalic.woff2') format('woff2'),
+        url('AlegreyaSans-ExtraBoldItalic.woff') format('woff'),
+        url('AlegreyaSans-ExtraBoldItalic.ttf') format('truetype'),
+        url('AlegreyaSans-ExtraBoldItalic.svg#AlegreyaSans-ExtraBoldItalic') format('svg');
+    font-weight: 800;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Alegreya Sans';
+    src: url('AlegreyaSans-ExtraBold.eot');
+    src: local('Alegreya Sans ExtraBold'), local('AlegreyaSans-ExtraBold'),
+        url('AlegreyaSans-ExtraBold.eot?#iefix') format('embedded-opentype'),
+        url('AlegreyaSans-ExtraBold.woff2') format('woff2'),
+        url('AlegreyaSans-ExtraBold.woff') format('woff'),
+        url('AlegreyaSans-ExtraBold.ttf') format('truetype'),
+        url('AlegreyaSans-ExtraBold.svg#AlegreyaSans-ExtraBold') format('svg');
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Alegreya Sans';
+    src: url('AlegreyaSans-Bold.eot');
+    src: local('Alegreya Sans Bold'), local('AlegreyaSans-Bold'),
+        url('AlegreyaSans-Bold.eot?#iefix') format('embedded-opentype'),
+        url('AlegreyaSans-Bold.woff2') format('woff2'),
+        url('AlegreyaSans-Bold.woff') format('woff'),
+        url('AlegreyaSans-Bold.ttf') format('truetype'),
+        url('AlegreyaSans-Bold.svg#AlegreyaSans-Bold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Alegreya Sans';
+    src: url('AlegreyaSans-BlackItalic.eot');
+    src: local('Alegreya Sans Black Italic'), local('AlegreyaSans-BlackItalic'),
+        url('AlegreyaSans-BlackItalic.eot?#iefix') format('embedded-opentype'),
+        url('AlegreyaSans-BlackItalic.woff2') format('woff2'),
+        url('AlegreyaSans-BlackItalic.woff') format('woff'),
+        url('AlegreyaSans-BlackItalic.ttf') format('truetype'),
+        url('AlegreyaSans-BlackItalic.svg#AlegreyaSans-BlackItalic') format('svg');
+    font-weight: 900;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Alegreya Sans';
+    src: url('AlegreyaSans-ThinItalic.eot');
+    src: local('Alegreya Sans Thin Italic'), local('AlegreyaSans-ThinItalic'),
+        url('AlegreyaSans-ThinItalic.eot?#iefix') format('embedded-opentype'),
+        url('AlegreyaSans-ThinItalic.woff2') format('woff2'),
+        url('AlegreyaSans-ThinItalic.woff') format('woff'),
+        url('AlegreyaSans-ThinItalic.ttf') format('truetype'),
+        url('AlegreyaSans-ThinItalic.svg#AlegreyaSans-ThinItalic') format('svg');
+    font-weight: 100;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Alegreya Sans';
+    src: url('AlegreyaSans-Thin.eot');
+    src: local('Alegreya Sans Thin'), local('AlegreyaSans-Thin'),
+        url('AlegreyaSans-Thin.eot?#iefix') format('embedded-opentype'),
+        url('AlegreyaSans-Thin.woff2') format('woff2'),
+        url('AlegreyaSans-Thin.woff') format('woff'),
+        url('AlegreyaSans-Thin.ttf') format('truetype'),
+        url('AlegreyaSans-Thin.svg#AlegreyaSans-Thin') format('svg');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Alegreya Sans';
+    src: url('AlegreyaSans-Light.eot');
+    src: local('Alegreya Sans Light'), local('AlegreyaSans-Light'),
+        url('AlegreyaSans-Light.eot?#iefix') format('embedded-opentype'),
+        url('AlegreyaSans-Light.woff2') format('woff2'),
+        url('AlegreyaSans-Light.woff') format('woff'),
+        url('AlegreyaSans-Light.ttf') format('truetype'),
+        url('AlegreyaSans-Light.svg#AlegreyaSans-Light') format('svg');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Alegreya Sans';
+    src: url('AlegreyaSans-MediumItalic.eot');
+    src: local('Alegreya Sans Medium Italic'), local('AlegreyaSans-MediumItalic'),
+        url('AlegreyaSans-MediumItalic.eot?#iefix') format('embedded-opentype'),
+        url('AlegreyaSans-MediumItalic.woff2') format('woff2'),
+        url('AlegreyaSans-MediumItalic.woff') format('woff'),
+        url('AlegreyaSans-MediumItalic.ttf') format('truetype'),
+        url('AlegreyaSans-MediumItalic.svg#AlegreyaSans-MediumItalic') format('svg');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Alegreya Sans';
+    src: url('AlegreyaSans-Black.eot');
+    src: local('Alegreya Sans Black'), local('AlegreyaSans-Black'),
+        url('AlegreyaSans-Black.eot?#iefix') format('embedded-opentype'),
+        url('AlegreyaSans-Black.woff2') format('woff2'),
+        url('AlegreyaSans-Black.woff') format('woff'),
+        url('AlegreyaSans-Black.ttf') format('truetype'),
+        url('AlegreyaSans-Black.svg#AlegreyaSans-Black') format('svg');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Alegreya Sans';
+    src: url('AlegreyaSans-LightItalic.eot');
+    src: local('Alegreya Sans Light Italic'), local('AlegreyaSans-LightItalic'),
+        url('AlegreyaSans-LightItalic.eot?#iefix') format('embedded-opentype'),
+        url('AlegreyaSans-LightItalic.woff2') format('woff2'),
+        url('AlegreyaSans-LightItalic.woff') format('woff'),
+        url('AlegreyaSans-LightItalic.ttf') format('truetype'),
+        url('AlegreyaSans-LightItalic.svg#AlegreyaSans-LightItalic') format('svg');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Alegreya Sans';
+    src: url('AlegreyaSans-BoldItalic.eot');
+    src: local('Alegreya Sans Bold Italic'), local('AlegreyaSans-BoldItalic'),
+        url('AlegreyaSans-BoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('AlegreyaSans-BoldItalic.woff2') format('woff2'),
+        url('AlegreyaSans-BoldItalic.woff') format('woff'),
+        url('AlegreyaSans-BoldItalic.ttf') format('truetype'),
+        url('AlegreyaSans-BoldItalic.svg#AlegreyaSans-BoldItalic') format('svg');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Alegreya Sans';
+    src: url('AlegreyaSans-Italic.eot');
+    src: local('Alegreya Sans Italic'), local('AlegreyaSans-Italic'),
+        url('AlegreyaSans-Italic.eot?#iefix') format('embedded-opentype'),
+        url('AlegreyaSans-Italic.woff2') format('woff2'),
+        url('AlegreyaSans-Italic.woff') format('woff'),
+        url('AlegreyaSans-Italic.ttf') format('truetype'),
+        url('AlegreyaSans-Italic.svg#AlegreyaSans-Italic') format('svg');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Alegreya Sans';
+    src: url('AlegreyaSans-Regular.eot');
+    src: local('Alegreya Sans Regular'), local('AlegreyaSans-Regular'),
+        url('AlegreyaSans-Regular.eot?#iefix') format('embedded-opentype'),
+        url('AlegreyaSans-Regular.woff2') format('woff2'),
+        url('AlegreyaSans-Regular.woff') format('woff'),
+        url('AlegreyaSans-Regular.ttf') format('truetype'),
+        url('AlegreyaSans-Regular.svg#AlegreyaSans-Regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+

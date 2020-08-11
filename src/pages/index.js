@@ -1,21 +1,47 @@
-import React from "react"
-import { Link } from "gatsby"
+import React from 'react';
+import { graphql } from 'gatsby';
+import Layout from '../components/layout';
+import SEO from '../components/seo';
+import ContentfulComponents from '../components/contentful/contentfulComponents';
 
-import Layout from "../components/layout"
-import Image from "../components/image"
-import SEO from "../components/seo"
+const IndexPage = ({ data }) => {
+  const { pageName } = data.contentfulPages;
 
-const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link>
-  </Layout>
-)
+  return (
+    <Layout>
+      <SEO title={pageName} />
+      <ContentfulComponents
+        pageContent={data.contentfulPages.pageContent}
+      ></ContentfulComponents>
+    </Layout>
+  );
+};
 
-export default IndexPage
+export default IndexPage;
+
+export const pageQuery = graphql`
+  query {
+    contentfulPages(slug: { eq: "etusivu" }) {
+      slug
+      pageName
+      pageContent {
+        __typename
+        ... on Node {
+          ... on ContentfulParagraph {
+            internal {
+              type
+            }
+            paragraphTitle
+            paragraphText {
+              paragraphText
+              childMarkdownRemark {
+                html
+              }
+            }
+            paragraphColumns
+          }
+        }
+      }
+    }
+  }
+`;
