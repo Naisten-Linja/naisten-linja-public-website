@@ -10,7 +10,6 @@ const PageTemplate = ({ data }) => {
   return (
     <Layout>
       <SEO title={pageName} />
-      <h1 className="layout-container">{pageName}</h1>
       <ContentfulComponents
         pageContent={data.contentfulPages.pageContent}
       ></ContentfulComponents>

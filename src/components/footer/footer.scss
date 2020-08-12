@@ -1,6 +1,58 @@
 @import '../../scss/grid.scss';
 
 footer {
+  margin: 0 auto;
   background-color: #294374;
   color: #ffffff;
+  > div {
+    padding: 0 21px;
+    margin: 0 auto;
+
+    h3 {
+      font-family: 'Alegreya Sans';
+      font-style: normal;
+      font-weight: bold;
+      font-size: 25px;
+      line-height: 28px;
+      letter-spacing: 0.02em;
+      text-transform: capitalize;
+    }
+
+    ul {
+      list-style-position: inside;
+      margin-left: 0;
+    }
+    ul li {
+      list-style-type: none;
+      font-size: 18px;
+      line-height: 22px;
+      margin-bottom: 8px;
+    }
+
+    ul li a,
+    ul li a:visited {
+      color: #ffffff;
+    }
+
+    .breakline {
+      margin-top: 152px;
+      margin-bottom: 16px;
+      background-color: #edeeef;
+    }
+
+    .company-information,
+    .company-information:visited {
+      font-family: 'Alegreya Sans';
+      font-style: normal;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 19px;
+      text-decoration-line: underline;
+      color: #ffffff;
+    }
+
+    .copyright-info {
+      margin: 56px 0;
+    }
+  }
 }

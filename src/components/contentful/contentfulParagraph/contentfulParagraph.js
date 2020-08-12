@@ -20,7 +20,7 @@ const ContentfulParagraph = ({ content }) => {
   return (
     <section>
       <div className="Paragraph layout-container">
-        <h1>{content.paragraphTitle}</h1>
+        {content.paragraphTitle && <h1>{content.paragraphTitle}</h1>}
         <div
           className={
             paragraphColumns > 1 ? 'column-count-' + paragraphColumns : ''
