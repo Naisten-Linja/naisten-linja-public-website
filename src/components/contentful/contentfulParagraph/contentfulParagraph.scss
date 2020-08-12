@@ -4,11 +4,13 @@
   max-width: 1440px;
   margin: 0 auto;
 
-  .column-count-2 {
-    column-count: 2;
-  }
+  @include media-breakpoint-up(md) {
+    .column-count-2 {
+      column-count: 2;
+    }
 
-  .column-count-3 {
-    column-count: 3;
+    .column-count-3 {
+      column-count: 3;
+    }
   }
 }

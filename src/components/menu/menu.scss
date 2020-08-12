@@ -1,0 +1,39 @@
+@import '../../scss/grid.scss';
+
+.MainMenu {
+  .menu {
+    clear: both;
+    max-height: 0;
+    transition: max-height 0.2s ease-out;
+    overflow: scroll;
+    background: #4c5060;
+    color: #ffffff;
+    position: absolute;
+  }
+
+  .menu-btn {
+    display: none;
+  }
+
+  .nav-icon:hover {
+    cursor: pointer;
+  }
+
+  .menu-btn:checked ~ .menu {
+    max-height: 240px;
+  }
+
+  .menu-btn:checked ~ .menu-icon .nav-icon {
+    background: transparent;
+  }
+
+  .menu a,
+  .menu a:visited {
+    font-family: 'Alegreya Sans';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.5625rem;
+    line-height: 1.75rem;
+    color: #f2f2f2;
+  }
+}

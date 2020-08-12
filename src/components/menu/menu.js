@@ -2,8 +2,9 @@ import { Link } from 'gatsby';
 // import PropTypes from 'prop-types';
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
+import './menu.scss';
 
-const MenuList = () => {
+const Menu = () => {
   const headerMenuData = useStaticQuery(graphql`
     query MenuQuery {
       contentfulMainMenu(slug: { eq: "header-menu" }) {
@@ -43,8 +44,12 @@ const MenuList = () => {
   const topLevelPages = headerMenuData.contentfulMainMenu.topLevelPages;
 
   return (
-    <nav>
-      <ul>
+    <nav className="MainMenu">
+      <input className="menu-btn" type="checkbox" id="menu-btn" />
+      <label className="menu-icon" for="menu-btn">
+        <span class="nav-icon">🍔</span>
+      </label>
+      <ul className="menu">
         {topLevelPages.map((topLevelPage) => (
           <li>
             <Link to={topLevelPage.menuPage.slug}>
@@ -85,40 +90,4 @@ const MenuList = () => {
   );
 };
 
-export default MenuList;
-
-// export const menuQuery = graphql`
-//   query {
-//     contentfulMainMenu(slug: { eq: "header-menu" }) {
-//       id
-//       slug
-//       mainMenuName
-//       topLevelPages {
-//         menuPage {
-//           pageName
-//           slug
-//         }
-//         pageContainerName
-//         menuPageSubpages {
-//           menuPage {
-//             pageName
-//             slug
-//           }
-//           pageContainerName
-//           menuPageSubpages {
-//             menuPage {
-//               pageName
-//               slug
-//             }
-//             menuPageSubpages {
-//               menuPage {
-//                 pageName
-//                 slug
-//               }
-//             }
-//           }
-//         }
-//       }
-//     }
-//   }
-// `;
+export default Menu;

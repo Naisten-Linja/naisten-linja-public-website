@@ -626,3 +626,23 @@ pre tt:after {
     font-size: 100%;
   }
 }
+
+/* Customizations */
+
+body {
+  font-family: 'Alegreya Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 1.1875rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Leafy';
+  font-weight: normal;
+}

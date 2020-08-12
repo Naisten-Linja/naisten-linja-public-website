@@ -1,15 +1,11 @@
 // import { Link } from 'gatsby';
 // import PropTypes from 'prop-types';
 import React from 'react';
-import MenuList from './menuList';
+import './header.scss';
+import Menu from '../menu/menu';
 
 const Header = () => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
+  <header>
     <div
       style={{
         margin: `0 auto`,
@@ -19,7 +15,7 @@ const Header = () => (
     >
       <div>
         <nav>
-          <MenuList />
+          <Menu />
         </nav>
       </div>
       <h1>Naisten Linja</h1>
