@@ -5,13 +5,7 @@ import './footer.scss';
 
 const Footer = () => (
   <footer>
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
+    <div className="layout-container">
       © {new Date().getFullYear()} Naisten Linja Suomessa ry
     </div>
   </footer>

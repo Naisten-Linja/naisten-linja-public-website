@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'gatsby';
 import { graphql } from 'gatsby';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
@@ -11,11 +10,10 @@ const PageTemplate = ({ data }) => {
   return (
     <Layout>
       <SEO title={pageName} />
-      <h1>{pageName}</h1>
+      <h1 className="layout-container">{pageName}</h1>
       <ContentfulComponents
         pageContent={data.contentfulPages.pageContent}
       ></ContentfulComponents>
-      <Link to="/">Random link</Link>
     </Layout>
   );
 };

@@ -1,9 +1,6 @@
 @import '../../../scss/grid.scss';
 
 .Paragraph {
-  max-width: 1440px;
-  margin: 0 auto;
-
   @include media-breakpoint-up(md) {
     .column-count-2 {
       column-count: 2;

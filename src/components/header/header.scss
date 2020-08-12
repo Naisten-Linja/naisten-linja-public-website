@@ -3,4 +3,69 @@
 header {
   background-color: #294374;
   color: #ffffff;
+  padding-bottom: 40px;
+  background-image: url('https://images.ctfassets.net/pbxhiiewat8h/3TBW7IKN0lk3eNXq5n2EyV/9792239590bb64fffc93dd5c7ab2bc7d/Vector_37.svg');
+  background-repeat: no-repeat;
+  background-position: right bottom;
+
+  .menu-row {
+    padding: 5px 8px;
+  }
+
+  .escape-link-box {
+    background: #5c6572;
+    border: 2px solid #d2edeb;
+    color: #ffffff;
+    text-decoration: none;
+    box-sizing: border-box;
+    box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.14);
+    border-radius: 10px;
+    display: flex;
+    float: right;
+    max-width: 107px;
+    height: 68px;
+
+    .escape-link,
+    .escape-link:visited {
+      font-family: 'Alegreya Sans';
+
+      font-style: normal;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 90%;
+      display: flex;
+      height: 100%;
+      align-items: center;
+      text-align: center;
+      letter-spacing: 0.07em;
+    }
+
+    .escape-link:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .logo-link {
+    display: block;
+    width: 91px;
+    height: 91px;
+    margin: 0 auto;
+  }
+
+  h2 {
+    text-align: center;
+    margin-top: 32px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 37px;
+    line-height: 110%;
+    text-align: center;
+    letter-spacing: 0.07em;
+  }
+  .nl-girls {
+    display: block;
+    margin: 0 auto;
+    width: 233px;
+    height: 339px;
+  }
 }

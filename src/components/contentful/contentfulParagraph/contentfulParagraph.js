@@ -19,7 +19,7 @@ const ContentfulParagraph = ({ content }) => {
     : 1;
   return (
     <section>
-      <div className="Paragraph">
+      <div className="Paragraph layout-container">
         <h1>{content.paragraphTitle}</h1>
         <div
           className={
