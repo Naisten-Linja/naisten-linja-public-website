@@ -52,7 +52,13 @@ const Menu = () => {
       <ul className="menu">
         {topLevelPages.map((topLevelPage) => (
           <li>
-            <Link to={topLevelPage.menuPage.slug}>
+            <Link
+              to={
+                topLevelPage.menuPage.slug === 'etusivu'
+                  ? '/'
+                  : topLevelPage.menuPage.slug
+              }
+            >
               {topLevelPage.pageContainerName !== null
                 ? topLevelPage.pageContainerName
                 : topLevelPage.menuPage.pageName}
