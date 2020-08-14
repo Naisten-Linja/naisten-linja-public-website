@@ -31,14 +31,47 @@ export const pageQuery = graphql`
             internal {
               type
             }
+            id
             paragraphTitle
             paragraphText {
+              childMarkdownRemark {
+                html
+              }
               paragraphText
+            }
+            paragraphColumns
+            sideImagePosition
+            sideImage {
+              file {
+                url
+              }
+              title
+            }
+          }
+          ... on ContentfulQuote {
+            internal {
+              type
+            }
+            id
+            quoteAuthor
+            quoteText {
+              quoteText
               childMarkdownRemark {
                 html
               }
             }
-            paragraphColumns
+          }
+          ... on ContentfulReadMore {
+            internal {
+              type
+            }
+            id
+            readMoreContent {
+              readMoreContent
+              childMarkdownRemark {
+                html
+              }
+            }
           }
         }
       }

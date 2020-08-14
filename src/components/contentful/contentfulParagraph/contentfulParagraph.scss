@@ -2,9 +2,15 @@
 
 .Paragraph {
   padding: 0 21px;
+  margin-bottom: 50px;
   font-size: 25px;
   line-height: 28px;
   font-weight: normal;
+
+  .image-col {
+    text-align: center;
+  }
+
   @include media-breakpoint-up(md) {
     .column-count-2 {
       column-count: 2;

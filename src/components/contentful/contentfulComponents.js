@@ -1,6 +1,8 @@
 import React from 'react';
 
 import ContentfulParagraph from './contentfulParagraph/contentfulParagraph';
+import ContentfulQuote from './contentfulQuote/contentfulQuote';
+import ContentfulReadMore from './contentfulReadMore/contentfulReadMore';
 
 const ContentfulComponents = ({ pageContent }) => {
   return pageContent.map((component, index) => {
@@ -12,6 +14,19 @@ const ContentfulComponents = ({ pageContent }) => {
             key={index}
             content={component}
           ></ContentfulParagraph>
+        );
+
+      case 'ContentfulQuote':
+        return (
+          <ContentfulQuote key={index} content={component}></ContentfulQuote>
+        );
+
+      case 'ContentfulReadMore':
+        return (
+          <ContentfulReadMore
+            key={index}
+            content={component}
+          ></ContentfulReadMore>
         );
 
       default:

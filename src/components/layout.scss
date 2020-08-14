@@ -646,10 +646,24 @@ h4,
 h5,
 h6 {
   font-family: 'Leafy';
+  font-style: normal;
   font-weight: normal;
+}
+
+h1,
+h2 {
+  font-size: 42px;
+  line-height: 41px;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
 }
 
 .layout-container {
   max-width: 736px;
   margin: 0 auto;
+}
+
+a,
+a:visited {
+  color: #ffffff;
 }
