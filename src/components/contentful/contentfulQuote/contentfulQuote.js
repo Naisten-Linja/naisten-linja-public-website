@@ -1,6 +1,6 @@
 import React from 'react';
 import '../../../scss/grid.scss';
-import './ContentfulQuote.scss';
+import './contentfulQuote.scss';
 
 const ContentfulQuote = ({ content }) => {
   return (

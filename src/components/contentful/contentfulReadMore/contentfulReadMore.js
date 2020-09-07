@@ -1,6 +1,6 @@
 import React from 'react';
 import '../../../scss/grid.scss';
-import './ContentfulReadMore.scss';
+import './contentfulReadMore.scss';
 
 const ContentfulReadMore = ({ content }) => {
   return (

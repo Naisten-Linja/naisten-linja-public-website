@@ -1,6 +1,6 @@
 import React from 'react';
 import '../../../scss/grid.scss';
-import './ContentfulParagraph.scss';
+import './contentfulParagraph.scss';
 
 const selectParagraphCols = (paragraphColumns) => {
   switch (paragraphColumns) {
