@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactPlayer from 'react-player/lazy';
 import '../../../scss/grid.scss';
-import './ContentfulVideo.scss';
+import './contentfulVideo.scss';
 
 const ContentfulVideo = ({ content }) => {
   return (
