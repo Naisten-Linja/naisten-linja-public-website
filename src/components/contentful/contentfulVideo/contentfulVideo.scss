@@ -1,0 +1,20 @@
+@import '../../../scss/grid.scss';
+
+.Video {
+  padding: 0 21px;
+  margin-bottom: 50px;
+  font-size: 25px;
+  line-height: 28px;
+  font-weight: normal;
+
+  .video-player-container {
+    margin: 0 auto;
+    margin-bottom: 25px;
+    text-align: center;
+    border: 5px solid #ffffff;
+  }
+
+  .react-player {
+    margin: 0 auto;
+  }
+}

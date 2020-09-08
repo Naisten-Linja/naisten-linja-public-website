@@ -3,6 +3,7 @@ import React from 'react';
 import ContentfulParagraph from './contentfulParagraph/contentfulParagraph';
 import ContentfulQuote from './contentfulQuote/contentfulQuote';
 import ContentfulReadMore from './contentfulReadMore/contentfulReadMore';
+import ContentfulVideo from './contentfulVideo/contentfulVideo';
 
 const ContentfulComponents = ({ pageContent }) => {
   return pageContent.map((component, index) => {
@@ -28,6 +29,9 @@ const ContentfulComponents = ({ pageContent }) => {
             content={component}
           ></ContentfulReadMore>
         );
+
+      case 'ContentfulVideo':
+        return <ContentfulVideo key={index} content={component} />;
 
       default:
         return null;

@@ -73,6 +73,26 @@ export const pageQuery = graphql`
               }
             }
           }
+          ... on ContentfulVideo {
+            internal {
+              type
+            }
+            id
+            videoTitle
+            videoUrl
+            videoTopDescription {
+              videoTopDescription
+              childMarkdownRemark {
+                html
+              }
+            }
+            videoBottomDescription {
+              videoBottomDescription
+              childMarkdownRemark {
+                html
+              }
+            }
+          }
         }
       }
     }
