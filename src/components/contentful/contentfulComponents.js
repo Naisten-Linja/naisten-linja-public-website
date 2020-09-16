@@ -6,6 +6,7 @@ import ContentfulReadMore from './contentfulReadMore/contentfulReadMore';
 import ContentfulVideo from './contentfulVideo/contentfulVideo';
 import ContentfulFullWidthImage from './contentfulFullWidthImage/contentfulFullWidthImage';
 import ContentfulPersonIntroduction from './contentfulPersonIntroduction/contentfulPersonIntroduction';
+import ContentfulForm from './contentfulForm/contentfulForm';
 
 const ContentfulComponents = ({ pageContent }) => {
   return pageContent.map((component, index) => {
@@ -40,6 +41,9 @@ const ContentfulComponents = ({ pageContent }) => {
 
       case 'ContentfulPersonIntroduction':
         return <ContentfulPersonIntroduction key={index} content={component} />;
+
+      case 'ContentfulForm':
+        return <ContentfulForm key={index} content={component} />;
 
       default:
         return null;

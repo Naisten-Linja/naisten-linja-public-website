@@ -123,6 +123,12 @@ export const pageQuery = graphql`
               }
             }
           }
+          ... on ContentfulForm {
+            internal {
+              type
+            }
+            formName
+          }
         }
       }
     }
