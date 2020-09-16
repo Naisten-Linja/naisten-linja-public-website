@@ -4,8 +4,8 @@ import ContentfulParagraph from './contentfulParagraph/contentfulParagraph';
 import ContentfulQuote from './contentfulQuote/contentfulQuote';
 import ContentfulReadMore from './contentfulReadMore/contentfulReadMore';
 import ContentfulVideo from './contentfulVideo/contentfulVideo';
-import ContentfulFullWidthImage from './ContentfulFullWidthImage/contentfulFullWidthImage';
-import ContentfulPersonIntroduction from './ContentfulPersonIntroduction/contentfulPersonIntroduction';
+import ContentfulFullWidthImage from './contentfulFullWidthImage/contentfulFullWidthImage';
+import ContentfulPersonIntroduction from './contentfulPersonIntroduction/contentfulPersonIntroduction';
 
 const ContentfulComponents = ({ pageContent }) => {
   return pageContent.map((component, index) => {
