@@ -47,6 +47,7 @@ export const pageQuery = graphql`
               }
               title
             }
+            paragraphBackgroundStyle
           }
           ... on ContentfulQuote {
             internal {
@@ -88,6 +89,35 @@ export const pageQuery = graphql`
             }
             videoBottomDescription {
               videoBottomDescription
+              childMarkdownRemark {
+                html
+              }
+            }
+          }
+          ... on ContentfulFullWidthImage {
+            internal {
+              type
+            }
+            imageTitle
+            showTitle
+            image {
+              file {
+                url
+              }
+            }
+          }
+          ... on ContentfulPersonIntroduction {
+            internal {
+              type
+            }
+            personName
+            personPicture {
+              file {
+                url
+              }
+            }
+            personIntroduction {
+              personIntroduction
               childMarkdownRemark {
                 html
               }

@@ -31,11 +31,17 @@ const ContentfulParagraph = ({ content }) => {
   const paragraphGrid =
     content.sideImage !== null ? ' col-12 col-md-6 p-0' : '';
 
+  const paragraphBackgroundStyle =
+    content.paragraphBackgroundStyle !== null &&
+    content.paragraphBackgroundStyle.toLowerCase() !== 'default'
+      ? ' ' + content.paragraphBackgroundStyle
+      : '';
+
   return (
-    <section>
+    <section className={paragraphBackgroundStyle}>
       <div className="Paragraph layout-container">
         {!!content.paragraphTitle && content.paragraphTitle !== '' && (
-          <div class="row">
+          <div className="row">
             <h2>{content.paragraphTitle}</h2>
           </div>
         )}

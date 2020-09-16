@@ -21,3 +21,15 @@
     }
   }
 }
+
+.Pink {
+  padding: 100px 0;
+  margin: 21px 0;
+  background-size: 100% auto;
+  background-color: #ffc4c8;
+  transform: skewY(10deg);
+  .Paragraph {
+    color: #111111;
+    transform: skewY(-10deg);
+  }
+}

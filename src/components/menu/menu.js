@@ -46,12 +46,14 @@ const Menu = () => {
   return (
     <nav className="MainMenu">
       <input className="menu-btn" type="checkbox" id="menu-btn" />
-      <label className="menu-icon" for="menu-btn">
-        <span class="nav-icon">🍔</span>
+      <label className="menu-icon" htmlFor="menu-btn">
+        <span className="nav-icon" role="img">
+          🍔
+        </span>
       </label>
       <ul className="menu">
-        {topLevelPages.map((topLevelPage) => (
-          <li>
+        {topLevelPages.map((topLevelPage, i) => (
+          <li key={i}>
             <Link
               to={
                 topLevelPage.menuPage.slug === 'etusivu'
@@ -65,8 +67,8 @@ const Menu = () => {
             </Link>
             {topLevelPage.menuPageSubpages !== null && (
               <ul>
-                {topLevelPage.menuPageSubpages.map((firstNavigationPage) => (
-                  <li>
+                {topLevelPage.menuPageSubpages.map((firstNavigationPage, i) => (
+                  <li key={i}>
                     <Link to={firstNavigationPage.menuPage.slug}>
                       {firstNavigationPage.pageContainerName !== null
                         ? firstNavigationPage.pageContainerName
@@ -75,8 +77,8 @@ const Menu = () => {
                     {firstNavigationPage.menuPageSubpages !== null && (
                       <ul>
                         {firstNavigationPage.menuPageSubpages.map(
-                          (secondNavigationPage) => (
-                            <li>
+                          (secondNavigationPage, i) => (
+                            <li key={i}>
                               <Link to={secondNavigationPage.menuPage.slug}>
                                 {secondNavigationPage.menuPage.pageName}
                               </Link>

@@ -8,7 +8,7 @@ const ContentfulVideo = ({ content }) => {
     <section>
       <div className="Video layout-container">
         {!!content.videoTitle && content.videoTitle !== '' && (
-          <div class="row">
+          <div className="row">
             <h2>{content.videoTitle}</h2>
           </div>
         )}
