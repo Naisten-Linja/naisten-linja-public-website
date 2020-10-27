@@ -256,7 +256,11 @@ const GiveFeedback = () => {
       .post(
         `https://docs.google.com/forms/d/e/1FAIpQLScLB10sGsHiBY5ELwwi5Xbg8ZZ0p80Qy39BKeEq9hVyWBXXgA/formResponse`,
         obj,
-        axiosConfig,
+        {
+          headers: {
+            'Access-Control-Allow-Origin': 'https://naisten-linja.netlify.com',
+          },
+        },
       )
       .then(function (response) {
         // handle success
@@ -279,30 +283,25 @@ const GiveFeedback = () => {
           <label>
             <input
               type="checkbox"
-              name="entry.145862167[]"
+              name="entry.145862167"
               value="Puhelinpalvelua"
             />{' '}
             Phone
           </label>
           <label>
-            <input
-              type="checkbox"
-              name="entry.145862167[]"
-              value="Nettisivuja"
-            />{' '}
+            <input type="checkbox" name="entry.145862167" value="Nettisivuja" />{' '}
             Website
           </label>
           <label>
             <input
               type="checkbox"
-              name="entry.145862167[]"
+              name="entry.145862167"
               value="Ryhmätoimintaa"
             />{' '}
             Groupwork
           </label>
           <label>
-            <input type="checkbox" name="entry.145862167[]" value="Muuta" />{' '}
-            Other
+            <input type="checkbox" name="entry.145862167" value="Muuta" /> Other
           </label>
         </fieldset>
         <label>
