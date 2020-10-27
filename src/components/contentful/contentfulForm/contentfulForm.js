@@ -254,7 +254,7 @@ const GiveFeedback = () => {
 
     axios
       .post(
-        `https://docs.google.com/forms/d/e/19I2SCRszN7kj0k2QcUnT4Zw-vyoplVlH2bZkLzoBIQ0/formResponse`,
+        `https://docs.google.com/forms/d/e/1FAIpQLScLB10sGsHiBY5ELwwi5Xbg8ZZ0p80Qy39BKeEq9hVyWBXXgA/formResponse`,
         obj,
         axiosConfig,
       )
