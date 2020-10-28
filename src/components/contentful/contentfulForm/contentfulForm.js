@@ -252,13 +252,20 @@ const GiveFeedback = () => {
       }
     }
 
+    const qs = Object.keys(obj)
+      .map((key) => `${key}=${obj[key]}`)
+      .join('&');
+
+    console.log(qs);
+
     axios
       .post(
-        `https://docs.google.com/forms/d/e/1FAIpQLScLB10sGsHiBY5ELwwi5Xbg8ZZ0p80Qy39BKeEq9hVyWBXXgA/formResponse`,
+        `https://docs.google.com/forms/d/e/1FAIpQLScLB10sGsHiBY5ELwwi5Xbg8ZZ0p80Qy39BKeEq9hVyWBXXgA/formResponse/`,
         obj,
         {
           headers: {
-            'Access-Control-Allow-Origin': 'https://naisten-linja.netlify.com',
+            'Access-Control-Allow-Origin': '*',
+            'Content-Type': 'application/x-www-form-urlencoded',
           },
         },
       )
