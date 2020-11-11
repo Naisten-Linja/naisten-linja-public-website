@@ -4,9 +4,15 @@ header {
   background-color: #294374;
   color: #ffffff;
   padding-bottom: 40px;
-  background-image: url('https://images.ctfassets.net/pbxhiiewat8h/3TBW7IKN0lk3eNXq5n2EyV/9792239590bb64fffc93dd5c7ab2bc7d/Vector_37.svg');
-  background-repeat: no-repeat;
-  background-position: right bottom;
+  background: url('https://images.ctfassets.net/pbxhiiewat8h/3TBW7IKN0lk3eNXq5n2EyV/9792239590bb64fffc93dd5c7ab2bc7d/Vector_37.svg')
+    right bottom no-repeat;
+
+  @include media-breakpoint-up(md) {
+    background: url('https://images.ctfassets.net/pbxhiiewat8h/54cEj6rXSVK67PQ4YLOxur/fae0a6476dd6e2a24867bb15cbed3696/Vector_37.svg')
+        right top no-repeat,
+      url('https://images.ctfassets.net/pbxhiiewat8h/7y5BWGTg4MsZSWggHOYtTJ/f5c32a96033ef923324843336e5fbb1f/Vector_45.svg')
+        left bottom no-repeat;
+  }
 
   .menu-row {
     padding: 5px 8px;
