@@ -23,20 +23,65 @@
   }
 
   .menu-btn:checked ~ .menu {
-    max-height: 240px;
-  }
+    max-height: 90vh;
+    width: 80vw;
+    padding: 20px;
+    overflow-x: hidden;
+    z-index: 100;
+    border-radius: 15px;
 
-  .menu-btn:checked ~ .menu-icon .nav-icon {
-    background: transparent;
-  }
+    @include media-breakpoint-up(md) {
+      max-height: 500px;
+      width: 375px;
+    }
 
-  .menu a,
-  .menu a:visited {
-    font-family: 'Alegreya Sans';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 1.5625rem;
-    line-height: 1.75rem;
-    color: #f2f2f2;
+    li {
+      list-style-type: none;
+    }
+
+    a,
+    a:visited {
+      font-family: 'Alegreya Sans';
+      font-style: normal;
+      font-weight: 500;
+      font-size: 1rem;
+      line-height: 1.75rem;
+      text-decoration: none;
+      color: #f2f2f2;
+      display: block;
+      width: 100%;
+      border-bottom: 2px solid #f2f2f2;
+      transition: text-indent 0.3s;
+    }
+    a:hover {
+      background: #f2f2f2;
+      color: #4c5060;
+      text-indent: 20px;
+      &:after {
+        content: '>';
+        font-weight: bold;
+        float: right;
+        margin-right: 10px;
+      }
+    }
+    ul {
+      padding: 0;
+      margin-left: 0;
+      li {
+        text-indent: 20px;
+        list-style-type: none;
+        a,
+        a:visited {
+          border-bottom: none;
+        }
+        a:hover {
+          text-indent: 40px;
+        }
+      }
+    }
   }
+}
+
+.menu-btn:checked ~ .menu-icon .nav-icon {
+  background: transparent;
 }
