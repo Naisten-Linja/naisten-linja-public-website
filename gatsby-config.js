@@ -51,6 +51,7 @@ module.exports = {
         plugins: [],
       },
     },
+    `@contentful/gatsby-transformer-contentful-richtext`,
     {
       resolve: `gatsby-plugin-gdpr-cookies`,
       options: {
