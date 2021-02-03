@@ -4,7 +4,7 @@ import './contentfulQuote.scss';
 
 const ContentfulQuote = ({ content }) => {
   return (
-    <section>
+    <section className="full-width-section">
       <div className="Quote layout-container">
         <div className="row align-items-center quote-container">
           <div className="quote-text">

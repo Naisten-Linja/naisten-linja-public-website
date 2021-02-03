@@ -659,8 +659,20 @@ h2 {
   text-transform: uppercase;
 }
 
+.main-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: stretch;
+}
+
+.full-width-section {
+  width: 100%;
+}
+
 .layout-container {
-  max-width: 736px;
+  max-width: map-get($container-max-widths, md);
   margin: 0 auto;
 }
 

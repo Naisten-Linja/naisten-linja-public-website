@@ -4,7 +4,7 @@ import './contentfulReadMore.scss';
 
 const ContentfulReadMore = ({ content }) => {
   return (
-    <section>
+    <section className="full-width-section">
       <div className="ReadMore layout-container">
         <div className="row pl-1 pr-1">
           <h2>Lue Lisää</h2>

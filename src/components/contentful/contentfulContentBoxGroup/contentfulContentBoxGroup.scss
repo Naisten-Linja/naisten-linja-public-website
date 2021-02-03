@@ -1,0 +1,61 @@
+@import '../../../scss/grid.scss';
+
+ContentBoxGroup__title {
+  width: 100%;
+  text-align: center
+}
+
+.ContentBoxGroup__section {
+  position: relative;
+}
+
+.ContentBoxGroup__container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.ContentBox__wrapper {
+  border-radius: 0.625rem;
+  box-sizing: border-box;
+  color: #2E303A;
+  padding: 1rem;
+  width: calc(100% - #{$grid-gutter-width} / 2);
+  margin: calc(#{$grid-gutter-width} / 4) 0;
+  text-align: center;
+
+  @include media-breakpoint-up(md) {
+    width: calc(#{map-get($container-max-widths, md)} / 2 - #{$grid-gutter-width} / 2);
+  }
+
+  &--white {
+    background: #F9F9F9;
+  }
+  &--light-purple {
+    background: #D9BDDB;
+  }
+  &--light-pink {
+    background: #FFE5EA;
+  }
+}
+
+.ContentBox__title {
+  font-size: 1.8125rem;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  font-family: "Alegreya Sans";
+  text-transform: uppercase;
+}
+
+.bubble-background {
+  position: absolute;
+  width: 120% !important;
+  height: auto !important;
+  max-width: 500px !important;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}

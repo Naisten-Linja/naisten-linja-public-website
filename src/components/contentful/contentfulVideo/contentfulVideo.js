@@ -5,7 +5,7 @@ import './contentfulVideo.scss';
 
 const ContentfulVideo = ({ content }) => {
   return (
-    <section>
+    <section className="full-width-section">
       <div className="Video layout-container">
         {!!content.videoTitle && content.videoTitle !== '' && (
           <div className="row">

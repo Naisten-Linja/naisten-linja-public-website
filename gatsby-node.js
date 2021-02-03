@@ -54,7 +54,27 @@ exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions;
   const typeDefs = `
     type ContentfulParagraph implements Node {
+      paragraphText: contentfulParagraphParagraphTextTextNode
+      paragraphTitle: String
+      sideImagePosition: String
+      paragraphBackgroundStyle: String
       paragraphColumns: String
+    }
+    type ContentfulBackgroundStyle implements Node {
+      value: String!
+    }
+    type ContentfulContentBox implements Node {
+      title: String!
+      backgroundColor: String!
+      content: contentfulContentBoxContentRichTextNode
+      linkToInternalPage: ContentfulPages
+      linkToCustomUrl: String
+    }
+    type ContentfulContentBoxGroup implements Node {
+      title: String
+      contentBoxes: [ContentfulContentBox]
+      backgroundStyle: ContentfulBackgroundStyle
+      backgroundColor: ContentfulColor
     }
   `;
   createTypes(typeDefs);

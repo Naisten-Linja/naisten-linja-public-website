@@ -24,6 +24,7 @@ export const pageQuery = graphql`
     contentfulPages(slug: { eq: $slug }) {
       slug
       pageName
+      pageContentBackgroundColor
       pageContent {
         __typename
         ... on Node {
@@ -128,6 +129,44 @@ export const pageQuery = graphql`
               type
             }
             formName
+          }
+          ... on ContentfulContentBoxGroup {
+            title
+            internal {
+              type
+            }
+            backgroundStyle {
+              internal {
+                type
+              }
+              value
+            }
+            backgroundColor {
+              internal {
+                type
+              }
+              value
+            }
+            contentBoxes {
+              ... on Node {
+                ... on ContentfulContentBox {
+                  internal {
+                    type
+                  }
+                  title
+                  content {
+                    childContentfulRichText {
+                      html
+                    }
+                  }
+                  backgroundColor
+                  linkToInternalPage {
+                    slug
+                  }
+                  linkToCustomUrl
+                }
+              }
+            }
           }
         }
       }

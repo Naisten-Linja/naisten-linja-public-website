@@ -1,0 +1,23 @@
+.ContentfulBackground {
+  &--wavy {
+    margin-top: calc(14% + 2rem);
+    margin-bottom: calc(5.5% + 2rem);
+  }
+
+  &--wavy-top,
+  &--wavy-bottom {
+    position: absolute;
+    width: 100% !important;
+    height: auto !important;
+    z-index: -1;
+    transform: rotateY(180deg);
+  }
+
+  &--wavy-top {
+    bottom: 100%;
+  }
+
+  &--wavy-bottom{
+    top: 100%;
+  }
+}

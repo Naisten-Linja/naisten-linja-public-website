@@ -38,11 +38,11 @@ const ContentfulParagraph = ({ content }) => {
       : '';
 
   return (
-    <section className={paragraphBackgroundStyle}>
+    <section className={`full-width-section ${paragraphBackgroundStyle}`}>
       <div className="Paragraph layout-container">
         {!!content.paragraphTitle && content.paragraphTitle !== '' && (
           <div className="row">
-            <h2>{content.paragraphTitle}</h2>
+            <h2 className="Paragraph__title">{content.paragraphTitle}</h2>
           </div>
         )}
         <div className="row">
@@ -54,12 +54,14 @@ const ContentfulParagraph = ({ content }) => {
               />
             </div>
           )}
-          <div
-            className={paragraphColumnCount + paragraphGrid}
-            dangerouslySetInnerHTML={{
-              __html: content.paragraphText.childMarkdownRemark.html,
-            }}
-          ></div>
+          {content.paragraphText && (
+            <div
+              className={paragraphColumnCount + paragraphGrid}
+              dangerouslySetInnerHTML={{
+                __html: content.paragraphText.childMarkdownRemark.html,
+              }}
+            />
+          )}
           {paragraphImagePosition === 'right' && (
             <div className="col-xs-12 col-md-6 image-col p-0">
               <img

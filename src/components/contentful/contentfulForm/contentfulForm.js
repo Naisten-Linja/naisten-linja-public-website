@@ -94,7 +94,7 @@ const OpenLetter = ({ content }) => {
   };
 
   return (
-    <section>
+    <section className="full-width-section">
       {!expandOpenLetterStart && !expandOpenLetterRead && (
         <div>
           <button
@@ -115,7 +115,7 @@ const OpenLetter = ({ content }) => {
       )}
 
       {expandOpenLetterStart ? (
-        <div className="OpenLetter Form layout-container">
+        <div className="OpenLetter Form">
           <div className="row align-items-center">
             {loadingError.length === 0 ? (
               <form id="open-letter">
@@ -174,7 +174,7 @@ const OpenLetter = ({ content }) => {
       )}
 
       {expandOpenLetterRead ? (
-        <div className="OpenLetter Form layout-container">
+        <div className="OpenLetter Form">
           <div className="row align-items-center">
             <form id="read-open-letter">
               <label htmlFor="accessKey">Access Key:</label>
@@ -284,7 +284,7 @@ const GiveFeedback = () => {
   };
 
   return (
-    <div className="Feedback Form layout-container">
+    <div className="Feedback Form">
       <form id="feedback">
         <fieldset>
           <label>

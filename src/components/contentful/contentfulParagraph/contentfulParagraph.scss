@@ -7,6 +7,11 @@
   line-height: 28px;
   font-weight: normal;
 
+  &__title {
+    text-align: center;
+    width: 100%;
+  }
+
   .image-col {
     text-align: center;
   }
@@ -23,13 +28,26 @@
 }
 
 .Pink {
-  padding: 100px 0;
-  margin: 21px 0;
-  background-size: 100% auto;
-  background-color: #ffc4c8;
-  transform: skewY(10deg);
+  padding-top: 4rem;
+  margin: 3rem 0;
+  position: relative;
+
   .Paragraph {
     color: #111111;
-    transform: skewY(-10deg);
+    z-index: 2;
+    position: relative;
+  }
+
+  &:before {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    transform: skewY(5deg);
+    content: "";
+    background-color: #ffc4c8;
+    z-index: 1;
   }
 }

@@ -7,10 +7,11 @@ import ContentfulVideo from './contentfulVideo/contentfulVideo';
 import ContentfulFullWidthImage from './contentfulFullWidthImage/contentfulFullWidthImage';
 import ContentfulPersonIntroduction from './contentfulPersonIntroduction/contentfulPersonIntroduction';
 import ContentfulForm from './contentfulForm/contentfulForm';
+import ContentfulContentBoxGroup from './contentfulContentBoxGroup/contentfulContentBoxGroup';
 
 const ContentfulComponents = ({ pageContent }) => {
   return pageContent.map((component, index) => {
-    const componentType = component.internal.type;
+    const componentType = component.internal ? component.internal.type : null;
     switch (componentType) {
       case 'ContentfulParagraph':
         return (
@@ -44,6 +45,9 @@ const ContentfulComponents = ({ pageContent }) => {
 
       case 'ContentfulForm':
         return <ContentfulForm key={index} content={component} />;
+
+      case 'ContentfulContentBoxGroup':
+        return <ContentfulContentBoxGroup key={index} content={component} />;
 
       default:
         return null;

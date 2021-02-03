@@ -1,10 +1,9 @@
 import React from 'react';
-import '../../../scss/grid.scss';
 import './contentfulFullWidthImage.scss';
 
 const ContentfulFullWidthImage = ({ content }) => {
   return (
-    <section>
+    <section className="full-width-section">
       <div className="FullWidthImage layout-container">
         {content.showTitle && content.imageTitle !== '' && (
           <div className="row">

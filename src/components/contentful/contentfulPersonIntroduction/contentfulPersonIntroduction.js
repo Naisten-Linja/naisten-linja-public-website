@@ -4,7 +4,7 @@ import './contentfulPersonIntroduction.scss';
 
 const ContentfulPersonIntroduction = ({ content }) => {
   return (
-    <section>
+    <section className="full-width-section">
       <div className="PersonIntroduction layout-container">
         <div className="row pl-1 pr-1">
           <h2>{content.personName}</h2>
