@@ -1,11 +1,17 @@
 @import '../../../scss/grid.scss';
 
 .Paragraph {
-  padding: 0 21px;
-  margin-bottom: 50px;
+  padding: 1.5rem;
   font-size: 25px;
   line-height: 28px;
   font-weight: normal;
+
+  &--text-color-dark {
+    color: #2E303A;
+    a {
+      color: #2E303A;
+    }
+  }
 
   &__title {
     text-align: center;
@@ -25,29 +31,8 @@
       column-count: 3;
     }
   }
-}
 
-.Pink {
-  padding-top: 4rem;
-  margin: 3rem 0;
-  position: relative;
-
-  .Paragraph {
-    color: #111111;
-    z-index: 2;
-    position: relative;
-  }
-
-  &:before {
-    display: block;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    transform: skewY(5deg);
-    content: "";
-    background-color: #ffc4c8;
-    z-index: 1;
+  h2 {
+    margin-top: 2.5rem
   }
 }

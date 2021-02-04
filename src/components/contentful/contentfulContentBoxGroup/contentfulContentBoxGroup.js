@@ -12,8 +12,17 @@ const ContentfulContentBoxGroup = ({ content }) => {
     backgroundStyle,
     backgroundColor,
   } = content;
+
+  const backgroundStyleValue =
+    backgroundStyle && backgroundStyle.value ? backgroundStyle.value : null;
+  const backgroundColorValue =
+    backgroundColor && backgroundColor.value ? backgroundColor.value : null;
+
   return (
-    <Background color={backgroundColor} backgroundStyle={backgroundStyle}>
+    <Background
+      color={backgroundColorValue}
+      backgroundStyle={backgroundStyleValue}
+    >
       <div className="layout-container ContentBoxGroup__section">
         <div className="ContentBoxGroup__container">
           {title && <h2 className="ContentBoxGroup__title">{title}</h2>}

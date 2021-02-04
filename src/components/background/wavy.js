@@ -6,8 +6,8 @@ const WavyTop = ({ color }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="1529.9833"
-      height="211.42133"
+      width="1529.9"
+      height="211.4"
       viewBox="0 0 1529.9833 211.42133"
       fill="none"
       version="1.1"
@@ -26,7 +26,7 @@ const WavyBottom = ({ color }) => {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="1554.5"
-      height="85.60318"
+      height="85.6"
       viewBox="0 0 1554.5 85.60318"
       fill="none"
       version="1.1"

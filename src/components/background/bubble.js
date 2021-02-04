@@ -10,7 +10,7 @@ const Bubble = ({ color }) => {
       viewBox="0 0 375 500"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className="ContentfulBackground--bubble"
+      className="ContentfulBackground--bubble-svg"
       aria-hidden={true}
     >
       <path

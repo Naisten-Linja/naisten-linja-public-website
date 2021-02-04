@@ -59,6 +59,9 @@ exports.createSchemaCustomization = ({ actions }) => {
       sideImagePosition: String
       paragraphBackgroundStyle: String
       paragraphColumns: String
+      backgroundStyle: ContentfulBackgroundStyle
+      backgroundColor: ContentfulColor
+      textColor: String
     }
     type ContentfulBackgroundStyle implements Node {
       value: String!
