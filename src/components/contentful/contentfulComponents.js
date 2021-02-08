@@ -10,7 +10,7 @@ import ContentfulForm from './contentfulForm/contentfulForm';
 import ContentfulContentBoxGroup from './contentfulContentBoxGroup/contentfulContentBoxGroup';
 
 const ContentfulComponents = ({ pageContent }) => {
-  return pageContent.map((component, index) => {
+  return (pageContent || []).map((component, index) => {
     const componentType = component.internal ? component.internal.type : null;
     switch (componentType) {
       case 'ContentfulParagraph':
