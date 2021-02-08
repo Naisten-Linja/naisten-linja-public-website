@@ -14,8 +14,6 @@ const ContentfulContentBoxGroup = ({ content }) => {
     backgroundColor,
   } = content;
 
-  console.table([content]);
-
   return (
     <Background color={backgroundColor} backgroundStyle={backgroundStyle}>
       <div className="layout-container ContentBoxGroup__section">
