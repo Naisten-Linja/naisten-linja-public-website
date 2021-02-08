@@ -50,14 +50,16 @@ const ContentfulParagraph = ({ content }) => {
             </div>
           )}
           <div className="row">
-            {paragraphImagePosition === 'left' && content.sideImage && (
-              <div className="col-xs-12 col-md-6 image-col p-0">
-                <img
-                  src={content.sideImage.file.url}
-                  alt={content.sideImage.title}
-                />
-              </div>
-            )}
+            {paragraphImagePosition === 'left' &&
+              content.sideImage &&
+              content.sideImage.file && (
+                <div className="col-xs-12 col-md-6 image-col p-0">
+                  <img
+                    src={content.sideImage.file.url}
+                    alt={content.sideImage.title}
+                  />
+                </div>
+              )}
             {content.paragraphText && (
               <div
                 className={paragraphColumnCount + paragraphGrid}
@@ -66,14 +68,16 @@ const ContentfulParagraph = ({ content }) => {
                 }}
               />
             )}
-            {paragraphImagePosition === 'right' && content.sideImage && (
-              <div className="col-xs-12 col-md-6 image-col p-0">
-                <img
-                  src={content.sideImage.file.url}
-                  alt={content.sideImage.title}
-                />
-              </div>
-            )}
+            {paragraphImagePosition === 'right' &&
+              content.sideImage &&
+              content.sideImage.file && (
+                <div className="col-xs-12 col-md-6 image-col p-0">
+                  <img
+                    src={content.sideImage.file.url}
+                    alt={content.sideImage.title}
+                  />
+                </div>
+              )}
           </div>
         </div>
       </div>
