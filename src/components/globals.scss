@@ -1,0 +1,30 @@
+$contentful-colors: (
+  "white": #edeeef,
+  "pink": #ffc4c8,
+  "violet-blue": #7d8edd,
+  "gray": #b6b8c1,
+);
+
+@each $name, $value in $contentful-colors {
+  .ContentfulBackgroundColor--#{$name} {
+    background-color: $value;
+  }
+
+}
+
+$text-color-dark: #2e303a;
+$text-color-light: #ffffff;
+
+.ContentfulTextColor--dark {
+  color: $text-color-dark;
+  h1, h2, h3, h4, h5, a {
+    color: $text-color-dark;
+  }
+}
+
+.ContentfulTextColor--light {
+  color: $text-color-light;
+  h1, h2, h3, h4, h5, a {
+    color: $text-color-light;
+  }
+}

@@ -28,18 +28,8 @@ export const ContenfulPage = graphql`
           title
         }
         paragraphBackgroundStyle
-        backgroundStyle {
-          internal {
-            type
-          }
-          value
-        }
-        backgroundColor {
-          internal {
-            type
-          }
-          value
-        }
+        backgroundStyle
+        backgroundColor
         textColor
       }
       ... on ContentfulQuote {
@@ -127,36 +117,44 @@ export const ContenfulPage = graphql`
         internal {
           type
         }
-        backgroundStyle {
-          internal {
-            type
-          }
-          value
-        }
-        backgroundColor {
-          internal {
-            type
-          }
-          value
-        }
+        backgroundStyle
+        backgroundColor
         contentBoxes {
-          ... on Node {
-            ... on ContentfulContentBox {
-              internal {
-                type
-              }
-              title
-              content {
-                childContentfulRichText {
-                  html
-                }
-              }
-              backgroundColor
-              linkToInternalPage {
-                slug
-              }
-              linkToCustomUrl
+          __typename
+          ... on ContentfulContentBox {
+            internal {
+              type
             }
+            title
+            content {
+              childContentfulRichText {
+                html
+              }
+            }
+            textColor
+            backgroundColor
+            linkToInternalPage {
+              slug
+            }
+            linkToCustomUrl
+          }
+          ... on ContentfulServiceBox {
+            internal {
+              type
+            }
+            serviceIcon {
+              file {
+                url
+              }
+            }
+            serviceName
+            serviceInformation
+            textColor
+            backgroundColor
+            linkToInternalPage {
+              slug
+            }
+            linkToCustomUrl
           }
         }
       }

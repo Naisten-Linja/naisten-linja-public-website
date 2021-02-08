@@ -15,6 +15,7 @@ import { Cookies } from 'react-cookie-consent';
 import { CookieBanner } from '@palmabit/react-cookie-law';
 
 import './layout.scss';
+import './globals.scss';
 
 const Layout = ({ children }) => {
   // const data = useStaticQuery(graphql`

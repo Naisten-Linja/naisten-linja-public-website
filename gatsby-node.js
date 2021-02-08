@@ -59,25 +59,34 @@ exports.createSchemaCustomization = ({ actions }) => {
       sideImagePosition: String
       paragraphBackgroundStyle: String
       paragraphColumns: String
-      backgroundStyle: ContentfulBackgroundStyle
-      backgroundColor: ContentfulColor
+      backgroundStyle: String
+      backgroundColor: String
       textColor: String
     }
     type ContentfulBackgroundStyle implements Node {
       value: String!
     }
+    type ContentfulServiceBox implements Node {
+      serviceIcon: ContentfulAsset
+      backgroundColor: String
+      serviceName: String!
+      serviceInformation: String!
+      textColor: String
+      linkToInternalPage: ContentfulPages
+      linkToCustomUrl: String
+    }
     type ContentfulContentBox implements Node {
       title: String!
-      backgroundColor: String!
+      backgroundColor: String
+      textColor: String
       content: contentfulContentBoxContentRichTextNode
       linkToInternalPage: ContentfulPages
       linkToCustomUrl: String
     }
     type ContentfulContentBoxGroup implements Node {
       title: String
-      contentBoxes: [ContentfulContentBox]
-      backgroundStyle: ContentfulBackgroundStyle
-      backgroundColor: ContentfulColor
+      backgroundStyle: String
+      backgroundColor: String
     }
   `;
   createTypes(typeDefs);

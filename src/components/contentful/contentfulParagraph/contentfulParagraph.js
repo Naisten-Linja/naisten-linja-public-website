@@ -24,11 +24,6 @@ const ContentfulParagraph = ({ content }) => {
 
   const { backgroundStyle, backgroundColor, textColor } = content;
 
-  const backgroundStyleValue =
-    backgroundStyle && backgroundStyle.value ? backgroundStyle.value : null;
-  const backgroundColorValue =
-    backgroundColor && backgroundColor.value ? backgroundColor.value : null;
-
   const paragraphImagePosition = !!content.sideImagePosition
     ? content.sideImagePosition.toLowerCase()
     : !!content.sideImage
@@ -43,22 +38,19 @@ const ContentfulParagraph = ({ content }) => {
 
   return (
     <Background
-      color={backgroundColorValue}
-      backgroundStyle={backgroundStyleValue}
+      color={backgroundColor}
+      backgroundStyle={backgroundStyle}
+      textColor={content.textColor}
     >
       <div className="full-width-section">
-        <div
-          className={`Paragraph Paragraph--text-color-${
-            textColor || 'light'
-          } layout-container`}
-        >
+        <div className={`Paragraph ${textColor || 'light'} layout-container`}>
           {!!content.paragraphTitle && content.paragraphTitle !== '' && (
             <div className="row">
               <h2 className="Paragraph__title">{content.paragraphTitle}</h2>
             </div>
           )}
           <div className="row">
-            {paragraphImagePosition === 'left' && (
+            {paragraphImagePosition === 'left' && content.sideImage && (
               <div className="col-xs-12 col-md-6 image-col p-0">
                 <img
                   src={content.sideImage.file.url}
@@ -74,7 +66,7 @@ const ContentfulParagraph = ({ content }) => {
                 }}
               />
             )}
-            {paragraphImagePosition === 'right' && (
+            {paragraphImagePosition === 'right' && content.sideImage && (
               <div className="col-xs-12 col-md-6 image-col p-0">
                 <img
                   src={content.sideImage.file.url}

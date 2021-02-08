@@ -1,3 +1,21 @@
+$colors: (
+  "white": "#edeeef",
+  "pink": "#ffc4c8",
+  "violet-blue": "#7d8edd",
+  "gray": "#edeeef",
+);
+
+.ContentfulTextColor {
+  @each $name, $value in $colors {
+    &--#{$name} {
+      color: $value;
+      h1, h2, h3, h4, h5, a {
+        color: $value;
+      }
+    }
+  }
+}
+
 .ContentfulBackground {
   width: 100%;
   position: relative;

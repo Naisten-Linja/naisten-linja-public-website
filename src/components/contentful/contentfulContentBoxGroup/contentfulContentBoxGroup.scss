@@ -17,27 +17,18 @@ ContentBoxGroup__title {
   width: 100%;
 }
 
-.ContentBox__wrapper {
+.ContentBox__wrapper,
+.ServiceBox__wrapper {
   border-radius: 0.625rem;
   box-sizing: border-box;
-  color: #2E303A;
   padding: 1rem;
   width: calc(100% - #{$grid-gutter-width} / 2);
   margin: calc(#{$grid-gutter-width} / 4) 0;
   text-align: center;
+  position: relative;
 
   @include media-breakpoint-up(md) {
     width: calc(#{map-get($container-max-widths, md)} / 2 - #{$grid-gutter-width} / 2);
-  }
-
-  &--white {
-    background: #F9F9F9;
-  }
-  &--light-purple {
-    background: #D9BDDB;
-  }
-  &--light-pink {
-    background: #FFE5EA;
   }
 }
 
@@ -47,6 +38,53 @@ ContentBoxGroup__title {
   margin-bottom: 1rem;
   font-family: "Alegreya Sans";
   text-transform: uppercase;
+}
+
+.ServiceBox {
+  &__wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: no-wrap;
+  }
+
+  &__service-icon {
+    display: flex;
+    text-align: right;
+    align-items: center;
+    padding-right: 0.5rem;
+    img {
+      width: 25px !important;
+      height: auto !important;
+      margin: 0;
+    }
+  }
+
+  &__service-name {
+    font-size: 1.7rem;
+    line-height: 1.2;
+    display: flex;
+    align-items: center;
+    padding-right: 1rem;
+    justify-content: flex-start;
+  }
+
+  &__service-information {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    justify-content: flex-end;
+  }
+
+}
+
+.ContentBox__overlay-link {
+  z-index: 2;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  top: 0;
+  left: 0;
 }
 
 .bubble-background {

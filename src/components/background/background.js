@@ -6,22 +6,31 @@ import Diagonal from './diagonal';
 
 import './background.scss';
 
-const Background = ({ color, backgroundStyle, children }) => {
-  if (!color || !backgroundStyle) {
-    return <>{children}</>;
-  }
+const colorMap = {
+  white: '#edeeef',
+  pink: '#ffc4c8',
+  'violet-blue': '#7d8edd',
+  gray: '#b6b8c1',
+};
+
+const Background = ({ color, backgroundStyle, children, textColor }) => {
+  const backgroundStyleValue = backgroundStyle ? backgroundStyle : 'none';
+  const textColorValue = textColor ? textColor : 'light';
+  const backgroundColor = colorMap[color || 'none'] || 'transparent';
 
   return (
     <div
-      className={`ContentfulBackground ContentfulBackground--${backgroundStyle}`}
+      className={`ContentfulBackground ContentfulBackground--${backgroundStyleValue} ContentfulTextColor--${textColorValue}`}
       style={
         // Only set full background color if the style is wavy
-        backgroundStyle === 'wavy' ? { backgroundColor: color } : {}
+        backgroundStyleValue === 'wavy' || backgroundStyleValue === 'none'
+          ? { backgroundColor: backgroundColor }
+          : {}
       }
     >
-      {backgroundStyle === 'bubble' && <Bubble color={color} />}
-      {backgroundStyle === 'wavy' && <Wavy color={color} />}
-      {backgroundStyle === 'diagonal' && <Diagonal color={color} />}
+      {backgroundStyle === 'bubble' && <Bubble color={backgroundColor} />}
+      {backgroundStyle === 'wavy' && <Wavy color={backgroundColor} />}
+      {backgroundStyle === 'diagonal' && <Diagonal color={backgroundColor} />}
       <div className="ContentfulBackground__content">{children}</div>
     </div>
   );
