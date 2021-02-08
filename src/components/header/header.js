@@ -23,7 +23,7 @@ const Header = () => (
       <div className="flex-column">
         <Link className="logo-link" to="/">
           <img
-            src="https://images.ctfassets.net/pbxhiiewat8h/47PKFUxf9SMQBvc2steARO/d03a113f41911968915f08323c253d91/mustapyorealogo.svg"
+            src="https://images.ctfassets.net/pbxhiiewat8h/5FcfmWP7ppJZO0mfbMKr16/2c856e1e370e17e49e134fe1f4bef1b6/pyorealogo-harmaa.svg"
             alt="Naisten Linja"
           />
         </Link>
