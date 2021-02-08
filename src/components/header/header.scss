@@ -56,6 +56,9 @@ header {
     width: 91px;
     height: 91px;
     margin: 0 auto;
+    overflow: hidden;
+    border-radius: 50%;
+    background-color: #fff;
   }
 
   h2 {
