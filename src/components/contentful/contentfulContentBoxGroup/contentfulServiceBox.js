@@ -14,10 +14,13 @@ const ContentfulServiceBox = ({
 }) => {
   const backgroundColorValue = backgroundColor ? backgroundColor : 'none';
   const textColorValue = textColor ? textColor : 'light';
+  const isLink = linkToCustomUrl || linkToInternalPage;
 
   return (
     <div
-      className={`ServiceBox__wrapper ContentfulBackgroundColor--${backgroundColorValue} ContentfulTextColor--${textColorValue}`}
+      className={`ServiceBox__wrapper ContentfulBackgroundColor--${backgroundColorValue} ContentfulTextColor--${textColorValue}${
+        isLink ? ' ContentBox__wrapper--is-link' : ''
+      }`}
     >
       <div className="ServiceBox__service-icon" aria-hidden={true}>
         <img src={serviceIcon.file.url} />

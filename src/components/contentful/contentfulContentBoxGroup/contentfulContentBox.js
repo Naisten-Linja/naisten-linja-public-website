@@ -13,10 +13,13 @@ const ContentfulContentBox = ({
 }) => {
   const backgroundColorValue = backgroundColor ? backgroundColor : 'none';
   const textColorValue = textColor ? textColor : 'light';
+  const isLink = linkToCustomUrl || linkToInternalPage;
 
   return (
     <div
-      className={`ContentBox__wrapper ContentfulBackgroundColor--${backgroundColorValue} ContentfulTextColor--${textColorValue}`}
+      className={`ContentBox__wrapper ContentfulBackgroundColor--${backgroundColorValue} ContentfulTextColor--${textColorValue}${
+        isLink ? ' ContentBox__wrapper--is-link' : ''
+      }`}
     >
       {title && <div className="ContentBox__title"> {title} </div>}
       {content && (

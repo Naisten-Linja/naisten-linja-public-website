@@ -20,12 +20,17 @@ ContentBoxGroup__title {
 .ContentBox__wrapper,
 .ServiceBox__wrapper {
   border-radius: 0.625rem;
+  overflow: hidden;
   box-sizing: border-box;
   padding: 1rem;
   width: calc(100% - #{$grid-gutter-width} / 2);
   margin: calc(#{$grid-gutter-width} / 4) 0;
   text-align: center;
   position: relative;
+
+  &--is-link {
+    padding-right: 2rem;
+  }
 
   @include media-breakpoint-up(md) {
     width: calc(#{map-get($container-max-widths, md)} / 2 - #{$grid-gutter-width} / 2);
@@ -75,6 +80,19 @@ ContentBoxGroup__title {
     justify-content: flex-end;
   }
 
+}
+
+.ContentBox__overlay-link-arrow {
+  position: absolute;
+  z-index: 1;
+  width: 1.5rem;
+  height: 100%;
+  right: 0;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #dbdcdf;
 }
 
 .ContentBox__overlay-link {
