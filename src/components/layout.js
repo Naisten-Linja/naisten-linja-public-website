@@ -16,35 +16,11 @@ import { CookieBanner } from '@palmabit/react-cookie-law';
 
 import './layout.scss';
 import './globals.scss';
+import './cookieBanner.scss';
 
 const Layout = ({ children }) => {
-  // const data = useStaticQuery(graphql`
-  //   query SiteTitleQuery {
-  //     site {
-  //       siteMetadata {
-  //         title
-  //       }
-  //     }
-  //   }
-  // `);
-
   return (
     <>
-      {/* <CookieConsent
-        location="bottom"
-        buttonText="Allow cookies"
-        cookieName="acceptedCookies"
-        style={{ background: '#2B373B' }}
-        buttonStyle={{ backgroundColor: '#FFC4C8;' }}
-        expires={150}
-        onAccept={() => {
-          Cookies.set('gatsby-gdpr-google-analytics', true);
-          Cookies.set('gatsby-gdpr-google-tagmanager', true);
-          Cookies.set('gatsby-gdpr-facebook-pixel', true);
-        }}
-      >
-        This website uses cookies to enhance the user experience.
-      </CookieConsent> */}
       <CookieBanner
         message="Cookie banner message"
         wholeDomain={true}
@@ -56,6 +32,66 @@ const Layout = ({ children }) => {
         }}
         onAcceptMarketing={() => {
           Cookies.set('gatsby-gdpr-google-tagmanager', true);
+        }}
+        styles={{
+          dialog: {
+            backgroundColor: '#d2edeb',
+            position: 'sticky',
+            zIndex: 20,
+            top: 0,
+          },
+          container: {
+            padding: '0 0.5rem 2rem 0.5rem',
+            maxWidth: '720px',
+            margin: '0 auto',
+            position: 'relative',
+          },
+          selectPane: {
+            width: '100%',
+            display: 'flex',
+            flexWrap: 'wrap',
+          },
+          message: {
+            fontSize: '1rem',
+            color: '#2e303a',
+            padding: '1rem 0',
+          },
+          optionWrapper: {
+            margin: '0 2rem 1rem 0',
+          },
+          optionLabel: {
+            color: '#9496a0',
+            fontSize: '1rem',
+            cursor: 'pointer',
+          },
+          checkbox: {
+            visibility: 'hidden',
+            position: 'absolute',
+          },
+          buttonWrapper: {
+            position: 'absolute',
+            zIndex: 2,
+            right: '0.5rem',
+            bottom: '1.5rem',
+            cursor: 'pointer',
+          },
+          button: {
+            height: '40px',
+            background: '#71beb9',
+            color: '#363842',
+            diplay: 'flex',
+            padding: '0 2rem',
+            borderRadius: '20px',
+            alignItems: 'center',
+            border: 'none',
+            cursor: 'pointer',
+          },
+          policy: {
+            margin: '1rem 0 0 0',
+            float: 'none',
+            display: 'block',
+            color: '#363842',
+          },
         }}
       />
       <Header />
