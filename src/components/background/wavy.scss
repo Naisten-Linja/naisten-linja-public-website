@@ -1,7 +1,11 @@
 .ContentfulBackground {
   &--wavy {
-    margin-top: calc(14% + 2rem);
-    margin-bottom: calc(5.5% + 2rem);
+    margin-top: 7rem;
+    margin-bottom: 8rem;
+
+    > .ContentfulBackground__content {
+      margin-top: -5rem;
+    }
   }
 
   &--wavy-top,
@@ -19,4 +23,5 @@
   &--wavy-bottom{
     top: 100%;
   }
+
 }

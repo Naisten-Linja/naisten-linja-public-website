@@ -1,9 +1,16 @@
 .ContentfulBackground {
   &--diagonal {
     padding-top: 3rem;
-    padding-bottom: 2rem;
+    padding-bottom: 4rem;
     margin: 3rem 0;
     position: relative;
+
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+
+    > .ContentfulBackground__content {
+      margin-top: -3rem;
+    }
   }
 
   &--diagonal-background {

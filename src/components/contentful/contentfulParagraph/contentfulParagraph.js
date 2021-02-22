@@ -34,7 +34,7 @@ const ContentfulParagraph = ({ content }) => {
     paragraphColumns > 1 ? 'column-count-' + paragraphColumns : '';
 
   const paragraphGrid =
-    content.sideImage !== null ? ' col-12 col-md-6 p-0' : '';
+    content.sideImage !== null ? ' col-12 col-md-6 col-lg-8 col-xl-8 p-0' : '';
 
   return (
     <Background
@@ -53,7 +53,7 @@ const ContentfulParagraph = ({ content }) => {
             {paragraphImagePosition === 'left' &&
               content.sideImage &&
               content.sideImage.file && (
-                <div className="col-xs-12 col-md-6 image-col p-0">
+                <div className="col-xs-12 col-md-6 col-lg-4 col-xl-4 image-col p-0">
                   <img
                     src={content.sideImage.file.url}
                     alt={content.sideImage.title}
@@ -71,7 +71,7 @@ const ContentfulParagraph = ({ content }) => {
             {paragraphImagePosition === 'right' &&
               content.sideImage &&
               content.sideImage.file && (
-                <div className="col-xs-12 col-md-6 image-col p-0">
+                <div className="col-xs-12 col-md-6 col-lg-4 col-xl-4 image-col p-0">
                   <img
                     src={content.sideImage.file.url}
                     alt={content.sideImage.title}

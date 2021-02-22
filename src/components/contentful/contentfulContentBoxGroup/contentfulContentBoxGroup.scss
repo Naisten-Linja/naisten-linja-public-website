@@ -35,6 +35,14 @@ ContentBoxGroup__title {
   @include media-breakpoint-up(md) {
     width: calc(#{map-get($container-max-widths, md)} / 2 - #{$grid-gutter-width} / 2);
   }
+
+  @include media-breakpoint-up(lg) {
+    width: calc(#{map-get($container-max-widths, lg)} / 2 - #{$grid-gutter-width} / 2);
+  }
+
+  @include media-breakpoint-up(xl) {
+    width: calc(#{map-get($container-max-widths, xl)} / 2 - #{$grid-gutter-width} / 2);
+  }
 }
 
 .ContentBox__title {
