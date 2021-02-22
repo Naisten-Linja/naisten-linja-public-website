@@ -4,6 +4,7 @@
 @import '../scss/fonts/Alegreya_Sans/stylesheet.css';
 @import '../scss/fonts/Open_Sans/stylesheet.css';
 @import '../scss/fonts/Aracne_Ultra/stylesheet.css';
+@import './mixins.scss';
 
 html {
   font-family: sans-serif;
@@ -672,16 +673,7 @@ h2 {
 }
 
 .layout-container {
-  max-width: map-get($container-max-widths, md);
-  margin: 0 auto;
-
-  @include media-breakpoint-up(lg) {
-    max-width: map-get($container-max-widths, lg);
-  }
-
-  @include media-breakpoint-up(xl) {
-    max-width: map-get($container-max-widths, xl);
-  }
+  @include layout-container-mixin;
 }
 
 a,

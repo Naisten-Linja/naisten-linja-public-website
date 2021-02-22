@@ -1,0 +1,12 @@
+@mixin layout-container-mixin {
+  max-width: map-get($container-max-widths, md);
+  margin: 0 auto;
+
+  @include media-breakpoint-up(lg) {
+    max-width: map-get($container-max-widths, lg);
+  }
+
+  @include media-breakpoint-up(xl) {
+    max-width: map-get($container-max-widths, xl);
+  }
+}
