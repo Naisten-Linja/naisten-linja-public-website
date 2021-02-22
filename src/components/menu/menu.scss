@@ -10,7 +10,7 @@
   top: 0;
   left: 0;
 
-  __wrapper {
+  &__container {
     width: 100%;
   }
 
@@ -34,6 +34,7 @@
     background: #4c5060;
     color: #ffffff;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
 
@@ -43,6 +44,7 @@
       overflow-y: visible;
       margin-bottom: 0;
       box-shadow: 0px 10px 21px -13px #000;
+      margin: 0;
     }
 
     > li {
@@ -120,18 +122,20 @@
       &:hover {
         > .MainMenu__submenu-container {
           display: block;
+
           > ul {
             padding: 1rem;
+            width: 100%;
+            column-count: 3;
 
             > li {
-              width: calc(100%/3);
-              padding-right: 1.5rem;
-              float: left;
+              width: 100%;
+              display: inline-block;
 
               > a {
-                border-bottom: 2px solid #4c5060;
+                border-bottom: 1px solid #4c5060;
                 margin-bottom: 0.5rem;
-                padding: 0.5rem 0;
+                padding: 0.25rem 0;
               }
 
               > ul > li > ul > li {
@@ -142,6 +146,7 @@
                   color: #4c5060;
                   display: flex;
                   content: '-';
+                  font-family: 'Arial';
                   position: absolute;
                   left: 0;
                   top: 0;
@@ -175,12 +180,13 @@
         transition: text-indent 0.3s;
 
         @include media-breakpoint-up(md) {
+          font-size: 1rem;
           border-bottom: 0;
           margin: 0;
           display: flex;
-          height: 2.5rem;
+          height: auto;
           align-items: center;
-          padding: 0 1rem;
+          padding: 0.75rem 1rem;
         }
       }
 
