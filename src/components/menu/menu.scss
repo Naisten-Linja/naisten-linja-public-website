@@ -1,6 +1,10 @@
 @import '../../scss/grid.scss';
 @import '../mixins.scss';
 
+$color-white: #edeeef;
+$dark-gray: #4c5060;
+$dark-blue: #294374;
+
 .MainMenu {
   z-index: 20;
   position: fixed;
@@ -15,7 +19,7 @@
     width: 100%;
     height: auto;
     margin: 0;
-    background-color: #294374;
+    background-color: $dark-blue;
   }
 
   .menu-icon {
@@ -26,29 +30,69 @@
 
   .menu {
     clear: both;
-    transition: max-height 0.2s ease-out;
     overflow-y: auto;
-    background: #4c5060;
+    background: $dark-gray;
     color: #ffffff;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
+    margin: 0;
+    padding: 0.75rem;
+    list-style: none;
+    width: 100%;
+    position: fixed;
+    height: 100%;
+    top: 0;
+    left: 0;
 
     @include media-breakpoint-up(md) {
       width: 100%;
       background: transparent;
       overflow-y: visible;
       margin-bottom: 0;
-      box-shadow: 0px 10px 21px -13px rgba(0, 0, 0, 0.1);
-      margin: 0;
+      box-shadow: 0px 10px 21px -15px rgba(0, 0, 0, 0.2);
+      position: relative;
+      top: auto;
+      left: auto;
+      padding: 0;
     }
 
     > li {
       width: 100%;
+      box-sizing: border-box;
 
-      > a {
-        color: #edeeef;
+      a, a:visited {
+        color: $color-white;
+        font-family: 'Alegreya Sans';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 1rem;
+        text-decoration: none;
+        display: block;
+        width: 100%;
+        padding: 0.25rem 0;
+
+        &.active-link {
+          font-weight: bold;
+        }
+
+        @include media-breakpoint-up(md) {
+          text-transform: uppercase;
+          font-size: 1rem;
+          margin: 0;
+          display: flex;
+          height: auto;
+          align-items: center;
+          padding: 0.75rem;
+        }
+      }
+
+      > a, > a:visited {
+        border-bottom: 1.5px solid #f2f2f2;
+        @include media-breakpoint-up(md) {
+          border-bottom: none;
+        }
       }
 
       @include media-breakpoint-up(md) {
@@ -57,9 +101,9 @@
         padding: 0;
         margin: 0;
         &:hover {
-          background: #edeeef;
+          background: $color-white;
           > a {
-            color: #4c5060;
+            color: $dark-gray;
           }
         }
       }
@@ -74,17 +118,16 @@
         width: 100%;
 
         @include media-breakpoint-up(md) {
-          background: #edeeef;
+          background: $color-white;
           position: absolute;
           top: 2.5rem;
           left: 0;
-          box-shadow: 0px 10px 21px -13px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 10px 21px -15px rgba(0, 0, 0, 0.2);
           display: none;
         }
 
         > ul {
           @include layout-container-mixin;
-
           @include media-breakpoint-up(md) {
             > li {
               padding: 0.5rem 0;
@@ -99,7 +142,7 @@
             }
 
             a, a:visited {
-              color: #4c5060;
+              color: $dark-gray;
             }
 
             > li > ul {
@@ -134,7 +177,7 @@
                 display: inline-block;
 
                 > a {
-                  border-bottom: 1px solid #4c5060;
+                  border-bottom: 1px solid $dark-gray;
                   margin-bottom: 0.5rem;
                   padding: 0.25rem 0;
                 }
@@ -144,7 +187,7 @@
                   position: relative;
                   margin-bottom: 0.15rem;
                   &:before {
-                    color: #4c5060;
+                    color: $dark-gray;
                     display: flex;
                     content: '-';
                     font-family: 'Arial';
@@ -168,32 +211,6 @@
         }
       }
 
-      a,
-      a:visited {
-        font-family: 'Alegreya Sans';
-        font-style: normal;
-        text-transform: uppercase;
-        font-weight: 500;
-        font-size: 1rem;
-        text-decoration: none;
-        display: block;
-        width: 100%;
-        border-bottom: 2px solid #edeeef;
-
-        &.active-link {
-          font-weight: bold;
-        }
-
-        @include media-breakpoint-up(md) {
-          font-size: 1rem;
-          border-bottom: 0;
-          margin: 0;
-          display: flex;
-          height: auto;
-          align-items: center;
-          padding: 0.75rem;
-        }
-      }
     }
   }
 
