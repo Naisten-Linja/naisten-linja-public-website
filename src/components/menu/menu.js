@@ -67,6 +67,7 @@ const Menu = () => {
           {topLevelPages.map((topLevelPage, i) => (
             <li key={i}>
               <Link
+                activeClassName="active-link"
                 to={
                   topLevelPage.menuPage.slug === 'etusivu'
                     ? '/'
@@ -83,7 +84,10 @@ const Menu = () => {
                     {topLevelPage.menuPageSubpages.map(
                       (firstNavigationPage, i) => (
                         <li key={i}>
-                          <Link to={firstNavigationPage.menuPage.slug}>
+                          <Link
+                            to={firstNavigationPage.menuPage.slug}
+                            activeClassName="active-link"
+                          >
                             {firstNavigationPage.pageContainerName !== null
                               ? firstNavigationPage.pageContainerName
                               : firstNavigationPage.menuPage.pageName}
@@ -95,6 +99,7 @@ const Menu = () => {
                                   <li key={i}>
                                     <Link
                                       to={secondNavigationPage.menuPage.slug}
+                                      activeClassName="active-link"
                                     >
                                       {secondNavigationPage.menuPage.pageName}
                                     </Link>
@@ -105,6 +110,7 @@ const Menu = () => {
                                           (thirdNavigationPage, i) => (
                                             <li key={i}>
                                               <Link
+                                                activeClassName="active-link"
                                                 to={
                                                   thirdNavigationPage.menuPage
                                                     .slug

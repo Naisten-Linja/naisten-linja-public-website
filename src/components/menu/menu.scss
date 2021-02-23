@@ -2,9 +2,6 @@
 @import '../mixins.scss';
 
 .MainMenu {
-  width: 21px;
-  height: 21px;
-  margin: 10px;
   z-index: 20;
   position: fixed;
   top: 0;
@@ -43,25 +40,28 @@
       background: transparent;
       overflow-y: visible;
       margin-bottom: 0;
-      box-shadow: 0px 10px 21px -13px #000;
+      box-shadow: 0px 10px 21px -13px rgba(0, 0, 0, 0.1);
       margin: 0;
     }
 
     > li {
+      width: 100%;
+
       > a {
         color: #edeeef;
       }
-      &:hover {
-        background: #edeeef;
-        > a {
-          color: #4c5060;
-        }
-      }
 
       @include media-breakpoint-up(md) {
+        width: auto;
         display: inline-block;
         padding: 0;
         margin: 0;
+        &:hover {
+          background: #edeeef;
+          > a {
+            color: #4c5060;
+          }
+        }
       }
 
       ul {
@@ -72,13 +72,13 @@
 
       .MainMenu__submenu-container {
         width: 100%;
-        background: #edeeef;
-        position: absolute;
-        top: 2.5rem;
-        left: 0;
-        box-shadow: 0px 10px 21px -13px #000;
 
         @include media-breakpoint-up(md) {
+          background: #edeeef;
+          position: absolute;
+          top: 2.5rem;
+          left: 0;
+          box-shadow: 0px 10px 21px -13px rgba(0, 0, 0, 0.1);
           display: none;
         }
 
@@ -124,41 +124,43 @@
           display: block;
 
           > ul {
-            padding: 1rem;
-            width: 100%;
-            column-count: 3;
-
-            > li {
+            @include media-breakpoint-up(md) {
+              padding: 1rem;
               width: 100%;
-              display: inline-block;
+              column-count: 3;
 
-              > a {
-                border-bottom: 1px solid #4c5060;
-                margin-bottom: 0.5rem;
-                padding: 0.25rem 0;
-              }
+              > li {
+                width: 100%;
+                display: inline-block;
 
-              > ul > li > ul > li {
-                padding-left: 0.75rem;
-                position: relative;
-                margin-bottom: 0.15rem;
-                &:before {
-                  color: #4c5060;
-                  display: flex;
-                  content: '-';
-                  font-family: 'Arial';
-                  position: absolute;
-                  left: 0;
-                  top: 0;
-                  height: 100%;
-                  width: 0.75rem;
-                  align-items: flex-start;
-                  padding-top: 0.2rem;
-                  justify-content: flex-start;
+                > a {
+                  border-bottom: 1px solid #4c5060;
+                  margin-bottom: 0.5rem;
+                  padding: 0.25rem 0;
                 }
 
-                a, a:visited {
-                  text-transform: none;
+                > ul > li > ul > li {
+                  padding-left: 0.75rem;
+                  position: relative;
+                  margin-bottom: 0.15rem;
+                  &:before {
+                    color: #4c5060;
+                    display: flex;
+                    content: '-';
+                    font-family: 'Arial';
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    height: 100%;
+                    width: 0.75rem;
+                    align-items: flex-start;
+                    padding-top: 0.2rem;
+                    justify-content: flex-start;
+                  }
+
+                  a, a:visited {
+                    text-transform: none;
+                  }
                 }
               }
             }
@@ -177,7 +179,10 @@
         display: block;
         width: 100%;
         border-bottom: 2px solid #edeeef;
-        transition: text-indent 0.3s;
+
+        &.active-link {
+          font-weight: bold;
+        }
 
         @include media-breakpoint-up(md) {
           font-size: 1rem;
@@ -186,27 +191,9 @@
           display: flex;
           height: auto;
           align-items: center;
-          padding: 0.75rem 1rem;
+          padding: 0.75rem;
         }
       }
-
-      a:hover {
-        text-indent: 20px;
-        &:after {
-          content: '>';
-          font-weight: bold;
-          float: right;
-          margin-right: 10px;
-        }
-
-        @include media-breakpoint-up(md) {
-          text-indent: 0px;
-          &:after {
-            display: none;
-          }
-        }
-      }
-
     }
   }
 
@@ -239,14 +226,10 @@
       padding: 0;
       margin-left: 0;
       li {
-        text-indent: 20px;
         list-style-type: none;
         a,
         a:visited {
           border-bottom: none;
-        }
-        a:hover {
-          text-indent: 40px;
         }
       }
     }
