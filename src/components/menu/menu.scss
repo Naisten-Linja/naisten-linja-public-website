@@ -78,7 +78,6 @@ $dark-blue: #294374;
         }
 
         @include media-breakpoint-up(md) {
-          text-transform: uppercase;
           font-size: 1rem;
           margin: 0;
           display: flex;
@@ -199,10 +198,6 @@ $dark-blue: #294374;
                     align-items: flex-start;
                     padding-top: 0.2rem;
                     justify-content: flex-start;
-                  }
-
-                  a, a:visited {
-                    text-transform: none;
                   }
                 }
               }
