@@ -1,45 +1,11 @@
 import { Link } from 'gatsby';
 // import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useState } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import './menu.scss';
 
 const Menu = () => {
-  const headerMenuData = useStaticQuery(graphql`
-    query MenuQuery {
-      contentfulMainMenu(slug: { eq: "header-menu" }) {
-        id
-        slug
-        mainMenuName
-        topLevelPages {
-          menuPage {
-            pageName
-            slug
-          }
-          pageContainerName
-          menuPageSubpages {
-            menuPage {
-              pageName
-              slug
-            }
-            pageContainerName
-            menuPageSubpages {
-              menuPage {
-                pageName
-                slug
-              }
-              menuPageSubpages {
-                menuPage {
-                  pageName
-                  slug
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  `);
+  const headerMenuData = useStaticQuery(query);
 
   const topLevelPages = headerMenuData.contentfulMainMenu.topLevelPages;
 
@@ -65,79 +31,7 @@ const Menu = () => {
         </label>
         <ul className="menu">
           {topLevelPages.map((topLevelPage, i) => (
-            <li key={i}>
-              <Link
-                activeClassName="active-link"
-                to={
-                  topLevelPage.menuPage.slug === 'etusivu'
-                    ? '/'
-                    : topLevelPage.menuPage.slug
-                }
-              >
-                {topLevelPage.pageContainerName !== null
-                  ? topLevelPage.pageContainerName
-                  : topLevelPage.menuPage.pageName}
-              </Link>
-              {topLevelPage.menuPageSubpages !== null && (
-                <div className="MainMenu__submenu-container">
-                  <ul>
-                    {topLevelPage.menuPageSubpages.map(
-                      (firstNavigationPage, i) => (
-                        <li key={i}>
-                          <Link
-                            to={firstNavigationPage.menuPage.slug}
-                            activeClassName="active-link"
-                          >
-                            {firstNavigationPage.pageContainerName !== null
-                              ? firstNavigationPage.pageContainerName
-                              : firstNavigationPage.menuPage.pageName}
-                          </Link>
-                          {firstNavigationPage.menuPageSubpages !== null && (
-                            <ul>
-                              {firstNavigationPage.menuPageSubpages.map(
-                                (secondNavigationPage, i) => (
-                                  <li key={i}>
-                                    <Link
-                                      to={secondNavigationPage.menuPage.slug}
-                                      activeClassName="active-link"
-                                    >
-                                      {secondNavigationPage.menuPage.pageName}
-                                    </Link>
-                                    {secondNavigationPage.menuPageSubpages !==
-                                      null && (
-                                      <ul>
-                                        {secondNavigationPage.menuPageSubpages.map(
-                                          (thirdNavigationPage, i) => (
-                                            <li key={i}>
-                                              <Link
-                                                activeClassName="active-link"
-                                                to={
-                                                  thirdNavigationPage.menuPage
-                                                    .slug
-                                                }
-                                              >
-                                                {
-                                                  thirdNavigationPage.menuPage
-                                                    .pageName
-                                                }
-                                              </Link>
-                                            </li>
-                                          ),
-                                        )}
-                                      </ul>
-                                    )}
-                                  </li>
-                                ),
-                              )}
-                            </ul>
-                          )}
-                        </li>
-                      ),
-                    )}
-                  </ul>
-                </div>
-              )}
-            </li>
+            <TopLevelMenuItem page={topLevelPage} />
           ))}
         </ul>
       </div>
@@ -146,3 +40,107 @@ const Menu = () => {
 };
 
 export default Menu;
+
+const TopLevelMenuItem = ({ page }) => {
+  const [isActive, setIsActive] = useState(false);
+  const activateSubMenu = () => setIsActive(true);
+
+  return (
+    <li
+      onClick={activateSubMenu}
+      className={[
+        isActive ? 'active-submenu' : null,
+        page.menuPageSubpages ? 'has-subpages' : null,
+      ]
+        .filter((x) => !!x)
+        .join(' ')}
+    >
+      <Link
+        activeClassName="active-link"
+        to={page.menuPage.slug === 'etusivu' ? '/' : page.menuPage.slug}
+      >
+        {page.pageContainerName !== null
+          ? page.pageContainerName
+          : page.menuPage.pageName}
+      </Link>
+      <SubPageMenu page={page} isFirstLevel={true} />
+    </li>
+  );
+};
+
+const SubPageMenu = ({ page, isFirstLevel = false }) => {
+  if (!page || !page.menuPageSubpages) {
+    return null;
+  }
+
+  const subNav = (
+    <ul>
+      {page.menuPageSubpages.map((navigationPage, i) => (
+        <SubPageLink key={i} page={navigationPage} />
+      ))}
+    </ul>
+  );
+
+  return isFirstLevel ? (
+    <div className="MainMenu__submenu-container">{subNav}</div>
+  ) : (
+    subNav
+  );
+};
+
+const SubPageLink = ({ page }) => {
+  const [isActive, setIsActive] = useState(false);
+  const activateSubMenu = () => setIsActive(true);
+  return (
+    <li
+      onClick={activateSubMenu}
+      className={[
+        isActive ? 'active-submenu' : null,
+        page.menuPageSubpages ? 'has-subpages' : null,
+      ]
+        .filter((x) => !!x)
+        .join(' ')}
+    >
+      <Link to={page.menuPage.slug} activeClassName="active-link">
+        {page.menuPage.pageName}
+      </Link>
+      <SubPageMenu page={page} />
+    </li>
+  );
+};
+
+const query = graphql`
+  query MenuQuery {
+    contentfulMainMenu(slug: { eq: "header-menu" }) {
+      id
+      slug
+      mainMenuName
+      topLevelPages {
+        menuPage {
+          pageName
+          slug
+        }
+        pageContainerName
+        menuPageSubpages {
+          menuPage {
+            pageName
+            slug
+          }
+          pageContainerName
+          menuPageSubpages {
+            menuPage {
+              pageName
+              slug
+            }
+            menuPageSubpages {
+              menuPage {
+                pageName
+                slug
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`;
