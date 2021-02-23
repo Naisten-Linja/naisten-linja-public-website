@@ -1,3 +1,10 @@
+@import '../scss/grid.scss';
+@import './mixins.scss';
+
+.react-cookie-law-container {
+  @include layout-container-mixin;
+}
+
 .react-cookie-law-option-wrapper {
   input[type="checkbox"]+label {
     position: relative;

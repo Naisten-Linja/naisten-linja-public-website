@@ -36,13 +36,14 @@ const Layout = ({ children }) => {
         styles={{
           dialog: {
             backgroundColor: '#d2edeb',
-            position: 'sticky',
-            zIndex: 20,
+            position: 'fixed',
+            width: '100%',
+            zIndex: 9999,
+            left: 0,
             top: 0,
           },
           container: {
             padding: '0 0.5rem 2rem 0.5rem',
-            maxWidth: '720px',
             margin: '0 auto',
             position: 'relative',
           },
@@ -70,7 +71,7 @@ const Layout = ({ children }) => {
           },
           buttonWrapper: {
             position: 'absolute',
-            zIndex: 2,
+            zIndex: 9999,
             right: '0.5rem',
             bottom: '1.5rem',
             cursor: 'pointer',
