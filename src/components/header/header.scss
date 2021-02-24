@@ -12,9 +12,12 @@ header {
   //       left bottom no-repeat;
   // }
 
+  padding-top: 1.5rem;
+
   @include media-breakpoint-up(md) {
     padding-top: 4rem;
   }
+
   .menu-row {
     padding: 5px 8px;
   }
@@ -24,9 +27,13 @@ header {
     position: fixed;
     height: 1px;
     left: 50%;
-    top: 3.5rem;
+    top: 1.5rem;
     transform: translateX(-50%);
     z-index: 19;
+
+    @include media-breakpoint-up(md) {
+    top: 3.5rem;
+    }
   }
 
   .escape-link-box {
@@ -41,6 +48,11 @@ header {
     max-width: 107px;
     height: 68px;
     float: right;
+    margin-right: 0.5rem;
+
+    @include media-breakpoint-up(md) {
+      margin-right: 0;
+    }
 
     .escape-link,
     .escape-link:visited {
