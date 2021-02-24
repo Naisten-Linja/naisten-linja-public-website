@@ -27,12 +27,13 @@ header {
     position: fixed;
     height: 1px;
     left: 50%;
-    top: 1.5rem;
+    top: 1rem;
     transform: translateX(-50%);
     z-index: 19;
 
     @include media-breakpoint-up(md) {
-    top: 3.5rem;
+      top: 1px;
+      z-index: 30;
     }
   }
 
