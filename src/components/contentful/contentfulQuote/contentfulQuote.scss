@@ -16,6 +16,15 @@
     background-position: center center;
   }
 
+  &.layout-content {
+    @include media-breakpoint-up(lg) {
+      max-width: map-get($container-max-widths, md);
+    }
+    @include media-breakpoint-up(xl) {
+      max-width: map-get($container-max-widths, md);
+    }
+  }
+
   .quote-container {
     min-height: 450px;
   }
