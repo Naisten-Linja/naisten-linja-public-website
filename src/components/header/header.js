@@ -19,11 +19,11 @@ const Header = () => (
           alt="Naisten Linja"
         />
       </Link>
-      <h2>
+      <h1>
         On the women's side.
         <br />
         Against violence.
-      </h2>
+      </h1>
     </div>
   </header>
 );

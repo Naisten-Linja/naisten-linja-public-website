@@ -2,8 +2,8 @@
 
 @import '../scss/fonts/leafy/stylesheet.css';
 @import '../scss/fonts/Alegreya_Sans/stylesheet.css';
-@import '../scss/fonts/Open_Sans/stylesheet.css';
 @import '../scss/fonts/Aracne_Ultra/stylesheet.css';
+@import '../scss/fonts/Fira/stylesheet.css';
 @import './mixins.scss';
 
 html {
@@ -641,22 +641,27 @@ body {
   color: #ffffff;
 }
 
-h1,
+h1 {
+  font-family: 'Aracne Ultra Condensed';
+  font-style: normal;
+  font-weight: normal;
+  letter-spacing: 0.09em;
+}
+
 h2,
 h3,
 h4,
 h5,
 h6 {
-  font-family: 'Aracne Ultra Condensed';
+  font-family: 'Fira Sans';
   font-style: normal;
-  font-weight: normal;
+  font-weight: 300;
+  line-height: 1.2;
 }
 
 h1,
 h2 {
-  font-size: 42px;
-  line-height: 41px;
-  letter-spacing: 0.09em;
+  font-size: 2rem;
   text-transform: uppercase;
 }
 
