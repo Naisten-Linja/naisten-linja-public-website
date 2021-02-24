@@ -90,13 +90,13 @@ $dark-blue: #294374;
           position: absolute;
           right: 0;
           z-index: 10;
-          top: 5px;
+          top: 11px;
         }
         &:after {
           content: '';
           position: absolute;
           width: 48px;
-          height: 36px;
+          height: 48px;
           top: 0;
           right: 0;
           z-index: 11;
@@ -134,7 +134,7 @@ $dark-blue: #294374;
         text-decoration: none;
         display: block;
         width: 100%;
-        padding: 0.5rem 0;
+        padding: 0.75rem 0;
         border-bottom: 1px solid #f2f2f2;
 
         &.active-link {
