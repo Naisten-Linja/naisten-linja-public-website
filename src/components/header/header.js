@@ -7,9 +7,11 @@ import Menu from '../menu/menu';
 const Header = () => (
   <header>
     <Menu />
-    <a className="escape-link-box" href="https://google.com">
-      <span className="escape-link">Poistu sivuilta nopeasti</span>
-    </a>
+    <div className="escape-link-container">
+      <a className="escape-link-box" href="https://google.com">
+        <span className="escape-link">Poistu sivuilta nopeasti</span>
+      </a>
+    </div>
     <div className="flex-column">
       <Link className="logo-link" to="/">
         <img

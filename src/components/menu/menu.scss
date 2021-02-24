@@ -11,8 +11,36 @@ $dark-blue: #294374;
   top: 0;
   left: 0;
 
-  &__container {
-    width: 100%;
+  &__mobile-open-button {
+    position: fixed;
+    background: $dark-blue;
+    top: 1rem;
+    left: 0.5rem;
+    border: none;
+    padding: 0;
+  }
+
+  &__mobile-close-button {
+    position: fixed;
+    z-index: 30;
+    top: 0.5rem;
+    border: none;
+    box-shadow: none;
+    right: 1rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    background: $color-white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    svg {
+      margin: 0;
+      width: 50%;
+      height: auto;
+      display: inline-block;
+    }
   }
 
   .menu {
@@ -33,46 +61,63 @@ $dark-blue: #294374;
     height: 100%;
     top: 0;
     left: 0;
+    display: none;
+
+    &.mobile-active {
+      display: block;
+    }
 
     li {
       margin-bottom: 0;
       position: relative;
 
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
       &.has-subpages {
         &:before {
           content: '';
           display: block;
-          width: 24px;
+          width: 8px;
           height: 24px;
           background-image: url('/images/right-arrow.svg');
           background-repeat: no-repeat;
           background-size: contain;
-          backgronnd-position: center right;
+          background-position: right center;
           position: absolute;
           right: 0;
           z-index: 10;
-          top: 50%;
-          transform: translateY(-50%);
+          top: 5px;
+        }
+        &:after {
+          content: '';
+          position: absolute;
+          width: 48px;
+          height: 36px;
+          top: 0;
+          right: 0;
+          z-index: 11;
         }
         ul {
           display: none;
         }
         &.active-submenu {
           &:before {
-            display: none
+            transform: rotate(90deg) translate(0px, 5px);
           }
-
+          > a {
+            font-weight: bold;
+          }
           > .MainMenu__submenu-container > ul,
           > ul {
             display: block;
+            padding-left: 0.5rem;
+            margin-bottom: 1rem;
           }
         }
-      }
-
-      ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
       }
     }
 
@@ -98,19 +143,14 @@ $dark-blue: #294374;
       }
 
       &.has-subpages {
-        ul {
-          display: none;
-        }
         &.active-submenu {
-          background: $dark-gray;
-          display: block;
-          position: fixed;
           top: 0;
           left: 0;
-          width: 100%;
-          height: 100%;
           margin: 0;
           z-index: 20;
+        }
+        ul {
+          display: none;
         }
       }
 
@@ -145,12 +185,20 @@ $dark-blue: #294374;
     margin: 0;
     background-color: $dark-blue;
 
+    &__mobile-open-button {
+      display: none;
+    }
+
+    &__mobile-close-button {
+      display: none;
+    }
+
     .menu-icon {
       display: none;
     }
 
     .menu {
-      width: 100%;
+      @include layout-container-mixin;
       background: transparent;
       overflow-y: visible;
       margin-bottom: 0;
@@ -159,13 +207,33 @@ $dark-blue: #294374;
       top: auto;
       left: auto;
       padding: 0;
+      display: flex;
+      justify-content: flex-start;
 
       li {
         ul {
           display: block;
         }
 
-        .has-subpages:before {
+        &.has-subpages {
+          &.active-submenu {
+            position: relative;
+            top: auto;
+            left: auto;
+            width: auto;
+            height: auto;
+
+            > a {
+              font-weight: normal;
+            }
+          }
+          ul {
+            display: block;
+            padding: 0;
+          }
+        }
+
+        &.has-subpages:before {
           display: none;
         }
       }
@@ -239,7 +307,6 @@ $dark-blue: #294374;
           > .MainMenu__submenu-container {
             > ul {
               padding: 1rem;
-              width: 100%;
               column-count: 3;
 
               > li {

@@ -1,4 +1,5 @@
 @import '../../scss/grid.scss';
+@import '../mixins.scss';
 
 header {
   color: #ffffff;
@@ -11,8 +12,21 @@ header {
   //       left bottom no-repeat;
   // }
 
+  @include media-breakpoint-up(md) {
+    padding-top: 4rem;
+  }
   .menu-row {
     padding: 5px 8px;
+  }
+
+  .escape-link-container {
+    @include layout-container-mixin;
+    position: fixed;
+    height: 1px;
+    left: 50%;
+    top: 3.5rem;
+    transform: translateX(-50%);
+    z-index: 19;
   }
 
   .escape-link-box {
@@ -26,6 +40,7 @@ header {
     display: flex;
     max-width: 107px;
     height: 68px;
+    float: right;
 
     .escape-link,
     .escape-link:visited {
