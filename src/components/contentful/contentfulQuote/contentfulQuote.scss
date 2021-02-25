@@ -5,22 +5,19 @@
   font-size: 25px;
   line-height: 28px;
   font-weight: normal;
-  background: url('https://images.ctfassets.net/pbxhiiewat8h/7ePwSQ1n4KUmCacevxfB6J/525e65222a3a5a651e3ebd9ef1971ea7/quotation_bg_small.svg?');
+  background: url('/images/quotation-bg-small.svg');
   background-repeat: no-repeat;
   background-size: cover;
   min-height: 450px;
 
   @include media-breakpoint-up(md) {
-    background: url('//images.ctfassets.net/pbxhiiewat8h/5UHzHqwOVNdDUgui0RqnnF/3c9975387e10ffbb17cbdc7597adfb02/quotation_bg_big.svg');
+    background: url('/images/quotation-bg-big.svg');
     background-repeat: no-repeat;
     background-position: center center;
   }
 
-  &.layout-content {
+  &.layout-container {
     @include media-breakpoint-up(lg) {
-      max-width: map-get($container-max-widths, md);
-    }
-    @include media-breakpoint-up(xl) {
       max-width: map-get($container-max-widths, md);
     }
   }
