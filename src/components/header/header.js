@@ -20,9 +20,9 @@ const Header = () => (
         />
       </Link>
       <h1>
-        On the women's side.
+        Naisten puolella.
         <br />
-        Against violence.
+        Väkivaltaa vastaan.
       </h1>
     </div>
   </header>
