@@ -112,6 +112,18 @@ export const ContenfulPage = graphql`
         }
         formName
       }
+      ... on ContentfulDonationForm {
+        internal {
+          type
+        }
+        title
+        description {
+          childMarkdownRemark {
+            html
+          }
+          description
+        }
+      }
       ... on ContentfulContentBoxGroup {
         title
         internal {

@@ -13,14 +13,22 @@ import Header from './header/header';
 import Footer from './footer/footer';
 import { Cookies } from 'react-cookie-consent';
 import { CookieBanner } from '@palmabit/react-cookie-law';
+import { Elements } from '@stripe/react-stripe-js';
+import { loadStripe } from '@stripe/stripe-js';
 
 import './layout.scss';
 import './globals.scss';
 import './cookieBanner.scss';
 
+// Make sure to call `loadStripe` outside of a component’s render to avoid
+// recreating the `Stripe` object on every render.
+const stripePromise = loadStripe(
+  'pk_test_51HcTSZIlFmfjuTJdc1LqP1HwrXGmDrHnvgpn8z7IGeul9XwvLf7S48yUqtxEE9xInitQZnVO5O0Zp3oh5rIESkaK00P1xuk6se',
+);
+
 const Layout = ({ children }) => {
   return (
-    <>
+    <Elements stripe={stripePromise}>
       <CookieBanner
         message="Cookie banner message"
         wholeDomain={true}
@@ -98,7 +106,7 @@ const Layout = ({ children }) => {
       <Header />
       <main className="main-container">{children}</main>
       <Footer />
-    </>
+    </Elements>
   );
 };
 

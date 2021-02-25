@@ -11,6 +11,7 @@ const colorMap = {
   pink: '#ffc4c8',
   'violet-blue': '#7d8edd',
   gray: '#b6b8c1',
+  cyan: '#a6e8e3',
 };
 
 const Background = ({ color, backgroundStyle, children, textColor }) => {
