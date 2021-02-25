@@ -124,6 +124,12 @@ export const ContenfulPage = graphql`
           description
         }
       }
+      ... on ContentfulOpenLetterForm {
+        internal {
+          type
+        }
+        title
+      }
       ... on ContentfulContentBoxGroup {
         title
         internal {

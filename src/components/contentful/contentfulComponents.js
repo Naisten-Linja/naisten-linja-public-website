@@ -9,6 +9,7 @@ import ContentfulPersonIntroduction from './contentfulPersonIntroduction/content
 import ContentfulForm from './contentfulForm/contentfulForm';
 import ContentfulContentBoxGroup from './contentfulContentBoxGroup/contentfulContentBoxGroup';
 import ContentfulDonationForm from './contentfulDonationForm/contentfulDonationForm';
+import ContentfulOpenLetterForm from './contentfulOpenLetterForm/contentfulOpenLetterForm';
 
 const ContentfulComponents = ({ pageContent }) => {
   return (pageContent || []).map((component, index) => {
@@ -52,6 +53,9 @@ const ContentfulComponents = ({ pageContent }) => {
 
       case 'ContentfulDonationForm':
         return <ContentfulDonationForm key={index} content={component} />;
+
+      case 'ContentfulOpenLetterForm':
+        return <ContentfulOpenLetterForm key={index} content={component} />;
 
       default:
         return null;

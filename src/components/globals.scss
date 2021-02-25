@@ -3,6 +3,7 @@ $contentful-colors: (
   "pink": #ffc4c8,
   "violet-blue": #7d8edd,
   "gray": #b6b8c1,
+  "dark-gray": "#363842",
 );
 
 @each $name, $value in $contentful-colors {
@@ -26,5 +27,58 @@ $text-color-light: #ffffff;
   color: $text-color-light;
   h1, h2, h3, h4, h5, a {
     color: $text-color-light;
+  }
+}
+
+button {
+  min-height: 3rem;
+  border-radius: 1.5rem;
+  font-size: 1.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 2rem;
+  color: #363842;
+  background: #71BEB9;
+  border: none;
+  box-shadow: none;
+  cursor: pointer;
+  margin: 1rem 0.5rem;
+}
+
+input,
+input:focus,
+input:focus-visible,
+textarea,
+textarea:focus,
+textarea:focus-visible {
+  width: 100%;
+  background: #363842;
+  border: none;
+  color: #edeeef;
+  outline: none;
+  box-shadow: none;
+  padding: 0.5rem 1rem;
+  font-size: 1.5rem;
+  border-radius: 4px;
+}
+
+input,
+textarea {
+  &:focus,
+  &:focus-visible {
+    border: 1px solid #edeeef;
+  }
+}
+
+
+form {
+  width: 100%;
+  label {
+    display: block;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-family: "Aracne Ultra Condensed";
+    font-size: 2rem;
   }
 }
