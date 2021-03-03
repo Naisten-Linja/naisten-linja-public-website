@@ -5,7 +5,7 @@ import React from 'react';
 const Footer = () => (
   <footer>
     <div className="layout-container">
-      <div className="row flex-column">
+      <div className="col-sm-12">
         <h3>Follow us on social media</h3>
         <ul>
           <li>
