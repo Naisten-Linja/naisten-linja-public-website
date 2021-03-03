@@ -243,7 +243,8 @@ $dark-blue: #294374;
           }
         }
 
-        &.has-subpages:before {
+        &.has-subpages:before,
+        &.has-subpages:after {
           display: none;
         }
       }
