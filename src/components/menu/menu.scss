@@ -226,6 +226,10 @@ $dark-blue: #294374;
         }
 
         &.has-subpages {
+          &:before,
+          &:after {
+            display: none;
+          }
           &.active-submenu {
             position: relative;
             top: auto;
@@ -233,19 +237,15 @@ $dark-blue: #294374;
             width: auto;
             height: auto;
 
-            > a {
-              font-weight: normal;
+            ul {
+              display: block;
+              padding: 0;
             }
           }
           ul {
             display: block;
             padding: 0;
           }
-        }
-
-        &.has-subpages:before,
-        &.has-subpages:after {
-          display: none;
         }
       }
 
