@@ -22,14 +22,17 @@ const ContentfulServiceBox = ({
         isLink ? ' ContentBox__wrapper--is-link' : ''
       }`}
     >
-      <div className="ServiceBox__service-icon" aria-hidden={true}>
-        <img src={serviceIcon.file.url} />
-      </div>
+      {serviceIcon && (
+        <>
+          <div className="ServiceBox__service-icon" aria-hidden={true}>
+            <img src={serviceIcon.file.url} />
+          </div>{' '}
+        </>
+      )}
       <div
         className="ServiceBox__service-name"
         aria-hidden={!linkToInternalPage && !linkToCustomUrl}
       >
-        {' '}
         {serviceName}{' '}
       </div>
 
