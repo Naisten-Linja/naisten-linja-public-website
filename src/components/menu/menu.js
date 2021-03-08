@@ -69,6 +69,17 @@ const TopLevelMenuItem = ({ page }) => {
     e.stopPropagation();
     setIsActive(!isActive);
   };
+  const linkPath = page.linkToExternalUrl
+    ? page.linkToExternalUrl
+    : page.menuPage
+    ? page.menuPage.slug === 'etusivu'
+      ? '/'
+      : page.menuPage.slug
+    : null;
+  const itemName =
+    page.pageContainerName !== null
+      ? page.pageContainerName
+      : page.menuPage.pageName;
 
   return (
     <li
@@ -80,14 +91,13 @@ const TopLevelMenuItem = ({ page }) => {
         .filter((x) => !!x)
         .join(' ')}
     >
-      <Link
-        activeClassName="active-link"
-        to={page.menuPage.slug === 'etusivu' ? '/' : page.menuPage.slug}
-      >
-        {page.pageContainerName !== null
-          ? page.pageContainerName
-          : page.menuPage.pageName}
-      </Link>
+      {linkPath ? (
+        <Link activeClassName="active-link" to={linkPath}>
+          {itemName}
+        </Link>
+      ) : (
+        itemName
+      )}
       <SubPageMenu page={page} isFirstLevel={true} />
     </li>
   );
@@ -119,6 +129,11 @@ const SubPageLink = ({ page }) => {
     e.stopPropagation();
     setIsActive(!isActive);
   };
+  const linkPath = page.linkToExternalUrl
+    ? page.linkToExternalUrl
+    : page.menuPage
+    ? page.menuPage.slug
+    : null;
   return (
     <li
       onClick={toggleSubmenu}
@@ -129,9 +144,13 @@ const SubPageLink = ({ page }) => {
         .filter((x) => !!x)
         .join(' ')}
     >
-      <Link to={page.menuPage.slug} activeClassName="active-link">
-        {page.menuPage.pageName}
-      </Link>
+      {linkPath ? (
+        <Link to={linkPath} activeClassName="active-link">
+          {page.menuPage.pageName}
+        </Link>
+      ) : (
+        page.menuPage.pageName
+      )}
       <SubPageMenu page={page} />
     </li>
   );
@@ -144,23 +163,27 @@ const query = graphql`
       slug
       mainMenuName
       topLevelPages {
+        linkToExternalUrl
         menuPage {
           pageName
           slug
         }
         pageContainerName
         menuPageSubpages {
+          linkToExternalUrl
           menuPage {
             pageName
             slug
           }
           pageContainerName
           menuPageSubpages {
+            linkToExternalUrl
             menuPage {
               pageName
               slug
             }
             menuPageSubpages {
+              linkToExternalUrl
               menuPage {
                 pageName
                 slug
