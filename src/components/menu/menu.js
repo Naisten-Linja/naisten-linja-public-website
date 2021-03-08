@@ -134,6 +134,11 @@ const SubPageLink = ({ page }) => {
     : page.menuPage
     ? page.menuPage.slug
     : null;
+  const itemName =
+    page.pageContainerName !== null
+      ? page.pageContainerName
+      : page.menuPage.pageName;
+
   return (
     <li
       onClick={toggleSubmenu}
@@ -146,10 +151,10 @@ const SubPageLink = ({ page }) => {
     >
       {linkPath ? (
         <Link to={linkPath} activeClassName="active-link">
-          {page.menuPage.pageName}
+          {itemName}
         </Link>
       ) : (
-        page.menuPage.pageName
+        itemName
       )}
       <SubPageMenu page={page} />
     </li>
