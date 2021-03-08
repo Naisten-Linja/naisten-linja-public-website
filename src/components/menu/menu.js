@@ -69,17 +69,9 @@ const TopLevelMenuItem = ({ page }) => {
     e.stopPropagation();
     setIsActive(!isActive);
   };
-  const linkPath = page.linkToExternalUrl
-    ? page.linkToExternalUrl
-    : page.menuPage
-    ? page.menuPage.slug === 'etusivu'
-      ? '/'
-      : page.menuPage.slug
-    : null;
   const itemName = page.pageContainerName
     ? page.pageContainerName
     : page.menuPage.pageName;
-
   return (
     <li
       onClick={toggleSubmenu}
@@ -90,12 +82,12 @@ const TopLevelMenuItem = ({ page }) => {
         .filter((x) => !!x)
         .join(' ')}
     >
-      {linkPath ? (
-        <Link activeClassName="active-link" to={linkPath}>
+      {page.linkToExternalUrl ? (
+        <a href={linkToExternalUrl}>{itemName}</a>
+      ) : (
+        <Link activeClassName="active-link" to={page.menuPage.slug}>
           {itemName}
         </Link>
-      ) : (
-        itemName
       )}
       <SubPageMenu page={page} isFirstLevel={true} />
     </li>
@@ -128,11 +120,6 @@ const SubPageLink = ({ page }) => {
     e.stopPropagation();
     setIsActive(!isActive);
   };
-  const linkPath = page.linkToExternalUrl
-    ? page.linkToExternalUrl
-    : page.menuPage
-    ? page.menuPage.slug
-    : null;
   const itemName = page.pageContainerName
     ? page.pageContainerName
     : page.menuPage.pageName;
@@ -147,12 +134,12 @@ const SubPageLink = ({ page }) => {
         .filter((x) => !!x)
         .join(' ')}
     >
-      {linkPath ? (
-        <Link to={linkPath} activeClassName="active-link">
+      {page.linkToExternalUrl ? (
+        <a href={page.linkToExternalUrl}>{itemName}</a>
+      ) : (
+        <Link to={page.menuPage.slug} activeClassName="active-link">
           {itemName}
         </Link>
-      ) : (
-        itemName
       )}
       <SubPageMenu page={page} />
     </li>
