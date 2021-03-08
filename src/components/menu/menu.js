@@ -76,10 +76,9 @@ const TopLevelMenuItem = ({ page }) => {
       ? '/'
       : page.menuPage.slug
     : null;
-  const itemName =
-    page.pageContainerName !== null
-      ? page.pageContainerName
-      : page.menuPage.pageName;
+  const itemName = page.pageContainerName
+    ? page.pageContainerName
+    : page.menuPage.pageName;
 
   return (
     <li
@@ -134,10 +133,9 @@ const SubPageLink = ({ page }) => {
     : page.menuPage
     ? page.menuPage.slug
     : null;
-  const itemName =
-    page.pageContainerName !== null
-      ? page.pageContainerName
-      : page.menuPage.pageName;
+  const itemName = page.pageContainerName
+    ? page.pageContainerName
+    : page.menuPage.pageName;
 
   return (
     <li
