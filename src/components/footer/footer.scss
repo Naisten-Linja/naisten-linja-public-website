@@ -1,58 +1,61 @@
 @import '../../scss/grid.scss';
 
 footer {
-  margin: 30px auto 0;
   background-color: #294374;
   color: #ffffff;
-  > div {
-    padding: 0 21px;
-    margin: 0 auto;
+  font-size: 1rem;
+  padding-top: 5rem;
+  align-self: flex-end;
 
-    h3 {
-      font-family: 'Alegreya Sans';
-      font-style: normal;
-      font-weight: bold;
-      font-size: 25px;
-      line-height: 28px;
-      letter-spacing: 0.02em;
-      text-transform: capitalize;
-    }
+  p {
+    font-size: 1rem;
+  }
 
-    ul {
-      list-style-position: inside;
-      margin-left: 0;
-    }
-    ul li {
-      list-style-type: none;
-      font-size: 18px;
-      line-height: 22px;
-      margin-bottom: 8px;
-    }
+  h3 {
+    font-family: 'Alegreya Sans';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 25px;
+    line-height: 28px;
+    letter-spacing: 0.02em;
+    text-transform: capitalize;
+  }
 
-    ul li a,
-    ul li a:visited {
-      color: #ffffff;
-    }
+  ul {
+    list-style-position: inside;
+    margin-left: 0;
+  }
 
-    .breakline {
-      margin-top: 152px;
-      margin-bottom: 16px;
-      background-color: #edeeef;
-    }
+  ul li {
+    list-style-type: none;
+    font-size: 18px;
+    line-height: 22px;
+    margin-bottom: 8px;
+  }
 
-    .company-information,
-    .company-information:visited {
-      font-family: 'Alegreya Sans';
-      font-style: normal;
-      font-weight: 500;
-      font-size: 16px;
-      line-height: 19px;
-      text-decoration-line: underline;
-      color: #ffffff;
-    }
+  ul li a,
+  ul li a:visited {
+    color: #ffffff;
+  }
 
-    .copyright-info {
-      margin: 56px 0;
-    }
+  .breakline {
+    margin-top: 2rem;
+    margin-bottom: 16px;
+    background-color: #edeeef;
+  }
+
+  .company-information,
+  .company-information:visited {
+    font-family: 'Alegreya Sans';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    text-decoration-line: underline;
+    color: #ffffff;
+  }
+
+  .copyright-info {
+    margin: 2rem 0;
   }
 }

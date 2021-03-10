@@ -109,6 +109,7 @@ pre,
 samp {
   font-family: monospace, monospace;
   font-size: 1em;
+  white-space: pre-wrap;
 }
 figure {
   margin: 1em 40px;
@@ -672,6 +673,7 @@ h2 {
 }
 
 .main-container {
+  width: 100%;
   display: flex;
   justify-content: center;
   flex-direction: row;
@@ -710,4 +712,11 @@ a:visited {
   background-color: #ffc4c8;
   border-radius: 20px;
   border: 2px solid transparent;
+}
+
+#gatsby-focus-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
 }
