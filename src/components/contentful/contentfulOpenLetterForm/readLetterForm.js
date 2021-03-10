@@ -48,6 +48,10 @@ const LetterContent = ({ openLetterContent }) => {
         <h2>{openLetterContent.title}</h2>
         {openLetterContent.content}
       </div>
+
+      <button className="button" onClick={() => window.location.reload()}>
+        Close letter
+      </button>
     </>
   );
 };
@@ -121,11 +125,11 @@ const AccessKeyAndPasswordForm = ({ setOpenLetterContent }) => {
           />
         </div>
       </div>
-      {isLoading ? (
-        <FullPageLoader />
-      ) : (
-        <input className="button" type="submit" value="Read your letter" />
-      )}
+      {isLoading && <FullPageLoader />}
+      <button className="button" onClick={() => window.location.reload()}>
+        Cancel
+      </button>
+      <input className="button" type="submit" value="Read your letter" />
     </form>
   );
 };

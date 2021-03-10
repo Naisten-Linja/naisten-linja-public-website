@@ -141,6 +141,9 @@ const WriteLetterForm = ({ accessKey, accessPassword }) => {
         required
       />
 
+      <button className="button" onClick={() => window.location.reload()}>
+        Cancel
+      </button>
       <button className="button" type="submit">
         Send
       </button>
