@@ -83,7 +83,7 @@ const TopLevelMenuItem = ({ page }) => {
         .join(' ')}
     >
       {page.linkToExternalUrl ? (
-        <a href={linkToExternalUrl}>{itemName}</a>
+        <a href={page.linkToExternalUrl}>{itemName}</a>
       ) : (
         <Link activeClassName="active-link" to={page.menuPage.slug}>
           {itemName}
