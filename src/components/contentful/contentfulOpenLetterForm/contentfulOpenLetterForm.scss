@@ -1,0 +1,56 @@
+@import '../../../scss/grid.scss';
+
+.OpenLetterForm {
+  width: 100%;
+  padding: 0 1rem;
+
+  input.access-credential-value {
+      font-family: 'Fira Sans';
+  }
+
+  &__credentials {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 0.5rem auto;
+  }
+
+  &__credential {
+    width: 100%;
+    @include media-breakpoint-up(md) {
+      width: calc(50% - 1rem);
+    }
+  }
+
+  &__credentials-notice {
+    width: 100%;
+    font-size: 1.56rem;
+    line-height: 1.2;
+    margin-top: 1rem;
+  }
+
+  &__error-message {
+    padding: 1rem;
+    border: 1px solid #ffc4c8;
+    border-radius: 5px;
+    color: #ffc4c8;
+  }
+
+  &__success-message {
+    padding: 1rem;
+    border: 1px solid #71beb9;
+    border-radius: 5px;
+    color: #71beb9;
+    margin: 1rem 0;
+  }
+
+  &__letter-content-wrapper {
+    padding: 1rem;
+    background: #363842;
+    color: #edeeef;
+    border-radius: 5px;
+    white-space: pre-wrap;
+    margin: 1rem 0;
+  }
+}

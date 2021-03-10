@@ -16,6 +16,11 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+p {
+  font-size: 1.56rem;
+}
+
 article,
 aside,
 details,
@@ -216,6 +221,7 @@ body {
   -ms-font-feature-settings: 'kern', 'liga', 'clig', 'calt';
   -webkit-font-feature-settings: 'kern', 'liga', 'clig', 'calt';
   font-feature-settings: 'kern', 'liga', 'clig', 'calt';
+  line-height: 1.2;
 }
 img {
   max-width: 100%;
@@ -428,7 +434,6 @@ table {
   padding-top: 0;
   margin-bottom: 1.45rem;
   font-size: 1rem;
-  line-height: 1.45rem;
   border-collapse: collapse;
   width: 100%;
 }
@@ -550,15 +555,12 @@ li > p {
 }
 code {
   font-size: 0.85rem;
-  line-height: 1.45rem;
 }
 kbd {
   font-size: 0.85rem;
-  line-height: 1.45rem;
 }
 samp {
   font-size: 0.85rem;
-  line-height: 1.45rem;
 }
 abbr {
   border-bottom: 1px dotted hsla(0, 0%, 0%, 0.5);
@@ -609,7 +611,6 @@ code {
 }
 pre code {
   background: none;
-  line-height: 1.42;
 }
 code:before,
 code:after,
@@ -636,8 +637,8 @@ body {
   font-family: 'Alegreya Sans';
   font-style: normal;
   font-weight: 500;
-  font-size: 1rem;
-  line-height: 1.1875rem;
+  font-size: 1.56rem;
+  line-height: 1.2;
   background-color: #294374;
   color: #ffffff;
 }

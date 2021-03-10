@@ -129,6 +129,20 @@ export const ContenfulPage = graphql`
           type
         }
         title
+        description {
+          childMarkdownRemark {
+            html
+          }
+          description
+        }
+        writeALetterButtonText
+        readYourLetterButtonText
+        messageSentText
+        failedToSendMessageText
+        noResponseText
+        accessKeyText
+        accessPasswordText
+        recordKeyAndPasswordText
       }
       ... on ContentfulContentBoxGroup {
         title
