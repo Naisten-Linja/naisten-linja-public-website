@@ -135,14 +135,6 @@ export const ContenfulPage = graphql`
           }
           description
         }
-        writeALetterButtonText
-        readYourLetterButtonText
-        messageSentText
-        failedToSendMessageText
-        noResponseText
-        accessKeyText
-        accessPasswordText
-        recordKeyAndPasswordText
       }
       ... on ContentfulContentBoxGroup {
         title
