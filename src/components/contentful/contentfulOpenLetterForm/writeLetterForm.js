@@ -99,7 +99,11 @@ const WriteLetterForm = ({ accessKey, accessPassword }) => {
   }
 
   return (
-    <form className="WriteLetterForm" onSubmit={sendOpenLetter}>
+    <form
+      className="WriteLetterForm"
+      onSubmit={sendOpenLetter}
+      autocomplete="off"
+    >
       {isLoading && <FullPageLoader />}
       <div className="OpenLetterForm__credentials">
         <div className="OpenLetterForm__credential">

@@ -101,7 +101,11 @@ const AccessKeyAndPasswordForm = ({ setOpenLetterContent }) => {
   );
 
   return (
-    <form className="ReadLetterForm" onSubmit={readOpenLetter}>
+    <form
+      className="ReadLetterForm"
+      onSubmit={readOpenLetter}
+      autocomplete="off"
+    >
       {errorMessage && (
         <p className="OpenLetterForm__error-message">{errorMessage}</p>
       )}
