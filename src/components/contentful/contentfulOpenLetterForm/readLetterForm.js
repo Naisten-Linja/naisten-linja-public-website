@@ -109,6 +109,7 @@ const AccessKeyAndPasswordForm = ({ setOpenLetterContent }) => {
       {errorMessage && (
         <p className="OpenLetterForm__error-message">{errorMessage}</p>
       )}
+
       <div className="OpenLetterForm__credentials">
         <div className="OpenLetterForm__credential">
           <label htmlFor="accessKey">Access key</label>
@@ -130,6 +131,7 @@ const AccessKeyAndPasswordForm = ({ setOpenLetterContent }) => {
         </div>
       </div>
       {isLoading && <FullPageLoader />}
+
       <button className="button" onClick={() => window.location.reload()}>
         Cancel
       </button>

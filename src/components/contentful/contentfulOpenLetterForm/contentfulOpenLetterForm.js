@@ -12,7 +12,12 @@ const axiosConfig = {
 };
 
 const OpenLetterForm = ({ content }) => {
-  const { writeALetterButtonText, readYourLetterButtonText, title } = content;
+  const {
+    writeALetterButtonText,
+    readYourLetterButtonText,
+    title,
+    description,
+  } = content;
 
   const [expandOpenLetterStart, setExpandOpenLetterStart] = useState(false);
   const [expandOpenLetterRead, setExpandOpenLetterRead] = useState(false);
@@ -43,11 +48,18 @@ const OpenLetterForm = ({ content }) => {
     <section className="OpenLetterForm full-width-section">
       <div className="layout-container">
         <h1>{title}</h1>
-
         {!expandOpenLetterStart && !expandOpenLetterRead && (
           <>
+            {description && (
+              <div
+                className="ContentBox__content"
+                dangerouslySetInnerHTML={{
+                  __html: description.childMarkdownRemark.html,
+                }}
+              />
+            )}
             <button className="button" onClick={startOpenLetter}>
-              {writeALetterButtonText}
+              Write a new letter
             </button>
             <button
               className="button"
@@ -55,7 +67,7 @@ const OpenLetterForm = ({ content }) => {
                 setExpandOpenLetterRead(true);
               }}
             >
-              {readYourLetterButtonText}
+              Read your response
             </button>
           </>
         )}
