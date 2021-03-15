@@ -104,3 +104,14 @@ header {
     height: 339px;
   }
 }
+
+.skip-to-content-link {
+  color: #fff;
+  padding: 0.5rem;
+  position: absolute;
+  transform: translateY(-200%);
+}
+
+.skip-to-content-link:focus {
+  transform: translateY(0%);
+}
