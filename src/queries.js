@@ -106,12 +106,6 @@ export const ContenfulPage = graphql`
           }
         }
       }
-      ... on ContentfulForm {
-        internal {
-          type
-        }
-        formName
-      }
       ... on ContentfulDonationForm {
         internal {
           type
