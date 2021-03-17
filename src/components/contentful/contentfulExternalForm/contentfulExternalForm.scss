@@ -1,0 +1,16 @@
+.ExternalForm {
+  text-align: center;
+
+  &__link,
+  &__link:visited {
+    display: inline-block;
+    margin: 0 auto;
+    padding: 1rem;
+    font-size: 2rem;
+    border-radius: 5px;
+    background: #a6e8e3;
+    text-decoration: none;
+    box-shadow: -2px 3px 3px rgba(0, 0, 0, 0.6);
+    color: #000;
+  }
+}
