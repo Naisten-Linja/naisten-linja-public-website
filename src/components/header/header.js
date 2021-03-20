@@ -11,7 +11,6 @@ const Header = () => (
       Siirry sisältöön
     </a>
     <AccessibleMenu />
-    <Menu />
     <div className="escape-link-container">
       <a className="escape-link-box" href="https://google.com">
         <span className="escape-link">Poistu sivuilta nopeasti</span>

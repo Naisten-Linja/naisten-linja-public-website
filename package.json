@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "naisten-linja-public-website",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "Public website for Naisten Linja",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Naisten Linja",
   "dependencies": {
     "@contentful/gatsby-transformer-contentful-richtext": "^13.1.0",
     "@palmabit/react-cookie-law": "^0.4.0",

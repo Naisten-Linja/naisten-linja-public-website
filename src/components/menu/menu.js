@@ -15,7 +15,7 @@ const Menu = () => {
   const topLevelPages = headerMenuData.contentfulMainMenu.topLevelPages;
 
   return (
-    <nav className="MainMenu MainMenu2">
+    <nav className="MainMenu">
       {isOpen ? (
         <button
           className="MainMenu__mobile-close-button"

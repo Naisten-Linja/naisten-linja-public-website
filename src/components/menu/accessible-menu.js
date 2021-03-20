@@ -58,8 +58,8 @@ const AccessibleMenu = () => {
         aria-label="Naisten Linja Menu"
         className={`menu${isOpen ? ' mobile-active' : ''}`}
       >
-        {topLevelPages.map((topLevelPage, i) => (
-          <MenuItem page={topLevelPage} />
+        {topLevelPages.map((topLevelPage) => (
+          <MenuItem key={topLevelPage.id} page={topLevelPage} />
         ))}
       </ul>
     </nav>
@@ -79,8 +79,12 @@ const MenuItem = ({ page }) => {
     setIsExpanded(!isExpanded);
   };
 
+  const handleBlur = () => {
+    setIsExpanded(false);
+  };
+
   return (
-    <li role="none" className={isExpanded && 'is-expanded'}>
+    <li role="none" className={isExpanded ? 'is-expanded' : ''}>
       {page.menuPageSubpages ? (
         <button
           role="menuitem"
@@ -99,7 +103,7 @@ const MenuItem = ({ page }) => {
         <Link
           role="menuitem"
           tabIndex="0"
-          to={page.menuPage.slug}
+          to={`/${page.menuPage.slug}`}
           activeClassName="active-link"
         >
           {itemName}
@@ -116,29 +120,45 @@ const SubMenu = ({ page, itemName }) => {
   return (
     <div className="MainMenu__submenu-container">
       <ul role="menu" aria-label={itemName}>
-        {page.menuPageSubpages.map((page) => (
-          <li role="none">
-            {page.linkToExternalUrl ? (
-              <a role="menuitem" tabIndex="-1" href={page.linkToExternalUrl}>
-                {page.pageContainerName}
-              </a>
-            ) : (
-              <Link
-                role="menuitem"
-                tabIndex="-1"
-                to={page.menuPage.slug}
-                activeClassName="active-link"
-              >
-                {page.menuPage.pageName}
-              </Link>
-            )}
-            {page.menuPageSubpages && (
-              <SubMenu page={page} itemName={itemName} />
-            )}
+        {page.menuPageSubpages.map((subPage) => (
+          <li key={subPage.id} role="none">
+            <MenuLink page={subPage} />
+            {subPage.menuPageSubpages && <SubMenuItems page={subPage} />}
           </li>
         ))}
       </ul>
     </div>
+  );
+};
+
+const SubMenuItems = ({ page }) => {
+  return (
+    <ul>
+      {page.menuPageSubpages.map((item) => (
+        <li key={item.id}>
+          <MenuLink page={item} />
+        </li>
+      ))}
+    </ul>
+  );
+};
+
+const MenuLink = ({ page }) => {
+  const itemName = page.pageContainerName
+    ? page.pageContainerName
+    : page.menuPage.pageName;
+
+  return page.linkToExternalUrl ? (
+    <a href={page.linkToExternalUrl}>{itemName}</a>
+  ) : (
+    <Link
+      role="menuitem"
+      tabIndex="-1"
+      to={`/${page.menuPage.slug}`}
+      activeClassName="active-link"
+    >
+      {itemName}
+    </Link>
   );
 };
 
@@ -149,6 +169,7 @@ const query = graphql`
       slug
       mainMenuName
       topLevelPages {
+        id
         linkToExternalUrl
         menuPage {
           pageName
@@ -156,24 +177,29 @@ const query = graphql`
         }
         pageContainerName
         menuPageSubpages {
+          id
           linkToExternalUrl
           menuPage {
             pageName
             slug
+            id
           }
           pageContainerName
           menuPageSubpages {
             linkToExternalUrl
-            menuPage {
-              pageName
-              slug
-            }
             menuPageSubpages {
               linkToExternalUrl
               menuPage {
                 pageName
                 slug
               }
+              id
+            }
+            id
+            menuPage {
+              pageName
+              slug
+              id
             }
           }
         }
