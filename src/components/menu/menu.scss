@@ -5,11 +5,51 @@ $color-white: #edeeef;
 $dark-gray: #4c5060;
 $dark-blue: #294374;
 
+.MainMenu2 {
+  top: 500;
+  position: relative
+}
+
 .MainMenu {
   z-index: 20;
   position: fixed;
   top: 0;
   left: 0;
+
+  /*
+  ACCESSIBLE STYLES
+  */
+  li {
+    width: 100%;
+        box-sizing: border-box;
+
+    .top-level-button {
+      background: transparent;
+      border: none;
+      font-size: 1rem;
+      margin: 0;
+      display: flex;
+      height: auto;
+      align-items: center;
+      border-bottom: none;
+      color: #edeeef;
+      font-family: 'Alegreya Sans';
+      font-style: normal;
+      font-weight: 500;
+      font-size: 1rem;
+      text-decoration: none;
+      display: block;
+      width: 100%;
+      padding: 0.75rem;
+
+      &:hover {
+        color:$dark-blue;
+      }
+    }
+  }
+  /* 
+  / Accessible styles
+  */
 
   &__mobile-open-button {
     position: fixed;
@@ -169,6 +209,8 @@ $dark-blue: #294374;
         > ul {
           @include layout-container-mixin;
         }
+
+        display: block;
       }
 
       &:hover {

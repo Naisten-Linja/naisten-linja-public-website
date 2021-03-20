@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import './menu.scss';
 
-const Menu = () => {
+const AccessibleMenu = () => {
   const headerMenuData = useStaticQuery(query);
   const [isOpen, setIsOpen] = useState(false);
   const toggleMobileMenu = (e) => {
@@ -15,7 +15,7 @@ const Menu = () => {
   const topLevelPages = headerMenuData.contentfulMainMenu.topLevelPages;
 
   return (
-    <nav className="MainMenu MainMenu2">
+    <nav className="MainMenu" aria-label="Naisten Linja Menu">
       {isOpen ? (
         <button
           className="MainMenu__mobile-close-button"
@@ -52,102 +52,98 @@ const Menu = () => {
           </svg>
         </button>
       )}
-      <ul className={`menu${isOpen ? ' mobile-active' : ''}`}>
+      <ul
+        id="menubar"
+        role="menubar"
+        aria-label="Naisten Linja Menu"
+        className={`menu${isOpen ? ' mobile-active' : ''}`}
+      >
         {topLevelPages.map((topLevelPage, i) => (
-          <TopLevelMenuItem page={topLevelPage} />
+          <MenuItem page={topLevelPage} />
         ))}
       </ul>
     </nav>
   );
 };
 
-export default Menu;
+export default AccessibleMenu;
 
-const TopLevelMenuItem = ({ page }) => {
-  const [isActive, setIsActive] = useState(false);
-  const toggleSubmenu = (e) => {
-    e.stopPropagation();
-    setIsActive(!isActive);
-  };
-  const itemName = page.pageContainerName
-    ? page.pageContainerName
-    : page.menuPage.pageName;
-  return (
-    <li
-      onClick={toggleSubmenu}
-      className={[
-        isActive ? 'active-submenu' : null,
-        page.menuPageSubpages ? 'has-subpages' : null,
-      ]
-        .filter((x) => !!x)
-        .join(' ')}
-    >
-      {page.linkToExternalUrl ? (
-        <a href={page.linkToExternalUrl}>{itemName}</a>
-      ) : (
-        <Link activeClassName="active-link" to={page.menuPage.slug}>
-          {itemName}
-        </Link>
-      )}
-      <SubPageMenu page={page} isFirstLevel={true} />
-    </li>
-  );
-};
+const MenuItem = ({ page }) => {
+  const [isExpanded, setIsExpanded] = useState(false);
 
-const SubPageMenu = ({ page, isFirstLevel = false }) => {
-  if (!page || !page.menuPageSubpages) {
-    return null;
-  }
-
-  const subNav = (
-    <ul>
-      {page.menuPageSubpages.map((navigationPage, i) => (
-        <SubPageLink key={i} page={navigationPage} />
-      ))}
-    </ul>
-  );
-
-  return isFirstLevel ? (
-    <div className="MainMenu__submenu-container">{subNav}</div>
-  ) : (
-    subNav
-  );
-};
-
-const SubPageLink = ({ page }) => {
-  const [isActive, setIsActive] = useState(false);
-  const toggleSubmenu = (e) => {
-    e.stopPropagation();
-    setIsActive(!isActive);
-  };
   const itemName = page.pageContainerName
     ? page.pageContainerName
     : page.menuPage.pageName;
 
+  const handleExpanded = () => {
+    setIsExpanded(!isExpanded);
+  };
+
   return (
-    <li
-      onClick={toggleSubmenu}
-      className={[
-        isActive ? 'active-submenu' : null,
-        page.menuPageSubpages ? 'has-subpages' : null,
-      ]
-        .filter((x) => !!x)
-        .join(' ')}
-    >
-      {page.linkToExternalUrl ? (
-        <a href={page.linkToExternalUrl}>{itemName}</a>
+    <li role="none" className={isExpanded && 'is-expanded'}>
+      {page.menuPageSubpages ? (
+        <button
+          role="menuitem"
+          tabIndex="0"
+          aria-expanded={isExpanded}
+          onClick={handleExpanded}
+          className="top-level-button"
+        >
+          {itemName}
+        </button>
+      ) : page.linkToExternalUrl ? (
+        <a role="menuitem" tabIndex="0" href={page.linkToExternalUrl}>
+          {itemName}
+        </a>
       ) : (
-        <Link to={page.menuPage.slug} activeClassName="active-link">
+        <Link
+          role="menuitem"
+          tabIndex="0"
+          to={page.menuPage.slug}
+          activeClassName="active-link"
+        >
           {itemName}
         </Link>
       )}
-      <SubPageMenu page={page} />
+      {page.menuPageSubpages && isExpanded && (
+        <SubMenu page={page} itemName={itemName} />
+      )}
     </li>
+  );
+};
+
+const SubMenu = ({ page, itemName }) => {
+  return (
+    <div className="MainMenu__submenu-container">
+      <ul role="menu" aria-label={itemName}>
+        {page.menuPageSubpages.map((page) => (
+          <li role="none">
+            {page.linkToExternalUrl ? (
+              <a role="menuitem" tabIndex="-1" href={page.linkToExternalUrl}>
+                {page.pageContainerName}
+              </a>
+            ) : (
+              <Link
+                role="menuitem"
+                tabIndex="-1"
+                to={page.menuPage.slug}
+                activeClassName="active-link"
+              >
+                {page.menuPage.pageName}
+              </Link>
+            )}
+            {page.menuPageSubpages && (
+              <SubMenu page={page} itemName={itemName} />
+            )}
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 };
 
 const query = graphql`
-  query MenuQuery {
+  query AccessibleMenuQuery {
     contentfulMainMenu(slug: { eq: "header-menu" }) {
       id
       slug

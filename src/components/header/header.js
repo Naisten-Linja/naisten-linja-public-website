@@ -3,12 +3,14 @@ import React from 'react';
 import { Link } from 'gatsby';
 import './header.scss';
 import Menu from '../menu/menu';
+import AccessibleMenu from '../menu/accessible-menu';
 
 const Header = () => (
   <header>
     <a className="skip-to-content-link" href="#main">
       Siirry sisältöön
     </a>
+    <AccessibleMenu />
     <Menu />
     <div className="escape-link-container">
       <a className="escape-link-box" href="https://google.com">
