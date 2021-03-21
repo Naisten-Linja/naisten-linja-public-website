@@ -85,12 +85,17 @@ const MenuItem = ({ page }) => {
     ? page.pageContainerName
     : page.menuPage.pageName;
 
-  const handleExpanded = () => {
-    setIsExpanded(!isExpanded);
-  };
-
-  const handleBlur = () => {
-    setIsExpanded(false);
+  const handleExpanded = async () => {
+    const changedValue = !isExpanded;
+    await setIsExpanded(changedValue);
+    if (changedValue) {
+      /**
+       * Moves focus to the first value in opened submenu
+       */
+      document.activeElement.parentElement
+        .getElementsByClassName('submenu')[0]
+        .childNodes[0].childNodes[0].focus();
+    }
   };
 
   const handleEsc = (event) => {
@@ -100,13 +105,13 @@ const MenuItem = ({ page }) => {
   };
 
   const handleMouseEnter = () => {
-    if (!isExpanded) {
+    if (!isExpanded && page.menuPageSubpages) {
       setIsExpanded(true);
     }
   };
 
   const handleMouseExit = () => {
-    if (isExpanded) {
+    if (isExpanded && page.menuPageSubpages) {
       setIsExpanded(false);
     }
   };
