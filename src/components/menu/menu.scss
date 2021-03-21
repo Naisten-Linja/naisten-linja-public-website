@@ -196,7 +196,19 @@ $dark-blue: #294374;
         border-bottom: none;
       }
 
+      a:hover {
+        background-color: $color-white;
+        color: $dark-blue;
+        font-weight: 700;
+      }
+
       .is-expanded {
+        button {
+          background-color: $color-white;
+          color: $dark-blue;
+          font-weight: 700;
+        }
+
         .submenu {
           column-count: 3;
           display: block;
