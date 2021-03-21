@@ -5,7 +5,6 @@ $color-white: #edeeef;
 $dark-gray: #4c5060;
 $dark-blue: #294374;
 
-
 .MainMenu {
   z-index: 20;
   position: fixed;
@@ -21,7 +20,8 @@ $dark-blue: #294374;
     margin: 0;
     padding: 0;
 
-    .top-level-button, a {
+    .top-level-button,
+    a {
       background: transparent;
       border: none;
       font-size: 1rem;
@@ -41,7 +41,7 @@ $dark-blue: #294374;
       padding: 0.75rem;
 
       &:hover {
-        color:$dark-blue;
+        color: $dark-blue;
       }
     }
   }
@@ -83,7 +83,7 @@ $dark-blue: #294374;
     align-items: center;
     justify-content: center;
     padding: 0;
-    right: 7rem;
+    right: 0.5rem;
     svg {
       margin: 0;
       width: 50%;
@@ -98,7 +98,7 @@ $dark-blue: #294374;
   }
 
   #menubar {
-    display: flex; 
+    display: flex;
     width: 100%;
     height: 100%;
     align-items: center;
@@ -110,12 +110,14 @@ $dark-blue: #294374;
     top: 0;
     left: 0;
     display: none;
+    flex-wrap: wrap;
 
     &.mobile-active {
       display: block;
       background-color: $dark-gray;
 
-      a, button {
+      a,
+      button {
         text-align: left;
         color: #edeeef;
         font-family: Alegreya Sans;
@@ -125,18 +127,17 @@ $dark-blue: #294374;
         text-decoration: none;
         display: block;
         width: 100%;
-        padding: .75rem 0;
+        padding: 0.75rem 0;
         border-bottom: 1px solid #f2f2f2;
       }
 
       .MainMenu__submenu-container {
         display: block;
-        padding-left: .5rem;
+        padding-left: 0.5rem;
         margin-bottom: 1rem;
       }
     }
   }
-
 }
 
 @include media-breakpoint-up(md) {
@@ -169,14 +170,111 @@ $dark-blue: #294374;
       left: auto;
       padding: 0;
       display: flex;
-      justify-content: flex-start; 
-      flex-direction: row;
-      
+      justify-content: flex-start;
+
+      li {
+        ul {
+          display: block;
+        }
+      }
+
+      > li {
+        width: auto;
+        display: inline-block;
+        padding: 0;
+        margin: 0;
+      }
+
+      a,
+      button {
+        padding: 0.75rem;
+        font-size: 1rem;
+        margin: 0;
+        display: flex;
+        height: auto;
+        align-items: center;
+        border-bottom: none;
+      }
+
+      .is-expanded {
+        .submenu {
+          column-count: 3;
+          display: block;
+          padding: 1rem;
+          ul {
+            display: block;
+            padding: 0;
+          }
+          li {
+            width: 100%;
+            display: inline-block;
+            margin-bottom: 0;
+            position: relative;
+            a {
+              font-size: 1rem;
+              margin: 0;
+              display: flex;
+              height: auto;
+              align-items: center;
+              padding: 0.25rem 0;
+              border-bottom: none;
+            }
+          }
+          .top-level-item {
+            border-bottom: 1px solid #4c5060;
+            margin-bottom: 0.5rem;
+            padding: 0.25rem 0;
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: #4c5060;
+          }
+        }
+      }
+
+      .MainMenu__submenu-container {
+        background: $color-white;
+        position: fixed;
+        top: 2.5rem;
+        left: 0;
+        box-shadow: 0px 10px 21px -15px rgba(0, 0, 0, 0.2);
+
+        > ul {
+          > li {
+            padding: 0.5rem 0;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            align-content: flex-start;
+            > a {
+              font-weight: bold;
+              font-size: 1.25rem;
+            }
+          }
+
+          a,
+          a:visited {
+            color: $dark-gray;
+          }
+
+          > li > ul {
+            > li {
+              a,
+              a:visited {
+                height: auto;
+
+                &:hover {
+                  text-decoration: underline;
+                }
+              }
+            }
+          }
+        }
+      }
     }
   }
 }
 
-  /* .menu {
+/* .menu {
     clear: both;
     overflow-y: auto;
     background: $dark-gray;

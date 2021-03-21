@@ -119,10 +119,10 @@ const MenuItem = ({ page }) => {
 const SubMenu = ({ page, itemName }) => {
   return (
     <div className="MainMenu__submenu-container">
-      <ul role="menu" aria-label={itemName}>
+      <ul role="menu" aria-label={itemName} className="submenu">
         {page.menuPageSubpages.map((subPage) => (
           <li key={subPage.id} role="none">
-            <MenuLink page={subPage} />
+            <MenuLink page={subPage} className="top-level-item" />
             {subPage.menuPageSubpages && <SubMenuItems page={subPage} />}
           </li>
         ))}
@@ -143,19 +143,22 @@ const SubMenuItems = ({ page }) => {
   );
 };
 
-const MenuLink = ({ page }) => {
+const MenuLink = ({ page, className }) => {
   const itemName = page.pageContainerName
     ? page.pageContainerName
     : page.menuPage.pageName;
 
   return page.linkToExternalUrl ? (
-    <a href={page.linkToExternalUrl}>{itemName}</a>
+    <a href={page.linkToExternalUrl} className={className}>
+      {itemName}
+    </a>
   ) : (
     <Link
       role="menuitem"
       tabIndex="-1"
       to={`/${page.menuPage.slug}`}
       activeClassName="active-link"
+      className={className}
     >
       {itemName}
     </Link>
