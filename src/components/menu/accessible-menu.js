@@ -12,10 +12,20 @@ const AccessibleMenu = () => {
     setIsOpen(!isOpen);
   };
 
+  const handleEsc = (event) => {
+    if (event.key === 'Escape') {
+      setIsOpen(false);
+    }
+  };
+
   const topLevelPages = headerMenuData.contentfulMainMenu.topLevelPages;
 
   return (
-    <nav className="MainMenu" aria-label="Naisten Linja Menu">
+    <nav
+      className="MainMenu"
+      aria-label="Naisten Linja Menu"
+      onKeyUp={handleEsc}
+    >
       {isOpen ? (
         <button
           className="MainMenu__mobile-close-button"
@@ -83,8 +93,32 @@ const MenuItem = ({ page }) => {
     setIsExpanded(false);
   };
 
+  const handleEsc = (event) => {
+    if (event.key === 'Escape') {
+      setIsExpanded(false);
+    }
+  };
+
+  const handleMouseEnter = () => {
+    if (!isExpanded) {
+      setIsExpanded(true);
+    }
+  };
+
+  const handleMouseExit = () => {
+    if (isExpanded) {
+      setIsExpanded(false);
+    }
+  };
+
   return (
-    <li role="none" className={isExpanded ? 'is-expanded' : ''}>
+    <li
+      role="none"
+      className={isExpanded ? 'is-expanded' : ''}
+      onKeyUp={handleEsc}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseExit}
+    >
       {page.menuPageSubpages ? (
         <button
           role="menuitem"
