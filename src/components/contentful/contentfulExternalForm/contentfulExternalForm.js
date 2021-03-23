@@ -4,6 +4,10 @@ import './contentfulExternalForm.scss';
 import FormIcon from '../../icons/form';
 import ExternalLinkIcon from '../../icons/externalLink';
 
+const translations = {
+  linkOpensInNewTab: 'Link opens in a new tab',
+};
+
 const ContentfulExternalForm = ({ content }) => {
   const { linkText, formUrl, openInNewTab } = content;
   return (
@@ -27,7 +31,7 @@ const ContentfulExternalForm = ({ content }) => {
           <ExternalLinkIcon
             width={20}
             height={20}
-            aria-label="Link opens in a new tab"
+            aria-label={translations.linkOpensInNewTab}
             className="external-link-icon"
           />
         )}
