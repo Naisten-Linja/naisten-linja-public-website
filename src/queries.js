@@ -130,6 +130,14 @@ export const ContenfulPage = graphql`
           description
         }
       }
+      ... on ContentfulExternalForm {
+        internal {
+          type
+        }
+        formUrl
+        openInNewTab
+        linkText
+      }
       ... on ContentfulContentBoxGroup {
         title
         internal {
