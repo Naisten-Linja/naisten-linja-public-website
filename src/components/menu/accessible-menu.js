@@ -7,14 +7,29 @@ import './menu.scss';
 const AccessibleMenu = () => {
   const headerMenuData = useStaticQuery(query);
   const [isOpen, setIsOpen] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(0);
+
   const toggleMobileMenu = (e) => {
     e.stopPropagation();
     setIsOpen(!isOpen);
   };
 
+  const handleFocusing = (nextItem) => {
+    setActiveIndex(nextItem);
+    document.getElementById(`top-level-item-${nextItem}`).focus();
+  };
+
   const handleEsc = (event) => {
     if (event.key === 'Escape') {
       setIsOpen(false);
+    } else if (event.key === 'ArrowRight') {
+      const nextItem =
+        activeIndex === topLevelPages.length - 1 ? 0 : activeIndex + 1;
+      handleFocusing(nextItem);
+    } else if (event.key === 'ArrowLeft') {
+      const nextItem =
+        activeIndex === 0 ? topLevelPages.length - 1 : activeIndex - 1;
+      handleFocusing(nextItem);
     }
   };
 
@@ -68,8 +83,13 @@ const AccessibleMenu = () => {
         aria-label="Naisten Linja Menu"
         className={`menu${isOpen ? ' mobile-active' : ''}`}
       >
-        {topLevelPages.map((topLevelPage) => (
-          <MenuItem key={topLevelPage.id} page={topLevelPage} />
+        {topLevelPages.map((topLevelPage, i) => (
+          <MenuItem
+            key={topLevelPage.id}
+            page={topLevelPage}
+            index={i}
+            activeIndex={activeIndex}
+          />
         ))}
       </ul>
     </nav>
@@ -78,9 +98,9 @@ const AccessibleMenu = () => {
 
 export default AccessibleMenu;
 
-const MenuItem = ({ page }) => {
+const MenuItem = ({ page, index, activeIndex }) => {
   const [isExpanded, setIsExpanded] = useState(false);
-
+  const [activeSubMenuItem, setActiveSubMenuItem] = useState(0);
   const itemName = page.pageContainerName
     ? page.pageContainerName
     : page.menuPage.pageName;
@@ -88,19 +108,53 @@ const MenuItem = ({ page }) => {
   const handleExpanded = async () => {
     const changedValue = !isExpanded;
     await setIsExpanded(changedValue);
+
     if (changedValue) {
       /**
        * Moves focus to the first value in opened submenu
        */
-      document.activeElement.parentElement
-        .getElementsByClassName('submenu')[0]
-        .childNodes[0].childNodes[0].focus();
+      const firstElement = document.getElementById('sub-menu-item-0');
+      firstElement && firstElement.focus();
     }
   };
 
-  const handleEsc = (event) => {
+  const handleFocusing = (nextItem) => {
+    setActiveSubMenuItem(nextItem);
+    document.getElementById(`sub-menu-item-${nextItem}`).focus();
+  };
+
+  const handleKeyUp = (event) => {
     if (event.key === 'Escape') {
       setIsExpanded(false);
+      document.getElementById(`top-level-item-${index}`).focus();
+    } else if (event.key === 'ArrowDown' && page.menuPageSubpages) {
+      if (!isExpanded) {
+        handleExpanded();
+      } else {
+        const nextItem =
+          activeSubMenuItem === page.menuPageSubpages.length - 1
+            ? 0
+            : activeSubMenuItem + 1;
+        handleFocusing(nextItem);
+      }
+    } else if (event.key === 'ArrowUp' && page.menuPageSubpages) {
+      const nextItem =
+        activeSubMenuItem === 0
+          ? page.menuPageSubpages.length - 1
+          : activeSubMenuItem - 1;
+      handleFocusing(nextItem);
+    }
+  };
+
+  const handleKeyDown = (event) => {
+    /**
+     * This event listener is here to prevent scrolling of the page, when focus is on a menuitem, which has subpages
+     */
+    if (
+      (event.key === 'ArrowDown' || event.key === 'ArrowUp') &&
+      page.menuPageSubpages
+    ) {
+      event.preventDefault();
     }
   };
 
@@ -120,36 +174,49 @@ const MenuItem = ({ page }) => {
     <li
       role="none"
       className={isExpanded ? 'is-expanded' : ''}
-      onKeyUp={handleEsc}
+      onKeyUp={handleKeyUp}
+      onKeyDown={handleKeyDown}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseExit}
     >
       {page.menuPageSubpages ? (
         <button
           role="menuitem"
-          tabIndex="0"
+          tabIndex={index === activeIndex ? '0' : '-1'}
           aria-expanded={isExpanded}
           onClick={handleExpanded}
           className="top-level-button"
+          id={`top-level-item-${index}`}
         >
           {itemName}
         </button>
       ) : page.linkToExternalUrl ? (
-        <a role="menuitem" tabIndex="0" href={page.linkToExternalUrl}>
+        <a
+          role="menuitem"
+          tabIndex={index === activeIndex ? '0' : '-1'}
+          href={page.linkToExternalUrl}
+          id={`top-level-item-${index}`}
+        >
           {itemName}
         </a>
       ) : (
         <Link
           role="menuitem"
-          tabIndex="0"
+          tabIndex={index === activeIndex ? '0' : '-1'}
           to={`/${page.menuPage.slug}`}
           activeClassName="active-link"
+          id={`top-level-item-${index}`}
         >
           {itemName}
         </Link>
       )}
       {page.menuPageSubpages && isExpanded && (
-        <SubMenu page={page} itemName={itemName} />
+        <SubMenu
+          page={page}
+          itemName={itemName}
+          activeSubMenuItem={activeSubMenuItem}
+          setActiveSubMenuItem={setActiveSubMenuItem}
+        />
       )}
     </li>
   );
@@ -159,9 +226,13 @@ const SubMenu = ({ page, itemName }) => {
   return (
     <div className="MainMenu__submenu-container">
       <ul role="menu" aria-label={itemName} className="submenu">
-        {page.menuPageSubpages.map((subPage) => (
+        {page.menuPageSubpages.map((subPage, i) => (
           <li key={subPage.id} role="none">
-            <MenuLink page={subPage} className="top-level-item" />
+            <MenuLink
+              page={subPage}
+              className="top-level-item"
+              id={`sub-menu-item-${i}`}
+            />
             {subPage.menuPageSubpages && <SubMenuItems page={subPage} />}
           </li>
         ))}
@@ -182,22 +253,28 @@ const SubMenuItems = ({ page }) => {
   );
 };
 
-const MenuLink = ({ page, className }) => {
+const MenuLink = ({ page, className, id }) => {
   const itemName = page.pageContainerName
     ? page.pageContainerName
     : page.menuPage.pageName;
 
   return page.linkToExternalUrl ? (
-    <a href={page.linkToExternalUrl} className={className}>
+    <a
+      href={page.linkToExternalUrl}
+      className={className}
+      tabIndex="-1"
+      id={id}
+    >
       {itemName}
     </a>
   ) : (
     <Link
       role="menuitem"
-      tabIndex="-1"
       to={`/${page.menuPage.slug}`}
       activeClassName="active-link"
       className={className}
+      tabIndex="-1"
+      id={id}
     >
       {itemName}
     </Link>
