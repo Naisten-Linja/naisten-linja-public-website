@@ -6,10 +6,10 @@ import ContentfulReadMore from './contentfulReadMore/contentfulReadMore';
 import ContentfulVideo from './contentfulVideo/contentfulVideo';
 import ContentfulFullWidthImage from './contentfulFullWidthImage/contentfulFullWidthImage';
 import ContentfulPersonIntroduction from './contentfulPersonIntroduction/contentfulPersonIntroduction';
-import ContentfulForm from './contentfulForm/contentfulForm';
 import ContentfulContentBoxGroup from './contentfulContentBoxGroup/contentfulContentBoxGroup';
 import ContentfulDonationForm from './contentfulDonationForm/contentfulDonationForm';
 import ContentfulOpenLetterForm from './contentfulOpenLetterForm/contentfulOpenLetterForm';
+import ContentfulExternalForm from './contentfulExternalForm/contentfulExternalForm';
 
 const ContentfulComponents = ({ pageContent }) => {
   return (pageContent || []).map((component, index) => {
@@ -45,9 +45,6 @@ const ContentfulComponents = ({ pageContent }) => {
       case 'ContentfulPersonIntroduction':
         return <ContentfulPersonIntroduction key={index} content={component} />;
 
-      case 'ContentfulForm':
-        return <ContentfulForm key={index} content={component} />;
-
       case 'ContentfulContentBoxGroup':
         return <ContentfulContentBoxGroup key={index} content={component} />;
 
@@ -56,6 +53,9 @@ const ContentfulComponents = ({ pageContent }) => {
 
       case 'ContentfulOpenLetterForm':
         return <ContentfulOpenLetterForm key={index} content={component} />;
+
+      case 'ContentfulExternalForm':
+        return <ContentfulExternalForm key={index} content={component} />;
 
       default:
         return null;
