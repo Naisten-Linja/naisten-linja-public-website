@@ -1,8 +1,9 @@
 import { Link } from 'gatsby';
 // import PropTypes from 'prop-types';
-import React, { useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import './menu.scss';
+import { usePrevious } from '../../hooks/usePrevious';
 
 const AccessibleMenu = () => {
   const headerMenuData = useStaticQuery(query);
@@ -104,6 +105,21 @@ const MenuItem = ({ page, index, activeIndex }) => {
   const itemName = page.pageContainerName
     ? page.pageContainerName
     : page.menuPage.pageName;
+  const prevActiveIndex = usePrevious(activeIndex);
+
+  const hideMenuIfFocusMoves = useCallback(() => {
+    if (
+      prevActiveIndex === index &&
+      activeIndex !== prevActiveIndex &&
+      isExpanded
+    ) {
+      setIsExpanded(false);
+    }
+  }, [isExpanded, activeIndex, index, prevActiveIndex]);
+
+  useEffect(() => {
+    hideMenuIfFocusMoves();
+  }, [activeIndex, hideMenuIfFocusMoves]);
 
   const handleExpanded = async () => {
     const changedValue = !isExpanded;
