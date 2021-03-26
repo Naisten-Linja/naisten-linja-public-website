@@ -7,15 +7,40 @@ import './menu.scss';
 const Menu = () => {
   const headerMenuData = useStaticQuery(query);
   const [isOpen, setIsOpen] = useState(false);
+  const [activeItem, setActiveItem] = useState(0);
+
   const toggleMobileMenu = (e) => {
     e.stopPropagation();
     setIsOpen(!isOpen);
   };
 
+  const handleFocusing = (nextItem) => {
+    setActiveItem(nextItem);
+    document.getElementById(`top-level-item-${nextItem}`).focus();
+  };
+
+  const handleEsc = (event) => {
+    if (event.key === 'Escape') {
+      setIsOpen(false);
+    } else if (event.key === 'ArrowRight') {
+      const nextItem =
+        activeItem === topLevelPages.length - 1 ? 0 : activeItem + 1;
+      handleFocusing(nextItem);
+    } else if (event.key === 'ArrowLeft') {
+      const nextItem =
+        activeItem === 0 ? topLevelPages.length - 1 : activeItem - 1;
+      handleFocusing(nextItem);
+    }
+  };
+
   const topLevelPages = headerMenuData.contentfulMainMenu.topLevelPages;
 
   return (
-    <nav className="MainMenu">
+    <nav
+      className="MainMenu"
+      aria-label="Naisten Linja Menu"
+      onKeyUp={handleEsc}
+    >
       {isOpen ? (
         <button
           className="MainMenu__mobile-close-button"
@@ -52,9 +77,19 @@ const Menu = () => {
           </svg>
         </button>
       )}
-      <ul className={`menu${isOpen ? ' mobile-active' : ''}`}>
+      <ul
+        id="menubar"
+        aria-label="Naisten Linja Menu"
+        className={`menu${isOpen ? ' mobile-active' : ''}`}
+      >
         {topLevelPages.map((topLevelPage, i) => (
-          <TopLevelMenuItem page={topLevelPage} />
+          <MenuItem
+            key={topLevelPage.id}
+            page={topLevelPage}
+            index={i}
+            activeItem={activeItem}
+            setActiveItem={setActiveItem}
+          />
         ))}
       </ul>
     </nav>
@@ -63,86 +98,125 @@ const Menu = () => {
 
 export default Menu;
 
-const TopLevelMenuItem = ({ page }) => {
-  const [isActive, setIsActive] = useState(false);
-  const toggleSubmenu = (e) => {
-    e.stopPropagation();
-    setIsActive(!isActive);
-  };
+const MenuItem = ({ page, index, activeItem, setActiveItem }) => {
+  const [isExpanded, setIsExpanded] = useState(false);
+
   const itemName = page.pageContainerName
     ? page.pageContainerName
     : page.menuPage.pageName;
+  const handleExpanded = async () => {
+    const changedValue = !isExpanded;
+    await setIsExpanded(changedValue);
+
+    if (changedValue) {
+      setActiveItem(index);
+    }
+  };
+
+  const handleEsc = (event) => {
+    if (event.key === 'Escape') {
+      setIsExpanded(false);
+    }
+  };
+
+  const handleMouseEnter = () => {
+    if (!isExpanded && page.menuPageSubpages) {
+      setIsExpanded(true);
+      setActiveItem(index);
+    }
+  };
+
+  const handleMouseExit = () => {
+    if (isExpanded && page.menuPageSubpages) {
+      setIsExpanded(false);
+    }
+  };
+  const shouldExpand = isExpanded && activeItem === index;
   return (
     <li
-      onClick={toggleSubmenu}
-      className={[
-        isActive ? 'active-submenu' : null,
-        page.menuPageSubpages ? 'has-subpages' : null,
-      ]
-        .filter((x) => !!x)
-        .join(' ')}
+      className={shouldExpand ? 'is-expanded' : ''}
+      onMouseLeave={handleMouseExit}
+      onMouseEnter={handleMouseEnter}
+      onKeyUp={handleEsc}
     >
-      {page.linkToExternalUrl ? (
-        <a href={page.linkToExternalUrl}>{itemName}</a>
+      {page.menuPageSubpages ? (
+        <button
+          aria-expanded={isExpanded}
+          onClick={handleExpanded}
+          className="top-level-button"
+          id={`top-level-item-${index}`}
+        >
+          {itemName}
+        </button>
+      ) : page.linkToExternalUrl ? (
+        <a href={page.linkToExternalUrl} id={`top-level-item-${index}`}>
+          {itemName}
+        </a>
       ) : (
-        <Link activeClassName="active-link" to={page.menuPage.slug}>
+        <Link
+          to={`/${page.menuPage.slug}`}
+          activeClassName="active-link"
+          id={`top-level-item-${index}`}
+        >
           {itemName}
         </Link>
       )}
-      <SubPageMenu page={page} isFirstLevel={true} />
+      {page.menuPageSubpages && shouldExpand && (
+        <SubMenu page={page} itemName={itemName} />
+      )}
     </li>
   );
 };
 
-const SubPageMenu = ({ page, isFirstLevel = false }) => {
-  if (!page || !page.menuPageSubpages) {
-    return null;
-  }
+const SubMenu = ({ page, itemName }) => {
+  return (
+    <div className="MainMenu__submenu-container">
+      <ul aria-label={itemName} className="submenu">
+        {page.menuPageSubpages.map((subPage, i) => (
+          <li key={subPage.id}>
+            <MenuLink
+              page={subPage}
+              className="top-level-item"
+              id={`sub-menu-item-${i}`}
+            />
+            {subPage.menuPageSubpages && <SubMenuItems page={subPage} />}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
 
-  const subNav = (
+const SubMenuItems = ({ page }) => {
+  return (
     <ul>
-      {page.menuPageSubpages.map((navigationPage, i) => (
-        <SubPageLink key={i} page={navigationPage} />
+      {page.menuPageSubpages.map((item, i) => (
+        <li key={item.id}>
+          <MenuLink page={item} id={`sub-page-item-${i}`} />
+        </li>
       ))}
     </ul>
   );
-
-  return isFirstLevel ? (
-    <div className="MainMenu__submenu-container">{subNav}</div>
-  ) : (
-    subNav
-  );
 };
 
-const SubPageLink = ({ page }) => {
-  const [isActive, setIsActive] = useState(false);
-  const toggleSubmenu = (e) => {
-    e.stopPropagation();
-    setIsActive(!isActive);
-  };
+const MenuLink = ({ page, className, id }) => {
   const itemName = page.pageContainerName
     ? page.pageContainerName
     : page.menuPage.pageName;
 
-  return (
-    <li
-      onClick={toggleSubmenu}
-      className={[
-        isActive ? 'active-submenu' : null,
-        page.menuPageSubpages ? 'has-subpages' : null,
-      ]
-        .filter((x) => !!x)
-        .join(' ')}
+  return page.linkToExternalUrl ? (
+    <a href={page.linkToExternalUrl} className={className} id={id}>
+      {itemName}
+    </a>
+  ) : (
+    <Link
+      to={`/${page.menuPage.slug}`}
+      activeClassName="active-link"
+      className={className}
+      id={id}
     >
-      {page.linkToExternalUrl ? (
-        <a href={page.linkToExternalUrl}>{itemName}</a>
-      ) : (
-        <Link to={page.menuPage.slug} activeClassName="active-link">
-          {itemName}
-        </Link>
-      )}
-      <SubPageMenu page={page} />
-    </li>
+      {itemName}
+    </Link>
   );
 };
 
@@ -153,6 +227,7 @@ const query = graphql`
       slug
       mainMenuName
       topLevelPages {
+        id
         linkToExternalUrl
         menuPage {
           pageName
@@ -160,24 +235,29 @@ const query = graphql`
         }
         pageContainerName
         menuPageSubpages {
+          id
           linkToExternalUrl
           menuPage {
             pageName
             slug
+            id
           }
           pageContainerName
           menuPageSubpages {
             linkToExternalUrl
-            menuPage {
-              pageName
-              slug
-            }
             menuPageSubpages {
               linkToExternalUrl
               menuPage {
                 pageName
                 slug
               }
+              id
+            }
+            id
+            menuPage {
+              pageName
+              slug
+              id
             }
           }
         }
