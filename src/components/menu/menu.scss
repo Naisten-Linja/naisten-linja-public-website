@@ -5,15 +5,16 @@ $color-white: #edeeef;
 $dark-gray: #4c5060;
 $dark-blue: #294374;
 
+.active-link {
+  font-weight: bold;
+}
+
 .MainMenu {
   z-index: 20;
   position: fixed;
   top: 0;
   left: 0;
 
-  /*
-  ACCESSIBLE STYLES
-  */
   li {
     width: 100%;
     box-sizing: border-box;
@@ -31,9 +32,6 @@ $dark-blue: #294374;
       align-items: center;
       border-bottom: none;
       color: #edeeef;
-      font-family: 'Alegreya Sans';
-      font-style: normal;
-      font-weight: 500;
       font-size: 1rem;
       text-decoration: none;
       display: block;
@@ -45,9 +43,6 @@ $dark-blue: #294374;
       }
     }
   }
-  /* 
-  / Accessible styles
-  */
 
   &__mobile-open-button {
     position: fixed;
