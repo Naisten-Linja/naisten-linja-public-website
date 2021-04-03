@@ -19,7 +19,6 @@ import { loadStripe } from '@stripe/stripe-js';
 import './layout.scss';
 import './globals.scss';
 import './cookieBanner.scss';
-import { Link } from 'gatsby';
 
 // Make sure to call `loadStripe` outside of a component’s render to avoid
 // recreating the `Stripe` object on every render.
