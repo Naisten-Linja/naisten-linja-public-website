@@ -56,7 +56,7 @@ const ContentfulParagraph = ({ content }) => {
                 <div className="col-xs-12 col-md-6 col-lg-4 col-xl-4 image-col p-0">
                   <img
                     src={content.sideImage.file.url}
-                    alt={content.sideImage.title}
+                    alt={content.sideImage.description || ''}
                   />
                 </div>
               )}
@@ -74,7 +74,7 @@ const ContentfulParagraph = ({ content }) => {
                 <div className="col-xs-12 col-md-6 col-lg-4 col-xl-4 image-col p-0">
                   <img
                     src={content.sideImage.file.url}
-                    alt={content.sideImage.title}
+                    alt={content.sideImage.description || ''}
                   />
                 </div>
               )}

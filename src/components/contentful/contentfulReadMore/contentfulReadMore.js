@@ -13,7 +13,7 @@ const ContentfulReadMore = ({ content }) => {
           <div className="col-xs-12 col-md-4 image-col">
             <img
               src="https://images.ctfassets.net/pbxhiiewat8h/I31m5s93YSmm4yEKXKlHf/ee2af1b76b0702bfc4d491a8f052822a/girl_reading.png?"
-              alt="Read More"
+              alt=""
             />
           </div>
           <div className="col-xs-12 col-md-8">

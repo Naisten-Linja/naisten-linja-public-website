@@ -22,6 +22,7 @@ export const ContenfulPage = graphql`
         paragraphColumns
         sideImagePosition
         sideImage {
+          description
           file {
             url
           }
