@@ -9,14 +9,14 @@ import { translations } from './translations';
 import '../../../scss/grid.scss';
 import './contentfulOpenLetterForm.scss';
 
-const WriteLetterForm = ({ accessKey, accessPassword }) => {
+const WriteLetterForm = ({ accessKey, accessPassword, language }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState(null);
   const [isLetterSent, setIsLetterSent] = useState(false);
   const [openLetterTitle, setOpenLetterTitle] = useState('');
   const [openLetterContent, setOpenLetterContent] = useState('');
 
-  const t = translations.en;
+  const t = translations[language] ?? translations.fi;
 
   const sendOpenLetter = useCallback(
     (e) => {

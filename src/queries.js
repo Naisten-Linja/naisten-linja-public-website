@@ -129,6 +129,7 @@ export const ContenfulPage = graphql`
           }
           description
         }
+        defaultLanguage
       }
       ... on ContentfulExternalForm {
         internal {

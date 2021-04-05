@@ -18,16 +18,17 @@ const OpenLetterForm = ({ content }) => {
     readYourLetterButtonText,
     title,
     description,
+    defaultLanguage,
   } = content;
 
-  const t = translations.en;
-
+  const [language, setLanguage] = useState(defaultLanguage);
   const [expandOpenLetterStart, setExpandOpenLetterStart] = useState(false);
   const [expandOpenLetterRead, setExpandOpenLetterRead] = useState(false);
   const [accessKey, setAccessKey] = useState('');
   const [accessPassword, setAccessPassword] = useState('');
-
   const [loadingError, setLoadingError] = useState('');
+
+  const t = translations[language] ?? translations.fi;
 
   const startOpenLetter = () => {
     axios
@@ -79,10 +80,13 @@ const OpenLetterForm = ({ content }) => {
           <WriteLetterForm
             accessKey={accessKey}
             accessPassword={accessPassword}
+            language={language}
           />
         )}
 
-        {expandOpenLetterRead && <ReadLetterForm content={content} />}
+        {expandOpenLetterRead && (
+          <ReadLetterForm content={content} language={language} />
+        )}
       </div>
     </section>
   );

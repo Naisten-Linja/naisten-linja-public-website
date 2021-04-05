@@ -9,16 +9,22 @@ const axiosConfig = {
   headers: { 'Content-Type': 'application/json' },
 };
 
-const ReadLetterForm = ({ content }) => {
+const ReadLetterForm = ({ content, language }) => {
   const [openLetterContent, setOpenLetterContent] = useState(null);
 
   return (
     <>
       {!openLetterContent && (
-        <AccessKeyAndPasswordForm setOpenLetterContent={setOpenLetterContent} />
+        <AccessKeyAndPasswordForm
+          setOpenLetterContent={setOpenLetterContent}
+          language={language}
+        />
       )}
       {openLetterContent && (
-        <LetterContent openLetterContent={openLetterContent} />
+        <LetterContent
+          openLetterContent={openLetterContent}
+          language={language}
+        />
       )}
     </>
   );
@@ -26,8 +32,8 @@ const ReadLetterForm = ({ content }) => {
 
 export default ReadLetterForm;
 
-const LetterContent = ({ openLetterContent }) => {
-  const t = translations.en;
+const LetterContent = ({ openLetterContent, language }) => {
+  const t = translations[language] ?? translations.fi;
 
   return (
     <>
@@ -63,12 +69,12 @@ const LetterContent = ({ openLetterContent }) => {
   );
 };
 
-const AccessKeyAndPasswordForm = ({ setOpenLetterContent }) => {
+const AccessKeyAndPasswordForm = ({ setOpenLetterContent, language }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [accessKey, setAccessKey] = useState('');
   const [accessPassword, setAccessPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState(null);
-  const t = translations.en;
+  const t = translations[language] ?? translations.fi;
 
   const readOpenLetter = useCallback(
     async (e) => {
