@@ -1,8 +1,9 @@
 @import '../scss/grid.scss';
 
 @import '../scss/fonts/Alegreya_Sans/stylesheet.css';
+@import '../scss/fonts/Aracne_Ultra/stylesheet.css';
 @import '../scss/fonts/Fira/stylesheet.css';
-@import '../scss/fonts/Hey_August/stylesheet.css';
+@import '../scss/fonts/Sansita/stylesheet.css';
 @import './mixins.scss';
 
 html {
@@ -632,9 +633,9 @@ body {
 }
 
 h1 {
-  font-family: 'Hey August';
+  font-family: 'Sansita';
   font-style: normal;
-  font-weight: normal;
+  font-weight: 800;
   letter-spacing: 0.09em;
 }
 
