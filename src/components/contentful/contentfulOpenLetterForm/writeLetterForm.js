@@ -53,6 +53,8 @@ const WriteLetterForm = ({ accessKey, accessPassword }) => {
   const updateLetterContent = (e) => setOpenLetterContent(e.target.value);
 
   if (errorMessage) {
+    // Using dangerouslySetInnerHTML due to some error messages contains links to the feedback form.
+    // TODO: once we switch to a proper translations library, this should be replaced with variables and message template instead.
     return (
       <p
         className="OpenLetterForm__error-message"
