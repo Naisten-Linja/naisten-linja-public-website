@@ -4,6 +4,7 @@ import TextareaAutosize from 'react-textarea-autosize';
 
 import ReadLetterForm from './readLetterForm';
 import WriteLetterForm from './writeLetterForm';
+import { translations } from './translations';
 
 import './contentfulOpenLetterForm.scss';
 
@@ -18,6 +19,8 @@ const OpenLetterForm = ({ content }) => {
     title,
     description,
   } = content;
+
+  const t = translations.en;
 
   const [expandOpenLetterStart, setExpandOpenLetterStart] = useState(false);
   const [expandOpenLetterRead, setExpandOpenLetterRead] = useState(false);
@@ -59,7 +62,7 @@ const OpenLetterForm = ({ content }) => {
               />
             )}
             <button className="button" onClick={startOpenLetter}>
-              Write a new letter
+              {t['openLetterForm.button.writeANewLetter']}
             </button>
             <button
               className="button"
@@ -67,7 +70,7 @@ const OpenLetterForm = ({ content }) => {
                 setExpandOpenLetterRead(true);
               }}
             >
-              Read your response
+              {t['openLetterForm.button.readResponse']}
             </button>
           </>
         )}

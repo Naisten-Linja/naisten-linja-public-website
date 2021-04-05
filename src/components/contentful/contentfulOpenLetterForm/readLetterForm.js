@@ -3,6 +3,7 @@ import axios from 'axios';
 
 import { FullPageLoader } from '../../loader';
 import { SERVICE_API_URL } from '../../../constants';
+import { translations } from './translations';
 
 const axiosConfig = {
   headers: { 'Content-Type': 'application/json' },
@@ -26,31 +27,37 @@ const ReadLetterForm = ({ content }) => {
 export default ReadLetterForm;
 
 const LetterContent = ({ openLetterContent }) => {
+  const t = translations.en;
+
   return (
     <>
-      <h2>Our response</h2>
+      <h2>{t['openLetterForm.ourResponse']}</h2>
       {openLetterContent.replyContent ? (
         <div className="OpenLetterForm__letter-content-wrapper">
           <p>
-            Date: {new Date(openLetterContent.replyUpdated).toLocaleString()}
+            {t['openLetterForm.date']}:{' '}
+            {new Date(openLetterContent.replyUpdated).toLocaleString()}
           </p>
           {openLetterContent.replyContent}
         </div>
       ) : (
         <div className="OpenLetterForm__success-message">
-          There is no response to your message yet.
+          {t['openLetterForm.noResponse']}
         </div>
       )}
 
-      <h2>Your letter</h2>
+      <h2>{t['openLetterForm.yourLetter']}</h2>
       <div className="OpenLetterForm__letter-content-wrapper">
-        <p>Date: {new Date(openLetterContent.created).toLocaleString()}</p>
+        <p>
+          {t['openLetterForm.date']}:{' '}
+          {new Date(openLetterContent.created).toLocaleString()}
+        </p>
         <h2>{openLetterContent.title}</h2>
         {openLetterContent.content}
       </div>
 
       <button className="button" onClick={() => window.location.reload()}>
-        Close letter
+        {t['openLetterForm.closeLetter']}
       </button>
     </>
   );
@@ -61,17 +68,18 @@ const AccessKeyAndPasswordForm = ({ setOpenLetterContent }) => {
   const [accessKey, setAccessKey] = useState('');
   const [accessPassword, setAccessPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState(null);
+  const t = translations.en;
 
   const readOpenLetter = useCallback(
     async (e) => {
       e.preventDefault();
       setErrorMessage(null);
       if (!accessKey.trim()) {
-        setErrorMessage('Please provide the access key.');
+        setErrorMessage(t['openLetterForm.error.accessKeyMissing']);
         return;
       }
       if (!accessPassword) {
-        setErrorMessage('Please provide the access password.');
+        setErrorMessage(t['openLetterForm.error.accessPasswordMissing']);
         return;
       }
       setIsLoading(true);
@@ -85,13 +93,9 @@ const AccessKeyAndPasswordForm = ({ setOpenLetterContent }) => {
         setOpenLetterContent(response.data.data);
       } catch (err) {
         if (err.response.status === 403) {
-          setErrorMessage(
-            'Looks like you have entered the wrong access key and password. Please try again.',
-          );
+          setErrorMessage(t['openLetterForm.error.wrongCredentials']);
         } else {
-          setErrorMessage(
-            'There was an error while fetching your message. Please contact our staff for support!',
-          );
+          setErrorMessage(t['openLetterForm.error.failedToFetchLetter']);
         }
       } finally {
         setIsLoading(false);
@@ -107,12 +111,15 @@ const AccessKeyAndPasswordForm = ({ setOpenLetterContent }) => {
       autocomplete="off"
     >
       {errorMessage && (
-        <p className="OpenLetterForm__error-message">{errorMessage}</p>
+        <p
+          className="OpenLetterForm__error-message"
+          dangerouslySetInnerHTML={{ __html: errorMessage }}
+        />
       )}
 
       <div className="OpenLetterForm__credentials">
         <div className="OpenLetterForm__credential">
-          <label htmlFor="accessKey">Access key</label>
+          <label htmlFor="accessKey">{t['openLetterForm.accessKey']}</label>
           <input
             onChange={(e) => setAccessKey(e.target.value)}
             type="text"
@@ -121,7 +128,9 @@ const AccessKeyAndPasswordForm = ({ setOpenLetterContent }) => {
           />
         </div>
         <div className="OpenLetterForm__credential">
-          <label htmlFor="accessPassword">Access password</label>
+          <label htmlFor="accessPassword">
+            {t['openLetterForm.accessPassword']}
+          </label>
           <input
             onChange={(e) => setAccessPassword(e.target.value)}
             type="password"
@@ -133,9 +142,13 @@ const AccessKeyAndPasswordForm = ({ setOpenLetterContent }) => {
       {isLoading && <FullPageLoader />}
 
       <button className="button" onClick={() => window.location.reload()}>
-        Cancel
+        {t['openLetterForm.button.cancel']}
       </button>
-      <input className="button" type="submit" value="Read your letter" />
+      <input
+        className="button"
+        type="submit"
+        value={t['openLetterForm.button.readResponse']}
+      />
     </form>
   );
 };

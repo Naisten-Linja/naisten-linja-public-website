@@ -4,8 +4,7 @@ import TextareaAutosize from 'react-textarea-autosize';
 
 import { SERVICE_API_URL } from '../../../constants';
 import { FullPageLoader } from '../../loader';
-
-import ReadLetterForm from './readLetterForm';
+import { translations } from './translations';
 
 import '../../../scss/grid.scss';
 import './contentfulOpenLetterForm.scss';
@@ -17,16 +16,18 @@ const WriteLetterForm = ({ accessKey, accessPassword }) => {
   const [openLetterTitle, setOpenLetterTitle] = useState('');
   const [openLetterContent, setOpenLetterContent] = useState('');
 
+  const t = translations.en;
+
   const sendOpenLetter = useCallback(
     (e) => {
       e.preventDefault();
       setIsLoading(true);
       setErrorMessage(null);
       if (!openLetterTitle.trim()) {
-        return setErrorMessage("Please provide the letter's subject");
+        return setErrorMessage(t['openLetterForm.error.subjectMissing']);
       }
       if (!openLetterContent.trim()) {
-        return setErrorMessage('Your letter content is missing');
+        return setErrorMessage(t['openLetterForm.error.contentMissing']);
       }
       axios
         .post(`${SERVICE_API_URL}/online-letter/send`, {
@@ -39,37 +40,39 @@ const WriteLetterForm = ({ accessKey, accessPassword }) => {
           setIsLetterSent(true);
         })
         .catch(function (error) {
-          setErrorMessage(
-            'There was an issue with sending your leter. Please refresh this page and try again, or contact our staff for support!',
-          );
+          setErrorMessage(t['openLetterForm.error.sendingFailed']);
         })
         .finally(() => {
           setIsLoading(false);
         });
     },
-    [accessKey, accessPassword, openLetterTitle, openLetterContent],
+    [accessKey, accessPassword, openLetterTitle, openLetterContent, t],
   );
 
   const updateLetterTitle = (e) => setOpenLetterTitle(e.target.value);
   const updateLetterContent = (e) => setOpenLetterContent(e.target.value);
 
   if (errorMessage) {
-    return <p>{errorMessage}</p>;
+    return (
+      <p
+        className="OpenLetterForm__error-message"
+        dangerouslySetInnerHTML={{ __html: errorMessage }}
+      />
+    );
   }
 
   if (isLetterSent) {
     return (
       <>
         <div className="OpenLetterForm__success-message">
-          Your message has been sent!
+          {t['openLetterForm.letterSent']}
           <br />
-          Please make sure you have written these credentials down in order to
-          read your letter later.
+          {t['openLetterForm.recordCredentialsReminder']}
         </div>
 
         <div className="OpenLetterForm__credentials">
           <div className="OpenLetterForm__credential">
-            <label htmlFor="accessKey">Access key</label>
+            <label htmlFor="accessKey">{t['openLetterForm.accessKey']}</label>
             <input
               className="access-credential-value"
               type="text"
@@ -80,7 +83,9 @@ const WriteLetterForm = ({ accessKey, accessPassword }) => {
           </div>
 
           <div className="OpenLetterForm__credential">
-            <label htmlFor="accessPassword">Access passsword</label>
+            <label htmlFor="accessPassword">
+              {t['openLetterForm.accessPassword']}
+            </label>
             <input
               className="access-credential-value"
               type="text"
@@ -92,7 +97,7 @@ const WriteLetterForm = ({ accessKey, accessPassword }) => {
         </div>
 
         <button className="button" onClick={() => window.location.reload()}>
-          Done
+          {t['openLetterForm.button.credentialsRecorded']}
         </button>
       </>
     );
@@ -107,7 +112,7 @@ const WriteLetterForm = ({ accessKey, accessPassword }) => {
       {isLoading && <FullPageLoader />}
       <div className="OpenLetterForm__credentials">
         <div className="OpenLetterForm__credential">
-          <label htmlFor="accessKey">Access key</label>
+          <label htmlFor="accessKey">{t['openLetterForm.accessKey']}</label>
           <input
             className="access-credential-value"
             type="text"
@@ -118,7 +123,9 @@ const WriteLetterForm = ({ accessKey, accessPassword }) => {
         </div>
 
         <div className="OpenLetterForm__credential">
-          <label htmlFor="accessPassword">Access passsword</label>
+          <label htmlFor="accessPassword">
+            {t['openLetterForm.accessPassword']}
+          </label>
           <input
             className="access-credential-value"
             type="text"
@@ -129,12 +136,11 @@ const WriteLetterForm = ({ accessKey, accessPassword }) => {
         </div>
 
         <div className="OpenLetterForm__credentials-notice">
-          Please remember to write down your access key and password in order to
-          read the message later
+          {t['openLetterForm.recordCredentialsReminder']}
         </div>
       </div>
 
-      <label htmlFor="title">Subject</label>
+      <label htmlFor="title">{t['openLetterForm.subject']}</label>
       <input onChange={updateLetterTitle} type="text" name="title" required />
 
       <label htmlFor="content">Content</label>
@@ -146,10 +152,10 @@ const WriteLetterForm = ({ accessKey, accessPassword }) => {
       />
 
       <button className="button" onClick={() => window.location.reload()}>
-        Cancel
+        {t['openLetterForm.button.cancel']}
       </button>
       <button className="button" type="submit">
-        Send
+        {t['openLetterForm.button.send']}
       </button>
     </form>
   );
