@@ -104,7 +104,9 @@ const Layout = ({ children }) => {
         }}
       />
       <Header />
-      <main className="main-container">{children}</main>
+      <main className="main-container" id="main">
+        {children}
+      </main>
       <Footer />
     </Elements>
   );

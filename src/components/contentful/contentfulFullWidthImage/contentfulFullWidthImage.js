@@ -2,6 +2,7 @@ import React from 'react';
 import './contentfulFullWidthImage.scss';
 
 const ContentfulFullWidthImage = ({ content }) => {
+  const altText = content.imageTitle || '';
   return (
     <section className="full-width-section">
       <div className="FullWidthImage layout-container">
@@ -11,7 +12,7 @@ const ContentfulFullWidthImage = ({ content }) => {
           </div>
         )}
         <div className="row">
-          <img src={content.image.file.url} alt={content.imageTitle} />
+          <img src={content.image.file.url} alt={altText} />
         </div>
       </div>
     </section>
