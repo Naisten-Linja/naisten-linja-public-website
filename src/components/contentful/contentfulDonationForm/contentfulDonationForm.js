@@ -15,20 +15,23 @@ const stripePromise = loadStripe(
 );
 
 const donationTypeIds = {
-  monthly_5: 'price_1IOdXkIlFmfjuTJdQSlllipR',
   monthly_10: 'price_1HcTt7IlFmfjuTJde501tSxX',
   monthly_20: 'price_1IOdXkIlFmfjuTJdQwb3HeGt',
+  monthly_50: 'price_1Id5hQIlFmfjuTJd2pvebCxC',
 };
 
 const donationLabels = {
-  monthly_5: '5€ / month',
-  monthly_10: '10€ / month',
-  monthly_20: '20€ / month',
+  monthly_10: '10€/kk',
+  monthly_20: '20€/kk',
+  monthly_50: '50€/kk',
 };
 
 const DonationForm = ({ content }) => {
   const stripe = useStripe();
   const { title, description } = content;
+
+  const { location } = window;
+  const baseUrl = `${location.protocol}//${location.hostname}`;
 
   const checkout = (donationType) => () => {
     if (stripe) {
@@ -43,8 +46,9 @@ const DonationForm = ({ content }) => {
            * Instead use one of the strategies described in
            * https://stripe.com/docs/payments/checkout/fulfill-orders
            */
-          successUrl: 'http://naisten-linja.netlify.app/donation-successful',
-          cancelUrl: 'http://naisten-linja.netlify.app/donation-cancelled',
+          // TODO: this is not a good solution, since the donation successful and donation cancelled page are always reachable by entering the URL.
+          successUrl: `${baseUrl}/donation-successful`,
+          cancelUrl: `${baseUrl}/donation-cancelled`,
         })
         .then(function (result) {
           if (result.error) {
