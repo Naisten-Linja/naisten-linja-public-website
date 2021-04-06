@@ -30,11 +30,12 @@ const DonationForm = ({ content }) => {
   const stripe = useStripe();
   const { title, description } = content;
 
-  const { location } = window;
-  const baseUrl = `${location.protocol}//${location.hostname}`;
-
   const checkout = (donationType) => () => {
-    if (stripe) {
+    // During `gatsby build`, the `window` object is undefined.
+    // `window` is only available during run time.
+    if (stripe && typeof window !== undefined) {
+      const { location } = window;
+      const baseUrl = `${location.protocol}//${location.hostname}`;
       stripe
         .redirectToCheckout({
           lineItems: [{ price: donationTypeIds[donationType], quantity: 1 }],
