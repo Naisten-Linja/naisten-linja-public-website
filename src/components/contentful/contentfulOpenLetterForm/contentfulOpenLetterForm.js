@@ -4,6 +4,7 @@ import TextareaAutosize from 'react-textarea-autosize';
 
 import ReadLetterForm from './readLetterForm';
 import WriteLetterForm from './writeLetterForm';
+import { translations } from './translations';
 
 import './contentfulOpenLetterForm.scss';
 
@@ -17,14 +18,16 @@ const OpenLetterForm = ({ content }) => {
     readYourLetterButtonText,
     title,
     description,
+    defaultLanguage,
   } = content;
 
   const [expandOpenLetterStart, setExpandOpenLetterStart] = useState(false);
   const [expandOpenLetterRead, setExpandOpenLetterRead] = useState(false);
   const [accessKey, setAccessKey] = useState('');
   const [accessPassword, setAccessPassword] = useState('');
-
   const [loadingError, setLoadingError] = useState('');
+
+  const t = translations[defaultLanguage] ?? translations.fi;
 
   const startOpenLetter = () => {
     axios
@@ -59,7 +62,7 @@ const OpenLetterForm = ({ content }) => {
               />
             )}
             <button className="button" onClick={startOpenLetter}>
-              Write a new letter
+              {t['openLetterForm.button.writeANewLetter']}
             </button>
             <button
               className="button"
@@ -67,7 +70,7 @@ const OpenLetterForm = ({ content }) => {
                 setExpandOpenLetterRead(true);
               }}
             >
-              Read your response
+              {t['openLetterForm.button.readResponse']}
             </button>
           </>
         )}
@@ -76,10 +79,13 @@ const OpenLetterForm = ({ content }) => {
           <WriteLetterForm
             accessKey={accessKey}
             accessPassword={accessPassword}
+            language={defaultLanguage}
           />
         )}
 
-        {expandOpenLetterRead && <ReadLetterForm content={content} />}
+        {expandOpenLetterRead && (
+          <ReadLetterForm content={content} language={defaultLanguage} />
+        )}
       </div>
     </section>
   );
