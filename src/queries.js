@@ -22,6 +22,7 @@ export const ContenfulPage = graphql`
         paragraphColumns
         sideImagePosition
         sideImage {
+          description
           file {
             url
           }
@@ -129,6 +130,15 @@ export const ContenfulPage = graphql`
           }
           description
         }
+        defaultLanguage
+      }
+      ... on ContentfulExternalForm {
+        internal {
+          type
+        }
+        formUrl
+        openInNewTab
+        linkText
       }
       ... on ContentfulContentBoxGroup {
         title

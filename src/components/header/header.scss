@@ -16,7 +16,7 @@ header {
   padding-top: 1.5rem;
 
   @include media-breakpoint-up(md) {
-    padding-top: 4rem;
+    padding-top: 7rem;
   }
 
   .menu-row {
@@ -109,7 +109,7 @@ header {
   color: #fff;
   padding: 0.5rem;
   position: absolute;
-  transform: translateY(-200%);
+  transform: translateY(-400%);
 }
 
 .skip-to-content-link:focus {
