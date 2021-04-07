@@ -10,8 +10,6 @@ $dark-blue: #294374;
 }
 
 .MainMenu {
-  z-index: 20;
-  position: fixed;
   top: 0;
   left: 0;
 
@@ -45,10 +43,9 @@ $dark-blue: #294374;
   }
 
   &__mobile-open-button {
-    position: fixed;
     background: $dark-blue;
-    top: 1rem;
-    left: 0.5rem;
+    margin-top: 1rem;
+    margin-left: 0.5rem;
     border: none;
     padding: 0;
     width: 38px;
@@ -101,9 +98,6 @@ $dark-blue: #294374;
     justify-content: center;
     margin: 0;
     padding: 0.75rem;
-    position: fixed;
-    top: 0;
-    left: 0;
     display: none;
     flex-wrap: wrap;
 
@@ -141,6 +135,8 @@ $dark-blue: #294374;
     height: auto;
     margin: 0;
     background-color: $dark-blue;
+    z-index: 20;
+    position: fixed;
 
     &__mobile-open-button {
       display: none;

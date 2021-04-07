@@ -13,8 +13,6 @@ header {
   //       left bottom no-repeat;
   // }
 
-  padding-top: 1.5rem;
-
   @include media-breakpoint-up(md) {
     padding-top: 7rem;
   }
