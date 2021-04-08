@@ -30,7 +30,6 @@ const Menu = () => {
       } else {
         document.getElementById(`top-level-item-${activeItem}`).focus();
       }
-      // If not, focus to the active item
     } else if (event.key === 'ArrowRight') {
       const nextItem =
         activeItem === topLevelPages.length - 1 ? 0 : activeItem + 1;
