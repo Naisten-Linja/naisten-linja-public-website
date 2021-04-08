@@ -37,7 +37,7 @@ const Menu = () => {
 
   return (
     <nav
-      className="MainMenu"
+      className={`MainMenu ${isOpen ? 'mobile-menu-open' : ''}`}
       aria-label="Naisten Linja Menu"
       onKeyUp={handleEsc}
     >

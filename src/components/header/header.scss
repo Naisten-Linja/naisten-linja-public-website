@@ -60,6 +60,10 @@ header {
     }
   }
 
+  nav.mobile-menu-open ~ .escape-link-container {
+    top: 3rem;
+  }
+
   .escape-link-box {
     background: #5c6572;
     border: 2px solid #d2edeb;
