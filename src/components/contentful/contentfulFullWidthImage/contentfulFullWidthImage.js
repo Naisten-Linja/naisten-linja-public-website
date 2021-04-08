@@ -2,7 +2,7 @@ import React from 'react';
 import './contentfulFullWidthImage.scss';
 
 const ContentfulFullWidthImage = ({ content }) => {
-  const altText = content.imageTitle || '';
+  const altText = content.image.description || '';
   return (
     <section className="full-width-section">
       <div className="FullWidthImage layout-container">
