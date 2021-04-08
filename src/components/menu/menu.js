@@ -3,11 +3,13 @@ import { Link } from 'gatsby';
 import React, { useState } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import './menu.scss';
+import { useIsMobile } from '../../hooks/useIsMobile';
 
 const Menu = () => {
   const headerMenuData = useStaticQuery(query);
   const [isOpen, setIsOpen] = useState(false);
   const [activeItem, setActiveItem] = useState(0);
+  const isMobile = useIsMobile();
 
   const toggleMobileMenu = (e) => {
     e.stopPropagation();
@@ -19,9 +21,15 @@ const Menu = () => {
     document.getElementById(`top-level-item-${nextItem}`).focus();
   };
 
-  const handleEsc = (event) => {
+  const handleEsc = async (event) => {
     if (event.key === 'Escape') {
-      setIsOpen(false);
+      await setIsOpen(false);
+      if (isMobile) {
+        document.getElementById('mobile-open-button').focus();
+      } else {
+        document.getElementById(`top-level-item-${activeItem}`).focus();
+      }
+      // If not, focus to the active item
     } else if (event.key === 'ArrowRight') {
       const nextItem =
         activeItem === topLevelPages.length - 1 ? 0 : activeItem + 1;
@@ -51,7 +59,7 @@ const Menu = () => {
             viewBox="0 0 329.26933 329"
             width="329pt"
             xmlns="http://www.w3.org/2000/svg"
-            aria-label="Close mobile menu"
+            aria-label="Sulje navigaatiomenu"
           >
             <path d="m194.800781 164.769531 128.210938-128.214843c8.34375-8.339844 8.34375-21.824219 0-30.164063-8.339844-8.339844-21.824219-8.339844-30.164063 0l-128.214844 128.214844-128.210937-128.214844c-8.34375-8.339844-21.824219-8.339844-30.164063 0-8.34375 8.339844-8.34375 21.824219 0 30.164063l128.210938 128.214843-128.210938 128.214844c-8.34375 8.339844-8.34375 21.824219 0 30.164063 4.15625 4.160156 9.621094 6.25 15.082032 6.25 5.460937 0 10.921875-2.089844 15.082031-6.25l128.210937-128.214844 128.214844 128.214844c4.160156 4.160156 9.621094 6.25 15.082032 6.25 5.460937 0 10.921874-2.089844 15.082031-6.25 8.34375-8.339844 8.34375-21.824219 0-30.164063zm0 0" />
           </svg>
@@ -59,7 +67,7 @@ const Menu = () => {
       ) : (
         <button
           className="MainMenu__mobile-open-button"
-          type="checkbox"
+          id="mobile-open-button"
           onClick={toggleMobileMenu}
         >
           <svg
@@ -67,7 +75,7 @@ const Menu = () => {
             height="32"
             viewBox="0 0 24 24"
             width="32"
-            aria-label="Open mobile main menu"
+            aria-label="Avaa navigaatiomenu"
           >
             <path d="M0 0h24v24H0z" fill="none" />
             <path
