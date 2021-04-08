@@ -61,12 +61,11 @@ $dark-blue: #294374;
   }
 
   &__mobile-close-button {
-    position: fixed;
+    position: absolute;
     z-index: 30;
     top: 0.5rem;
     border: none;
     box-shadow: none;
-    right: 1rem;
     width: 1.5rem;
     height: 1.5rem;
     border-radius: 50%;
@@ -75,7 +74,8 @@ $dark-blue: #294374;
     align-items: center;
     justify-content: center;
     padding: 0;
-    right: 0.5rem;
+    left: 0.5rem;
+
     svg {
       margin: 0;
       width: 50%;
@@ -104,6 +104,11 @@ $dark-blue: #294374;
     &.mobile-active {
       display: block;
       background-color: $dark-gray;
+      padding-top: 2rem;
+
+      [aria-current='page'] {
+        font-weight: bold;
+      }
 
       a,
       button {
@@ -118,6 +123,16 @@ $dark-blue: #294374;
         width: 100%;
         padding: 0.75rem 0;
         border-bottom: 1px solid #f2f2f2;
+      }
+
+      button {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+      }
+
+      .rotate {
+        transform: rotate(90deg) translate(0px, 5px);
       }
 
       .MainMenu__submenu-container {

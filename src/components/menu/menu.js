@@ -4,6 +4,9 @@ import React, { useState } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import './menu.scss';
 import { useIsMobile } from '../../hooks/useIsMobile';
+import HamburgerIcon from './icons/hamburger';
+import CrossIcon from './icons/cross';
+import ArrowIcon from './icons/arrow';
 
 const Menu = () => {
   const headerMenuData = useStaticQuery(query);
@@ -54,15 +57,7 @@ const Menu = () => {
           className="MainMenu__mobile-close-button"
           onClick={toggleMobileMenu}
         >
-          <svg
-            height="329pt"
-            viewBox="0 0 329.26933 329"
-            width="329pt"
-            xmlns="http://www.w3.org/2000/svg"
-            aria-label="Sulje navigaatiomenu"
-          >
-            <path d="m194.800781 164.769531 128.210938-128.214843c8.34375-8.339844 8.34375-21.824219 0-30.164063-8.339844-8.339844-21.824219-8.339844-30.164063 0l-128.214844 128.214844-128.210937-128.214844c-8.34375-8.339844-21.824219-8.339844-30.164063 0-8.34375 8.339844-8.34375 21.824219 0 30.164063l128.210938 128.214843-128.210938 128.214844c-8.34375 8.339844-8.34375 21.824219 0 30.164063 4.15625 4.160156 9.621094 6.25 15.082032 6.25 5.460937 0 10.921875-2.089844 15.082031-6.25l128.210937-128.214844 128.214844 128.214844c4.160156 4.160156 9.621094 6.25 15.082032 6.25 5.460937 0 10.921874-2.089844 15.082031-6.25 8.34375-8.339844 8.34375-21.824219 0-30.164063zm0 0" />
-          </svg>
+          <CrossIcon />
         </button>
       ) : (
         <button
@@ -70,19 +65,7 @@ const Menu = () => {
           id="mobile-open-button"
           onClick={toggleMobileMenu}
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            height="32"
-            viewBox="0 0 24 24"
-            width="32"
-            aria-label="Avaa navigaatiomenu"
-          >
-            <path d="M0 0h24v24H0z" fill="none" />
-            <path
-              fill="white"
-              d="M3 15h18v-2H3v2zm0 4h18v-2H3v2zm0-8h18V9H3v2zm0-6v2h18V5H3z"
-            />
-          </svg>
+          <HamburgerIcon />
         </button>
       )}
       <ul
@@ -112,6 +95,8 @@ const MenuItem = ({ page, index, activeItem, setActiveItem }) => {
   const itemName = page.pageContainerName
     ? page.pageContainerName
     : page.menuPage.pageName;
+
+  const isMobile = useIsMobile();
   const handleExpanded = async () => {
     const changedValue = !isExpanded;
     await setIsExpanded(changedValue);
@@ -155,6 +140,9 @@ const MenuItem = ({ page, index, activeItem, setActiveItem }) => {
           id={`top-level-item-${index}`}
         >
           {itemName}
+          {isMobile && (
+            <ArrowIcon ariaLabel="Avaa valikko" rotate={isExpanded} />
+          )}
         </button>
       ) : page.linkToExternalUrl ? (
         <a href={page.linkToExternalUrl} id={`top-level-item-${index}`}>
