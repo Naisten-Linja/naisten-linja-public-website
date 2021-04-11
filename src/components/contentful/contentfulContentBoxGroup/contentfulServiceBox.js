@@ -25,7 +25,7 @@ const ContentfulServiceBox = ({
       {serviceIcon && (
         <>
           <div className="ServiceBox__service-icon" aria-hidden={true}>
-            <img src={serviceIcon.file.url} />
+            <img src={serviceIcon.file.url} alt="" />
           </div>{' '}
         </>
       )}
