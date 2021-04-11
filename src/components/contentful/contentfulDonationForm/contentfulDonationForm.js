@@ -1,16 +1,12 @@
-import { Link } from 'gatsby';
-// import PropTypes from 'prop-types';
 import React from 'react';
 import { useStripe } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
-
-import Background from '../../background/background';
 
 import './contentfulDonationForm.scss';
 
 // Make sure to call `loadStripe` outside of a component’s render to avoid
 // recreating the `Stripe` object on every render.
-const stripePromise = loadStripe(
+loadStripe(
   'pk_test_51HcTSZIlFmfjuTJdc1LqP1HwrXGmDrHnvgpn8z7IGeul9XwvLf7S48yUqtxEE9xInitQZnVO5O0Zp3oh5rIESkaK00P1xuk6se',
 );
 
