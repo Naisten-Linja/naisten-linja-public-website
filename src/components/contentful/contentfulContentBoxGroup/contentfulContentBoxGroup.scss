@@ -1,8 +1,8 @@
 @import '../../../scss/grid.scss';
 
-ContentBoxGroup__title {
+.ContentBoxGroup__title {
   width: 100%;
-  text-align: center
+  text-align: center;
 }
 
 .ContentBoxGroup__section {
@@ -35,17 +35,35 @@ ContentBoxGroup__title {
   &--is-link {
     padding-right: 2rem;
   }
+  & a:focus {
+    outline: 0.25rem solid #fec3c8;
+    outline-offset: 0.15rem;
+  }
+  &:focus-within {
+    outline: 0.25rem solid #fec3c8;
+    outline-offset: 0.25rem;
+  }
+
+  &:focus-within a:focus {
+    outline: none;
+  }
 
   @include media-breakpoint-up(md) {
-    width: calc(#{map-get($container-max-widths, md)} / 2 - #{$grid-gutter-width} / 2);
+    width: calc(
+      #{map-get($container-max-widths, md)} / 2 - #{$grid-gutter-width} / 2
+    );
   }
 
   @include media-breakpoint-up(lg) {
-    width: calc(#{map-get($container-max-widths, lg)} / 2 - #{$grid-gutter-width} / 2);
+    width: calc(
+      #{map-get($container-max-widths, lg)} / 2 - #{$grid-gutter-width} / 2
+    );
   }
 
   @include media-breakpoint-up(xl) {
-    width: calc(#{map-get($container-max-widths, xl)} / 2 - #{$grid-gutter-width} / 2);
+    width: calc(
+      #{map-get($container-max-widths, xl)} / 2 - #{$grid-gutter-width} / 2
+    );
   }
 }
 
@@ -53,7 +71,7 @@ ContentBoxGroup__title {
   font-size: 1.8125rem;
   line-height: 1.2;
   margin-bottom: 1rem;
-  font-family: "Alegreya Sans";
+  font-family: 'Alegreya Sans';
   text-transform: uppercase;
 }
 
@@ -91,7 +109,6 @@ ContentBoxGroup__title {
     flex-grow: 1;
     justify-content: flex-end;
   }
-
 }
 
 .ContentBox__overlay-link-arrow {
