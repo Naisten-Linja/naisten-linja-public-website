@@ -48,6 +48,7 @@ const OpenLetterForm = ({ content }) => {
 
   return (
     <section className="OpenLetterForm full-width-section">
+      {loadingError && <div>{loadingError}</div>}
       <div className="layout-container">
         <h1>{title}</h1>
         {!expandOpenLetterStart && !expandOpenLetterRead && (
