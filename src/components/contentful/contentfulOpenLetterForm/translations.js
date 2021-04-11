@@ -7,7 +7,7 @@ export const translations = {
     'openLetterForm.subject': 'Subject',
     'openLetterForm.content': 'Content',
     'openLetterForm.ourResponse': 'Our response',
-    'openLetterForm.accessKey': 'Access key',
+    'openLetterForm.letterKey': 'Access key',
     'openLetterForm.accessPassword': 'Access password',
     'openLetterForm.letterSent': 'Your message was sent to us!',
     'openLetterForm.recordCredentialsReminder':
@@ -29,7 +29,7 @@ export const translations = {
     'openLetterForm.error.contentMissing': 'Your letter content is missing',
     'openLetterForm.error.failedToFetchLetter': `There was an error while fetching your message. Please report this issue through <a href="${finnishFeedbackFormUrl}">our feedback form</a>.`,
     'openLetterForm.error.sendingFailed': `There was an issue with sending your leter. Please refresh this page and try again, or contact let us know about the issue through <a href="${finnishFeedbackFormUrl}">the feedback form</a>.`,
-    'openLetterForm.error.accessKeyMissing': 'Please provide the access key',
+    'openLetterForm.error.letterKeyMissing': 'Please provide the access key',
     'openLetterForm.error.accessPasswordMissing':
       'Please provide the access password',
     'openLetterForm.error.wrongCredentials':
@@ -40,7 +40,7 @@ export const translations = {
     'openLetterForm.subject': 'Viestin otsikko',
     'openLetterForm.content': 'Viesti',
     'openLetterForm.ourResponse': 'Vastauksemme',
-    'openLetterForm.accessKey': 'Käyttäjätunnuksesi',
+    'openLetterForm.letterKey': 'Käyttäjätunnuksesi',
     'openLetterForm.accessPassword': 'Salasanasi',
     // TODO: translate me!
     'openLetterForm.letterSent': 'Your message was sent to us!',
@@ -53,8 +53,7 @@ export const translations = {
     'openLetterForm.button.writeANewLetter': 'Kirjoita uusi kirje',
     'openLetterForm.button.readResponse': 'Nouda vastaus',
     'openLetterForm.button.cancel': 'Peruuta',
-    // TODO: translate me!
-    'openLetterForm.button.send': 'Send',
+    'openLetterForm.button.send': 'Lähetä',
     'openLetterForm.button.closeLetter': 'Sulje kirje',
     // TODO: translate me!
     'openLetterForm.button.credentialsRecorded':
@@ -68,7 +67,7 @@ export const translations = {
     'openLetterForm.error.failedToFetchLetter': `Vastauksen noutamisessa tapahtui virhe. Yritä uudelleen (mieluiten toisella selaimella) tai ota yhteyttä <a href="${finnishFeedbackFormUrl}">palautelomakkeella</a>.`,
     'openLetterForm.error.sendingFailed': `Vastauksen lähettämisessä tapahtui virhe. Kopioi kirje talteen itsellesi esimerkiksi tekstinkäsittelyohjelmaan tai muistioon. Tämän jälkeen päivitä sivu tai avaa uusi selain, ja yritä lähettää uusi viesti. Jos tarvitset apua, voit olla yhteydessä <a href="${finnishFeedbackFormUrl}">palautelomakkeella</a>`,
     // TODO: translate me!
-    'openLetterForm.error.accessKeyMissing': 'Please provide the access key',
+    'openLetterForm.error.letterKeyMissing': 'Please provide the access key',
     // TODO: translate me!
     'openLetterForm.error.accessPasswordMissing':
       'Please provide the access password',
@@ -80,7 +79,7 @@ export const translations = {
     'openLetterForm.subject': ' Rubrik',
     'openLetterForm.content': 'Meddelande',
     'openLetterForm.ourResponse': 'Vårt svar',
-    'openLetterForm.accessKey': 'Användarnamn',
+    'openLetterForm.letterKey': 'Användarnamn',
     'openLetterForm.accessPassword': 'Lösenord',
     // TODO: translate me!
     'openLetterForm.letterSent': 'Your message was sent to us!',
@@ -108,7 +107,7 @@ export const translations = {
     'openLetterForm.error.failedToFetchLetter': `Ett fel uppstod och ditt svar gick inte att hämta. Vänligen försök på nytt (gärna i en annan webbläsare) eller kontakta oss för hjälp via vårt <a href="${finnishFeedbackFormUrl}">responsformulär</a>.`,
     'openLetterForm.error.sendingFailed': `Ett fel uppstod och det gick inte att skicka ditt brev. Kopiera brevet och spara det tillfälligt på din dator, till exempel i ett textediteringsprogram. Efter att du sparat brevet kan du pröva att uppdatera sidan eller försöka på nytt i en annan webbläsare. Om du behöver hjälp kan du vara i kontakt med oss via vårt  <a href="${finnishFeedbackFormUrl}">responsformulär</a>`,
     // TODO: translate me!
-    'openLetterForm.error.accessKeyMissing': 'Please provide the access key',
+    'openLetterForm.error.letterKeyMissing': 'Please provide the access key',
     // TODO: translate me!
     'openLetterForm.error.accessPasswordMissing':
       'Please provide the access password',

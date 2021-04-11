@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import TextareaAutosize from 'react-textarea-autosize';
 
 import ReadLetterForm from './readLetterForm';
 import WriteLetterForm from './writeLetterForm';
@@ -14,8 +13,8 @@ const axiosConfig = {
 
 const OpenLetterForm = ({ content }) => {
   const {
-    writeALetterButtonText,
-    readYourLetterButtonText,
+    /* writeALetterButtonText,
+    readYourLetterButtonText, */
     title,
     description,
     defaultLanguage,
@@ -23,7 +22,7 @@ const OpenLetterForm = ({ content }) => {
 
   const [expandOpenLetterStart, setExpandOpenLetterStart] = useState(false);
   const [expandOpenLetterRead, setExpandOpenLetterRead] = useState(false);
-  const [accessKey, setAccessKey] = useState('');
+  const [letterKey, setLetterKey] = useState('');
   const [accessPassword, setAccessPassword] = useState('');
   const [loadingError, setLoadingError] = useState('');
 
@@ -38,7 +37,7 @@ const OpenLetterForm = ({ content }) => {
       )
       .then(function (response) {
         // handle success
-        setAccessKey(response.data.data.accessKey);
+        setLetterKey(response.data.data.accessKey);
         setAccessPassword(response.data.data.accessPassword);
         setExpandOpenLetterStart(true);
       })
@@ -75,9 +74,9 @@ const OpenLetterForm = ({ content }) => {
           </>
         )}
 
-        {expandOpenLetterStart && accessKey && accessPassword && (
+        {expandOpenLetterStart && letterKey && accessPassword && (
           <WriteLetterForm
-            accessKey={accessKey}
+            letterKey={letterKey}
             accessPassword={accessPassword}
             language={defaultLanguage}
           />
