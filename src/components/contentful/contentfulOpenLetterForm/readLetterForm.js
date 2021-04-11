@@ -107,7 +107,7 @@ const AccessKeyAndPasswordForm = ({ setOpenLetterContent, language }) => {
         setIsLoading(false);
       }
     },
-    [letterKey, accessPassword],
+    [letterKey, accessPassword, setOpenLetterContent, t],
   );
 
   return (
