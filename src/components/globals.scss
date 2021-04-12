@@ -30,7 +30,8 @@ $contentful-colors: (
 
 .ContentfulBackground--none.ContentfulTextColor--dark,
 .ContentfulBackground--wavy.ContentfulTextColor--dark,
-[style*='background-color: rgb(125, 142, 221);'] {
+[style*='background-color: rgb(125, 142, 221);'],
+[style*='background-color: rgb(237, 238, 239);'] {
   & *:focus {
     outline: 0.25rem solid #363842;
   }
