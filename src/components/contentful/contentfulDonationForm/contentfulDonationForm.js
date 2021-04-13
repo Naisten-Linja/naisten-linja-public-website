@@ -2,7 +2,12 @@ import React from 'react';
 import { useStripe } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
 
-import { STRIPE_PUBLIC_KEY } from '../../../constants';
+import {
+  STRIPE_PUBLIC_KEY,
+  STRIPE_PRODUCT_MONTHLY_DONATION_10,
+  STRIPE_PRODUCT_MONTHLY_DONATION_20,
+  STRIPE_PRODUCT_MONTHLY_DONATION_50,
+} from '../../../constants';
 
 import './contentfulDonationForm.scss';
 
@@ -11,9 +16,9 @@ import './contentfulDonationForm.scss';
 loadStripe(STRIPE_PUBLIC_KEY);
 
 const donationTypeIds = {
-  monthly_10: 'price_1HcTt7IlFmfjuTJde501tSxX',
-  monthly_20: 'price_1IOdXkIlFmfjuTJdQwb3HeGt',
-  monthly_50: 'price_1Id5hQIlFmfjuTJd2pvebCxC',
+  monthly_10: STRIPE_PRODUCT_MONTHLY_DONATION_10,
+  monthly_20: STRIPE_PRODUCT_MONTHLY_DONATION_20,
+  monthly_50: STRIPE_PRODUCT_MONTHLY_DONATION_50,
 };
 
 const donationLabels = {
