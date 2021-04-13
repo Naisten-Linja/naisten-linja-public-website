@@ -63,7 +63,7 @@ const LetterContent = ({ openLetterContent, language }) => {
       </div>
 
       <button className="button" onClick={() => window.location.reload()}>
-        {t['openLetterForm.closeLetter']}
+        {t['openLetterForm.button.closeLetter']}
       </button>
     </>
   );
@@ -114,7 +114,7 @@ const AccessKeyAndPasswordForm = ({ setOpenLetterContent, language }) => {
     <form
       className="ReadLetterForm"
       onSubmit={readOpenLetter}
-      autocomplete="off"
+      autoComplete="off"
     >
       {/* Using dangerouslySetInnerHTML due to some error messages contains links to the feedback form. */}
       {/* TODO: once we switch to a proper translations library, this should be replaced with variables and message template instead.*/}
