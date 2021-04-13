@@ -28,12 +28,12 @@ const stripePromise = loadStripe(STRIPE_PUBLIC_KEY);
 const Layout = ({ children }) => {
   return (
     <Elements stripe={stripePromise}>
+      <CookieBanner />
       <Header />
       <main className="main-container" id="main">
         {children}
       </main>
       <Footer />
-      <CookieBanner />
     </Elements>
   );
 };
