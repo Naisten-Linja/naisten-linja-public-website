@@ -85,6 +85,7 @@ export const ContenfulPage = graphql`
         imageTitle
         showTitle
         image {
+          description
           file {
             url
           }
