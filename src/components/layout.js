@@ -14,11 +14,18 @@ import Footer from './footer/footer';
 import { Cookies } from 'react-cookie-consent';
 import { CookieBanner } from '@palmabit/react-cookie-law';
 import { Elements } from '@stripe/react-stripe-js';
+import { loadStripe } from '@stripe/stripe-js';
+
+import { STRIPE_PUBLIC_KEY } from '../constants';
 
 import './layout.scss';
 import './globals.scss';
 import './cookieBanner.scss';
 import { Link } from 'gatsby';
+
+// Make sure to call `loadStripe` outside of a component’s render to avoid
+// recreating the `Stripe` object on every render.
+const stripePromise = loadStripe(STRIPE_PUBLIC_KEY);
 
 const Layout = ({ children }) => {
   return (

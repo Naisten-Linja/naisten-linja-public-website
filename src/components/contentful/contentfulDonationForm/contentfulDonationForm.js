@@ -1,19 +1,13 @@
 import React from 'react';
 import { useStripe } from '@stripe/react-stripe-js';
-import { loadStripe } from '@stripe/stripe-js';
 
 import {
-  STRIPE_PUBLIC_KEY,
   STRIPE_PRODUCT_MONTHLY_DONATION_10,
   STRIPE_PRODUCT_MONTHLY_DONATION_20,
   STRIPE_PRODUCT_MONTHLY_DONATION_50,
 } from '../../../constants';
 
 import './contentfulDonationForm.scss';
-
-// Make sure to call `loadStripe` outside of a component’s render to avoid
-// recreating the `Stripe` object on every render.
-loadStripe(STRIPE_PUBLIC_KEY);
 
 const donationTypeIds = {
   monthly_10: STRIPE_PRODUCT_MONTHLY_DONATION_10,
