@@ -24,9 +24,16 @@ const Footer = () => (
       </li>
     </ul>
     <hr className="breakline" />
-    <Link className="company-information" to="/yhteystiedot">
-      Yhteystiedot
-    </Link>
+    <ul>
+      <li>
+        <Link className="company-information" to="/yhteystiedot">
+          Yhteystiedot
+        </Link>
+      </li>
+      <li>
+        <Link to="/saavutettavuus">Saavutettavuusseloste</Link>
+      </li>
+    </ul>
 
     <div className="copyright-info">
       © {new Date().getFullYear()} Naisten Linja Suomessa ry
