@@ -25,7 +25,7 @@ export const CookieBanner = () => {
   };
 
   // Don't render on server side or if cookie is already consented
-  if (!window || isConsented) {
+  if (typeof window === 'undefined' || isConsented) {
     return null;
   }
 
@@ -50,11 +50,11 @@ export const CookieBanner = () => {
 const COOKIE_NAME = 'ConsentCookie';
 
 export function getConsentCookie() {
-  if (!document) {
+  if (typeof window === 'undefined') {
     return '';
   }
   const name = COOKIE_NAME + '=';
-  const decodedCookie = decodeURIComponent(document.cookie);
+  const decodedCookie = decodeURIComponent(window.document.cookie);
   const ca = decodedCookie.split(';');
   for (var i = 0; i < ca.length; i++) {
     const c = ca[i];
@@ -69,11 +69,12 @@ export function getConsentCookie() {
 }
 
 function setConsentCookie(cvalue, exdays) {
-  if (!document) {
+  if (typeof window === 'undefined') {
     return;
   }
   const d = new Date();
   d.setTime(d.getTime() + exdays * 24 * 60 * 60 * 1000);
   const expires = 'expires=' + d.toUTCString();
-  document.cookie = COOKIE_NAME + '=' + cvalue + ';' + expires + ';path=/';
+  window.document.cookie =
+    COOKIE_NAME + '=' + cvalue + ';' + expires + ';path=/';
 }
