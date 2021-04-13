@@ -58,4 +58,14 @@ footer {
   .copyright-info {
     margin: 2rem 0;
   }
+
+  .social-media-links {
+    li {
+      margin: 0.5rem 0;
+      svg {
+        transform: translateY(3px);
+        margin-right: 0.5rem;
+      }
+    }
+  }
 }
