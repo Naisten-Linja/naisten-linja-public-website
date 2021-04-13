@@ -9,11 +9,11 @@ import ContentfulComponents from '../components/contentful/contentfulComponents'
 import { ContentfulPage } from '../queries';
 
 const IndexPage = ({ data }) => {
-  const { pageName } = data.contentfulPages;
+  const { pageName, pageLanguage } = data.contentfulPages;
 
   return (
     <Layout>
-      <SEO title={pageName} />
+      <SEO title={pageName} lang={pageLanguage} />
       <ContentfulComponents
         pageContent={data.contentfulPages.pageContent}
       ></ContentfulComponents>
