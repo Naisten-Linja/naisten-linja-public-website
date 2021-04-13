@@ -153,6 +153,10 @@ $dark-blue: #294374;
     z-index: 20;
     position: fixed;
 
+    &.with-cookie-banner {
+      top: 3rem;
+    }
+
     &__mobile-open-button {
       display: none;
     }
