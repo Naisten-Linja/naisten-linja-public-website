@@ -63,7 +63,7 @@ const LetterContent = ({ openLetterContent, language }) => {
       </div>
 
       <button className="button" onClick={() => window.location.reload()}>
-        {t['openLetterForm.closeLetter']}
+        {t['openLetterForm.button.closeLetter']}
       </button>
     </>
   );
