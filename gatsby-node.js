@@ -21,6 +21,7 @@ exports.createPages = ({ graphql, actions }) => {
               id
               slug
               pageName
+              pageLanguage
             }
           }
         }

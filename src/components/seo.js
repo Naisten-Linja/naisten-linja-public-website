@@ -25,11 +25,12 @@ function SEO({ description, lang, meta, title }) {
   );
 
   const metaDescription = description || site.siteMetadata.description;
+  const pageLang = lang || 'fi';
 
   return (
     <Helmet
       htmlAttributes={{
-        lang,
+        lang: pageLang,
       }}
       title={title}
       titleTemplate={`%s | ${site.siteMetadata.title}`}

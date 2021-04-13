@@ -4,6 +4,7 @@ export const ContenfulPage = graphql`
   fragment ContentfulPageFragment on ContentfulPages {
     slug
     pageName
+    pageLanguage
     pageContentBackgroundColor
     pageContent {
       __typename
