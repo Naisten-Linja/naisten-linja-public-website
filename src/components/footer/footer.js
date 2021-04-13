@@ -14,25 +14,25 @@ const Footer = () => (
     <ul className="social-media-links">
       <li>
         <a href="https://www.instagram.com/naistenlinja">
-          <InstagramIcon />
+          <InstagramIcon width={32} height={32} />
           Instagram
         </a>
       </li>
       <li>
         <a href="https://www.facebook.com/naistenlinjasuomessa">
-          <FacebookIcon />
+          <FacebookIcon width={32} height={32} />
           Facebook
         </a>
       </li>
       <li>
         <a href="https://twitter.com/naistenlinja">
-          <TwitterIcon />
+          <TwitterIcon width={32} height={32} />
           Twitter
         </a>
       </li>
       <li>
         <a href="https://www.youtube.com/channel/UCWuV35u6rHGGbfO_qsWes2w">
-          <YoutubeIcon />
+          <YoutubeIcon width={32} height={32} />
           Youtube
         </a>
       </li>

@@ -49,7 +49,7 @@ footer {
     font-family: 'Alegreya Sans';
     font-style: normal;
     font-weight: 500;
-    font-size: 16px;
+    font-size: 1rem;
     line-height: 19px;
     text-decoration-line: underline;
     color: #ffffff;
@@ -62,8 +62,9 @@ footer {
   .social-media-links {
     li {
       margin: 0.5rem 0;
+      font-size: 1;
       svg {
-        transform: translateY(3px);
+        transform: translateY(10px);
         margin-right: 0.5rem;
       }
     }
