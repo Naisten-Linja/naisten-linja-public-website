@@ -1,24 +1,38 @@
 import { Link } from 'gatsby';
-// import PropTypes from 'prop-types';
 import React from 'react';
+
+import FacebookIcon from '../icons/facebook';
+import TwitterIcon from '../icons/twitter';
+import InstagramIcon from '../icons/instagram';
+import YoutubeIcon from '../icons/youtube';
 
 import './footer.scss';
 
 const Footer = () => (
   <footer className="layout-container">
     <h3>Follow us on social media</h3>
-    <ul>
+    <ul className="social-media-links">
       <li>
-        <a href="https://www.instagram.com/naistenlinja">Instagram</a>
+        <a href="https://www.instagram.com/naistenlinja">
+          <InstagramIcon width={32} height={32} />
+          Instagram
+        </a>
       </li>
       <li>
-        <a href="https://www.facebook.com/naistenlinjasuomessa">Facebook</a>
+        <a href="https://www.facebook.com/naistenlinjasuomessa">
+          <FacebookIcon width={32} height={32} />
+          Facebook
+        </a>
       </li>
       <li>
-        <a href="https://twitter.com/naistenlinja">Twitter</a>
+        <a href="https://twitter.com/naistenlinja">
+          <TwitterIcon width={32} height={32} />
+          Twitter
+        </a>
       </li>
       <li>
         <a href="https://www.youtube.com/channel/UCWuV35u6rHGGbfO_qsWes2w">
+          <YoutubeIcon width={32} height={32} />
           Youtube
         </a>
       </li>
