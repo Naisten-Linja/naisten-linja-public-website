@@ -9,7 +9,7 @@ import { translations } from './translations';
 import '../../../scss/grid.scss';
 import './contentfulOpenLetterForm.scss';
 
-const WriteLetterForm = ({ accessKey, accessPassword, language }) => {
+const WriteLetterForm = ({ letterKey, accessPassword, language }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState(null);
   const [isLetterSent, setIsLetterSent] = useState(false);
@@ -31,7 +31,7 @@ const WriteLetterForm = ({ accessKey, accessPassword, language }) => {
       }
       axios
         .post(`${SERVICE_API_URL}/online-letter/send`, {
-          accessKey,
+          letterKey,
           accessPassword,
           title: openLetterTitle,
           content: openLetterContent,
@@ -46,7 +46,7 @@ const WriteLetterForm = ({ accessKey, accessPassword, language }) => {
           setIsLoading(false);
         });
     },
-    [accessKey, accessPassword, openLetterTitle, openLetterContent, t],
+    [letterKey, accessPassword, openLetterTitle, openLetterContent, t],
   );
 
   const updateLetterTitle = (e) => setOpenLetterTitle(e.target.value);
@@ -74,12 +74,13 @@ const WriteLetterForm = ({ accessKey, accessPassword, language }) => {
 
         <div className="OpenLetterForm__credentials">
           <div className="OpenLetterForm__credential">
-            <label htmlFor="accessKey">{t['openLetterForm.accessKey']}</label>
+            <label htmlFor="letterKey">{t['openLetterForm.letterKey']}</label>
             <input
               className="access-credential-value"
               type="text"
-              name="accessKey"
-              value={accessKey}
+              id="letterKey"
+              name="letterKey"
+              value={letterKey}
               disabled
             />
           </div>
@@ -114,12 +115,12 @@ const WriteLetterForm = ({ accessKey, accessPassword, language }) => {
       {isLoading && <FullPageLoader />}
       <div className="OpenLetterForm__credentials">
         <div className="OpenLetterForm__credential">
-          <label htmlFor="accessKey">{t['openLetterForm.accessKey']}</label>
+          <label htmlFor="letterKey">{t['openLetterForm.letterKey']}</label>
           <input
             className="access-credential-value"
             type="text"
-            name="accessKey"
-            value={accessKey}
+            name="letterKey"
+            value={letterKey}
             disabled
           />
         </div>

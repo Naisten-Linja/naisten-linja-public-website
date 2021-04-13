@@ -9,7 +9,7 @@ const axiosConfig = {
   headers: { 'Content-Type': 'application/json' },
 };
 
-const ReadLetterForm = ({ content, language }) => {
+const ReadLetterForm = ({ /* content, */ language }) => {
   const [openLetterContent, setOpenLetterContent] = useState(null);
 
   return (
@@ -71,7 +71,7 @@ const LetterContent = ({ openLetterContent, language }) => {
 
 const AccessKeyAndPasswordForm = ({ setOpenLetterContent, language }) => {
   const [isLoading, setIsLoading] = useState(false);
-  const [accessKey, setAccessKey] = useState('');
+  const [letterKey, setLetterKey] = useState('');
   const [accessPassword, setAccessPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState(null);
   const t = translations[language] ?? translations.fi;
@@ -80,8 +80,8 @@ const AccessKeyAndPasswordForm = ({ setOpenLetterContent, language }) => {
     async (e) => {
       e.preventDefault();
       setErrorMessage(null);
-      if (!accessKey.trim()) {
-        setErrorMessage(t['openLetterForm.error.accessKeyMissing']);
+      if (!letterKey.trim()) {
+        setErrorMessage(t['openLetterForm.error.letterKeyMissing']);
         return;
       }
       if (!accessPassword) {
@@ -93,7 +93,7 @@ const AccessKeyAndPasswordForm = ({ setOpenLetterContent, language }) => {
       try {
         const response = await axios.post(
           `${SERVICE_API_URL}/online-letter/read`,
-          { accessKey: accessKey, accessPassword: accessPassword },
+          { accessKey: letterKey, accessPassword: accessPassword },
           axiosConfig,
         );
         setOpenLetterContent(response.data.data);
@@ -107,7 +107,7 @@ const AccessKeyAndPasswordForm = ({ setOpenLetterContent, language }) => {
         setIsLoading(false);
       }
     },
-    [accessKey, accessPassword],
+    [letterKey, accessPassword, setOpenLetterContent, t],
   );
 
   return (
@@ -127,11 +127,12 @@ const AccessKeyAndPasswordForm = ({ setOpenLetterContent, language }) => {
 
       <div className="OpenLetterForm__credentials">
         <div className="OpenLetterForm__credential">
-          <label htmlFor="accessKey">{t['openLetterForm.accessKey']}</label>
+          <label htmlFor="letterKey">{t['openLetterForm.letterKey']}</label>
           <input
-            onChange={(e) => setAccessKey(e.target.value)}
+            onChange={(e) => setLetterKey(e.target.value)}
             type="text"
-            name="accessKey"
+            id="letterKey"
+            name="letterKey"
             required
           />
         </div>
@@ -142,6 +143,7 @@ const AccessKeyAndPasswordForm = ({ setOpenLetterContent, language }) => {
           <input
             onChange={(e) => setAccessPassword(e.target.value)}
             type="password"
+            id="accessPassword"
             name="accessPassword"
             required
           />

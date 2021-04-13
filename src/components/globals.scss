@@ -1,16 +1,55 @@
 $contentful-colors: (
-  "white": #edeeef,
-  "pink": #ffc4c8,
-  "violet-blue": #7d8edd,
-  "gray": #b6b8c1,
-  "dark-gray": "#363842",
+  'white': #edeeef,
+  'pink': #ffc4c8,
+  'violet-blue': #7d8edd,
+  'gray': #b6b8c1,
+  'dark-gray': #363842,
 );
 
 @each $name, $value in $contentful-colors {
   .ContentfulBackgroundColor--#{$name} {
     background-color: $value;
+
+    @if not $value == 'dark-gray' {
+      & *:focus {
+        outline: 0.25rem solid #363842;
+      }
+
+      & .ContentBox__wrapper,
+      .ServiceBox__wrapper {
+        a:focus {
+          outline: 0.25rem solid #363842 !important;
+        }
+        &:focus-within {
+          outline: 0.25rem solid #363842 !important;
+        }
+      }
+    }
+  }
+}
+
+.ContentfulBackground--none.ContentfulTextColor--dark,
+.ContentfulBackground--wavy.ContentfulTextColor--dark,
+[style*='background-color: rgb(125, 142, 221);'],
+[style*='background-color: rgb(237, 238, 239);'] {
+  & *:focus {
+    outline: 0.25rem solid #363842;
   }
 
+  & .ContentBox__wrapper,
+  .ServiceBox__wrapper {
+    a:focus {
+      outline: 0.25rem solid #363842 !important;
+    }
+    &:focus-within {
+      outline: 0.25rem solid #363842 !important;
+    }
+  }
+}
+
+*:focus {
+  outline: 0.25rem solid #fec3c8;
+  outline-offset: 0.15rem;
 }
 
 $text-color-dark: #2e303a;
@@ -18,14 +57,24 @@ $text-color-light: #ffffff;
 
 .ContentfulTextColor--dark {
   color: $text-color-dark;
-  h1, h2, h3, h4, h5, a {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  a {
     color: $text-color-dark;
   }
 }
 
 .ContentfulTextColor--light {
   color: $text-color-light;
-  h1, h2, h3, h4, h5, a {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  a {
     color: $text-color-light;
   }
 }
@@ -39,22 +88,22 @@ $text-color-light: #ffffff;
   justify-content: center;
   padding: 0 2rem;
   color: #363842;
-  background: #71BEB9;
+  background: #71beb9;
   border: none;
   box-shadow: none;
   cursor: pointer;
   margin: 1rem 0.5rem;
 }
 
-input[type="text"],
-input[type="text"]:focus,
-input[type="text"]:focus-visible,
-input[type="password"],
-input[type="password"]:focus,
-input[type="password"]:focus-visible,
-input[type="email"],
-input[type="email"]:focus,
-input[type="email"]:focus-visible,
+input[type='text'],
+input[type='text']:focus,
+input[type='text']:focus-visible,
+input[type='password'],
+input[type='password']:focus,
+input[type='password']:focus-visible,
+input[type='email'],
+input[type='email']:focus,
+input[type='email']:focus-visible,
 textarea,
 textarea:focus,
 textarea:focus-visible {
@@ -62,7 +111,6 @@ textarea:focus-visible {
   background: #363842;
   border: none;
   color: #edeeef;
-  outline: none;
   box-shadow: none;
   padding: 0.5rem 1rem;
   font-size: 1.5rem;
@@ -78,7 +126,6 @@ textarea {
     border: 1px solid #edeeef;
   }
 }
-
 
 form {
   width: 100%;
