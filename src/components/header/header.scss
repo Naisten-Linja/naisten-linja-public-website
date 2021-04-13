@@ -13,10 +13,32 @@ header {
   //       left bottom no-repeat;
   // }
 
-  padding-top: 1.5rem;
+  .skip-to-content-link {
+    color: #fff;
+    padding: 0.5rem;
+    position: absolute;
+    left: calc(4.5rem);
+    transform: translateY(-400%);
+  }
+
+  .skip-to-content-link:focus {
+    transform: translateY(0%);
+  }
 
   @include media-breakpoint-up(md) {
     padding-top: 7rem;
+
+    .skip-to-content-link {
+      color: #fff;
+      padding: 0.5rem;
+      position: absolute;
+      left: 1rem;
+      transform: translateY(-400%);
+    }
+
+    .skip-to-content-link:focus {
+      transform: translateY(0%);
+    }
   }
 
   .menu-row {
@@ -28,7 +50,7 @@ header {
     position: fixed;
     height: 1px;
     left: 50%;
-    top: 1rem;
+    top: 0.5rem;
     transform: translateX(-50%);
     z-index: 19;
 
@@ -103,15 +125,4 @@ header {
     width: 233px;
     height: 339px;
   }
-}
-
-.skip-to-content-link {
-  color: #fff;
-  padding: 0.5rem;
-  position: absolute;
-  transform: translateY(-400%);
-}
-
-.skip-to-content-link:focus {
-  transform: translateY(0%);
 }
