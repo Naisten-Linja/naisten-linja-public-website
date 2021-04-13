@@ -31,7 +31,7 @@ const WriteLetterForm = ({ letterKey, accessPassword, language }) => {
       }
       axios
         .post(`${SERVICE_API_URL}/online-letter/send`, {
-          letterKey,
+          accessKey: letterKey,
           accessPassword,
           title: openLetterTitle,
           content: openLetterContent,
