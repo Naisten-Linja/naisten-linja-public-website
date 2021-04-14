@@ -4,6 +4,7 @@ import axios from 'axios';
 import ReadLetterForm from './readLetterForm';
 import WriteLetterForm from './writeLetterForm';
 import { translations } from './translations';
+import { SERVICE_API_URL } from '../../../constants';
 
 import './contentfulOpenLetterForm.scss';
 
@@ -30,11 +31,7 @@ const OpenLetterForm = ({ content }) => {
 
   const startOpenLetter = () => {
     axios
-      .post(
-        `https://naistenlinja-services-dev.herokuapp.com/api/online-letter/start`,
-        {},
-        axiosConfig,
-      )
+      .post(`${SERVICE_API_URL}/online-letter/start`, {}, axiosConfig)
       .then(function (response) {
         // handle success
         setLetterKey(response.data.data.accessKey);
