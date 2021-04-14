@@ -5,7 +5,7 @@ import SEO from '../components/seo';
 
 const NotFoundPage = () => (
   <Layout>
-    <SEO title="404: Not found" />
+    <SEO title="Sivua ei löytynyt" />
     <section className="full-width-section">
       <div className="layout-container">
         <h1>Sivua ei löytynyt</h1>
