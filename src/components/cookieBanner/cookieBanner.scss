@@ -8,13 +8,14 @@
   width: 100%;
   position: fixed;
   z-index: 99999999;
-  padding: 1rem 0;
+  padding: 1rem;
   background: #d2edeb;
 
   p {
     margin-bottom: 1rem;
     font-size: 1rem;
-    a, a:visited {
+    a,
+    a:visited {
       color: #2e303a;
       font-size: 1rem;
     }
