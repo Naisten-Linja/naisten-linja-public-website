@@ -632,9 +632,7 @@ body {
 }
 
 h1 {
-  font-family: 'Sansita';
-  font-style: normal;
-  font-weight: 800;
+  @include sansita-font;
   letter-spacing: 0.09em;
 }
 
@@ -705,6 +703,3 @@ a:visited {
   flex-wrap: wrap;
   align-items: flex-start;
 }
-
-
-
