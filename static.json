@@ -18,5 +18,6 @@
     }
   },
   "https_only": true,
-  "error_page": "404.html"
+  "error_page": "404.html",
+  "canonical_host": "${HOST}"
 }
