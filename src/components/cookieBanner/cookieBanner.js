@@ -12,7 +12,7 @@ const translations = {
   },
 };
 
-const privacyPolicyLink = '/yrityksille';
+const privacyPolicyLink = '/yksityisyyskaytanto';
 
 export const CookieBanner = () => {
   const consentCookie = getConsentCookie();
