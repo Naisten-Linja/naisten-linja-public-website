@@ -10,7 +10,7 @@ import './footer.scss';
 
 const Footer = () => (
   <footer className="layout-container">
-    <h3>Follow us on social media</h3>
+    <h2>Seuraa meitä sosiaalisessa mediassa</h2>
     <ul className="social-media-links">
       <li>
         <a href="https://www.instagram.com/naistenlinja">
