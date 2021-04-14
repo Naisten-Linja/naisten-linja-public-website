@@ -45,7 +45,9 @@ const Footer = () => (
         </Link>
       </li>
       <li>
-        <Link to="/saavutettavuus">Saavutettavuusseloste</Link>
+        <Link className="company-information" to="/saavutettavuus">
+          Saavutettavuusseloste
+        </Link>
       </li>
     </ul>
 
