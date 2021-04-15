@@ -11,3 +11,9 @@
     width: map-get($container-max-widths, xl);
   }
 }
+
+@mixin sansita-font {
+  font-family: 'Sansita';
+  font-weight: 800;
+  font-style: italic;
+}

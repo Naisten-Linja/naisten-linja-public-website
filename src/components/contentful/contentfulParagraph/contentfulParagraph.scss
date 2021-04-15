@@ -1,4 +1,5 @@
 @import '../../../scss/grid.scss';
+@import '../../mixins.scss';
 
 .Paragraph {
   padding: 1.5rem;
@@ -14,10 +15,8 @@
   }
 
   &__title {
+    @include sansita-font;
     font-size: 2.8rem;
-    font-family: 'Sansita';
-    font-style: normal;
-    font-weight: normal;
     letter-spacing: 0.09em;
     text-align: center;
     width: 100%;
