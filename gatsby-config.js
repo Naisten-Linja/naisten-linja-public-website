@@ -1,7 +1,9 @@
 module.exports = {
   siteMetadata: {
     title: `Naisten Linja`,
-    description: ``,
+    description: `Maksutonta tukea ja neuvontaa väkivaltaa kokeneille naisille, tytöille ja heidän läheisilleen.`,
+    url: 'https://naistenlinja.fi',
+    image: '/images/NaistenLinja.png',
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

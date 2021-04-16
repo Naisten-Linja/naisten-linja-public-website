@@ -18,15 +18,17 @@ function SEO({ description, lang, meta, title }) {
           siteMetadata {
             title
             description
+            url
+            image
           }
         }
       }
     `,
   );
 
-  const metaDescription = description || site.siteMetadata.description;
   const pageLang = lang || 'fi';
-
+  const metaDescription = description || site.siteMetadata.description;
+  const metaImage = `${site.siteMetadata.url}${site.siteMetadata.image}`;
   return (
     <Helmet
       htmlAttributes={{
@@ -39,9 +41,10 @@ function SEO({ description, lang, meta, title }) {
           name: `description`,
           content: metaDescription,
         },
+        { property: 'og:site_name', content: site.siteMetadata.title },
         {
           property: `og:title`,
-          content: title,
+          content: site.siteMetadata.title,
         },
         {
           property: `og:description`,
@@ -52,20 +55,12 @@ function SEO({ description, lang, meta, title }) {
           content: `website`,
         },
         {
-          name: `twitter:card`,
-          content: `summary`,
+          property: 'og:image',
+          content: metaImage,
         },
         {
-          name: `twitter:creator`,
-          content: site.siteMetadata.author,
-        },
-        {
-          name: `twitter:title`,
-          content: title,
-        },
-        {
-          name: `twitter:description`,
-          content: metaDescription,
+          property: 'og:locale',
+          content: 'fi_FI',
         },
       ].concat(meta)}
     />
