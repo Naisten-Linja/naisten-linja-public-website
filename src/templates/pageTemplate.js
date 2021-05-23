@@ -9,6 +9,7 @@ import ContentfulComponents from '../components/contentful/contentfulComponents'
 import { pageQueryBySlug } from '../queries';
 
 const PageTemplate = ({ data }) => {
+  console.log(data)
   const { pageName, pageLanguage } = data.contentfulPages;
 
   return (

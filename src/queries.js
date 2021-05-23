@@ -15,10 +15,10 @@ export const ContenfulPage = graphql`
         id
         paragraphTitle
         paragraphText {
+          paragraphText
           childMarkdownRemark {
             html
           }
-          paragraphText
         }
         paragraphColumns
         sideImagePosition
@@ -157,9 +157,7 @@ export const ContenfulPage = graphql`
             }
             title
             content {
-              childContentfulRichText {
-                html
-              }
+              raw
             }
             textColor
             backgroundColor
