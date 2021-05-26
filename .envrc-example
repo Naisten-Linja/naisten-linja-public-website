@@ -14,5 +14,8 @@ export GATSBY_STRIPE_PRODUCT_MONTHLY_DONATION_50=
 
 export GATSBY_SERVICE_API_URL=
 
+# Google Tag Manager
+export GOOGLE_TAGMANAGER_ID=
+
 # Check required Node version
 nvm use
