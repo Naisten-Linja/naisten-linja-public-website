@@ -17,7 +17,7 @@ const WriteLetterForm = ({ letterKey, accessPassword, language }) => {
   const [openLetterContent, setOpenLetterContent] = useState('');
 
   const t = translations[language] ?? translations.fi;
-
+  console.log(letterKey, accessPassword, language);
   const sendOpenLetter = useCallback(
     (e) => {
       e.preventDefault();
