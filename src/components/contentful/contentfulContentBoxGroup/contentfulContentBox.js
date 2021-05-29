@@ -1,5 +1,6 @@
 import React from 'react';
 import ContentBoxOverlayLink from './contentBoxOverlayLink';
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 
 import './contentfulContentBoxGroup.scss';
 
@@ -23,12 +24,9 @@ const ContentfulContentBox = ({
     >
       {title && <div className="ContentBox__title"> {title} </div>}
       {content && (
-        <div
-          className="ContentBox__content"
-          dangerouslySetInnerHTML={{
-            __html: content.childContentfulRichText.html,
-          }}
-        />
+        <div className="ContentBox__content">
+          {documentToReactComponents(JSON.parse(content.raw, null, 2))}
+        </div>
       )}
       <ContentBoxOverlayLink
         linkToCustomUrl={linkToCustomUrl}

@@ -55,7 +55,6 @@ exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions;
   const typeDefs = `
     type ContentfulParagraph implements Node {
-      paragraphText: contentfulParagraphParagraphTextTextNode
       paragraphTitle: String
       sideImagePosition: String
       paragraphBackgroundStyle: String
@@ -80,7 +79,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       title: String!
       backgroundColor: String
       textColor: String
-      content: contentfulContentBoxContentRichTextNode
+      content: Content
       linkToInternalPage: ContentfulPages
       linkToCustomUrl: String
     }
@@ -88,6 +87,10 @@ exports.createSchemaCustomization = ({ actions }) => {
       title: String
       backgroundStyle: String
       backgroundColor: String
+    }
+
+    type Content {
+      raw: String
     }
   `;
   createTypes(typeDefs);
