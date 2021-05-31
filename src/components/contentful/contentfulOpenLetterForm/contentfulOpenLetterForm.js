@@ -39,7 +39,8 @@ const OpenLetterForm = ({ content }) => {
         setExpandOpenLetterStart(true);
       })
       .catch(function (error) {
-        setLoadingError(error);
+        const errorMessage = typeof error !== 'string' ? error.message : error;
+        setLoadingError(errorMessage);
       });
   };
 
