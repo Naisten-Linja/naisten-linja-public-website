@@ -22,4 +22,6 @@ If you want to explore the GraphQL, you'll find the GraphiQL from `/__graphiql`,
 
 ## Deployment 
 
-*Work in Progress* 
+Currently the project is deployed from the `production`-branch. To deploy, either merge `master` on your own computer to `production`, and then push, or create a pull request and merge it on Github.
+
+There are plans to make this automatic, but because of the time limits, we haven't gotten to it yet.
