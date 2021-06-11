@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 
 import ReadLetterForm from './readLetterForm';
 import WriteLetterForm from './writeLetterForm';
@@ -40,7 +39,8 @@ const OpenLetterForm = ({ content }) => {
         setExpandOpenLetterStart(true);
       })
       .catch(function (error) {
-        setLoadingError(error);
+        const errorMessage = typeof error !== 'string' ? error.message : error;
+        setLoadingError(errorMessage);
       });
   };
 
@@ -52,7 +52,12 @@ const OpenLetterForm = ({ content }) => {
         {!expandOpenLetterStart && !expandOpenLetterRead && (
           <>
             {description && (
-              <div className="ContentBox__content">{documentToReactComponents(description.raw)}</div>
+              <div
+                className="ContentBox__content"
+                dangerouslySetInnerHTML={{
+                  __html: description.childMarkdownRemark.html,
+                }}
+              />
             )}
             <button className="button" onClick={startOpenLetter}>
               {t['openLetterForm.button.writeANewLetter']}
