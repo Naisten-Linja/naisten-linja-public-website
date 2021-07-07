@@ -44,11 +44,13 @@ const ContentfulParagraph = ({ content }) => {
     >
       <div className="full-width-section">
         <div className={`Paragraph ${textColor || 'light'} layout-container`}>
-          {!!content.paragraphTitle && content.paragraphTitle !== '' && (
-            <div className="row">
-              <h2 className="Paragraph__title">{content.paragraphTitle}</h2>
-            </div>
-          )}
+          {!!content.paragraphTitle &&
+            content.paragraphTitle !== '' &&
+            content.paragraphTitle !== ' ' && (
+              <div className="row">
+                <h2 className="Paragraph__title">{content.paragraphTitle}</h2>
+              </div>
+            )}
           <div className="row">
             {paragraphImagePosition === 'left' &&
               content.sideImage &&
