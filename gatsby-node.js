@@ -72,7 +72,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       serviceName: String!
       serviceInformation: String!
       textColor: String
-      linkToInternalPage: ContentfulPages
+      linkToInternalPage: ContentfulPages  @link(by: "id", from: "linkToInternalPage___NODE")
       linkToCustomUrl: String
     }
     type ContentfulContentBox implements Node {
@@ -80,13 +80,17 @@ exports.createSchemaCustomization = ({ actions }) => {
       backgroundColor: String
       textColor: String
       content: Content
-      linkToInternalPage: ContentfulPages
+      linkToInternalPage: ContentfulPages  @link(by: "id", from: "linkToInternalPage___NODE")
       linkToCustomUrl: String
     }
     type ContentfulContentBoxGroup implements Node {
       title: String
       backgroundStyle: String
       backgroundColor: String
+    }
+
+    type ContentfulPages implements Node {
+      slug: String
     }
 
     type Content {
