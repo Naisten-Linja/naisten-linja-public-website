@@ -1,4 +1,4 @@
-export const getSubPages = (pages) => {
+export const parseNavigationStructure = (pages) => {
   if (pages === null) {
     return null;
   }
@@ -11,7 +11,7 @@ export const getSubPages = (pages) => {
           : page.menuPage.pageName,
       pageSlug: page.menuPage ? page.menuPage.slug : '',
       linkToExternalUrl: page.linkToExternalUrl,
-      subPages: getSubPages(page.menuPageSubpages),
+      subPages: parseNavigationStructure(page.menuPageSubpages),
     };
   });
 };

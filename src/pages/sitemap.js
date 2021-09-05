@@ -2,11 +2,13 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
-import { getSubPages } from '../helpers';
+import { parseNavigationStructure } from '../navigation-helpers';
 import SitemapList from '../components/sitemap/sitemap-list';
 
 const SitemapPage = ({ data }) => {
-  const parsedNavData = getSubPages(data.contentfulMainMenu.topLevelPages);
+  const parsedNavData = parseNavigationStructure(
+    data.contentfulMainMenu.topLevelPages,
+  );
   return (
     <Layout>
       <SEO title="Sivukartta" lang="fi" />
