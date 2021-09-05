@@ -29,10 +29,7 @@ export default SitemapPage;
 export const pageQuery = graphql`
   query MenuPageQuery {
     contentfulMainMenu(slug: { eq: "header-menu" }) {
-      id
-      slug
       topLevelPages {
-        id
         linkToExternalUrl
         menuPage {
           pageName
@@ -40,12 +37,10 @@ export const pageQuery = graphql`
         }
         pageContainerName
         menuPageSubpages {
-          id
           linkToExternalUrl
           menuPage {
             pageName
             slug
-            id
           }
           pageContainerName
           menuPageSubpages {
@@ -56,13 +51,10 @@ export const pageQuery = graphql`
                 pageName
                 slug
               }
-              id
             }
-            id
             menuPage {
               pageName
               slug
-              id
             }
           }
         }
