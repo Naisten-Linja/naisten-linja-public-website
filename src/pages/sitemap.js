@@ -11,8 +11,12 @@ const SitemapPage = ({ data }) => {
     <Layout>
       <SEO title="Sivukartta" lang="fi" />
       <section className="full-width-content">
-        <h2>Sivukartta</h2>
-        <SitemapList pages={parsedNavData} isTopLevel={true} />
+        <div className="Paragraph layout-container">
+          <h2>
+            <strong>Sivukartta</strong>
+          </h2>
+          <SitemapList pages={parsedNavData} isTopLevel={true} />
+        </div>
       </section>
     </Layout>
   );

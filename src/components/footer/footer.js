@@ -45,6 +45,11 @@ const Footer = () => (
         </Link>
       </li>
       <li>
+        <Link className="company-information" to="/sitemap">
+          Sivukartta
+        </Link>
+      </li>
+      <li>
         <Link className="company-information" to="/saavutettavuus">
           Saavutettavuusseloste
         </Link>
