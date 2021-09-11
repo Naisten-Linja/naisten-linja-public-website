@@ -8,9 +8,9 @@
   font-weight: normal;
 
   &--text-color-dark {
-    color: #2E303A;
+    color: #2e303a;
     a {
-      color: #2E303A;
+      color: #2e303a;
     }
   }
 
@@ -37,7 +37,7 @@
   }
 
   h2 {
-    margin-top: 2.5rem
+    margin-top: 2.5rem;
   }
 
   p {
@@ -45,5 +45,9 @@
       margin: auto;
       display: inherit;
     }
+  }
+
+  a {
+    word-break: break-all;
   }
 }
