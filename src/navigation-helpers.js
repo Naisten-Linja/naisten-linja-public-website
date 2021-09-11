@@ -1,6 +1,6 @@
 export const parseNavigationStructure = (pages) => {
   if (pages === null) {
-    return null;
+    return [];
   }
 
   return pages.map((page) => {
