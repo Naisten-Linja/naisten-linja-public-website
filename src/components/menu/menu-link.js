@@ -1,5 +1,6 @@
 import { Link } from 'gatsby';
 import React from 'react';
+import ExternalLinkIcon from '../icons/externalLink';
 
 const MenuLink = ({ page, className, id }) => {
   const itemName = page.pageContainerName
@@ -8,7 +9,11 @@ const MenuLink = ({ page, className, id }) => {
 
   return page.linkToExternalUrl ? (
     <a href={page.linkToExternalUrl} className={className} id={id}>
-      {itemName}
+      {itemName}{' '}
+      <ExternalLinkIcon
+        style={{ marginLeft: '0.25rem', marginBottom: '0.25rem' }}
+      />
+      <span className="visually-hidden">Linkki vie ulkoiseen palveluun</span>
     </a>
   ) : (
     <Link
