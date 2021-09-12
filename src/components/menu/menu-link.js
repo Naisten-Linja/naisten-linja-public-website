@@ -9,11 +9,7 @@ const MenuLink = ({ page, className, id }) => {
 
   return page.linkToExternalUrl ? (
     <a href={page.linkToExternalUrl} className={className} id={id}>
-      {itemName}{' '}
-      <ExternalLinkIcon
-        style={{ marginLeft: '0.25rem', marginBottom: '0.25rem' }}
-        aria-label="Linkki vie toiseen palveluun"
-      />
+      {itemName} <ExternalLinkIcon aria-label="Linkki vie toiseen palveluun" />
     </a>
   ) : (
     <Link
