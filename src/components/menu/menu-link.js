@@ -12,8 +12,8 @@ const MenuLink = ({ page, className, id }) => {
       {itemName}{' '}
       <ExternalLinkIcon
         style={{ marginLeft: '0.25rem', marginBottom: '0.25rem' }}
+        aria-label="Linkki vie toiseen palveluun"
       />
-      <span className="visually-hidden">Linkki vie ulkoiseen palveluun</span>
     </a>
   ) : (
     <Link
