@@ -5,7 +5,7 @@ import FormIcon from '../../icons/form';
 import ExternalLinkIcon from '../../icons/externalLink';
 
 const translations = {
-  linkOpensInNewTab: '(Link opens in a new tab)',
+  linkOpensInNewTab: '(Avautuu uudessa välilehdessä)',
 };
 
 const ContentfulExternalForm = ({ content }) => {
@@ -33,7 +33,7 @@ const ContentfulExternalForm = ({ content }) => {
             height={20}
             aria-label={translations.linkOpensInNewTab}
             className="external-link-icon"
-            aria-hidden={false}
+            role="img"
           />
         )}
       </a>
