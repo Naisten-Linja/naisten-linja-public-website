@@ -7,14 +7,16 @@ const ContentfulQuote = ({ content }) => {
     <section className="full-width-section">
       <div className="Quote layout-container">
         <div className="row align-items-center quote-container">
-          <div className="quote-text">
-            <div
+          <figure className="quote-text">
+            <blockquote
               dangerouslySetInnerHTML={{
                 __html: content.quoteText.childMarkdownRemark.html,
               }}
-            ></div>
-            <div className="quote-author">— {content.quoteAuthor}</div>
-          </div>
+            ></blockquote>
+            <figcaption className="quote-author">
+              — {content.quoteAuthor}
+            </figcaption>
+          </figure>
         </div>
       </div>
     </section>

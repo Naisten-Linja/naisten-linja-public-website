@@ -16,6 +16,12 @@
     background-position: center center;
   }
 
+  @include media-breakpoint-up(sm) {
+    .quote-text {
+      padding: 0 70px;
+    }
+  }
+
   &.layout-container {
     @include media-breakpoint-up(lg) {
       max-width: map-get($container-max-widths, md);
@@ -29,7 +35,6 @@
   .quote-text {
     color: #ffffff;
     text-align: center;
-    padding: 0 70px;
   }
 
   .quote-author {

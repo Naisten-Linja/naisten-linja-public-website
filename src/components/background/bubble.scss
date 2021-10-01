@@ -1,10 +1,11 @@
 .ContentfulBackground--bubble-svg {
   position: absolute;
-  width: 120% !important;
+  width: 100% !important;
   height: auto !important;
-  max-width: 500px !important;
+  max-width: 350px !important;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: -1;
+  overflow: visible !important;
 }
