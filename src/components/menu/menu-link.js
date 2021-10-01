@@ -3,9 +3,7 @@ import React from 'react';
 import ExternalLinkIcon from '../icons/externalLink';
 
 const MenuLink = ({ page, className, id }) => {
-  const itemName = page.pageContainerName
-    ? page.pageContainerName
-    : page.menuPage.pageName;
+  const itemName = page.pageName;
 
   return page.linkToExternalUrl ? (
     <a href={page.linkToExternalUrl} className={className} id={id}>
@@ -13,7 +11,7 @@ const MenuLink = ({ page, className, id }) => {
     </a>
   ) : (
     <Link
-      to={`/${page.menuPage.slug}`}
+      to={`/${page.pageSlug}`}
       activeClassName="active-link"
       className={className}
       id={id}

@@ -7,9 +7,7 @@ import SubMenu from './sub-menu';
 const MenuItem = ({ page, index, activeItem, setActiveItem }) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
-  const itemName = page.pageContainerName
-    ? page.pageContainerName
-    : page.menuPage.pageName;
+  const itemName = page.pageName;
 
   const isMobile = useIsMobile();
   const handleExpanded = async () => {
@@ -28,14 +26,14 @@ const MenuItem = ({ page, index, activeItem, setActiveItem }) => {
   };
 
   const handleMouseEnter = () => {
-    if (!isExpanded && page.menuPageSubpages) {
+    if (!isExpanded && page.subPages) {
       setIsExpanded(true);
       setActiveItem(index);
     }
   };
 
   const handleMouseExit = () => {
-    if (isExpanded && page.menuPageSubpages) {
+    if (isExpanded && page.subPages) {
       setIsExpanded(false);
     }
   };
@@ -47,7 +45,7 @@ const MenuItem = ({ page, index, activeItem, setActiveItem }) => {
       onMouseEnter={handleMouseEnter}
       onKeyUp={handleEsc}
     >
-      {page.menuPageSubpages ? (
+      {page.subPages ? (
         <button
           aria-expanded={isExpanded}
           onClick={handleExpanded}
@@ -72,7 +70,7 @@ const MenuItem = ({ page, index, activeItem, setActiveItem }) => {
           {itemName}
         </Link>
       )}
-      {page.menuPageSubpages && shouldExpand && (
+      {page.subPages && shouldExpand && (
         <SubMenu page={page} itemName={itemName} />
       )}
     </li>

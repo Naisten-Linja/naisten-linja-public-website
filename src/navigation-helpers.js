@@ -12,6 +12,7 @@ export const parseNavigationStructure = (pages) => {
       pageSlug: page.menuPage ? page.menuPage.slug : '',
       linkToExternalUrl: page.linkToExternalUrl,
       subPages: parseNavigationStructure(page.menuPageSubpages),
+      id: page.id,
     };
   });
 };

@@ -5,7 +5,7 @@ import { useIsMobile } from '../../hooks/useIsMobile';
 import HamburgerIcon from './icons/hamburger';
 import CrossIcon from './icons/cross';
 import MenuItem from './menu-item';
-
+import { parseNavigationStructure } from '../../navigation-helpers';
 const Menu = () => {
   const headerMenuData = useStaticQuery(query);
   const [isOpen, setIsOpen] = useState(false);
@@ -41,7 +41,9 @@ const Menu = () => {
     }
   };
 
-  const topLevelPages = headerMenuData.contentfulMainMenu.topLevelPages;
+  const topLevelPages = parseNavigationStructure(
+    headerMenuData.contentfulMainMenu.topLevelPages,
+  );
 
   return (
     <nav
