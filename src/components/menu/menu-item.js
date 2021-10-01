@@ -47,7 +47,7 @@ const MenuItem = ({ page, index, activeItem, setActiveItem }) => {
       onMouseEnter={handleMouseEnter}
       onKeyUp={handleEsc}
     >
-      {page.subPages ? (
+      {page.subPages.length ? (
         <button
           aria-expanded={isExpanded}
           onClick={handleExpanded}
@@ -65,7 +65,7 @@ const MenuItem = ({ page, index, activeItem, setActiveItem }) => {
         </a>
       ) : (
         <Link
-          to={`/${page.menuPage.slug}`}
+          to={`/${page.pageSlug}`}
           activeClassName="active-link"
           id={`top-level-item-${index}`}
         >
