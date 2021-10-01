@@ -26,18 +26,20 @@ const MenuItem = ({ page, index, activeItem, setActiveItem }) => {
   };
 
   const handleMouseEnter = () => {
-    if (!isExpanded && page.subPages) {
+    if (!isExpanded && page.subPages.length) {
       setIsExpanded(true);
       setActiveItem(index);
     }
   };
 
   const handleMouseExit = () => {
-    if (isExpanded && page.subPages) {
+    if (isExpanded && page.subPages.length) {
       setIsExpanded(false);
     }
   };
+
   const shouldExpand = isExpanded && activeItem === index;
+
   return (
     <li
       className={shouldExpand ? 'is-expanded' : ''}
