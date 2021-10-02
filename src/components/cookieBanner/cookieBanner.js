@@ -9,6 +9,7 @@ const translations = {
       'Tämä sivusto käyttää evästeitä toimiakseen. Jatkamalla selaamista hyväksyt evästeiden käytön.',
     consent: 'Hyväksyn ',
     privacyPolicy: 'Yksityisyyskäytäntö',
+    cookieBanner: 'Sivuston evästeet',
   },
 };
 
@@ -31,7 +32,7 @@ export const CookieBanner = () => {
 
   const t = translations.fi;
   return (
-    <div className="cookie-banner">
+    <div role="region" className="cookie-banner" aria-label={t.cookieBanner}>
       <div className="layout-container">
         <p>
           {t.message}{' '}
