@@ -44,6 +44,7 @@ const Menu = () => {
   const topLevelPages = headerMenuData.contentfulMainMenu.topLevelPages;
 
   return (
+    /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
     <nav
       className={`MainMenu ${isOpen ? 'mobile-menu-open' : ''}`}
       aria-label="Naisten Linja Menu"

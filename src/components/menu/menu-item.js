@@ -41,6 +41,7 @@ const MenuItem = ({ page, index, activeItem, setActiveItem }) => {
   };
   const shouldExpand = isExpanded && activeItem === index;
   return (
+    /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
     <li
       className={shouldExpand ? 'is-expanded' : ''}
       onMouseLeave={handleMouseExit}
