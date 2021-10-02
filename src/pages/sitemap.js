@@ -1,7 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import Layout from '../components/layout';
-import SEO from '../components/seo';
+import Seo from '../components/seo';
 import { parseNavigationStructure } from '../navigation-helpers';
 import SitemapList from '../components/sitemap/sitemap-list';
 
@@ -11,7 +11,7 @@ const SitemapPage = ({ data }) => {
   );
   return (
     <Layout>
-      <SEO title="Sivukartta" lang="fi" />
+      <Seo title="Sivukartta" lang="fi" />
       <section className="full-width-content">
         <div className="Paragraph layout-container">
           <h2>

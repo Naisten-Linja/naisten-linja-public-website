@@ -1,7 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import Layout from '../components/layout';
-import SEO from '../components/seo';
+import Seo from '../components/seo';
 import ContentfulComponents from '../components/contentful/contentfulComponents';
 
 // Although we're not using pageQueryBySlug, the queries file need to be imported so ContentfulPageFragment is available inside pageQuery.
@@ -13,7 +13,7 @@ const IndexPage = ({ data }) => {
 
   return (
     <Layout>
-      <SEO title={pageName} lang={pageLanguage} />
+      <Seo title={pageName} lang={pageLanguage} />
       <ContentfulComponents
         pageContent={data.contentfulPages.pageContent}
       ></ContentfulComponents>
