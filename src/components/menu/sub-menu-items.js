@@ -6,7 +6,7 @@ const SubMenuItems = ({ page }) => {
     <ul>
       {page.subPages.map((item, i) => (
         <li key={item.id}>
-          <MenuLink page={item} id={`sub-page-item-${i}`} />
+          <MenuLink page={item} />
         </li>
       ))}
     </ul>

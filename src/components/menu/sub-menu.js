@@ -8,11 +8,7 @@ const SubMenu = ({ page, itemName }) => {
       <ul aria-label={itemName} className="submenu">
         {page.subPages.map((subPage, i) => (
           <li key={subPage.id}>
-            <MenuLink
-              page={subPage}
-              className="top-level-item"
-              id={`sub-menu-item-${i}`}
-            />
+            <MenuLink page={subPage} className="top-level-item" />
             {subPage.subPages && <SubMenuItems page={subPage} />}
           </li>
         ))}

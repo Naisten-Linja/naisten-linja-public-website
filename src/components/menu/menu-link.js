@@ -6,7 +6,7 @@ const MenuLink = ({ page, className, id }) => {
   const itemName = page.pageName;
 
   return page.linkToExternalUrl ? (
-    <a href={page.linkToExternalUrl} className={className} id={id}>
+    <a href={page.linkToExternalUrl} className={className}>
       {itemName} <ExternalLinkIcon aria-label="Linkki vie toiseen palveluun" />
     </a>
   ) : (
@@ -14,7 +14,6 @@ const MenuLink = ({ page, className, id }) => {
       to={`/${page.pageSlug}`}
       activeClassName="active-link"
       className={className}
-      id={id}
     >
       {itemName}
     </Link>
