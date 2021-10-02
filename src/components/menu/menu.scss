@@ -295,3 +295,9 @@ $dark-blue: #294374;
     }
   }
 }
+
+@include media-breakpoint-up(lg) {
+  .MainMenu__submenu-container {
+    top: 2.5rem !important;
+  }
+}
