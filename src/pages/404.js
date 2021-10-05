@@ -1,11 +1,11 @@
 import React from 'react';
 
 import Layout from '../components/layout';
-import SEO from '../components/seo';
+import Seo from '../components/seo';
 
 const NotFoundPage = () => (
   <Layout>
-    <SEO title="Sivua ei löytynyt" />
+    <Seo title="Sivua ei löytynyt" />
     <section className="full-width-section">
       <div className="layout-container">
         <h1>Sivua ei löytynyt</h1>
