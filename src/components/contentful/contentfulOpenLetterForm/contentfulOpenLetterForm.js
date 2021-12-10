@@ -19,6 +19,7 @@ const OpenLetterForm = ({ content }) => {
     title,
     description,
     defaultLanguage,
+    showSendLetterButton,
   } = content;
 
   const [expandOpenLetterStart, setExpandOpenLetterStart] = useState(false);
@@ -59,9 +60,11 @@ const OpenLetterForm = ({ content }) => {
                 }}
               />
             )}
-            <button className="button" onClick={startOpenLetter}>
-              {t['openLetterForm.button.writeANewLetter']}
-            </button>
+            {showSendLetterButton && (
+              <button className="button" onClick={startOpenLetter}>
+                {t['openLetterForm.button.writeANewLetter']}
+              </button>
+            )}
             <button
               className="button"
               onClick={() => {
@@ -73,13 +76,16 @@ const OpenLetterForm = ({ content }) => {
           </>
         )}
 
-        {expandOpenLetterStart && letterKey && accessPassword && (
-          <WriteLetterForm
-            letterKey={letterKey}
-            accessPassword={accessPassword}
-            language={defaultLanguage}
-          />
-        )}
+        {showSendLetterButton &&
+          expandOpenLetterStart &&
+          letterKey &&
+          accessPassword && (
+            <WriteLetterForm
+              letterKey={letterKey}
+              accessPassword={accessPassword}
+              language={defaultLanguage}
+            />
+          )}
 
         {expandOpenLetterRead && (
           <ReadLetterForm content={content} language={defaultLanguage} />
