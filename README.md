@@ -6,11 +6,24 @@ This readme is stil WIP.
 
 This project is developed with [Gatsby](https://gatsbyjs.com).
 
+
 ## Development
+
+### Prerequisites
+
+Project requires Node.js version 14. Our dependencies are installed and managed via npm, and are defined in package.json
+
+To help managing node versions easily, we recommend using a node package manager like [nvm](https://github.com/nvm-sh/nvm).
+
+We are also using [direnv](https://direnv.net/) to automatically set environment variables as you switch directories.
+
+### Development Environment Setup
 
 First, clone the repository and install dependencies with `npm install`. 
 
-You'll need the values for `.nvmrc` from a developer from this project.
+You'll need the values for `.envrc` from a developer from this project.
+
+### Running the server
 
 When you have the values, running `npm start` starts the development server. Typical port where Gatsby starts the project is `localhost:8000`, but be sure to check your command line for the correct port.
 
