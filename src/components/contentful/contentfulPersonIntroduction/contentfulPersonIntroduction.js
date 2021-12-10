@@ -11,17 +11,21 @@ const ContentfulPersonIntroduction = ({ content }) => {
         </div>
         <div className="row">
           <div className="col-xs-12 col-md-4 image-col">
-            <img
-              src={content.personPicture.file.url}
-              alt={content.personName}
-            />
+            {content.personPicture && (
+              <img
+                src={content.personPicture.file.url}
+                alt={content.personName}
+              />
+            )}
           </div>
           <div className="col-xs-12 col-md-8">
-            <div
-              dangerouslySetInnerHTML={{
-                __html: content.personIntroduction.childMarkdownRemark.html,
-              }}
-            ></div>
+            {content.personIntroduction && (
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: content.personIntroduction.childMarkdownRemark.html,
+                }}
+              ></div>
+            )}
           </div>
         </div>
       </div>
