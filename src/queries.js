@@ -126,6 +126,7 @@ export const ContenfulPage = graphql`
           type
         }
         title
+        showSendLetterButton
         description {
           childMarkdownRemark {
             html
