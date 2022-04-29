@@ -109,18 +109,6 @@ export const ContenfulPage = graphql`
           }
         }
       }
-      ... on ContentfulDonationForm {
-        internal {
-          type
-        }
-        title
-        description {
-          childMarkdownRemark {
-            html
-          }
-          description
-        }
-      }
       ... on ContentfulOpenLetterForm {
         internal {
           type
