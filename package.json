@@ -37,6 +37,7 @@
     "react-textarea-autosize": "^8.3.3"
   },
   "devDependencies": {
+    "heroku-client": "^3.1.0",
     "prettier": "^2.4.1"
   },
   "keywords": [
@@ -47,10 +48,11 @@
     "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
-    "start": "npm run develop",
+    "start": "gatsby develop -p $PORT -H 0.0.0.0",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
+    "heroku-postbuild": "node ./heroku-cancel-other-builds.js && npm run build"
   },
   "repository": {
     "type": "git",
