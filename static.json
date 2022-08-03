@@ -19,5 +19,10 @@
   },
   "https_only": true,
   "error_page": "404.html",
-  "canonical_host": "${HOST}"
+  "canonical_host": "${HOST}",
+  "proxies": {
+    "/preview/": {
+      "origin": "http://localhost:8000"
+    }
+  }
 }

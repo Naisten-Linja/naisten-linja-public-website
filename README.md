@@ -47,7 +47,7 @@ There are plans to make this automatic, but because of the time limits, we haven
 | Heroku application name | naisten-linja-production         | naistenlinja-dev               |
 | Git branch              | production                       | master                         |
 | Heroku buildpacks       | nodejs + heroku-buildpack-static | nodejs                         |
-| How it is served        | Nginx serving static build       | Gatsby dev server with refresh |
+| How it is served        | Nginx serving static build       | Gatsby dev + nginx proxy/auth  |
 | Contentful environment  | master                           | master                         |
 | Contentful API          | cdn.contentful.com               | preview.contentful.com         |
 
