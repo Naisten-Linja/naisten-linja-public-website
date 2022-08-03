@@ -1,6 +1,7 @@
 # Contentful Space and Token
 export CONTENTFUL_SPACE_ID=
 export CONTENTFUL_SPACE_TOKEN=
+export CONTENTFUL_HOST=
 
 export GATSBY_STRIPE_PUBLIC_KEY=
 
