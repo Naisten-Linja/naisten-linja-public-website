@@ -21,7 +21,7 @@
   "error_page": "404.html",
   "canonical_host": "${HOST}",
   "proxies": {
-    "/preview/": {
+    "/": {
       "origin": "http://localhost:8000"
     }
   }
