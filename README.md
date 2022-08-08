@@ -67,6 +67,7 @@ This requires that Dyno Metadata feature has been enabled for the applications. 
 ```shell
 heroku labs:enable runtime-dyno-metadata -a naistenlinja-dev
 heroku labs:enable runtime-dyno-metadata -a naisten-linja-production
+heroku labs:enable runtime-dyno-metadata -a naisten-linja-preview
 ```
 
 You also need to set a config variable `HEROKU_API_TOKEN` to a valid token. The token can be generated and set e.g. with

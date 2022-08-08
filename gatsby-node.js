@@ -8,6 +8,7 @@
 
 const path = require(`path`);
 const slash = require(`slash`);
+const fs = require('fs');
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions;
@@ -98,4 +99,11 @@ exports.createSchemaCustomization = ({ actions }) => {
     }
   `;
   createTypes(typeDefs);
+};
+
+// Tell https://github.com/heroku/heroku-buildpack-nginx running
+// in development mode that the app has been built and is ~ready
+// to take in requests.
+exports.onPostBootstrap = () => {  
+  fs.closeSync(fs.openSync("/tmp/app-initialized", 'w'));
 };
