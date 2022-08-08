@@ -1,0 +1,94 @@
+# Source: https://github.com/heroku/heroku-buildpack-nginx/blob/main/config/nginx.conf.erb
+
+daemon off;
+# Heroku dynos have at least 4 cores.
+worker_processes <%= ENV['NGINX_WORKERS'] || 4 %>;
+
+events {
+  use epoll;
+  accept_mutex on;
+  worker_connections <%= ENV['NGINX_WORKER_CONNECTIONS'] || 1024 %>;
+}
+
+http {
+  gzip on;
+  gzip_comp_level 6;
+  gzip_min_length 512;
+  gzip_types text/plain text/css application/json application/x-javascript text/xml application/xml application/xml+rss text/javascript;
+  gzip_vary on;
+  gzip_proxied any;
+
+  server_tokens off;
+
+
+  log_format l2met 'measure#nginx.service=$request_time request_id=$http_x_request_id';
+  access_log <%= ENV['NGINX_ACCESS_LOG_PATH'] || 'logs/nginx/access.log' %> l2met;
+  error_log <%= ENV['NGINX_ERROR_LOG_PATH'] || 'logs/nginx/error.log' %>;
+
+  include mime.types;
+  default_type application/octet-stream;
+  sendfile on;
+
+  #Must read the body in 5 seconds.
+  client_body_timeout 5;
+
+  upstream app_server {
+    server localhost:8000 fail_timeout=0;
+  }
+
+  server {
+    listen <%= ENV["PORT"] %>;
+    server_name _;
+    keepalive_timeout 5;
+
+    charset UTF-8;
+    port_in_redirect off;
+  
+    resolver 10.1.0.2 8.8.8.8;
+  
+    auth_basic "Restricted";
+    auth_basic_user_file /app/.htpasswd;
+
+    # Configuration for production environment
+    # Staticly built files are served by nginx
+    <% if $ENV["NODE_ENV"] == "production" -%>
+    root public/;
+
+    error_page 404 500 /404.html;
+
+    if ($http_x_forwarded_proto != "https") {
+      return 301 https://$host$request_uri;
+    }
+
+    add_header Cache-Control: "public, max-age=0, must-revalidate";
+    location ~* .(?:css|js)$ {
+      add_header Cache-Control: "public, max-age=31536000, immutable";
+    }
+    location ~* /static/.*$ {
+      add_header Cache-Control: "public, max-age=31536000, immutable";
+    }
+    location ~* /icons/.*\.png$ {
+      add_header Cache-Control: "public, max-age=31536000, immutable";
+    }
+    "/icons/*.png": {
+      add_header Cache-Control: "public, max-age=31536000, immutable";
+    }
+    <% end -%>
+
+    # Configuration for preview build
+    # Nginx is proxying Gatsby development server
+    <% if $ENV["NODE_ENV"] != "production" -%>
+    location / {
+      # Uncomment this if statement to force SSL/redirect http -> https
+      # if ($http_x_forwarded_proto != "https") {
+      #   return 301 https://$host$request_uri;
+      # }
+      proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+      proxy_set_header Host $http_host;
+      proxy_redirect off;
+      proxy_pass http://app_server;
+    }
+    add_header Cache-Control: "no-cache";
+    <% end -%>
+  }
+}
