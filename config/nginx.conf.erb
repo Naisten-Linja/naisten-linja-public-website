@@ -51,7 +51,7 @@ http {
 
     # Configuration for production environment
     # Staticly built files are served by nginx
-    <% if $ENV["NODE_ENV"] == "production" -%>
+    <% if $ENV["NODE_ENV"] == "production" %>
     root public/;
 
     error_page 404 500 /404.html;
@@ -73,11 +73,11 @@ http {
     "/icons/*.png": {
       add_header Cache-Control: "public, max-age=31536000, immutable";
     }
-    <% end -%>
+    <% end %>
 
     # Configuration for preview build
     # Nginx is proxying Gatsby development server
-    <% if $ENV["NODE_ENV"] != "production" -%>
+    <% if $ENV["NODE_ENV"] != "production" %>
     location / {
       # Uncomment this if statement to force SSL/redirect http -> https
       # if ($http_x_forwarded_proto != "https") {
@@ -89,6 +89,6 @@ http {
       proxy_pass http://app_server;
     }
     add_header Cache-Control: "no-cache";
-    <% end -%>
+    <% end %>
   }
 }
