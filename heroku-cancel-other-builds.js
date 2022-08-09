@@ -31,7 +31,11 @@ async function main() {
 
     for (const build of previousStillPending) {
         console.log(`Deleting build ${build.id} in ${build.app.id} which was created at ${build.created_at} by ${build.user.email}`)
-        const result = await heroku.delete(`/apps/${APP}/builds/${build.id}`)
+        const result = heroku.request({
+            method: 'DELETE',
+            path: `/apps/${APP}/builds/${build.id}`,
+            headers: {'Accept': 'application/vnd.heroku+json; version=3.cancel-build'}
+          })
         console.log(result)
     }
 }
