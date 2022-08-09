@@ -41,23 +41,23 @@ There are plans to make this automatic, but because of the time limits, we haven
 
 ## Environments and configuration in Heroku
 
-|                         | Production                       | Preview / development          |
-| ----------------------- | -------------------------------- | -------------------------------|
-| URL address             | https://naistenlinja.fi          | http://dev.naistenlinja.fi     |
-| Heroku application name | naisten-linja-production         | naistenlinja-dev               |
-| Git branch              | production                       | master                         |
-| Heroku buildpacks       | nodejs + heroku-buildpack-static | nodejs                         |
-| How it is served        | Nginx serving static build       | Gatsby dev + nginx proxy/auth  |
-| Contentful environment  | master                           | master                         |
-| Contentful API          | cdn.contentful.com               | preview.contentful.com         |
+|                         | Production                 | Development                        | Preview                           |
+| ----------------------- | -------------------------- | ---------------------------------- | --------------------------------- |
+| URL address             | https://naistenlinja.fi    | https://dev.naistenlinja.fi        | https://preview.naistenlinja.fi   |
+| Heroku application name | naisten-linja-production   | naistenlinja-dev                   | naisten-linja-preview             |
+| Git branch              | production                 | master                             | production                        |
+| NODE_ENV (important)    | production                 | production                         | development                       |
+| How it is served        | Nginx serving static build | Nginx serving static build + auth  | `gatsby develop` + Nginx for auth |
+| Contentful environment  | master                     | master                             | master                            |
+| Contentful API          | cdn.contentful.com         | cdn.contentful.com                 | preview.contentful.com            |
 
-The common preview/dev environment is used both as a staging version of the application code, and as a preview environment for Contentful updates.
+In all environments Heroku should have buildpacks `nodejs` and `heroku-buildpack-nginx`.
 
-**In production** Heroku has second buildpack `heroku-buildpack-static` activated, which causes first `nodejs` step to only run `npm run heroku-postbuild` (overrides `npm run build`). That builds the website based on current content in Contentful. The built files will be served by the Nginx server created by `heroku-buildpack-static`.
+Information about environment variabels to specify can be found at [`.envrc-example`](./.envrc-example).
 
-**In preview/development** Heroku has only one buildback, which causes it to first build the application, and then run `npm run start` command. This will launch the Gatsby development server.
-
-We can not specify a `Procfile` file here, because it would override the default logic described above, and thus run the same command both in production and preview.
+The [`Procfile`](./Procfile) specifies to run script [`heroku-start.sh`](./heroku-start.sh), which reads environment variable `NODE_ENV`
+and decides based on that, what to run on the server: only nginx for serving the static Gatsby build from `./public` folder, or the
+Gatsby developent server and nginx as a authentication proxy in front of that.
 
 ### Cancelling overlapping builds
 
