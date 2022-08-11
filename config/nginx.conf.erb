@@ -45,9 +45,11 @@ http {
     port_in_redirect off;
   
     resolver 10.1.0.2 8.8.8.8;
-  
+
+    <% if !ENV["BASIC_AUTH_USERNAME"].nil? && !ENV["BASIC_AUTH_USERNAME"].empty? %>
     auth_basic "Restricted";
     auth_basic_user_file /app/.htpasswd;
+    <% end %>
 
     # Configuration for production environment
     # Staticly built files are served by nginx
