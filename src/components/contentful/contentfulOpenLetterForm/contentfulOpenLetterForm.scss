@@ -53,4 +53,14 @@
     white-space: pre-wrap;
     margin: 1rem 0 3rem 0;
   }
+
+  &__letter-content-mdeditor {
+    background: #363842;
+    color: #edeeef;
+
+    a {
+      color: inherit;
+      text-decoration: underline;
+    }
+  }
 }

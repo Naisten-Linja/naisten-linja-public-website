@@ -37,6 +37,7 @@
     "react-textarea-autosize": "^8.3.3"
   },
   "devDependencies": {
+    "@uiw/react-md-editor": "^3.17.2",
     "heroku-client": "^3.1.0",
     "prettier": "^2.4.1"
   },
