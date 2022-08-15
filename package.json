@@ -12,6 +12,7 @@
     "@contentful/rich-text-react-renderer": "^15.5.1",
     "@stripe/react-stripe-js": "^1.6.0",
     "@stripe/stripe-js": "^1.20.3",
+    "@uiw/react-md-editor": "^3.17.2",
     "devcert": "^1.2.0",
     "devcert-cli": "^1.0.0",
     "gatsby": "^4.0.2",
@@ -34,10 +35,10 @@
     "react-dom": "^17.0.2",
     "react-helmet": "^6.1.0",
     "react-player": "^2.9.0",
-    "react-textarea-autosize": "^8.3.3"
+    "react-textarea-autosize": "^8.3.3",
+    "rehype-sanitize": "^5.0.1"
   },
   "devDependencies": {
-    "@uiw/react-md-editor": "^3.17.2",
     "heroku-client": "^3.1.0",
     "prettier": "^2.4.1"
   },

@@ -1,6 +1,7 @@
 import React, { useState, useCallback } from 'react';
 import axios from 'axios';
 import MDEditor from '@uiw/react-md-editor';
+import rehypeSanitize from "rehype-sanitize";
 
 import { FullPageLoader } from '../../loader';
 import { SERVICE_API_URL } from '../../../constants';
@@ -47,6 +48,9 @@ const LetterContent = ({ openLetterContent, language }) => {
           </p>
           <MDEditor.Markdown
             source={openLetterContent.replyContent}
+            previewOptions={{
+              rehypePlugins: [[rehypeSanitize]],
+            }}
             className="OpenLetterForm__letter-content-mdeditor"
           />
         </div>
@@ -63,10 +67,7 @@ const LetterContent = ({ openLetterContent, language }) => {
           {new Date(openLetterContent.created).toLocaleString()}
         </p>
         <h2>{openLetterContent.title}</h2>
-        <MDEditor.Markdown
-          source={openLetterContent.content}
-          className="OpenLetterForm__letter-content-mdeditor"
-        />
+        {openLetterContent.content}
       </div>
 
       <button className="button" onClick={() => window.location.reload()}>
