@@ -13,7 +13,7 @@
     "@stripe/react-stripe-js": "^1.6.0",
     "@stripe/stripe-js": "^1.20.3",
     "@uiw/react-md-editor": "^3.17.2",
-    "devcert": "^1.2.0",
+    "devcert": "^1.2.1",
     "devcert-cli": "^1.0.0",
     "gatsby": "^4.0.2",
     "gatsby-plugin-gdpr-cookies": "^2.0.8",
