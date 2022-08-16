@@ -23,6 +23,8 @@ exports.createPages = ({ graphql, actions }) => {
               slug
               pageName
               pageLanguage
+              seoTitle
+              seoDescription
             }
           }
         }

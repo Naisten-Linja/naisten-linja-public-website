@@ -5,6 +5,8 @@ export const ContenfulPage = graphql`
     slug
     pageName
     pageLanguage
+    seoTitle
+    seoDescription
     pageContentBackgroundColor
     pageContent {
       __typename
