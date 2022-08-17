@@ -30,7 +30,7 @@ function Seo({ description, lang, meta, title, previewImage }) {
   const metaDescription = description || site.siteMetadata.description;
 
   let protocol = 'http';
-  if (typeof window !== undefined) {
+  if (typeof window !== 'undefined') {
     const { location } = window;
     protocol = location.protocol;
   }
