@@ -51,10 +51,6 @@ function Seo({ description, lang, meta, title, previewImage }) {
           name: `description`,
           content: metaDescription,
         },
-        {
-          name: 'twitter:card',
-          content: 'summary_large_image',
-        },
         { property: 'og:site_name', content: site.siteMetadata.title },
         {
           property: `og:title`,
