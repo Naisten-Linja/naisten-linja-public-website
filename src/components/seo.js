@@ -29,14 +29,9 @@ function Seo({ description, lang, meta, title, previewImage }) {
   const pageLang = lang || 'fi';
   const metaDescription = description || site.siteMetadata.description;
 
-  let protocol = 'http';
-  if (typeof window !== 'undefined') {
-    const { location } = window;
-    protocol = location.protocol;
-  }
   const metaImage =
     previewImage && previewImage.file?.url
-      ? `${protocol}:${previewImage.file.url}`
+      ? previewImage.file.url
       : `${site.siteMetadata.url}${site.siteMetadata.image}`;
   return (
     <Helmet
