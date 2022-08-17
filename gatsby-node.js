@@ -29,6 +29,7 @@ exports.createPages = ({ graphql, actions }) => {
                 file {
                   url
                 }
+                title
               }
             }
           }

@@ -11,6 +11,7 @@ export const ContenfulPage = graphql`
       file {
         url
       }
+      title
     }
     pageContentBackgroundColor
     pageContent {

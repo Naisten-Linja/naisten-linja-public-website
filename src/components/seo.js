@@ -33,6 +33,10 @@ function Seo({ description, lang, meta, title, previewImage }) {
     previewImage && previewImage.file?.url
       ? previewImage.file.url
       : `${site.siteMetadata.url}${site.siteMetadata.image}`;
+
+  const metaImageAlt = previewImage
+    ? previewImage.title
+    : `${site.siteMetadata.title}`;
   return (
     <Helmet
       htmlAttributes={{
@@ -44,6 +48,10 @@ function Seo({ description, lang, meta, title, previewImage }) {
         {
           name: `description`,
           content: metaDescription,
+        },
+        {
+          name: 'twitter:card',
+          content: 'summary',
         },
         { property: 'og:site_name', content: site.siteMetadata.title },
         {
@@ -61,6 +69,10 @@ function Seo({ description, lang, meta, title, previewImage }) {
         {
           property: 'og:image',
           content: metaImage,
+        },
+        {
+          property: 'og:image:alt',
+          content: metaImageAlt,
         },
         {
           property: 'og:locale',
