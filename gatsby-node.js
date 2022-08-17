@@ -25,6 +25,11 @@ exports.createPages = ({ graphql, actions }) => {
               pageLanguage
               seoTitle
               seoDescription
+              ogImage {
+                file {
+                  url
+                }
+              }
             }
           }
         }

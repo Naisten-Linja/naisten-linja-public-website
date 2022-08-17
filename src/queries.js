@@ -7,6 +7,11 @@ export const ContenfulPage = graphql`
     pageLanguage
     seoTitle
     seoDescription
+    ogImage {
+      file {
+        url
+      }
+    }
     pageContentBackgroundColor
     pageContent {
       __typename

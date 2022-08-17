@@ -9,11 +9,17 @@ import ContentfulComponents from '../components/contentful/contentfulComponents'
 import { pageQueryBySlug } from '../queries';
 
 const PageTemplate = ({ data }) => {
-  const { pageName, pageLanguage, seoTitle, seoDescription } = data.contentfulPages;
+  const { pageName, pageLanguage, seoTitle, seoDescription, ogImage } =
+    data.contentfulPages;
 
   return (
     <Layout>
-      <Seo title={seoTitle || pageName} description={seoDescription} lang={pageLanguage} />
+      <Seo
+        title={seoTitle || pageName}
+        description={seoDescription}
+        previewImage={ogImage}
+        lang={pageLanguage}
+      />
       <ContentfulComponents
         pageContent={data.contentfulPages.pageContent}
       ></ContentfulComponents>

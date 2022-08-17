@@ -10,7 +10,7 @@ import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
 
-function Seo({ description, lang, meta, title }) {
+function Seo({ description, lang, meta, title, previewImage }) {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -28,7 +28,16 @@ function Seo({ description, lang, meta, title }) {
 
   const pageLang = lang || 'fi';
   const metaDescription = description || site.siteMetadata.description;
-  const metaImage = `${site.siteMetadata.url}${site.siteMetadata.image}`;
+
+  let protocol = 'http';
+  if (typeof window !== undefined) {
+    const { location } = window;
+    protocol = location.protocol;
+  }
+  const metaImage =
+    previewImage && previewImage.file?.url
+      ? `${protocol}${previewImage.file.url}`
+      : `${site.siteMetadata.url}${site.siteMetadata.image}`;
   return (
     <Helmet
       htmlAttributes={{
