@@ -29,9 +29,11 @@ function Seo({ description, lang, meta, title, previewImage }) {
   const pageLang = lang || 'fi';
   const metaDescription = description || site.siteMetadata.description;
 
+  const protocol = 'https:';
+
   const metaImage =
     previewImage && previewImage.file?.url
-      ? previewImage.file.url
+      ? `${protocol}${previewImage.file.url}`
       : `${site.siteMetadata.url}${site.siteMetadata.image}`;
 
   const metaImageAlt = previewImage
