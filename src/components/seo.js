@@ -36,7 +36,7 @@ function Seo({ description, lang, meta, title, previewImage }) {
   }
   const metaImage =
     previewImage && previewImage.file?.url
-      ? `${protocol}${previewImage.file.url}`
+      ? `${protocol}:${previewImage.file.url}`
       : `${site.siteMetadata.url}${site.siteMetadata.image}`;
   return (
     <Helmet
