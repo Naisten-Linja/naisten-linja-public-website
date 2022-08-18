@@ -5,6 +5,14 @@ export const ContenfulPage = graphql`
     slug
     pageName
     pageLanguage
+    seoTitle
+    seoDescription
+    ogImage {
+      file {
+        url
+      }
+      title
+    }
     pageContentBackgroundColor
     pageContent {
       __typename
