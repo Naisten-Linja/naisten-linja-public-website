@@ -44,7 +44,7 @@ const ReadLetterForm = ({ content, language }) => {
           language={language}
         />
       )}
-      {hasReply && (
+      {hasReply && content.contentAfterReceivingReply && (
         <div className="OpenLetterForm__content-after-reply">
           {renderRichText(content.contentAfterReceivingReply, richTextRenderingOptions)}
         </div>
