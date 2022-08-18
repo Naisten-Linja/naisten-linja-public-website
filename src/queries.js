@@ -130,6 +130,18 @@ export const ContenfulPage = graphql`
           description
         }
         defaultLanguage
+        contentAfterReceivingReply {
+          raw
+          references {
+            ... on ContentfulGoogleFormsIframe {
+              internal {
+                type
+              }
+              contentful_id
+              embedHtml
+            }
+          }
+        }
       }
       ... on ContentfulExternalForm {
         internal {
@@ -182,6 +194,13 @@ export const ContenfulPage = graphql`
             linkToCustomUrl
           }
         }
+      }
+      ... on ContentfulGoogleFormsIframe {
+        internal {
+          type
+        }
+        contentful_id
+        embedHtml
       }
     }
   }

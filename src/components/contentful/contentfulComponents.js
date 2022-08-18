@@ -10,6 +10,7 @@ import ContentfulContentBoxGroup from './contentfulContentBoxGroup/contentfulCon
 import ContentfulDonationForm from './contentfulDonationForm/contentfulDonationForm';
 import ContentfulOpenLetterForm from './contentfulOpenLetterForm/contentfulOpenLetterForm';
 import ContentfulExternalForm from './contentfulExternalForm/contentfulExternalForm';
+import ContentfulGoogleFormsIframe from './contentfulGoogleFormsIframe/contentfulGoogleFormsIframe';
 
 const ContentfulComponents = ({ pageContent }) => {
   return (pageContent || []).map((component, index) => {
@@ -56,6 +57,9 @@ const ContentfulComponents = ({ pageContent }) => {
 
       case 'ContentfulExternalForm':
         return <ContentfulExternalForm key={index} content={component} />;
+
+      case 'ContentfulGoogleFormsIframe':
+        return <ContentfulGoogleFormsIframe key={index} content={component} />;
 
       default:
         return null;
