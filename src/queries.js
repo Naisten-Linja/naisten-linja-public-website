@@ -9,8 +9,7 @@ fragment ContentfulBlogPostFragment on ContentfulBlogPost {
   blogPostLanguage
   slug
   blogPostDate
-  blogPostSeoTitle
-  blogPostSeoDescription
+  blogPostDescription
   coverImage {
     file {
       url

@@ -12,15 +12,15 @@ const BlogPostTemplate = ({ data }) => {
     blogPostTitle,
     blogPostLanguage,
     blogPostSeoTitle,
-    blogPostSeoDescription,
+    blogPostDescription,
     coverImage,
   } = data.contentfulBlogPost;
 
   return (
     <Layout>
       <Seo
-        title={blogPostSeoTitle || blogPostTitle}
-        description={blogPostSeoDescription}
+        title={blogPostTitle}
+        description={blogPostDescription}
         previewImage={coverImage}
         lang={blogPostLanguage}
       />

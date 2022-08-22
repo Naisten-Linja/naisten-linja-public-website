@@ -155,8 +155,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       blogPostBackgroundStyle: String
       blogPostBackgroundColor: String
       blogPostTextColor: String
-      blogPostSeoTitle: String
-      blogPostSeoDescription: String
+      blogPostDescription: String
     }
     type ContentfulBlogPostBlogPostContent {
       raw: String
