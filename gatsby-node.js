@@ -23,6 +23,14 @@ exports.createPages = ({ graphql, actions }) => {
               slug
               pageName
               pageLanguage
+              seoTitle
+              seoDescription
+              ogImage {
+                file {
+                  url
+                }
+                title
+              }
             }
           }
         }
@@ -52,6 +60,22 @@ exports.createPages = ({ graphql, actions }) => {
     });
 };
 
+
+// gatsby-contentful-source determines the types of data that is available
+// from Contentful by looking at what is currently defined there.
+// If there is no entry for a specific content type, or never any content in
+// specific field, it will think that those do not exist.
+// If queries.js tries to access those fields, we get a long error message about
+// using fields that do not exist.
+//
+// THE SOLUTION IS TO MANUALLY TYPE THE GRAPHQL TYPE DEFINITIONS BELOW.
+// You can get help from http://localhost:8000/___graphql, select "Docs" from
+// upper right corner.
+//
+// See more information:
+// - https://www.gatsbyjs.com/docs/reference/graphql-data-layer/schema-customization/#creating-type-definitions
+// - https://github.com/gatsbyjs/gatsby/issues/2392
+// - https://graphql.org/learn/schema/
 exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions;
   const typeDefs = `
@@ -90,12 +114,47 @@ exports.createSchemaCustomization = ({ actions }) => {
       backgroundColor: String
     }
 
-    type ContentfulPages implements Node {
-      slug: String
-    }
-
     type Content {
       raw: String
+    }
+
+    type ContentfulOpenLetterForm implements Node {
+      title: String
+      showSendLetterButton: Boolean
+      description: ContentfulOpenLetterDescription
+      defaultLanguage: String
+      contentAfterReceivingReply: ContentfulOpenLetterFormContentAfterReceivingReply
+    }
+
+    type ContentfulOpenLetterDescription {
+      childMarkdownRemark: MarkdownRemark
+      description: String
+    }
+
+    type ContentfulOpenLetterFormContentAfterReceivingReply {
+      raw: String
+      references: [ContentfulGoogleFormsIframe] @link(by: "id", from: "references___NODE")
+    }
+
+    type ContentfulGoogleFormsIframe implements Node {
+      embedHtml: String
+    }
+
+    union ContentfulPagesPageContent = ContentfulBlogPost
+      | ContentfulContentBoxGroup
+      | ContentfulExternalForm
+      | ContentfulFullWidthImage
+      | ContentfulGoogleFormsIframe
+      | ContentfulOpenLetterForm
+      | ContentfulParagraph
+      | ContentfulPersonIntroduction
+      | ContentfulQuote
+      | ContentfulReadMore
+      | ContentfulVideo
+
+    type ContentfulPages implements Node {
+      slug: String
+      pageContent: [ContentfulPagesPageContent] @link(by: "id", from: "pageContent___NODE")
     }
   `;
   createTypes(typeDefs);

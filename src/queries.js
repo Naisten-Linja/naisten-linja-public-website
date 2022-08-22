@@ -5,6 +5,14 @@ export const ContenfulPage = graphql`
     slug
     pageName
     pageLanguage
+    seoTitle
+    seoDescription
+    ogImage {
+      file {
+        url
+      }
+      title
+    }
     pageContentBackgroundColor
     pageContent {
       __typename
@@ -122,6 +130,18 @@ export const ContenfulPage = graphql`
           description
         }
         defaultLanguage
+        contentAfterReceivingReply {
+          raw
+          references {
+            ... on ContentfulGoogleFormsIframe {
+              internal {
+                type
+              }
+              contentful_id
+              embedHtml
+            }
+          }
+        }
       }
       ... on ContentfulExternalForm {
         internal {
@@ -174,6 +194,13 @@ export const ContenfulPage = graphql`
             linkToCustomUrl
           }
         }
+      }
+      ... on ContentfulGoogleFormsIframe {
+        internal {
+          type
+        }
+        contentful_id
+        embedHtml
       }
     }
   }

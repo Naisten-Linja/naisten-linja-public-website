@@ -1,16 +1,34 @@
 import React, { useState, useCallback } from 'react';
 import axios from 'axios';
+import MDEditor from '@uiw/react-md-editor';
+import rehypeSanitize from "rehype-sanitize";
+import { BLOCKS } from "@contentful/rich-text-types"
+import { renderRichText } from "gatsby-source-contentful/rich-text"
 
 import { FullPageLoader } from '../../loader';
 import { SERVICE_API_URL } from '../../../constants';
 import { translations } from './translations';
+import ContentfulGoogleFormsIframe from '../contentfulGoogleFormsIframe/contentfulGoogleFormsIframe';
 
 const axiosConfig = {
   headers: { 'Content-Type': 'application/json' },
 };
 
-const ReadLetterForm = ({ /* content, */ language }) => {
+const richTextRenderingOptions = {
+  renderMark: {},
+  renderNode: {
+    [BLOCKS.EMBEDDED_ENTRY]: ({ data }) => {
+      if (data?.target?.internal?.type === 'ContentfulGoogleFormsIframe') {
+        return <ContentfulGoogleFormsIframe content={data.target} />
+      }
+    },
+  },
+};
+
+const ReadLetterForm = ({ content, language }) => {
   const [openLetterContent, setOpenLetterContent] = useState(null);
+
+  const hasReply = openLetterContent !== null && openLetterContent.replyContent !== null;
 
   return (
     <>
@@ -25,6 +43,11 @@ const ReadLetterForm = ({ /* content, */ language }) => {
           openLetterContent={openLetterContent}
           language={language}
         />
+      )}
+      {hasReply && content.contentAfterReceivingReply && (
+        <div className="OpenLetterForm__content-after-reply">
+          {renderRichText(content.contentAfterReceivingReply, richTextRenderingOptions)}
+        </div>
       )}
     </>
   );
@@ -44,7 +67,13 @@ const LetterContent = ({ openLetterContent, language }) => {
             {t['openLetterForm.date']}:{' '}
             {new Date(openLetterContent.replyUpdated).toLocaleString()}
           </p>
-          {openLetterContent.replyContent}
+          <MDEditor.Markdown
+            source={openLetterContent.replyContent}
+            previewOptions={{
+              rehypePlugins: [[rehypeSanitize]],
+            }}
+            className="OpenLetterForm__letter-content-mdeditor"
+          />
         </div>
       ) : (
         <div className="OpenLetterForm__success-message">

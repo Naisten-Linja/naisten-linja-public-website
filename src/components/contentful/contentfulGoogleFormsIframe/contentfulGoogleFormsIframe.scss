@@ -1,0 +1,16 @@
+.GoogleFormsIframe {
+  & > iframe {
+    display: block;
+    max-width: 100%;
+    max-height: 80vh;
+    padding: 0;
+    margin: 0 auto 2rem auto;
+    //border: 5px solid #354372;
+    border: 5px solid #858fda;
+    border-radius: 1rem;
+    //background: #354372;
+    //background: #858fda;
+    background: #edeeef;
+    box-shadow: 0 0.2rem 1rem rgba(0,0,0,0.2);
+  }
+}

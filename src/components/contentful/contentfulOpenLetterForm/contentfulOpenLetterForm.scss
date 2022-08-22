@@ -53,4 +53,51 @@
     white-space: pre-wrap;
     margin: 1rem 0 3rem 0;
   }
+
+  &__letter-content-mdeditor {
+    background: inherit;
+    color: inherit;
+    font-family: inherit;
+
+    a {
+      color: inherit;
+      text-decoration: underline;
+    }
+
+    blockquote {
+      color: inherit;
+    }
+
+    pre {
+      code {
+        font-size: 1.5rem;
+        color: #363842;
+      }
+    }
+
+    ul, ol {
+      padding: 0;
+      margin-top: 0;
+      margin-bottom: 0;
+
+      &.contains-task-list {
+        margin: 0;
+        line-height: .5rem;
+      }
+
+      li {
+        line-height: 0;
+        font-size: 1.5rem;
+      }
+    }
+    
+  }
+
+  &__content-after-reply {
+    font-weight: normal;
+
+    h1 {
+      text-align: center;
+    }
+  }
 }

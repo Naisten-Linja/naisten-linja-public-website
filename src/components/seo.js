@@ -10,7 +10,7 @@ import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
 
-function Seo({ description, lang, meta, title }) {
+function Seo({ description, lang, meta, title, previewImage }) {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -28,7 +28,17 @@ function Seo({ description, lang, meta, title }) {
 
   const pageLang = lang || 'fi';
   const metaDescription = description || site.siteMetadata.description;
-  const metaImage = `${site.siteMetadata.url}${site.siteMetadata.image}`;
+
+  const protocol = 'https:';
+
+  const metaImage =
+    previewImage && previewImage.file?.url
+      ? `${protocol}${previewImage.file.url}`
+      : `${site.siteMetadata.url}${site.siteMetadata.image}`;
+
+  const metaImageAlt = previewImage
+    ? previewImage.title
+    : `${site.siteMetadata.title}`;
   return (
     <Helmet
       htmlAttributes={{
@@ -44,7 +54,7 @@ function Seo({ description, lang, meta, title }) {
         { property: 'og:site_name', content: site.siteMetadata.title },
         {
           property: `og:title`,
-          content: site.siteMetadata.title,
+          content: `${title} | ${site.siteMetadata.title}`,
         },
         {
           property: `og:description`,
@@ -57,6 +67,10 @@ function Seo({ description, lang, meta, title }) {
         {
           property: 'og:image',
           content: metaImage,
+        },
+        {
+          property: 'og:image:alt',
+          content: metaImageAlt,
         },
         {
           property: 'og:locale',
