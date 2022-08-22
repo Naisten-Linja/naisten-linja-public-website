@@ -274,6 +274,7 @@ export const ContenfulPage = graphql`
         blogPostLanguage
         slug
         blogPostDate
+        blogPostDescription
         coverImage {
           file {
             url

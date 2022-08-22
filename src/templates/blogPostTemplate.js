@@ -11,7 +11,6 @@ const BlogPostTemplate = ({ data }) => {
   const {
     blogPostTitle,
     blogPostLanguage,
-    blogPostSeoTitle,
     blogPostDescription,
     coverImage,
   } = data.contentfulBlogPost;
