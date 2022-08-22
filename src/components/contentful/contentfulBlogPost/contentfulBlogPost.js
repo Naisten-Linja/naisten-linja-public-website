@@ -9,14 +9,12 @@ import './contentfulBlogPost.scss';
 const options = {
   renderMark: {},
   renderNode: {
-    [BLOCKS.TABLE]: ({ data }) => {
-      console.log('[BLOCKS.TABLE]', data);
-      return (
-        <table>
-          {/* <tbody>{children}</tbody> */}
-        </table>
-      );
-    },
+    [BLOCKS.TABLE]: (node, children) => (
+      <table>
+        <tbody>{children}</tbody>
+      </table>
+    ),
+    [BLOCKS.TABLE_HEADER_CELL]: (node, children) => <th>{children}</th>,
     [BLOCKS.TABLE_ROW]: (node, children) => <tr>{children}</tr>,
     [BLOCKS.TABLE_CELL]: (node, children) => <td>{children}</td>,
     [BLOCKS.EMBEDDED_ENTRY]: ({ data }) => {
