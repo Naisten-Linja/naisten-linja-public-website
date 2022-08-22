@@ -205,3 +205,42 @@ export const ContenfulPage = graphql`
     }
   }
 `;
+
+export const ContentfulBlogPost = graphql`
+fragment ContentfulBlogPostFragment on ContentfulBlogPost {
+  blogPostTitle
+  blogPostLanguage
+  slug
+  blogPostDate
+  coverImage {
+    file {
+      url
+      fileName
+    }
+    title
+  }
+  blogPostContent {
+    raw
+    references {
+      __typename
+      ... on ContentfulAsset {
+        contentful_id
+        file {
+          url
+          fileName
+          details {
+            image {
+              height
+              width
+            }
+          }
+        }
+        title
+      }
+    }
+  }
+  blogPostBackgroundStyle
+  blogPostBackgroundColor
+  blogPostTextColor
+}
+`;

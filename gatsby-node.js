@@ -34,6 +34,16 @@ exports.createPages = ({ graphql, actions }) => {
             }
           }
         }
+        allContentfulBlogPost {
+          edges {
+            node {
+              blogPostLanguage
+              blogPostTitle
+              id
+              slug
+            }
+          }
+        }
       }
     `,
   )
@@ -43,11 +53,28 @@ exports.createPages = ({ graphql, actions }) => {
       }
       // Resolve the paths to our template
       const projectTemplate = path.resolve('./src/templates/pageTemplate.js');
+      const blogPostTemplate = path.resolve(
+        './src/templates/blogPostTemplate.js',
+      );
+
+      const { allContentfulPages, allContentfulBlogPost } = result.data;
       // Then for each result we create a page.
-      result.data.allContentfulPages.edges.forEach((edge) => {
+      allContentfulPages.edges.forEach((edge) => {
         createPage({
           path: `/${edge.node.slug}/`,
           component: slash(projectTemplate),
+          context: {
+            slug: edge.node.slug,
+            id: edge.node.id,
+          },
+        });
+      });
+
+      // Create a page for blog post.
+      allContentfulBlogPost.edges.forEach((edge) => {
+        createPage({
+          path: `/${edge.node.slug}/`,
+          component: slash(blogPostTemplate),
           context: {
             slug: edge.node.slug,
             id: edge.node.id,
@@ -76,6 +103,8 @@ exports.createPages = ({ graphql, actions }) => {
 // - https://www.gatsbyjs.com/docs/reference/graphql-data-layer/schema-customization/#creating-type-definitions
 // - https://github.com/gatsbyjs/gatsby/issues/2392
 // - https://graphql.org/learn/schema/
+
+// TODO: create schema for blog post
 exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions;
   const typeDefs = `
@@ -92,7 +121,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       value: String!
     }
     type ContentfulServiceBox implements Node {
-      serviceIcon: ContentfulAsset
+      serviceIcon: ContentfulAsset @link(by: "id", from: "serviceIcon___NODE")
       backgroundColor: String
       serviceName: String!
       serviceInformation: String!
@@ -112,6 +141,25 @@ exports.createSchemaCustomization = ({ actions }) => {
       title: String
       backgroundStyle: String
       backgroundColor: String
+    }
+    type ContentfulBlogPost implements Node {
+      blogPostTitle: String
+      blogPostDate(
+        difference: String
+        formatString: String
+        fromNow: Boolean
+        locale: String
+      ): Date
+      blogPostLanguage: String
+      coverImage: ContentfulAsset @link(by: "id", from: "coverImage___NODE")
+      blogPostContent: ContentfulBlogPostBlogPostContent
+      blogPostBackgroundStyle: String
+      blogPostBackgroundColor: String
+      blogPostTextColor: String
+    }
+    type ContentfulBlogPostBlogPostContent {
+      raw: String
+      references: [ContentfulAsset] @link(by: "id", from: "references___NODE")
     }
 
     type Content {
