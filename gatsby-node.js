@@ -104,7 +104,6 @@ exports.createPages = ({ graphql, actions }) => {
 // - https://github.com/gatsbyjs/gatsby/issues/2392
 // - https://graphql.org/learn/schema/
 
-// TODO: create schema for blog post
 exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions;
   const typeDefs = `
@@ -156,6 +155,8 @@ exports.createSchemaCustomization = ({ actions }) => {
       blogPostBackgroundStyle: String
       blogPostBackgroundColor: String
       blogPostTextColor: String
+      blogPostSeoTitle: String
+      blogPostSeoDescription: String
     }
     type ContentfulBlogPostBlogPostContent {
       raw: String

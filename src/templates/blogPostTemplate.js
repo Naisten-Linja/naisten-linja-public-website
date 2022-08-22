@@ -8,14 +8,19 @@ import { ContentfulBlogPost as Query } from '../queries';
 import ContentfulBlogPost from '../components/contentful/contentfulBlogPost/contentfulBlogPost';
 
 const BlogPostTemplate = ({ data }) => {
-  const { blogPostTitle, blogPostLanguage, blogPostContent, coverImage } =
-    data.contentfulBlogPost;
+  const {
+    blogPostTitle,
+    blogPostLanguage,
+    blogPostSeoTitle,
+    blogPostSeoDescription,
+    coverImage,
+  } = data.contentfulBlogPost;
 
   return (
     <Layout>
       <Seo
-        title={blogPostTitle}
-        // description={seoDescription}
+        title={blogPostSeoTitle || blogPostTitle}
+        description={blogPostSeoDescription}
         previewImage={coverImage}
         lang={blogPostLanguage}
       />
