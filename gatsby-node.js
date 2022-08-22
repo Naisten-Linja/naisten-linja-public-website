@@ -159,8 +159,9 @@ exports.createSchemaCustomization = ({ actions }) => {
     }
     type ContentfulBlogPostBlogPostContent {
       raw: String
-      references: [ContentfulAsset] @link(by: "id", from: "references___NODE")
+      references: [ContentfulAssetContentfulVideoUnion] @link(by: "id", from: "references___NODE")
     }
+    union ContentfulAssetContentfulVideoUnion = ContentfulAsset | ContentfulVideo
 
     type Content {
       raw: String

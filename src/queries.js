@@ -224,6 +224,7 @@ fragment ContentfulBlogPostFragment on ContentfulBlogPost {
     references {
       __typename
       ... on ContentfulAsset {
+        id
         contentful_id
         file {
           url
@@ -236,6 +237,26 @@ fragment ContentfulBlogPostFragment on ContentfulBlogPost {
           }
         }
         title
+      }
+      ... on ContentfulVideo {
+        internal {
+          type
+        }
+        contentful_id
+        videoTitle
+        videoUrl
+        videoTopDescription {
+          videoTopDescription
+          childMarkdownRemark {
+            html
+          }
+        }
+        videoBottomDescription {
+          videoBottomDescription
+          childMarkdownRemark {
+            html
+          }
+        }
       }
     }
   }
