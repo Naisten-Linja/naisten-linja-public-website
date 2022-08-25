@@ -11,7 +11,7 @@ import ContentfulDonationForm from './contentfulDonationForm/contentfulDonationF
 import ContentfulOpenLetterForm from './contentfulOpenLetterForm/contentfulOpenLetterForm';
 import ContentfulExternalForm from './contentfulExternalForm/contentfulExternalForm';
 import ContentfulGoogleFormsIframe from './contentfulGoogleFormsIframe/contentfulGoogleFormsIframe';
-import ContentfulBlogPostPreview from './contentfulBlogPost/ContentfulBlogPostPreview';
+import ContentfulBlogPostCard from './contentfulBlogPost/ContentfulBlogPostCard';
 
 const ContentfulComponents = ({ pageContent }) => {
   return (pageContent || []).map((component, index) => {
@@ -63,7 +63,7 @@ const ContentfulComponents = ({ pageContent }) => {
         return <ContentfulGoogleFormsIframe key={index} content={component} />;
 
       case 'ContentfulBlogPost':
-        return <ContentfulBlogPostPreview key={index} content={component} />;
+        return <ContentfulBlogPostCard key={index} content={component} />;
 
       default:
         return null;
