@@ -11,7 +11,7 @@ import ContentfulDonationForm from './contentfulDonationForm/contentfulDonationF
 import ContentfulOpenLetterForm from './contentfulOpenLetterForm/contentfulOpenLetterForm';
 import ContentfulExternalForm from './contentfulExternalForm/contentfulExternalForm';
 import ContentfulGoogleFormsIframe from './contentfulGoogleFormsIframe/contentfulGoogleFormsIframe';
-import ContentfulBlogPostCard from './contentfulBlogPost/ContentfulBlogPostCard';
+import ContentfulBlogPostCard from './contentfulBlogPost/contentfulBlogPostCard';
 
 const ContentfulComponents = ({ pageContent }) => {
   return (pageContent || []).map((component, index) => {
