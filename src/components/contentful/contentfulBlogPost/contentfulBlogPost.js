@@ -56,7 +56,7 @@ const ContentfulBlogPost = ({ content }) => {
     >
       <div className="full-width-section">
         <div className="BlogPost layout-container" style={{ padding: '2em 1em' }}>
-          <div className="row">
+          <div className="row cover-image">
               <img src={coverImage.file.url} alt={coverImage.title} />
           </div>
           <div>
