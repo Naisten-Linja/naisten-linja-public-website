@@ -16,7 +16,7 @@ const BlogPostTemplate = ({ data }) => {
   } = data.contentfulBlogPost;
 
   return (
-    <Layout>
+    <Layout lang={blogPostLanguage}>
       <Seo
         title={blogPostTitle}
         description={blogPostDescription}
