@@ -15,6 +15,7 @@ const WriteLetterForm = ({ letterKey, accessPassword, language }) => {
   const [isLetterSent, setIsLetterSent] = useState(false);
   const [openLetterTitle, setOpenLetterTitle] = useState('');
   const [openLetterContent, setOpenLetterContent] = useState('');
+  const [openLetterEmail, setOpenLetterEmail] = useState('');
 
   const t = translations[language] ?? translations.fi;
 
@@ -35,6 +36,7 @@ const WriteLetterForm = ({ letterKey, accessPassword, language }) => {
           accessPassword,
           title: openLetterTitle,
           content: openLetterContent,
+          email: openLetterEmail.trim(),
         })
         .then(function (response) {
           setIsLetterSent(true);
@@ -46,11 +48,19 @@ const WriteLetterForm = ({ letterKey, accessPassword, language }) => {
           setIsLoading(false);
         });
     },
-    [letterKey, accessPassword, openLetterTitle, openLetterContent, t],
+    [
+      letterKey,
+      accessPassword,
+      openLetterTitle,
+      openLetterContent,
+      openLetterEmail,
+      t,
+    ],
   );
 
   const updateLetterTitle = (e) => setOpenLetterTitle(e.target.value);
   const updateLetterContent = (e) => setOpenLetterContent(e.target.value);
+  const updateLetterEmail = (e) => setOpenLetterEmail(e.target.value);
 
   if (errorMessage) {
     // Using dangerouslySetInnerHTML due to some error messages contains links to the feedback form.
@@ -146,13 +156,22 @@ const WriteLetterForm = ({ letterKey, accessPassword, language }) => {
       <label htmlFor="title">{t['openLetterForm.subject']}</label>
       <input onChange={updateLetterTitle} type="text" name="title" required />
 
-      <label htmlFor="content">Content</label>
+      <label htmlFor="content">{t['openLetterForm.content']}</label>
       <TextareaAutosize
         onChange={updateLetterContent}
         minRows={5}
         name="content"
         required
       />
+
+      <label htmlFor="email">{t['openLetterForm.email']}</label>
+      <input onChange={updateLetterEmail} type="email" name="email" />
+      <div
+        className="OpenLetterForm__email-notice"
+        dangerouslySetInnerHTML={{
+          __html: t['openLetterForm.emailNotice'],
+        }}
+      ></div>
 
       <button className="button" onClick={() => window.location.reload()}>
         {t['openLetterForm.button.cancel']}
