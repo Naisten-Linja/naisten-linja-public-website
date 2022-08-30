@@ -18,17 +18,22 @@ const ContentfulBlogPostCard = ({ content }) => {
   return (
     <div className="BlogPost card-layout">
       <div className="card">
-      <Background
-        color={blogPostBackgroundColor}
-        backgroundStyle={blogPostBackgroundStyle}
-        textColor={blogPostTextColor}
-      >
-        <div className="card__header">
-          <img src={coverImage.file.url} alt={coverImage.title} />   
-        </div></Background>
+        <Background
+          color={blogPostBackgroundColor}
+          backgroundStyle={blogPostBackgroundStyle}
+          textColor={blogPostTextColor}
+        >
+          <div className="card__header">
+            <img src={coverImage.file.url} alt={coverImage.title} />
+          </div>
+        </Background>
         <div className="card__body">
-          <h2>{blogPostTitle}</h2>
-          <small><em>{new Date(blogPostDate).toLocaleDateString('fi-FI')}</em></small>
+          <h2>
+            <strong>{blogPostTitle}</strong>
+          </h2>
+          <small>
+            <em>{new Date(blogPostDate).toLocaleDateString('fi-FI')}</em>
+          </small>
           <p>{blogPostDescription}</p>
           <Link className="block-link" to={`/${slug}`}></Link>
         </div>

@@ -26,9 +26,8 @@ const options = {
       return (
         <div className="image-col">
           <img
+            style={{ maxWidth: '100%', height: 'auto' }}
             src={`https://${data.target.file.url}`}
-            height={data.target.file.details.image.height}
-            width={data.target.file.details.image.width}
             alt={data.target.description}
           />
         </div>
@@ -55,9 +54,12 @@ const ContentfulBlogPost = ({ content }) => {
       textColor={blogPostTextColor}
     >
       <div className="full-width-section">
-        <div className="BlogPost layout-container" style={{ padding: '2em 1em' }}>
+        <div
+          className="BlogPost layout-container"
+          style={{ padding: '2em 1em' }}
+        >
           <div className="row cover-image">
-              <img src={coverImage.file.url} alt={coverImage.title} />
+            <img src={coverImage.file.url} alt={coverImage.title} />
           </div>
           <div>
             <h2>
