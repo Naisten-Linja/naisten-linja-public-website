@@ -24,11 +24,11 @@ import './globals.scss';
 // recreating the `Stripe` object on every render.
 const stripePromise = loadStripe(STRIPE_PUBLIC_KEY);
 
-const Layout = ({ children }) => {
+const Layout = ({ children, lang }) => {
   return (
     <Elements stripe={stripePromise}>
       <CookieBanner />
-      <Header />
+      <Header lang={lang}/>
       <main className="main-container" id="main">
         {children}
       </main>

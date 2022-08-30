@@ -12,7 +12,7 @@ const IndexPage = ({ data }) => {
   const { pageName, pageLanguage } = data.contentfulPages;
 
   return (
-    <Layout>
+    <Layout lang={pageLanguage}>
       <Seo title={pageName} lang={pageLanguage} />
       <ContentfulComponents
         pageContent={data.contentfulPages.pageContent}
