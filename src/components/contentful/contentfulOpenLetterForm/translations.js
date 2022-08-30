@@ -7,7 +7,9 @@ export const translations = {
     'openLetterForm.subject': 'Subject',
     'openLetterForm.content': 'Content',
     'openLetterForm.email': 'Email (optional)',
-    'openLetterForm.emailNotice': 'Text here?',
+    'openLetterForm.emailNotice':
+      'Please note that the notification of the reply comes from an email address ending with naistenlinja.fi. <br/>Please make sure that a third party can’t access your email. <br/>' +
+      'Email addresses and letters are kept only as long as necessary. Read more: <a href="https://naistenlinja.fi/tietosuojaseloste/" target="_blank">https://naistenlinja.fi/tietosuojaseloste/</a> (only in Finnish)',
     'openLetterForm.ourResponse': 'Our response',
     'openLetterForm.letterKey': 'Access key',
     'openLetterForm.accessPassword': 'Access password',
@@ -42,7 +44,9 @@ export const translations = {
     'openLetterForm.subject': 'Viestin otsikko',
     'openLetterForm.content': 'Viesti',
     'openLetterForm.email': 'Sähköposti (vapaaehtoinen)',
-    'openLetterForm.emailNotice': 'Text here?',
+    'openLetterForm.emailNotice':
+      'Huomioithan, että ilmoitus vastauksesta tulee naistenlinja.fi -päätteisestä sähköpostiosoitteesta. <br/>Varmistathan, ettei ulkopuolisilla ole pääsyä sähköpostiisi. <br/>' +
+      'Sähköpostiosoitteesi ja kirje säilytetään vain tarvittavan määräajan. Lue lisää: <a href="https://naistenlinja.fi/tietosuojaseloste/" target="_blank">https://naistenlinja.fi/tietosuojaseloste/</a>',
     'openLetterForm.ourResponse': 'Vastauksemme',
     'openLetterForm.letterKey': 'Käyttäjätunnuksesi',
     'openLetterForm.accessPassword': 'Salasanasi',
@@ -74,7 +78,9 @@ export const translations = {
     'openLetterForm.subject': ' Rubrik',
     'openLetterForm.content': 'Meddelande',
     'openLetterForm.email': 'E-post (frivillig)',
-    'openLetterForm.emailNotice': 'Text here?',
+    'openLetterForm.emailNotice':
+      'Observera att meddelandet om svaret kommer från en e-postadress som slutar på naistenlinja.fi. <br/>Se till att utomstående inte har tillgång till din e-post. <br/>' +
+      'E-postadresser och brev sparas endast så länge det behövs. Läs mer: <a href="https://naistenlinja.fi/tietosuojaseloste/" target="_blank">https://naistenlinja.fi/tietosuojaseloste/</a> (endast på finska)',
     'openLetterForm.ourResponse': 'Vårt svar',
     'openLetterForm.letterKey': 'Användarnamn',
     'openLetterForm.accessPassword': 'Lösenord',

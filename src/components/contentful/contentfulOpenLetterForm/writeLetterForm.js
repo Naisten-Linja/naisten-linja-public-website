@@ -166,9 +166,12 @@ const WriteLetterForm = ({ letterKey, accessPassword, language }) => {
 
       <label htmlFor="email">{t['openLetterForm.email']}</label>
       <input onChange={updateLetterEmail} type="email" name="email" />
-      <div className="OpenLetterForm__email-notice">
-        {t['openLetterForm.emailNotice']}
-      </div>
+      <div
+        className="OpenLetterForm__email-notice"
+        dangerouslySetInnerHTML={{
+          __html: t['openLetterForm.emailNotice'],
+        }}
+      ></div>
 
       <button className="button" onClick={() => window.location.reload()}>
         {t['openLetterForm.button.cancel']}
