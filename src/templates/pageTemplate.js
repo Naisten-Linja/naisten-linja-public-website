@@ -13,7 +13,7 @@ const PageTemplate = ({ data }) => {
     data.contentfulPages;
 
   return (
-    <Layout>
+    <Layout lang={pageLanguage}>
       <Seo
         title={seoTitle || pageName}
         description={seoDescription}

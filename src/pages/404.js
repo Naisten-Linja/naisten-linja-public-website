@@ -4,7 +4,7 @@ import Layout from '../components/layout';
 import Seo from '../components/seo';
 
 const NotFoundPage = () => (
-  <Layout>
+  <Layout lang="fi">
     <Seo title="Sivua ei löytynyt" />
     <section className="full-width-section">
       <div className="layout-container">

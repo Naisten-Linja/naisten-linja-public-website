@@ -1,0 +1,106 @@
+@import '../../../scss/grid.scss';
+@import '../../mixins.scss';
+
+.BlogPost {
+  font-size: 1.56rem;
+  color: #363842;
+  line-height: 1.2;
+  font-weight: normal;
+
+  .cover-image {
+    display: block;
+    text-align: center;
+  }
+
+  .block-link {
+    z-index: 2;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    top: 0;
+    left: 0;
+  }
+  
+  &--text-color-dark {
+    color: #2e303a;
+    a {
+      color: #2e303a;
+    }
+  }
+
+  &__title {
+    @include sansita-font;
+    font-size: 2.8rem;
+    letter-spacing: 0.09em;
+    text-align: center;
+    width: 100%;
+  }
+
+  .image-col {
+    text-align: center;
+  }
+
+  @include media-breakpoint-up(md) {
+    .column-count-2 {
+      column-count: 2;
+    }
+
+    .column-count-3 {
+      column-count: 3;
+    }
+  }
+
+  h2 {
+    margin-top: 2.5rem;
+  }
+
+  p {
+    img {
+      margin: auto;
+      display: inherit;
+    }
+  }
+
+  small {
+    a {
+      word-break: break-all;
+    }
+  }
+
+  &.card-layout {
+    position: relative;
+    max-width: 100%; // limit for mobile devices
+    width: 30rem; // usual width of a card
+    margin: 1rem;
+  }
+  
+  .card {
+    height: calc(100% - 2rem);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: 0 .1rem 1rem rgba(0, 0, 0, 0.1);
+    border-radius: 1em;
+    background: #ECE9E6;
+
+    .card__header {
+      height: 250px;
+
+      img {
+        width:100%;
+        height: inherit;
+        object-position: center;
+        object-fit: contain;
+      }
+    }
+    
+    .card__body {
+      padding: 1rem;
+      margin-bottom: 3rem;
+      display: flex;
+      flex-direction: column;
+      gap: .5rem;
+    }
+  }
+}

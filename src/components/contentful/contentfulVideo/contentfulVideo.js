@@ -12,7 +12,7 @@ const ContentfulVideo = ({ content }) => {
             <h2>{content.videoTitle}</h2>
           </div>
         )}
-        <div className="row">
+        <div className="container-flex-column">
           {!!content.videoTopDescription && content.videoTopDescription !== '' && (
             <div className="col-xs-12 p-0">
               <div

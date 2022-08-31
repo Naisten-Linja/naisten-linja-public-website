@@ -10,7 +10,7 @@ const SitemapPage = ({ data }) => {
     data.contentfulMainMenu.topLevelPages,
   );
   return (
-    <Layout>
+    <Layout lang="fi">
       <Seo title="Sivukartta" lang="fi" />
       <section className="full-width-content">
         <div className="Paragraph layout-container">
