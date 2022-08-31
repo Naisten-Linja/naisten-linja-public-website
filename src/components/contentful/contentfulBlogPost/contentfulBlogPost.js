@@ -24,13 +24,11 @@ const options = {
     },
     [BLOCKS.EMBEDDED_ASSET]: ({ data }) => {
       return (
-        <div className="image-col">
-          <img
-            style={{ maxWidth: '100%', height: 'auto' }}
-            src={`https://${data.target.file.url}`}
-            alt={data.target.description}
-          />
-        </div>
+        <img
+          className="BlogPost__image"
+          src={`https://${data.target.file.url}`}
+          alt={data.target.description}
+        />
       );
     },
   },

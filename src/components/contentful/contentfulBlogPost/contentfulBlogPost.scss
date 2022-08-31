@@ -37,8 +37,29 @@
     width: 100%;
   }
 
-  .image-col {
-    text-align: center;
+  &__image {
+    max-width: 50%;
+    height: auto;
+    float: right;
+    margin: 1rem;
+    clear: both;
+
+    @media (max-width: 600px) {
+      max-width: 100%;
+      float: none;
+    }
+  }
+
+  table {
+    clear: both;
+  }
+
+  h1,h2,h3,h4,h5,h6 {
+    clear: both;
+  }
+
+  hr {
+    clear: both;
   }
 
   @include media-breakpoint-up(md) {
