@@ -9,20 +9,20 @@ import MenuLanguage from './menu-language';
 
 const languages = [
   {
-    abv: '🇫🇮 FI',
-    label: '🇫🇮 Suomeksi (FI)',
+    abv: 'FI',
+    label: 'Suomeksi (FI)',
     value: 'fi',
     link: '/etusivu',
   },
   {
-    abv: '🇸🇪 SV',
-    label: '🇸🇪 På svenska (SV)',
+    abv: 'SV',
+    label: 'På svenska (SV)',
     value: 'sv',
     link: '/pa-svenska',
   },
   {
-    abv: '🇬🇧 EN',
-    label: '🇬🇧 In English (EN)',
+    abv: 'EN',
+    label: 'In English (EN)',
     value: 'en',
     link: '/in-english',
   },
