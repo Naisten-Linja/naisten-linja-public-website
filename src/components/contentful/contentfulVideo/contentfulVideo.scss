@@ -19,4 +19,10 @@
     margin: 0 auto;
     max-width: 100%;
   }
+
+  .container-flex-column {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
 }
