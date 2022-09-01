@@ -106,7 +106,7 @@
     background: #ECE9E6;
 
     .card__header {
-      height: 250px;
+      height: 15rem; // this is half of &.card-layout width to fit the usual aspect ratio of naistenlinja cover images
 
       img {
         width:100%;
