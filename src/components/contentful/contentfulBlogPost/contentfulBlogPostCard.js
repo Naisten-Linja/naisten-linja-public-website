@@ -20,7 +20,7 @@ const ContentfulBlogPostCard = ({ content }) => {
       <div className="card">
         <Background
           color={blogPostBackgroundColor}
-          backgroundStyle={blogPostBackgroundStyle}
+          backgroundStyle={'none'}
           textColor={blogPostTextColor}
         >
           <div className="card__header">
