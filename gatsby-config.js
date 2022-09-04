@@ -53,15 +53,14 @@ module.exports = {
       },
     },
     {
-      resolve: "gatsby-plugin-google-tagmanager",
+      resolve: 'gatsby-plugin-google-tagmanager',
       options: {
         id: `${process.env.GOOGLE_TAGMANAGER_ID}`,
         includeInDevelopment: false,
-        defaultDataLayer: { platform: "gatsby" },
-        routeChangeEventName: "route-change",
+        defaultDataLayer: { platform: 'gatsby' },
+        routeChangeEventName: 'route-change',
       },
     },
-    `@contentful/gatsby-transformer-contentful-richtext`,
     {
       resolve: `gatsby-plugin-gdpr-cookies`,
       options: {

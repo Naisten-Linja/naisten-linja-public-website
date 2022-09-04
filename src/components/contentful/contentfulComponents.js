@@ -7,7 +7,6 @@ import ContentfulVideo from './contentfulVideo/contentfulVideo';
 import ContentfulFullWidthImage from './contentfulFullWidthImage/contentfulFullWidthImage';
 import ContentfulPersonIntroduction from './contentfulPersonIntroduction/contentfulPersonIntroduction';
 import ContentfulContentBoxGroup from './contentfulContentBoxGroup/contentfulContentBoxGroup';
-import ContentfulDonationForm from './contentfulDonationForm/contentfulDonationForm';
 import ContentfulOpenLetterForm from './contentfulOpenLetterForm/contentfulOpenLetterForm';
 import ContentfulExternalForm from './contentfulExternalForm/contentfulExternalForm';
 import ContentfulGoogleFormsIframe from './contentfulGoogleFormsIframe/contentfulGoogleFormsIframe';
@@ -49,9 +48,6 @@ const ContentfulComponents = ({ pageContent }) => {
 
       case 'ContentfulContentBoxGroup':
         return <ContentfulContentBoxGroup key={index} content={component} />;
-
-      case 'ContentfulDonationForm':
-        return <ContentfulDonationForm key={index} content={component} />;
 
       case 'ContentfulOpenLetterForm':
         return <ContentfulOpenLetterForm key={index} content={component} />;

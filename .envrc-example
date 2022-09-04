@@ -3,13 +3,6 @@ export CONTENTFUL_SPACE_ID=
 export CONTENTFUL_SPACE_TOKEN=
 export CONTENTFUL_HOST=
 
-export GATSBY_STRIPE_PUBLIC_KEY=
-
-# Product IDs from Stripe test environment
-export GATSBY_STRIPE_PRODUCT_MONTHLY_DONATION_10=
-export GATSBY_STRIPE_PRODUCT_MONTHLY_DONATION_20=
-export GATSBY_STRIPE_PRODUCT_MONTHLY_DONATION_50=
-
 export GATSBY_SERVICE_API_URL=https://services-dev.naistenlinja.fi/api
 
 # Google Tag Manager

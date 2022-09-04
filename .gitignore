@@ -71,5 +71,4 @@ yarn-error.log
 # Yarn Integrity file
 .yarn-integrity
 
-# Local Netlify folder
-.netlify
+shell.nix
