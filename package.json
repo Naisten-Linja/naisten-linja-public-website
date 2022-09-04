@@ -5,14 +5,11 @@
   "version": "0.1.0",
   "author": "Naisten Linja",
   "engines": {
-    "node": "14.x"
+    "node": "16.x"
   },
   "dependencies": {
-    "@contentful/gatsby-transformer-contentful-richtext": "^13.1.0",
     "@contentful/rich-text-react-renderer": "^15.12.1",
     "@contentful/rich-text-types": "^15.12.1",
-    "@stripe/react-stripe-js": "^1.6.0",
-    "@stripe/stripe-js": "^1.20.3",
     "@uiw/react-md-editor": "^3.17.2",
     "devcert": "^1.2.0",
     "devcert-cli": "^1.0.0",
@@ -31,7 +28,7 @@
     "gatsby-transformer-sharp": "^4.0.0",
     "i": "^0.3.7",
     "node-sass": "^6.0.1",
-    "npm": "^8.18.0",
+    "npm": "^8.19.1",
     "postcss": "^8.3.11",
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
