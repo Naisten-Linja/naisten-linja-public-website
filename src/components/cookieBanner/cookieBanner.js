@@ -13,7 +13,7 @@ const translations = {
   },
 };
 
-const privacyPolicyLink = '/yksityisyyskaytanto';
+const privacyPolicyLink = '/evasteseloste';
 
 export const CookieBanner = () => {
   const consentCookie = getConsentCookie();
