@@ -57,7 +57,7 @@ const ContentfulBlogPost = ({ content }) => {
           style={{ padding: '2em 1em' }}
         >
           <div className="row cover-image">
-            <img src={coverImage.file.url} alt={coverImage.title} />
+            <img src={coverImage.file?.url ?? ""} alt={coverImage.title ?? ""} />
           </div>
           <div>
             <h2>
