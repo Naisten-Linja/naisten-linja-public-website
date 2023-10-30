@@ -8,6 +8,9 @@
   font-weight: normal;
 
   .video-player-container {
+    width: 100%;
+    max-width: 650px;
+    height: auto; // Reset height
     margin: 0 auto;
     margin-bottom: 25px;
     text-align: center;
@@ -15,14 +18,22 @@
     border: 5px solid #ffffff;
   }
 
-  .react-player {
-    margin: 0 auto;
-    max-width: 100%;
-  }
-
   .container-flex-column {
     display: flex;
     flex-direction: column;
     text-align: center;
+  }
+
+  .react-player {
+    width: 100%;
+    margin: 0 auto;
+    padding-top: 56.25%; 
+    position: relative; 
+  }
+
+  .react-player > div {
+    position: absolute; // Scaling will occur since parent is relative now
+    top: 0;
+    left: 0;
   }
 }
