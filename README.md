@@ -11,7 +11,7 @@ This project is developed with [Gatsby](https://gatsbyjs.com).
 
 ### Prerequisites
 
-Project requires Node.js version 14. Our dependencies are installed and managed via npm, and are defined in package.json
+Project requires Node.js version 20. Our dependencies are installed and managed via npm, and are defined in package.json
 
 To help managing node versions easily, we recommend using a node package manager like [nvm](https://github.com/nvm-sh/nvm).
 
