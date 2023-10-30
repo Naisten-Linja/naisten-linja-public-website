@@ -23,7 +23,7 @@ const ContentfulBlogPostCard = ({ content }) => {
           textColor={blogPostTextColor}
         >
           <div className="card__header">
-            <img src={coverImage.file.url} alt={coverImage.title} />
+            <img src={coverImage.file?.url ?? ""} alt={coverImage.title ?? ""} />
           </div>
         </Background>
         <div className="card__body">
