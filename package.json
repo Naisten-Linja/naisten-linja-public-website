@@ -23,7 +23,7 @@
     "gatsby-source-contentful": "^6.0.0",
     "gatsby-transformer-remark": "^5.0.0",
     "gatsby-transformer-sharp": "^4.0.0",
-    "node-sass": "^6.0.1",
+    "node-gyp": "^10.0.0",
     "postcss": "^8.3.11",
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
