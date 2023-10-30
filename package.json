@@ -5,14 +5,12 @@
   "version": "0.1.0",
   "author": "Naisten Linja",
   "engines": {
-    "node": "16.x"
+    "node": "18.x"
   },
   "dependencies": {
     "@contentful/rich-text-react-renderer": "^15.12.1",
     "@contentful/rich-text-types": "^15.12.1",
     "@uiw/react-md-editor": "^3.17.2",
-    "devcert": "^1.2.0",
-    "devcert-cli": "^1.0.0",
     "gatsby": "^4.0.2",
     "gatsby-plugin-gdpr-cookies": "^2.0.8",
     "gatsby-plugin-google-tagmanager": "^4.0.0",
@@ -25,9 +23,7 @@
     "gatsby-source-contentful": "^6.0.0",
     "gatsby-transformer-remark": "^5.0.0",
     "gatsby-transformer-sharp": "^4.0.0",
-    "i": "^0.3.7",
     "node-sass": "^6.0.1",
-    "npm": "^8.19.1",
     "postcss": "^8.3.11",
     "prop-types": "^15.7.2",
     "react": "^17.0.2",

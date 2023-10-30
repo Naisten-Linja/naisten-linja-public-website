@@ -24,7 +24,13 @@ const ContentfulVideo = ({ content }) => {
           )}
 
           <div className="col-xs-12 p-0 video-player-container">
-            <ReactPlayer className="react-player" url={content.videoUrl} />
+            <ReactPlayer
+              width="100%"
+              height="100%"
+              className="react-player"
+              url={content.videoUrl}
+              controls={false}
+            />
           </div>
 
           {!!content.videoBottomDescription &&
