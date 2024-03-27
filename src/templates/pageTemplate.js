@@ -23,6 +23,14 @@ const PageTemplate = ({ data }) => {
       <ContentfulComponents
         pageContent={data.contentfulPages.pageContent}
       ></ContentfulComponents>
+      {pageName === 'Evästeseloste' && (
+        <script
+          id="CookieDeclaration"
+          src="https://consent.cookiebot.com/c3c92c38-d105-4fad-ab5e-18e0f68e9042/cd.js"
+          type="text/javascript"
+          async
+        ></script>
+      )}
     </Layout>
   );
 };

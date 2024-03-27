@@ -54,6 +54,11 @@ const Footer = () => (
           Saavutettavuusseloste
         </Link>
       </li>
+      <li>
+        <Link className="company-information" to="/evasteseloste">
+          Evästeseloste
+        </Link>
+      </li>
     </ul>
 
     <div className="copyright-info">

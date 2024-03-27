@@ -11,6 +11,7 @@
     "@contentful/rich-text-react-renderer": "^15.12.1",
     "@contentful/rich-text-types": "^15.12.1",
     "@uiw/react-md-editor": "^3.17.2",
+    "dotenv": "^16.4.5",
     "gatsby": "^4.0.2",
     "gatsby-plugin-gdpr-cookies": "^2.0.8",
     "gatsby-plugin-google-tagmanager": "^4.0.0",
