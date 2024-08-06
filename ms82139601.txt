@@ -1,0 +1,5 @@
+{
+  "Description": "Toimialueen omistajuuden vahvistustiedosto kohteelle Microsoft 365 – aseta verkkosivuston pääkansioon",
+  "Domain": "naistenlinja.fi",
+  "Id": "64cd7372-0df1-425c-bfc8-f70f8f0f2c5a"
+}
