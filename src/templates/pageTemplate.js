@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { graphql } from 'gatsby';
 import Layout from '../components/layout';
 import Seo from '../components/seo';
@@ -12,6 +12,29 @@ const PageTemplate = ({ data }) => {
   const { pageName, pageLanguage, seoTitle, seoDescription, ogImage } =
     data.contentfulPages;
 
+  const cookiebotId = process.env.COOKIEBOT_ID;
+
+  function isBrowser() {
+    return typeof window === 'object';
+  }
+
+  const targetRef = useCallback(
+    (node) => {
+      if (node === null || !isBrowser()) {
+        // eslint-disable-next-line no-console
+        console.debug(
+          'CookieDeclaration adding script to page skipped. No target reference',
+        );
+        return;
+      }
+      const script = document.createElement('script');
+      script.src = `https://consent.cookiebot.com/${cookiebotId}/cd.js`;
+      script.async = true;
+      node.appendChild(script);
+    },
+    [cookiebotId],
+  );
+
   return (
     <Layout lang={pageLanguage}>
       <Seo
@@ -24,12 +47,7 @@ const PageTemplate = ({ data }) => {
         pageContent={data.contentfulPages.pageContent}
       ></ContentfulComponents>
       {pageName === 'Evästeseloste' && (
-        <script
-          id="CookieDeclaration"
-          src="https://consent.cookiebot.com/c3c92c38-d105-4fad-ab5e-18e0f68e9042/cd.js"
-          type="text/javascript"
-          async
-        ></script>
+        <div className="layout-container" ref={targetRef}></div>
       )}
     </Layout>
   );
