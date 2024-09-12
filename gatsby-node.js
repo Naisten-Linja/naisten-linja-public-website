@@ -87,7 +87,6 @@ exports.createPages = ({ graphql, actions }) => {
     });
 };
 
-
 // gatsby-contentful-source determines the types of data that is available
 // from Contentful by looking at what is currently defined there.
 // If there is no entry for a specific content type, or never any content in
@@ -141,6 +140,9 @@ exports.createSchemaCustomization = ({ actions }) => {
       backgroundStyle: String
       backgroundColor: String
     }
+    type ContentfulServiceBoxGroup implements Node {
+      title: String
+    }
     type ContentfulBlogPost implements Node {
       blogPostTitle: String
       blogPostDate(
@@ -191,6 +193,7 @@ exports.createSchemaCustomization = ({ actions }) => {
 
     union ContentfulPagesPageContent = ContentfulBlogPost
       | ContentfulContentBoxGroup
+      | ContentfulServiceBoxGroup
       | ContentfulExternalForm
       | ContentfulFullWidthImage
       | ContentfulGoogleFormsIframe
@@ -212,6 +215,6 @@ exports.createSchemaCustomization = ({ actions }) => {
 // Tell https://github.com/heroku/heroku-buildpack-nginx running
 // in development mode that the app has been built and is ~ready
 // to take in requests.
-exports.onPostBootstrap = () => {  
-  fs.closeSync(fs.openSync("/tmp/app-initialized", 'w'));
+exports.onPostBootstrap = () => {
+  fs.closeSync(fs.openSync('/tmp/app-initialized', 'w'));
 };

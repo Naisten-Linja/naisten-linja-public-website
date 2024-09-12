@@ -1,67 +1,67 @@
 import { graphql } from 'gatsby';
 
 export const ContentfulBlogPost = graphql`
-fragment ContentfulBlogPostFragment on ContentfulBlogPost {
-  internal {
-    type
-  }
-  blogPostTitle
-  blogPostLanguage
-  slug
-  blogPostDate
-  blogPostDescription
-  coverImage {
-    file {
-      url
-      fileName
+  fragment ContentfulBlogPostFragment on ContentfulBlogPost {
+    internal {
+      type
     }
-    title
-  }
-  blogPostContent {
-    raw
-    references {
-      __typename
-      ... on ContentfulAsset {
-        id
-        contentful_id
-        file {
-          url
-          fileName
-          details {
-            image {
-              height
-              width
+    blogPostTitle
+    blogPostLanguage
+    slug
+    blogPostDate
+    blogPostDescription
+    coverImage {
+      file {
+        url
+        fileName
+      }
+      title
+    }
+    blogPostContent {
+      raw
+      references {
+        __typename
+        ... on ContentfulAsset {
+          id
+          contentful_id
+          file {
+            url
+            fileName
+            details {
+              image {
+                height
+                width
+              }
+            }
+          }
+          title
+        }
+        ... on ContentfulVideo {
+          internal {
+            type
+          }
+          contentful_id
+          videoTitle
+          videoUrl
+          videoTopDescription {
+            videoTopDescription
+            childMarkdownRemark {
+              html
+            }
+          }
+          videoBottomDescription {
+            videoBottomDescription
+            childMarkdownRemark {
+              html
             }
           }
         }
-        title
-      }
-      ... on ContentfulVideo {
-        internal {
-          type
-        }
-        contentful_id
-        videoTitle
-        videoUrl
-        videoTopDescription {
-          videoTopDescription
-          childMarkdownRemark {
-            html
-          }
-        }
-        videoBottomDescription {
-          videoBottomDescription
-          childMarkdownRemark {
-            html
-          }
-        }
       }
     }
+    blogPostBackgroundStyle
+    blogPostBackgroundColor
+    blogPostTextColor
   }
-  blogPostBackgroundStyle
-  blogPostBackgroundColor
-  blogPostTextColor
-}
 `;
 
 export const ContenfulPage = graphql`
@@ -259,6 +259,34 @@ export const ContenfulPage = graphql`
           }
         }
       }
+      ... on ContentfulServiceBoxGroup {
+        title
+        # ingress
+        internal {
+          type
+        }
+        services {
+          __typename
+          ... on ContentfulServiceBox {
+            internal {
+              type
+            }
+            serviceIcon {
+              file {
+                url
+              }
+            }
+            serviceName
+            serviceInformation
+            textColor
+            backgroundColor
+            linkToInternalPage {
+              slug
+            }
+            linkToCustomUrl
+          }
+        }
+      }
       ... on ContentfulGoogleFormsIframe {
         internal {
           type
@@ -330,5 +358,3 @@ export const ContenfulPage = graphql`
     }
   }
 `;
-
-
