@@ -78,6 +78,16 @@ module.exports = {
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
+    {
+      resolve: `gatsby-source-contentful`,
+      options: {
+        spaceId: process.env.CONTENTFUL_SPACE_ID,
+        // Set Contentful env, default master
+        environment: process.env.CONTENTFUL_ENV,
+        accessToken: process.env.CONTENTFUL_SPACE_TOKEN,
+      },
+    },
+    `gatsby-plugin-image`,
   ],
 };
 const dotenv = require('dotenv');
