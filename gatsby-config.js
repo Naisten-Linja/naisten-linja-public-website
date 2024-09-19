@@ -1,3 +1,21 @@
+const dotenv = require('dotenv');
+const path = require('path');
+
+const activeEnv =
+  process.env.TARGET_ENV || process.env.NODE_ENV || 'development';
+
+// load env variables from environment specific `.env.{envName}` file
+// this adds but doesn't replace previously defined values
+dotenv.config({
+  path: `.env.${activeEnv}`,
+});
+
+// load env variables from generic `.env` file
+// this adds but doesn't replace previously defined values
+dotenv.config({
+  path: `.envrc`,
+});
+
 module.exports = {
   siteMetadata: {
     title: `Naisten Linja`,
@@ -90,19 +108,3 @@ module.exports = {
     `gatsby-plugin-image`,
   ],
 };
-const dotenv = require('dotenv');
-const path = require('path');
-
-const activeEnv =
-  process.env.TARGET_ENV || process.env.NODE_ENV || 'development';
-
-// load env variables from environment specific `.env.{envName}` file
-// this adds but doesn't replace previously defined values
-dotenv.config({
-  path: `.env.${activeEnv}`,
-});
-// load env variables from generic `.env` file
-// this adds but doesn't replace previously defined values
-dotenv.config({
-  path: `.envrc`,
-});
