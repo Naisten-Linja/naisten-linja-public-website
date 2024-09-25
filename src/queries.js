@@ -261,10 +261,10 @@ export const ContenfulPage = graphql`
       }
       ... on ContentfulServiceBoxGroup {
         title
-        # ingress
         internal {
           type
         }
+        # ingress
         services {
           __typename
           ... on ContentfulServiceBox {

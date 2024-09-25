@@ -1,25 +1,12 @@
 import React from 'react';
 
-import ContentfulServiceBox from './contentfulServiceBox';
-
-import './contentfulContentBoxGroup.scss';
+import ServiceBoxGroup from '../../ui/ServiceBoxGroup/ServiceBoxGroup';
 
 const ContentfulServiceBoxGroup = ({ content }) => {
-  const { services = [], title } = content;
-  console.log('services', services);
+  const { services = [], title, ingress } = content;
 
   return (
-    <div className="layout-container ContentBoxGroup__section">
-      <div className="ContentBoxGroup__container">
-        {title && <h2 className="ContentBoxGroup__title">{title}</h2>}
-        {/* {ingress && <p>{ingress}</p>} */}
-        {(services || []).map((service, idx) =>
-          service.__typename === 'ContentfulServiceBox' ? (
-            <ContentfulServiceBox {...service} key={idx} />
-          ) : null,
-        )}
-      </div>
-    </div>
+    <ServiceBoxGroup title={title} ingress={ingress} services={services} />
   );
 };
 
