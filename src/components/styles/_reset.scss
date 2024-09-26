@@ -1,0 +1,51 @@
+/**
+ * Style resets. A plain common starting point to build from.
+ * Import first to global styles.
+ */
+@layer reset {
+  /* Make everything use the more predictable border box sizing. */
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: unset; /* No margin for body please. Unset a holdover from the 90s */
+  }
+
+  /* Reset input fonts. */
+  button,
+  input,
+  textarea,
+  select {
+    font: inherit; /* inherit every font-* property from parent */
+  }
+
+  img,
+  picture,
+  svg,
+  canvas {
+    display: block; /* images as part of the page structure, not inline by default */
+    max-inline-size: 100%; /* size in writing-mode direction (width)  */
+    block-size: auto; /* size in opposite direction of writing-mode (height) */
+  }
+
+  /* a11y. Honor those who prefer no decorative motion. */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      /* super short time instead of none so that `transitionend`etc events fire as normal */
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+/* Passes the responsibility to visualize linking element (underline etc) from the Link to child component  */
+a {
+  text-decoration: inherit;
+}

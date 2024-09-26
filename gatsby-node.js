@@ -34,16 +34,6 @@ exports.createPages = ({ graphql, actions }) => {
             }
           }
         }
-        allContentfulBlogPost {
-          edges {
-            node {
-              blogPostLanguage
-              blogPostTitle
-              id
-              slug
-            }
-          }
-        }
       }
     `,
   )
@@ -53,28 +43,13 @@ exports.createPages = ({ graphql, actions }) => {
       }
       // Resolve the paths to our template
       const projectTemplate = path.resolve('./src/templates/pageTemplate.js');
-      const blogPostTemplate = path.resolve(
-        './src/templates/blogPostTemplate.js',
-      );
 
-      const { allContentfulPages, allContentfulBlogPost } = result.data;
+      const { allContentfulPages } = result.data;
       // Then for each result we create a page.
       allContentfulPages.edges.forEach((edge) => {
         createPage({
           path: `/${edge.node.slug}/`,
           component: slash(projectTemplate),
-          context: {
-            slug: edge.node.slug,
-            id: edge.node.id,
-          },
-        });
-      });
-
-      // Create a page for blog post.
-      allContentfulBlogPost.edges.forEach((edge) => {
-        createPage({
-          path: `/${edge.node.slug}/`,
-          component: slash(blogPostTemplate),
           context: {
             slug: edge.node.slug,
             id: edge.node.id,

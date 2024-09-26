@@ -217,6 +217,11 @@ export const ContenfulPage = graphql`
       }
       ... on ContentfulContentBoxGroup {
         title
+        ingress {
+          childMarkdownRemark {
+            html
+          }
+        }
         internal {
           type
         }
@@ -261,6 +266,11 @@ export const ContenfulPage = graphql`
       }
       ... on ContentfulServiceBoxGroup {
         title
+        ingress {
+          childMarkdownRemark {
+            html
+          }
+        }
         internal {
           type
         }

@@ -7,11 +7,10 @@ import ContentfulVideo from './contentfulVideo/contentfulVideo';
 import ContentfulFullWidthImage from './contentfulFullWidthImage/contentfulFullWidthImage';
 import ContentfulPersonIntroduction from './contentfulPersonIntroduction/contentfulPersonIntroduction';
 import ContentfulContentBoxGroup from './ContentfulContentBoxGroup/ContentfulContentBoxGroup';
-import ContentfulServiceBoxGroup from './ContentfulServiceBoxGroup/ContentfulServiceBoxGroup';
 import ContentfulOpenLetterForm from './contentfulOpenLetterForm/contentfulOpenLetterForm';
 import ContentfulExternalForm from './contentfulExternalForm/contentfulExternalForm';
 import ContentfulGoogleFormsIframe from './contentfulGoogleFormsIframe/contentfulGoogleFormsIframe';
-import ContentfulBlogPostCard from './contentfulBlogPost/contentfulBlogPostCard';
+import ContentfulServiceBoxGroup from './contentfulServiceBoxGroup/contentfulServiceBoxGroup';
 
 const ContentfulComponents = ({ pageContent }) => {
   return (pageContent || []).map((component, index) => {
@@ -61,10 +60,6 @@ const ContentfulComponents = ({ pageContent }) => {
 
       case 'ContentfulGoogleFormsIframe':
         return <ContentfulGoogleFormsIframe key={index} content={component} />;
-
-      case 'ContentfulBlogPost':
-        return <ContentfulBlogPostCard key={index} content={component} />;
-
       default:
         return null;
     }

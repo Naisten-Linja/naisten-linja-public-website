@@ -1,0 +1,10 @@
+.ContentBox_container {
+  display: grid;
+  gap: 1rem;
+
+  .ContentBox__title {
+    background-color: black;
+    color: white;
+    padding: 1rem;
+  }
+}

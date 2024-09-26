@@ -3,10 +3,12 @@ import ContentBox from '../ContentBox/ContentBox';
 import './ContentBoxGroup.scss';
 
 const ContentBoxGroup = ({ contentBoxes, title, ingress }) => {
+  console.log('contentbox ingress: ', ingress);
+
   return (
     <div className="ContentBoxGroup_container">
       {title && <h2 className="">{title}</h2>}
-      {ingress && <p>{ingress}</p>}
+      {ingress && <div dangerouslySetInnerHTML={{ __html: ingress }} />}
       <div className="ContentBoxGroup_grid">
         {contentBoxes?.map((content, idx) => (
           <ContentBox {...content} key={idx} />

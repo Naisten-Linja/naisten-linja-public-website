@@ -4,11 +4,12 @@ import ContentBoxGroup from '../../ui/ContentBoxGroup/ContentBoxGroup';
 
 const ContentfulContentBoxGroup = ({ content }) => {
   const { contentBoxes = [], title, ingress } = content;
+  const ingressHtml = ingress?.childMarkdownRemark.html;
 
   return (
     <ContentBoxGroup
       title={title}
-      ingress={ingress}
+      ingress={ingressHtml}
       contentBoxes={contentBoxes}
     />
   );
