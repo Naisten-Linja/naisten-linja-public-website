@@ -166,6 +166,10 @@ exports.createSchemaCustomization = ({ actions }) => {
       embedHtml: String
     }
 
+    type ContentfulPagePreviewGrid implements Node {
+      pages: [ContentfulPages] @link(by: "id", from: "pages___NODE")
+    }
+
     union ContentfulPagesPageContent = ContentfulBlogPost
       | ContentfulContentBoxGroup
       | ContentfulServiceBoxGroup
@@ -178,6 +182,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       | ContentfulQuote
       | ContentfulReadMore
       | ContentfulVideo
+      | ContentfulPagePreviewGrid
 
     type ContentfulPages implements Node {
       slug: String

@@ -11,6 +11,7 @@ import ContentfulOpenLetterForm from './contentfulOpenLetterForm/contentfulOpenL
 import ContentfulExternalForm from './contentfulExternalForm/contentfulExternalForm';
 import ContentfulGoogleFormsIframe from './contentfulGoogleFormsIframe/contentfulGoogleFormsIframe';
 import ContentfulServiceBoxGroup from './contentfulServiceBoxGroup/contentfulServiceBoxGroup';
+import ContentfulPagePreview from './contentfulPagePreview/ContentfulPagePreview';
 
 const ContentfulComponents = ({ pageContent }) => {
   return (pageContent || []).map((component, index) => {
@@ -60,7 +61,12 @@ const ContentfulComponents = ({ pageContent }) => {
 
       case 'ContentfulGoogleFormsIframe':
         return <ContentfulGoogleFormsIframe key={index} content={component} />;
+
+      case 'ContentfulPagePreviewGrid':
+        return <ContentfulPagePreview key={index} content={component} />;
+
       default:
+        console.log('componentType', componentType);
         return null;
     }
   });

@@ -310,6 +310,25 @@ export const ContenfulPage = graphql`
         blogPostBackgroundColor
         blogPostTextColor
       }
+      ... on ContentfulPagePreviewGrid {
+        internal {
+          type
+        }
+        page {
+          ... on ContentfulPages {
+            slug
+            pageName
+            seoTitle
+            seoDescription
+            ogImage {
+              file {
+                url
+              }
+              title
+            }
+          }
+        }
+      }
     }
   }
 `;
