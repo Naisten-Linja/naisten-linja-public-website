@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
+import { useStaticQuery, graphql, Link } from 'gatsby';
 import './menu.scss';
 import { useIsMobile } from '../../hooks/useIsMobile';
-import HamburgerIcon from './icons/hamburger';
-import CrossIcon from './icons/cross';
+
 import MenuItem from './menu-item';
-import MenuLanguage from './menu-language';
+
+import { FaArrowRight, FaHamburger } from 'react-icons/fa';
+import { IoMdClose, IoMdMenu } from 'react-icons/io';
+import MenuLink from './menu-link';
 
 const languages = [
   {
@@ -28,88 +30,81 @@ const languages = [
   },
 ];
 
-const Menu = ({lang}) => {
+const Menu = ({ lang }) => {
   const headerMenuData = useStaticQuery(query);
   const [isOpen, setIsOpen] = useState(false);
   const [activeItem, setActiveItem] = useState(0);
-  const isMobile = useIsMobile();
-
-  const toggleMobileMenu = (e) => {
-    e.stopPropagation();
-    setIsOpen(!isOpen);
-  };
-
-  const handleFocusing = (nextItem) => {
-    setActiveItem(nextItem);
-    document.getElementById(`top-level-item-${nextItem}`).focus();
-  };
-
-  const handleEsc = async (event) => {
-    if (event.key === 'Escape') {
-      await setIsOpen(false);
-      if (isMobile) {
-        document.getElementById('mobile-open-button').focus();
-      } else {
-        document.getElementById(`top-level-item-${activeItem}`).focus();
-      }
-    } else if (event.key === 'ArrowRight') {
-      const nextItem =
-        activeItem === topLevelPages.length - 1 ? 0 : activeItem + 1;
-      handleFocusing(nextItem);
-    } else if (event.key === 'ArrowLeft') {
-      const nextItem =
-        activeItem === 0 ? topLevelPages.length - 1 : activeItem - 1;
-      handleFocusing(nextItem);
-    }
-  };
 
   const topLevelPages = headerMenuData.contentfulMainMenu.topLevelPages;
-
+  const services = headerMenuData.contentfulMainMenu.services;
+  const cta = headerMenuData.contentfulMainMenu.cta;
+  console.log(services);
   return (
     /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
-    <nav
-      className={`MainMenu ${isOpen ? 'mobile-menu-open' : ''}`}
-      aria-label="Naisten Linja Menu"
-      onKeyUp={handleEsc}
-    >
-      {isOpen ? (
-        <button
-          className="MainMenu__mobile-close-button"
-          onClick={toggleMobileMenu}
-        >
-          <CrossIcon />
-        </button>
-      ) : (
-        <button
-          className="MainMenu__mobile-open-button"
-          id="mobile-open-button"
-          onClick={toggleMobileMenu}
-        >
-          <HamburgerIcon />
-        </button>
-      )}
-      <ul
-        id="menubar"
-        aria-label="Naisten Linja Menu"
-        className={`menu${isOpen ? ' mobile-active' : ''}`}
+
+    <nav className={`MainMenu }`} aria-label="Naisten Linja Menu">
+      <div className="escape">
+        <div className="container">
+          <a href="/">
+            Poistu sivustolta nopeasti <FaArrowRight />
+          </a>
+        </div>
+      </div>
+      <div className="service-bar">
+        <div className="container">
+          <div className="logo">
+            <Link href="/">
+              {' '}
+              <img src="/images/Naisten_Linja.svg" />
+            </Link>
+          </div>
+          <ul className="services">
+            {services &&
+              services.map((service) => (
+                <li className="service-link">
+                  {service.serviceIcon && (
+                    <img src={service.serviceIcon.file.url} alt="" />
+                  )}
+                  {service.linkToCustomUrl ? (
+                    <a target="_blank" href={service.linkToCustomUrl}>
+                      {service.serviceName}
+                    </a>
+                  ) : (
+                    <Link href={service.linkToInternalPage.slug}>
+                      {service.serviceName}
+                    </Link>
+                  )}
+                </li>
+              ))}
+          </ul>
+          <div className="menu-cta">
+            {' '}
+            {/* TODO: Tähän CTA nappi sit kun valmistuu */}
+            <Link href={cta.slug}>{cta.pageName}</Link>
+          </div>
+          <div className="menu-icon" onClick={() => setIsOpen(!isOpen)}>
+            {isOpen ? <IoMdClose /> : <IoMdMenu />}
+          </div>
+        </div>
+      </div>
+
+      <div
+        className={`menu-background ${isOpen ? 'menu-open' : 'menu-closed'}`}
       >
-        {topLevelPages.map((topLevelPage, i) => (
-          <MenuItem
-            key={topLevelPage.id}
-            page={topLevelPage}
-            index={i}
-            activeItem={activeItem}
-            setActiveItem={setActiveItem}
-          />
-        ))}
-        <MenuLanguage
-          language={lang || 'fi'}
-          languages={languages}
-          index={99}
-          activeItem={activeItem}
-          setActiveItem={setActiveItem}
-        />
-      </ul>
+        <div className="menubar-container">
+          <ul id="menubar" aria-label="Naisten Linja Menu" className={`menu`}>
+            {topLevelPages.map((topLevelPage, i) => (
+              <MenuItem
+                key={topLevelPage.id}
+                page={topLevelPage}
+                index={i}
+                activeItem={activeItem}
+                setActiveItem={setActiveItem}
+              />
+            ))}
+          </ul>
+        </div>
+      </div>
     </nav>
   );
 };
@@ -122,6 +117,25 @@ const query = graphql`
       id
       slug
       mainMenuName
+      services {
+        serviceIcon {
+          file {
+            url
+          }
+        }
+        serviceName
+        serviceInformation
+        textColor
+        backgroundColor
+        linkToInternalPage {
+          slug
+        }
+        linkToCustomUrl
+      }
+      cta {
+        pageName
+        slug
+      }
       topLevelPages {
         id
         linkToExternalUrl

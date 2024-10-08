@@ -4,16 +4,16 @@ import { Link } from 'gatsby';
 import './header.scss';
 import Menu from '../menu/menu';
 
-const Header = ({lang}) => (
+const Header = ({ lang }) => (
   <header>
     <a className="skip-to-content-link" href="#main">
       Siirry sisältöön
     </a>
-    <Menu lang={lang}/>
+    <Menu lang={lang} />
     <div className="escape-link-container">
-      <a className="escape-link-box" href="https://google.com">
+      {/* <a className="escape-link-box" href="https://google.com">
         <span className="escape-link">Poistu sivuilta nopeasti</span>
-      </a>
+      </a> */}
     </div>
     <div className="flex-column">
       <Link className="logo-link" to="/">
