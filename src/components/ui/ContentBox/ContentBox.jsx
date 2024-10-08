@@ -1,19 +1,26 @@
 import React from 'react';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import './ContentBox.scss';
+import { Link } from 'gatsby';
 
 const ContentBox = ({
-  content,
   title,
+  content,
   linkToCustomUrl,
   linkToInternalPage,
 }) => {
+  console.log('linkToInternalPage: ', linkToInternalPage);
+
   //   const isLink = linkToCustomUrl || linkToInternalPage;
 
   return (
     <div className="ContentBox_container">
-      {title && (
-        <a href="#">
+      {linkToInternalPage ? (
+        <Link className="ContentBox__title" to={`/${linkToInternalPage.slug}`}>
+          {title}
+        </Link>
+      ) : (
+        <a href={linkToCustomUrl}>
           <div className="ContentBox__title">{title}</div>
         </a>
       )}

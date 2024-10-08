@@ -1,69 +1,5 @@
 import { graphql } from 'gatsby';
 
-export const ContentfulBlogPost = graphql`
-  fragment ContentfulBlogPostFragment on ContentfulBlogPost {
-    internal {
-      type
-    }
-    blogPostTitle
-    blogPostLanguage
-    slug
-    blogPostDate
-    blogPostDescription
-    coverImage {
-      file {
-        url
-        fileName
-      }
-      title
-    }
-    blogPostContent {
-      raw
-      references {
-        __typename
-        ... on ContentfulAsset {
-          id
-          contentful_id
-          file {
-            url
-            fileName
-            details {
-              image {
-                height
-                width
-              }
-            }
-          }
-          title
-        }
-        ... on ContentfulVideo {
-          internal {
-            type
-          }
-          contentful_id
-          videoTitle
-          videoUrl
-          videoTopDescription {
-            videoTopDescription
-            childMarkdownRemark {
-              html
-            }
-          }
-          videoBottomDescription {
-            videoBottomDescription
-            childMarkdownRemark {
-              html
-            }
-          }
-        }
-      }
-    }
-    blogPostBackgroundStyle
-    blogPostBackgroundColor
-    blogPostTextColor
-  }
-`;
-
 export const ContenfulPage = graphql`
   fragment ContentfulPageFragment on ContentfulPages {
     slug
@@ -81,11 +17,21 @@ export const ContenfulPage = graphql`
     pageContent {
       __typename
       ... on ContentfulParagraph {
+        title
+        background
         internal {
           type
         }
         id
+        contentNew {
+          raw
+        }
         paragraphTitle
+        contentText {
+          childMarkdownRemark {
+            html
+          }
+        }
         paragraphText {
           paragraphText
           childMarkdownRemark {
@@ -274,7 +220,6 @@ export const ContenfulPage = graphql`
         internal {
           type
         }
-        # ingress
         services {
           __typename
           ... on ContentfulServiceBox {

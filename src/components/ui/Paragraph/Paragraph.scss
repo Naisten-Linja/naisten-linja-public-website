@@ -1,0 +1,26 @@
+.Paragraph_container {
+  position: relative;
+  display: grid;
+  gap: 1rem;
+  del {
+    background-color: orange;
+    text-decoration: none;
+  }
+
+  table {
+    // border: none;
+    // border-spacing: 1rem 2rem;
+    width: 100%;
+    text-align: left;
+    border-collapse: separate !important;
+    & thead {
+      background-color: peachpuff;
+    }
+
+    & tbody {
+      & tr {
+        border-bottom: 1px solid black;
+      }
+    }
+  }
+}

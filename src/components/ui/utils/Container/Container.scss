@@ -1,0 +1,64 @@
+.Container_background {
+}
+
+.Container_content {
+  max-width: 960px;
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  padding: 44px 0;
+}
+
+//Kopsattu Savox projektista, implementoi
+.container {
+  background: var(--color-beige-200);
+  color: var(--color-dark-grey-900);
+  background-size: cover;
+
+  padding: var(--spacer-3xl);
+  font-family: var(--font-family);
+}
+.content {
+  max-width: var(--max-width-container-l);
+  width: 100%;
+  height: 100%;
+  margin: auto;
+}
+
+.darkTheme {
+  background: var(--color-navy-grey-800);
+  color: var(--color-white);
+  background-size: cover;
+}
+
+.noBottomPadding {
+  padding-bottom: 0 !important;
+}
+
+.noBottomPadding div {
+  padding-bottom: 1rem !important;
+}
+
+/* larger paddings only apply to desktop */
+@media only screen and (min-width: 1020px) {
+  .extraPadding {
+    padding: var(--spacer-3xl) var(--spacer-4xl);
+  }
+  .lessPadding {
+    padding: var(--spacer-xl) var(--spacer-2xl);
+  }
+}
+
+/* tablet paddings */
+@media only screen and (max-width: 800px) {
+  .container {
+    padding: var(--spacer-2xl);
+  }
+}
+
+/* mobile paddings */
+@media only screen and (max-width: 620px) {
+  .container {
+    padding: var(--spacer-xl) var(--spacer-m);
+  }
+}
