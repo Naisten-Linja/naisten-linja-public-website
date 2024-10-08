@@ -1,7 +1,8 @@
 import React from 'react';
 
 import Header from './header/header';
-import Footer from './footer/footer';
+import Footer from './ui/Footer/Footer';
+// import Footer from './footer/footer';
 
 import './layout.scss';
 import './globals.scss';
@@ -13,6 +14,7 @@ const Layout = ({ children, lang }) => {
       <main className="main-container" id="main">
         {children}
       </main>
+      {/* <Footer /> */}
       <Footer />
     </>
   );
