@@ -62,18 +62,20 @@ const Menu = ({ lang }) => {
             {services &&
               services.map((service) => (
                 <li className="service-link">
-                  {service.serviceIcon && (
+                  {service.serviceIcon ? (
                     <img src={service.serviceIcon.file.url} alt="" />
+                  ) : (
+                    <div />
                   )}
                   {service.linkToCustomUrl ? (
                     <a target="_blank" href={service.linkToCustomUrl}>
                       {service.serviceName}
                     </a>
-                  ) : (
-                    <Link href={service.linkToInternalPage.slug}>
+                  ) : service.linkToInternalPage ? (
+                    <Link href={service.linkToInternalPage?.slug}>
                       {service.serviceName}
                     </Link>
-                  )}
+                  ) : null}
                 </li>
               ))}
           </ul>
