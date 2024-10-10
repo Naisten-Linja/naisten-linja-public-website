@@ -110,23 +110,6 @@ export const ContenfulPage = graphql`
           }
         }
       }
-      ... on ContentfulPersonIntroduction {
-        internal {
-          type
-        }
-        personName
-        personPicture {
-          file {
-            url
-          }
-        }
-        personIntroduction {
-          personIntroduction
-          childMarkdownRemark {
-            html
-          }
-        }
-      }
       ... on ContentfulOpenLetterForm {
         internal {
           type
@@ -325,6 +308,29 @@ export const ContenfulPage = graphql`
                 url
               }
               title
+            }
+          }
+        }
+      }
+      ... on ContentfulPersonIntroductionGrid {
+        internal {
+          type
+        }
+        personIntroductions {
+          ... on ContentfulPersonIntroduction {
+            personName
+            title
+            phone
+            email
+            personIntroduction {
+              childMarkdownRemark {
+                html
+              }
+            }
+            personPicture {
+              file {
+                url
+              }
             }
           }
         }

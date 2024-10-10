@@ -5,13 +5,13 @@ import ContentfulQuote from './contentfulQuote/contentfulQuote';
 import ContentfulReadMore from './contentfulReadMore/contentfulReadMore';
 import ContentfulVideo from './contentfulVideo/contentfulVideo';
 import ContentfulFullWidthImage from './contentfulFullWidthImage/contentfulFullWidthImage';
-import ContentfulPersonIntroduction from './contentfulPersonIntroduction/contentfulPersonIntroduction';
 import ContentfulContentBoxGroup from './ContentfulContentBoxGroup/ContentfulContentBoxGroup';
 import ContentfulOpenLetterForm from './contentfulOpenLetterForm/contentfulOpenLetterForm';
 import ContentfulExternalForm from './contentfulExternalForm/contentfulExternalForm';
 import ContentfulGoogleFormsIframe from './contentfulGoogleFormsIframe/contentfulGoogleFormsIframe';
 import ContentfulServiceBoxGroup from './contentfulServiceBoxGroup/contentfulServiceBoxGroup';
 import ContentfulPagePreview from './contentfulPagePreview/ContentfulPagePreview';
+import ContentfulPersonIntroductionGrid from './contentfulPersonIntroductionGrid/ContentfulPersonIntroductionGrid';
 
 const ContentfulComponents = ({ pageContent }) => {
   return (pageContent || []).map((component, index) => {
@@ -44,9 +44,6 @@ const ContentfulComponents = ({ pageContent }) => {
       case 'ContentfulFullWidthImage':
         return <ContentfulFullWidthImage key={index} content={component} />;
 
-      case 'ContentfulPersonIntroduction':
-        return <ContentfulPersonIntroduction key={index} content={component} />;
-
       case 'ContentfulContentBoxGroup':
         return <ContentfulContentBoxGroup key={index} content={component} />;
 
@@ -64,6 +61,11 @@ const ContentfulComponents = ({ pageContent }) => {
 
       case 'ContentfulPagePreviewGrid':
         return <ContentfulPagePreview key={index} content={component} />;
+
+      case 'ContentfulPersonIntroductionGrid':
+        return (
+          <ContentfulPersonIntroductionGrid key={index} content={component} />
+        );
 
       default:
         console.log('componentType', componentType);

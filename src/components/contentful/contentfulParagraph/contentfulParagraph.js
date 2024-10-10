@@ -3,14 +3,7 @@ import Paragraph from '../../ui/Paragraph/Paragraph';
 
 // TODO: background color from theme, boolean selection
 const ContentfulParagraph = ({ content }) => {
-  const {
-    title,
-    paragraphContent,
-    backgroundColor,
-    background,
-    cta,
-    contentText,
-  } = content;
+  const { title, backgroundColor, background, cta, contentText } = content;
 
   return (
     <Paragraph

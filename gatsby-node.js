@@ -169,7 +169,7 @@ exports.createSchemaCustomization = ({ actions }) => {
     type ContentfulPagePreviewGrid implements Node {
       pages: [ContentfulPages] @link(by: "id", from: "pages___NODE")
     }
-
+ 
     union ContentfulPagesPageContent = ContentfulBlogPost
       | ContentfulContentBoxGroup
       | ContentfulServiceBoxGroup
@@ -178,11 +178,12 @@ exports.createSchemaCustomization = ({ actions }) => {
       | ContentfulGoogleFormsIframe
       | ContentfulOpenLetterForm
       | ContentfulParagraph
-      | ContentfulPersonIntroduction
       | ContentfulQuote
       | ContentfulReadMore
       | ContentfulVideo
       | ContentfulPagePreviewGrid
+      | ContentfulPersonIntroductionGrid
+
 
     type ContentfulPages implements Node {
       slug: String
