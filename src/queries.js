@@ -165,6 +165,22 @@ export const ContenfulPage = graphql`
             title
             content {
               raw
+              references {
+                ... on ContentfulAsset {
+                  contentful_id
+                  __typename
+                  title
+                  file {
+                    url
+                  }
+                }
+                ... on ContentfulPages {
+                  contentful_id
+                  __typename
+                  slug
+                  pageName
+                }
+              }
             }
             textColor
             backgroundColor
