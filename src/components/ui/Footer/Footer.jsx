@@ -10,6 +10,7 @@ import {
 } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
 import { BsArrowUpCircleFill } from 'react-icons/bs';
+import Container from '../utils/Container/Container';
 
 const Footer = ({
   onClick,
@@ -29,13 +30,13 @@ const Footer = ({
     <footer className="Footer_container">
       <div className="Footer_layout">
         <div className="Footer_logos">
-          <div className="logo">
+          <div className="Footer_naisten_linja_logo">
             <Link to="/">
               {' '}
               <img src="/images/Naisten_Linja.svg" />
             </Link>
           </div>
-          <button onClick={onClick}>
+          <button className="Footer_scrolltotop">
             <BsArrowUpCircleFill />
           </button>
         </div>

@@ -1,8 +1,7 @@
 @import '../../styles/variables';
 
 .Footer_container {
-  background-color: $ruis;
-  padding: 2rem 0;
+  font-size: 14px;
 
   .Footer_layout {
     display: grid;
@@ -13,11 +12,26 @@
     .Footer_logos {
       display: flex;
       justify-content: space-between;
+      align-items: center;
+
+      .Footer_naisten_linja_logo {
+        img {
+          width: 16rem;
+        }
+      }
+
+      .Footer_scrolltotop {
+        svg {
+          width: 2rem;
+          height: 2rem;
+        }
+      }
     }
 
     .Footer_main_content {
       display: grid;
       grid-template-columns: 1fr 2fr;
+      align-items: start;
       gap: 2rem;
 
       .Footer_contacts {
@@ -31,6 +45,11 @@
         .Footer_socials {
           display: flex;
           gap: 1rem;
+
+          svg {
+            width: 1rem;
+            height: 1rem;
+          }
         }
       }
 
@@ -46,15 +65,6 @@
       }
     }
 
-    .Footer_language_links {
-    }
-
-    .Footer_breakline {
-      // border: none;
-      // background-color: black;
-      // height: 2px;
-    }
-
     .Footer_bottom_section {
       display: flex;
       justify-content: space-between;
@@ -67,5 +77,38 @@
   }
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: $m-screen) {
+  .Footer_container {
+    .Footer_layout {
+      .Footer_main_content {
+        .Footer_links {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: $s-screen) {
+  .Footer_container {
+    .Footer_layout {
+      .Footer_main_content {
+        grid-template-columns: 1fr;
+
+        .Footer_links {
+          grid-template-columns: 1fr;
+        }
+      }
+      .Footer_bottom_section {
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 1rem;
+
+        .Footer_bottom_links {
+          display: grid;
+          gap: 0.5rem;
+        }
+      }
+    }
+  }
 } ;

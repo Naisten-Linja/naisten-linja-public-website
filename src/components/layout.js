@@ -8,6 +8,7 @@ import './layout.scss';
 import './globals.scss';
 import ContentfulFooter from './contentful/ContentfulFooter/ContentfulFooter';
 import Hero from './ui/Hero/Hero';
+import Container from './ui/utils/Container/Container';
 
 const scrollToTop = () => {
   window ??
@@ -30,6 +31,8 @@ const Layout = ({ children, lang, scrollToTop, hero }) => {
       {/* <Footer /> */}
       <button onClick={() => scrollToTop()}>scrollToTop</button>
       <ContentfulFooter onClick={() => scrollToTop} />
+      {/* <button onClick={() => scrollToTop()}>scrollToTop</button> */}
+      <ContentfulFooter />
     </>
   );
 };

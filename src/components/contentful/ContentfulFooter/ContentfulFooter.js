@@ -1,11 +1,16 @@
 import React from 'react';
 import Footer from '../../ui/Footer/Footer';
 import { useStaticQuery, graphql } from 'gatsby';
+import Container from '../../ui/utils/Container/Container';
 const ContentfulFooter = (onClick) => {
   const footerData = useStaticQuery(query);
   console.log('footerData: ', footerData);
 
-  return <Footer onClick={onClick} {...footerData.contentfulFooter} />;
+  return (
+    <Container backgroundColor={'#ede2d5'} background={true}>
+      <Footer onClick={onClick} {...footerData.contentfulFooter} />
+    </Container>
+  );
 };
 
 export default ContentfulFooter;
