@@ -2,54 +2,63 @@
 
 .Footer_container {
   background-color: $ruis;
-  display: grid;
-  gap: 1rem;
-  padding: 2rem 4rem;
+  padding: 2rem 0;
+
   .Footer_layout {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 800px;
+    display: grid;
+    gap: 1rem;
+    max-width: 1400px;
+    margin-inline: auto;
+
     .Footer_logos {
       display: flex;
       justify-content: space-between;
     }
+
     .Footer_main_content {
-      display: flex;
-      justify-content: space-between;
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 2rem;
 
       .Footer_contacts {
         display: grid;
         gap: 1rem;
+
         .Footer_contact_box {
           display: grid;
         }
+
         .Footer_socials {
           display: flex;
           gap: 1rem;
         }
       }
+
       .Footer_links {
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        gap: 1rem;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 3rem;
+
         .Footer_links_col {
-          display: flex;
-          flex-direction: column;
+          display: grid;
+          gap: 1rem;
         }
       }
     }
+
     .Footer_language_links {
     }
+
     .Footer_breakline {
       // border: none;
       // background-color: black;
       // height: 2px;
     }
+
     .Footer_bottom_section {
       display: flex;
       justify-content: space-between;
+
       .Footer_bottom_links {
         display: flex;
         gap: 1rem;
@@ -57,3 +66,6 @@
     }
   }
 }
+
+@media only screen and (max-width: 800px) {
+} ;

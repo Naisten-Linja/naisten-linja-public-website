@@ -3,17 +3,23 @@ import ContentBox from '../ContentBox/ContentBox';
 import './ContentBoxGroup.scss';
 import Container from '../utils/Container/Container';
 
-const ContentBoxGroup = ({ contentBoxes, title, ingress, backgroundColor }) => {
-  console.log('contentbox ingress: ', ingress);
+const ContentBoxGroup = ({
+  contentBoxes,
+  title,
+  ingress,
+  backgroundColor,
+  showImages,
+}) => {
+  // console.log('contentbox ingress: ', ingress);
 
   return (
     <Container backgroundColor={backgroundColor}>
       <div className="ContentBoxGroup_container">
-        {title && <h2 className="">{title} - ContentBoxGroup</h2>}
+        {title && <h2 className="">{title}</h2>}
         {ingress && <div dangerouslySetInnerHTML={{ __html: ingress }} />}
         <div className="ContentBoxGroup_grid">
           {contentBoxes?.map((content, idx) => (
-            <ContentBox {...content} key={idx} />
+            <ContentBox {...content} showImages={showImages} key={idx} />
           ))}
         </div>
       </div>

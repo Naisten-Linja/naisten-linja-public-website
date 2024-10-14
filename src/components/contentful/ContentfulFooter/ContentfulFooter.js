@@ -1,55 +1,51 @@
 import React from 'react';
 import Footer from '../../ui/Footer/Footer';
-const ContentfulFooter = ({ content }) => {
-  const { title } = content;
+import { useStaticQuery, graphql } from 'gatsby';
+const ContentfulFooter = (onClick) => {
   const footerData = useStaticQuery(query);
+  console.log('footerData: ', footerData);
 
-  return <Footer title={title} />;
+  return <Footer onClick={onClick} {...footerData.contentfulFooter} />;
 };
 
 export default ContentfulFooter;
 
 const query = graphql`
   query Footer {
-    contentfulMainMenu(slug: { eq: "header-menu" }) {
+    contentfulFooter(slug: { eq: "footer" }) {
       id
       slug
-      mainMenuName
-      topLevelPages {
+      title
+      contacts {
+        childMarkdownRemark {
+          html
+        }
+      }
+      facebook
+      instagram
+      twitterX
+      linkedIn
+      youtube
+      tikTok
+      linksGroupOne {
+        slug
+        pageName
         id
-        linkToExternalUrl
-        menuPage {
-          pageName
-          slug
-        }
-        pageContainerName
-        menuPageSubpages {
-          id
-          linkToExternalUrl
-          menuPage {
-            pageName
-            slug
-            id
-          }
-          pageContainerName
-          menuPageSubpages {
-            linkToExternalUrl
-            menuPageSubpages {
-              linkToExternalUrl
-              menuPage {
-                pageName
-                slug
-              }
-              id
-            }
-            id
-            menuPage {
-              pageName
-              slug
-              id
-            }
-          }
-        }
+      }
+      linksGroupTwo {
+        slug
+        pageName
+        id
+      }
+      linksGroupThree {
+        slug
+        pageName
+        id
+      }
+      legals {
+        slug
+        pageName
+        id
       }
     }
   }

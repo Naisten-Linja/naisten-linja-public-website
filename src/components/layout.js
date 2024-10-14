@@ -6,8 +6,19 @@ import Footer from './ui/Footer/Footer';
 
 import './layout.scss';
 import './globals.scss';
+import ContentfulFooter from './contentful/ContentfulFooter/ContentfulFooter';
 
-const Layout = ({ children, lang }) => {
+const scrollToTop = () => {
+  window ??
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+};
+
+scrollToTop();
+
+const Layout = ({ children, lang, scrollToTop }) => {
   return (
     <>
       <Header lang={lang} />
@@ -15,7 +26,9 @@ const Layout = ({ children, lang }) => {
         {children}
       </main>
       {/* <Footer /> */}
-      <Footer />
+      {/* <Footer /> */}
+      <button onClick={() => scrollToTop()}>scrollToTop</button>
+      <ContentfulFooter onClick={() => scrollToTop} />
     </>
   );
 };

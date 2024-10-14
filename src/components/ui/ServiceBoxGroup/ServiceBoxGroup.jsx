@@ -10,7 +10,7 @@ const ServiceBoxGroup = ({
   backgroundColor,
   background,
 }) => {
-  console.log('service ingress: ', ingress);
+  // console.log('service ingress: ', ingress);
   //TODO: get background from page theme
   return (
     <Container backgroundColor="#ffbf80" background={true}>

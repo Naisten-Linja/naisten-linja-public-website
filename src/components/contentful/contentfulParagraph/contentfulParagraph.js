@@ -3,12 +3,19 @@ import Paragraph from '../../ui/Paragraph/Paragraph';
 
 // TODO: background color from theme, boolean selection
 const ContentfulParagraph = ({ content }) => {
-  const { title, backgroundColor, background, cta, contentText } = content;
+  const {
+    title,
+    backgroundColor,
+    background,
+    cta,
+    contentText,
+    paragraphText,
+  } = content;
 
   return (
     <Paragraph
       title={title}
-      paragraphContent={contentText?.childMarkdownRemark.html}
+      paragraphText={paragraphText?.childMarkdownRemark.html}
       backgroundColor={backgroundColor}
       cta={cta}
       background={background}

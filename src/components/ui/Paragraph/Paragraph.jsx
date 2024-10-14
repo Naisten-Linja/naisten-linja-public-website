@@ -5,21 +5,21 @@ import Container from '../utils/Container/Container';
 
 const Paragraph = ({
   title,
-  paragraphContent,
+  paragraphText,
   backgroundColor,
   cta,
   background,
 }) => {
-  console.log('paragraphContent', paragraphContent);
+  console.log('paragraphText', paragraphText);
 
   return (
     <Container backgroundColor="#ffbf80" background={background}>
       <div className="Paragraph_container">
         <h2 className="Paragraph_title">{title}</h2>
-        {paragraphContent && (
+        {paragraphText && (
           <div
             dangerouslySetInnerHTML={{
-              __html: paragraphContent,
+              __html: paragraphText,
             }}
           />
         )}

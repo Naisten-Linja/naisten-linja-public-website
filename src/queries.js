@@ -27,13 +27,13 @@ export const ContenfulPage = graphql`
           raw
         }
         paragraphTitle
-        contentText {
-          childMarkdownRemark {
-            html
-          }
-        }
+        # contentText {
+        #   childMarkdownRemark {
+        #     html
+        #   }
+        # }
         paragraphText {
-          paragraphText
+          # paragraphText
           childMarkdownRemark {
             html
           }
@@ -154,6 +154,7 @@ export const ContenfulPage = graphql`
         internal {
           type
         }
+        showImages
         backgroundStyle
         backgroundColor
         contentBoxes {
@@ -182,6 +183,13 @@ export const ContenfulPage = graphql`
                 }
               }
             }
+            image {
+              file {
+                url
+                fileName
+              }
+              title
+            }
             textColor
             backgroundColor
             linkToInternalPage {
@@ -198,6 +206,7 @@ export const ContenfulPage = graphql`
                 url
               }
             }
+            iconKey
             serviceName
             serviceInformation
             textColor
@@ -225,15 +234,16 @@ export const ContenfulPage = graphql`
             internal {
               type
             }
-            serviceIcon {
-              file {
-                url
-              }
-            }
+            # serviceIcon {
+            #   file {
+            #     url
+            #   }
+            # }
             serviceName
             serviceInformation
             textColor
             backgroundColor
+            iconKey
             linkToInternalPage {
               slug
             }
