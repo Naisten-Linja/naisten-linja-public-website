@@ -9,9 +9,19 @@ import ContentfulComponents from '../components/contentful/contentfulComponents'
 import { pageQueryBySlug } from '../queries';
 
 const PageTemplate = ({ data }) => {
-  const { pageName, pageLanguage, seoTitle, seoDescription, ogImage } =
-    data.contentfulPages;
-
+  const {
+    pageName,
+    pageLanguage,
+    seoTitle,
+    seoDescription,
+    ogImage,
+    heroTitle,
+    heroIngress,
+    heroImage,
+    backLink,
+    heroServiceLinks,
+  } = data.contentfulPages;
+  console.log(data.contentfulPages);
   const cookiebotId = process.env.GATSBY_COOKIEBOT_ID;
 
   function isBrowser() {
@@ -35,8 +45,16 @@ const PageTemplate = ({ data }) => {
     [cookiebotId],
   );
 
+  const hero = {
+    pageName,
+    heroTitle,
+    heroImage,
+    heroIngress,
+    backLink,
+    heroServiceLinks,
+  };
   return (
-    <Layout lang={pageLanguage}>
+    <Layout hero={hero} lang={pageLanguage}>
       <Seo
         title={seoTitle || pageName}
         description={seoDescription}

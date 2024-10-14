@@ -1,34 +1,32 @@
 import React, { useState } from 'react';
 import { useStaticQuery, graphql, Link } from 'gatsby';
 import './menu.scss';
-import { useIsMobile } from '../../hooks/useIsMobile';
 
 import MenuItem from './menu-item';
 
-import { FaArrowRight, FaHamburger } from 'react-icons/fa';
+import { FaArrowRight } from 'react-icons/fa';
 import { IoMdClose, IoMdMenu } from 'react-icons/io';
-import MenuLink from './menu-link';
 
-const languages = [
-  {
-    abv: 'FI',
-    label: 'Suomeksi (FI)',
-    value: 'fi',
-    link: '/etusivu',
-  },
-  {
-    abv: 'SV',
-    label: 'På svenska (SV)',
-    value: 'sv',
-    link: '/pa-svenska',
-  },
-  {
-    abv: 'EN',
-    label: 'In English (EN)',
-    value: 'en',
-    link: '/in-english',
-  },
-];
+// const languages = [
+//   {
+//     abv: 'FI',
+//     label: 'Suomeksi (FI)',
+//     value: 'fi',
+//     link: '/etusivu',
+//   },
+//   {
+//     abv: 'SV',
+//     label: 'På svenska (SV)',
+//     value: 'sv',
+//     link: '/pa-svenska',
+//   },
+//   {
+//     abv: 'EN',
+//     label: 'In English (EN)',
+//     value: 'en',
+//     link: '/in-english',
+//   },
+// ];
 
 const Menu = ({ lang }) => {
   const headerMenuData = useStaticQuery(query);
@@ -38,11 +36,11 @@ const Menu = ({ lang }) => {
   const topLevelPages = headerMenuData.contentfulMainMenu.topLevelPages;
   const services = headerMenuData.contentfulMainMenu.services;
   const cta = headerMenuData.contentfulMainMenu.cta;
-  console.log(services);
+  //console.log(services);
   return (
     /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 
-    <nav className={`MainMenu }`} aria-label="Naisten Linja Menu">
+    <nav className={`MainMenu`} aria-label="Naisten Linja Menu">
       <div className="escape">
         <div className="container">
           <a href="/">
@@ -53,26 +51,30 @@ const Menu = ({ lang }) => {
       <div className="service-bar">
         <div className="container">
           <div className="logo">
-            <Link href="/">
+            <Link to="/">
               {' '}
-              <img src="/images/Naisten_Linja.svg" />
+              <img src="/images/Naisten_Linja.svg" alt="" />
             </Link>
           </div>
           <ul className="services">
             {services &&
               services.map((service) => (
-                <li className="service-link">
+                <li key={service.id} className="service-link">
                   {service.serviceIcon ? (
                     <img src={service.serviceIcon.file.url} alt="" />
                   ) : (
                     <div />
                   )}
                   {service.linkToCustomUrl ? (
-                    <a target="_blank" href={service.linkToCustomUrl}>
+                    <a
+                      target="_blank"
+                      rel="noreferrer"
+                      href={service.linkToCustomUrl}
+                    >
                       {service.serviceName}
                     </a>
                   ) : service.linkToInternalPage ? (
-                    <Link href={service.linkToInternalPage?.slug}>
+                    <Link to={`/${service.linkToInternalPage?.slug}`}>
                       {service.serviceName}
                     </Link>
                   ) : null}
@@ -82,7 +84,7 @@ const Menu = ({ lang }) => {
           <div className="menu-cta">
             {' '}
             {/* TODO: Tähän CTA nappi sit kun valmistuu */}
-            <Link href={cta.slug}>{cta.pageName}</Link>
+            <Link to={cta.slug}>{cta.pageName}</Link>
           </div>
           <div className="menu-icon" onClick={() => setIsOpen(!isOpen)}>
             {isOpen ? <IoMdClose /> : <IoMdMenu />}
@@ -120,6 +122,7 @@ const query = graphql`
       slug
       mainMenuName
       services {
+        id
         serviceIcon {
           file {
             url

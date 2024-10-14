@@ -5,7 +5,31 @@ export const ContenfulPage = graphql`
     slug
     pageName
     pageLanguage
+    heroTitle
+    heroIngress {
+      childMarkdownRemark {
+        html
+      }
+    }
+    heroImage {
+      file {
+        url
+      }
+    }
     seoTitle
+    backLink {
+      slug
+      pageName
+    }
+    heroServiceLinks {
+      ... on ContentfulServiceBox {
+        serviceName
+        linkToInternalPage {
+          slug
+        }
+        linkToCustomUrl
+      }
+    }
     seoDescription
     ogImage {
       file {
