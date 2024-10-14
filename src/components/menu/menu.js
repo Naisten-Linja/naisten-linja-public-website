@@ -58,33 +58,36 @@ const Menu = ({ lang }) => {
           </div>
           <ul className="services">
             {services &&
-              services.map((service) => (
-                <li key={service.id} className="service-link">
-                  {service.serviceIcon ? (
-                    <img src={service.serviceIcon.file.url} alt="" />
-                  ) : (
-                    <div />
-                  )}
-                  {service.linkToCustomUrl ? (
-                    <a
-                      target="_blank"
-                      rel="noreferrer"
-                      href={service.linkToCustomUrl}
-                    >
-                      {service.serviceName}
-                    </a>
-                  ) : service.linkToInternalPage ? (
-                    <Link to={`/${service.linkToInternalPage?.slug}`}>
-                      {service.serviceName}
-                    </Link>
-                  ) : null}
-                </li>
-              ))}
+              services.map(
+                (service) =>
+                  service && (
+                    <li key={service.id} className="service-link">
+                      {service.serviceIcon ? (
+                        <img src={service.serviceIcon.file.url} alt="" />
+                      ) : (
+                        <div />
+                      )}
+                      {service.linkToCustomUrl ? (
+                        <a
+                          target="_blank"
+                          rel="noreferrer"
+                          href={service.linkToCustomUrl}
+                        >
+                          {service.serviceName}
+                        </a>
+                      ) : service.linkToInternalPage ? (
+                        <Link to={`/${service.linkToInternalPage?.slug}`}>
+                          {service.serviceName}
+                        </Link>
+                      ) : null}
+                    </li>
+                  ),
+              )}
           </ul>
           <div className="menu-cta">
             {' '}
             {/* TODO: Tähän CTA nappi sit kun valmistuu */}
-            <Link to={cta.slug}>{cta.pageName}</Link>
+            <Link to={`/${cta.slug}`}>{cta.pageName}</Link>
           </div>
           <div className="menu-icon" onClick={() => setIsOpen(!isOpen)}>
             {isOpen ? <IoMdClose /> : <IoMdMenu />}
