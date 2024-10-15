@@ -6,6 +6,7 @@ import MenuItem from './menu-item';
 
 import { FaArrowRight } from 'react-icons/fa';
 import { IoMdClose, IoMdMenu } from 'react-icons/io';
+import { findIcon } from '../ui/utils/utils';
 
 // const languages = [
 //   {
@@ -62,11 +63,7 @@ const Menu = ({ lang }) => {
                 (service) =>
                   service && (
                     <li key={service.id} className="service-link">
-                      {service.serviceIcon ? (
-                        <img src={service.serviceIcon.file.url} alt="" />
-                      ) : (
-                        <div />
-                      )}
+                      {service.iconKey ? findIcon(service.iconKey) : <div />}
                       {service.linkToCustomUrl ? (
                         <a
                           target="_blank"
@@ -126,11 +123,7 @@ const query = graphql`
       mainMenuName
       services {
         id
-        serviceIcon {
-          file {
-            url
-          }
-        }
+        iconKey
         serviceName
         # serviceInformation
         textColor
