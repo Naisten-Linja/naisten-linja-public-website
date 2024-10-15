@@ -9,19 +9,32 @@
     background-size: contain;
     background-repeat: no-repeat;
     background-position: bottom left;
+    .n-image {
+      width: 100%;
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-end;
+      img {
+        height: 4rem;
+      }
+    }
   }
   .container {
     max-width: $max-width-xl;
-    padding: 4rem 1rem;
-
+    padding: 0 0 2rem 2rem;
+    position: relative;
+    display: flex;
+    &.withoutBgImage {
+      padding: 0 2rem 2rem 2rem;
+    }
     &.withBgImage {
       display: flex;
       flex-flow: column;
       align-items: flex-end;
-
+      padding: 0 0 2rem 2rem;
       .text-container {
         max-width: 700px;
-        margin: 6rem 0 2rem 1rem;
+        margin: 0 0 2rem 1rem;
       }
     }
     .text-container {

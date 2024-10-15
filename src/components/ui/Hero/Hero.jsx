@@ -11,13 +11,16 @@ const Hero = (props) => {
     backLink,
     heroServiceLinks,
   } = props;
-  console.table(props);
+
   return (
     <div
       className="Hero"
       style={heroImage && { backgroundImage: `url( ${heroImage.file.url})` }}
     >
       <div className="wave">
+        <div className={`n-image ${heroImage ? 'default' : 'narrow'}`}>
+          <img src="/images/N.svg" alt="" />
+        </div>
         <div
           className={`container ${
             heroImage ? 'withBgImage' : 'withoutBgImage'
