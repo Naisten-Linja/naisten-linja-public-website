@@ -13,7 +13,7 @@ const ContentBoxGroup = ({
   // console.log('contentbox ingress: ', ingress);
 
   return (
-    <Container backgroundColor={backgroundColor}>
+    <Container backgroundColor={backgroundColor} theme={''} size={'large'}>
       <div className="ContentBoxGroup_container">
         {title && <h2 className="">{title}</h2>}
         {ingress && <div dangerouslySetInnerHTML={{ __html: ingress }} />}

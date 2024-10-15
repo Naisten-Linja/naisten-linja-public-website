@@ -13,9 +13,9 @@ const ServiceBoxGroup = ({
   // console.log('service ingress: ', ingress);
   //TODO: get background from page theme
   return (
-    <Container backgroundColor="#ffbf80" background={true}>
+    <Container theme={'persikka'} background={true} size={'large'}>
       <div className="ServiceBoxGroup_container">
-        {title && <h2 className="">{title} - ServiceBoxGroup</h2>}
+        {title && <h2 className="">{title}</h2>}
         {ingress && <div dangerouslySetInnerHTML={{ __html: ingress }} />}
         <div className="ServiceBoxGroup_grid">
           {services?.map((service, idx) => (

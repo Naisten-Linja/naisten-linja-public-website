@@ -132,7 +132,7 @@ const query = graphql`
           }
         }
         serviceName
-        serviceInformation
+        # serviceInformation
         textColor
         backgroundColor
         linkToInternalPage {

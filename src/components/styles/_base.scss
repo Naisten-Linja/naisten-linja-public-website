@@ -1,12 +1,21 @@
 @import '_variables';
 
 h1,
-h2 {
+h2,
+h3 {
   font-family: $heading-font;
 }
 
+h1 {
+  font-size: 44px;
+  font-weight: 600;
+}
 h2 {
   font-size: 40px;
+  font-weight: 600;
+}
+h3 {
+  font-size: 32px;
   font-weight: 600;
 }
 

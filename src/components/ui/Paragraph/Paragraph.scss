@@ -1,10 +1,37 @@
+@import '../../styles/variables';
+
 .Paragraph_container {
   position: relative;
   display: grid;
   gap: 1rem;
-  del {
-    background-color: orange;
+
+  ul {
+    list-style: disc;
+    margin-left: 2rem;
+  }
+
+  ol {
+    list-style: decimal;
+    margin-left: 2rem;
+  }
+
+  u {
+    background-color: $persikka;
     text-decoration: none;
+    padding: 0.25rem 0.5rem;
+  }
+
+  a {
+    color: $ruukku-750;
+    text-decoration: underline;
+  }
+
+  blockquote {
+    background-color: $persikka;
+
+    cite {
+      margin-left: 2rem;
+    }
   }
 
   table {

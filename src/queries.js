@@ -4,6 +4,7 @@ export const ContenfulPage = graphql`
   fragment ContentfulPageFragment on ContentfulPages {
     slug
     pageName
+    theme
     pageLanguage
     heroTitle
     heroIngress {
@@ -232,7 +233,7 @@ export const ContenfulPage = graphql`
             }
             iconKey
             serviceName
-            serviceInformation
+            # serviceInformation
             textColor
             backgroundColor
             linkToInternalPage {
@@ -264,7 +265,7 @@ export const ContenfulPage = graphql`
             #   }
             # }
             serviceName
-            serviceInformation
+            # serviceInformation
             textColor
             backgroundColor
             iconKey
@@ -363,6 +364,7 @@ export const ContenfulPage = graphql`
         }
       }
       ... on ContentfulPersonIntroductionGrid {
+        title
         internal {
           type
         }
@@ -382,6 +384,19 @@ export const ContenfulPage = graphql`
                 url
               }
             }
+          }
+        }
+      }
+      ... on ContentfulImageAndText {
+        title
+        image {
+          file {
+            url
+          }
+        }
+        text {
+          childMarkdownRemark {
+            html
           }
         }
       }

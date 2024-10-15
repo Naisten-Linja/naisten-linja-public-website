@@ -183,6 +183,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       | ContentfulVideo
       | ContentfulPagePreviewGrid
       | ContentfulPersonIntroductionGrid
+      | ContentfulImageAndText
 
 
     type ContentfulPages implements Node {

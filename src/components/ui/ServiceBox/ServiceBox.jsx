@@ -1,6 +1,4 @@
 import React from 'react';
-import { BsFillTelephoneFill } from 'react-icons/bs';
-import { CiChat1 } from 'react-icons/ci';
 
 import './ServiceBox.scss';
 import { Link } from 'gatsby';

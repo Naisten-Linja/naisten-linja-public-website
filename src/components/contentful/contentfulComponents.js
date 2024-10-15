@@ -12,6 +12,7 @@ import ContentfulGoogleFormsIframe from './contentfulGoogleFormsIframe/contentfu
 import ContentfulServiceBoxGroup from './contentfulServiceBoxGroup/contentfulServiceBoxGroup';
 import ContentfulPagePreview from './contentfulPagePreview/ContentfulPagePreview';
 import ContentfulPersonIntroductionGrid from './contentfulPersonIntroductionGrid/ContentfulPersonIntroductionGrid';
+import ContentfulImageAndText from './ContentfulImageAndText/ContentfulImageAndText';
 
 const ContentfulComponents = ({ pageContent }) => {
   return (pageContent || []).map((component, index) => {
@@ -66,6 +67,8 @@ const ContentfulComponents = ({ pageContent }) => {
         return (
           <ContentfulPersonIntroductionGrid key={index} content={component} />
         );
+      case 'ContentfulImageAndText':
+        return <ContentfulImageAndText key={index} content={component} />;
 
       default:
         console.log('componentType', componentType);

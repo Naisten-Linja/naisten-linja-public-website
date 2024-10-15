@@ -2,17 +2,21 @@
 $heading-font: 'Playfair Display', serif;
 $primary-font: 'Work Sans', sans-serif;
 
-//Breakpoint & widths
-$max-width: 1400px;
+// Breakpoints
+$mobile-breakpoint: 620px;
 
+$max-width-s: 640px;
+$max-width-m: 728px;
+$max-width-l: 960px;
+$max-width-xl: 1140px;
+
+// Screens
 $xs-screen: 375px;
 $s-screen: 640px;
 $m-screen: 768px;
 $l-screen: 1024px;
 $xl-screen: 1280px;
 $xxl-screen: 1536px;
-
-$mobile-breakpoint: 620px;
 
 // Colors
 $black: #0d0c0c;

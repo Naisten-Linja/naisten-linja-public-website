@@ -24,7 +24,7 @@ nav {
     padding: 1rem;
     width: 100%;
     .container {
-      max-width: $max-width;
+      max-width: $max-width-xl;
       margin: auto;
       display: flex;
       justify-content: flex-end;
@@ -46,7 +46,7 @@ nav {
 
   .service-bar {
     .container {
-      max-width: $max-width;
+      max-width: $max-width-xl;
       margin: auto;
       display: grid;
       grid-template-columns: 9rem 1fr 7rem 4rem;

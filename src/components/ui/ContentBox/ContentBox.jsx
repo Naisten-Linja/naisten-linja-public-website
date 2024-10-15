@@ -43,10 +43,14 @@ const ContentBox = ({
   return (
     <div className="ContentBox_container">
       <div>
-        <div className="ContentBox__image">
-          {showImages && image && <img src={image.file.url} alt={''} />}
-          {showImages && !image && <img src={'/images/placeholder.png'} />}
-        </div>
+        {!showImages ? (
+          ''
+        ) : (
+          <div className="ContentBox__image">
+            {showImages && image && <img src={image.file.url} alt={''} />}
+            {showImages && !image && <img src={'/images/placeholder.png'} />}
+          </div>
+        )}
         {linkToInternalPage ? (
           <Link
             // className="ContentBox__title"

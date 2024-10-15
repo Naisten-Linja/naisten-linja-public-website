@@ -7,7 +7,7 @@ const ContentfulFooter = (onClick) => {
   console.log('footerData: ', footerData);
 
   return (
-    <Container backgroundColor={'#ede2d5'} background={true}>
+    <Container theme={'ruis'} background={true} size={'extra-large'}>
       <Footer onClick={onClick} {...footerData.contentfulFooter} />
     </Container>
   );
