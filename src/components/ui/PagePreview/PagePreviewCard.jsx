@@ -1,9 +1,10 @@
 import React from 'react';
 import './PagePreview.scss';
+import { Link } from 'gatsby';
 
 const PagePreviewCard = ({ pageName, seoDescription, ogImage, slug }) => {
   return (
-    <a className="page-preview-card" href={`/${slug}`}>
+    <Link className="page-preview-card" to={`/${slug}`}>
       <div className="page-preview-card-image">
         <img
           src={ogImage?.file?.url ?? '/images/placeholder.png'}
@@ -14,7 +15,7 @@ const PagePreviewCard = ({ pageName, seoDescription, ogImage, slug }) => {
         <h3>{pageName}</h3>
         <p>{seoDescription}</p>
       </div>
-    </a>
+    </Link>
   );
 };
 
