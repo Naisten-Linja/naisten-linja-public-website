@@ -30,7 +30,7 @@ const Layout = ({ children, lang, scrollToTop, hero }) => {
       </main>
       {/* <Footer /> */}
       <button onClick={() => scrollToTop()}>scrollToTop</button>
-      <ContentfulFooter onClick={() => scrollToTop} />
+      {/* <ContentfulFooter onClick={() => scrollToTop} /> */}
       {/* <button onClick={() => scrollToTop()}>scrollToTop</button> */}
       <ContentfulFooter />
     </>

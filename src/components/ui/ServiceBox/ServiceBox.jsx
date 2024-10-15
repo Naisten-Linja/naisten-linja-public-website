@@ -4,6 +4,7 @@ import { CiChat1 } from 'react-icons/ci';
 
 import './ServiceBox.scss';
 import { Link } from 'gatsby';
+import { findIcon } from '../utils/utils';
 
 const ServiceBox = ({
   serviceName,
@@ -12,14 +13,14 @@ const ServiceBox = ({
   linkToCustomUrl,
 }) => {
   // const icon = 'puhelin';
-  const findIcon = (iconKey) => {
-    switch (iconKey) {
-      case 'puhelin':
-        return <BsFillTelephoneFill />;
-      case 'chat':
-        return <CiChat1 />;
-    }
-  };
+  // const findIcon = (iconKey) => {
+  //   switch (iconKey) {
+  //     case 'puhelin':
+  //       return <BsFillTelephoneFill />;
+  //     case 'chat':
+  //       return <CiChat1 />;
+  //   }
+  // };
 
   return (
     <>
