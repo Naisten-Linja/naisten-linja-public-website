@@ -8,6 +8,8 @@ const ContentfulImageAndText = ({ content }) => {
   const textHtml = text?.childMarkdownRemark.html;
   const imageUrl = image?.file.url;
 
+  console.log('image and text title:', title);
+
   return <ImageAndText title={title} text={textHtml} imageUrl={imageUrl} />;
 };
 

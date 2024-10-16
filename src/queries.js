@@ -5,6 +5,8 @@ export const ContenfulPage = graphql`
     slug
     pageName
     theme
+    showUpdateInfo
+    updatedAt(formatString: "DD.MM.YYYY, HH:MM")
     pageLanguage
     heroTitle
     heroIngress {
@@ -44,59 +46,12 @@ export const ContenfulPage = graphql`
       ... on ContentfulParagraph {
         title
         background
+        size
         internal {
           type
         }
         id
-        contentNew {
-          raw
-        }
-        paragraphTitle
-        # contentText {
-        #   childMarkdownRemark {
-        #     html
-        #   }
-        # }
         paragraphText {
-          # paragraphText
-          childMarkdownRemark {
-            html
-          }
-        }
-        paragraphColumns
-        sideImagePosition
-        sideImage {
-          description
-          file {
-            url
-          }
-          title
-        }
-        paragraphBackgroundStyle
-        backgroundStyle
-        backgroundColor
-        textColor
-      }
-      ... on ContentfulQuote {
-        internal {
-          type
-        }
-        id
-        quoteAuthor
-        quoteText {
-          quoteText
-          childMarkdownRemark {
-            html
-          }
-        }
-      }
-      ... on ContentfulReadMore {
-        internal {
-          type
-        }
-        id
-        readMoreContent {
-          readMoreContent
           childMarkdownRemark {
             html
           }
@@ -348,6 +303,7 @@ export const ContenfulPage = graphql`
         internal {
           type
         }
+        title
         page {
           ... on ContentfulPages {
             slug
@@ -388,6 +344,9 @@ export const ContenfulPage = graphql`
         }
       }
       ... on ContentfulImageAndText {
+        internal {
+          type
+        }
         title
         image {
           file {

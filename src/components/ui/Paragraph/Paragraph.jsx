@@ -9,13 +9,14 @@ const Paragraph = ({
   cta,
   background,
   theme,
+  size,
 }) => {
   console.log('paragraphText', paragraphText);
 
   return (
-    <Container theme={'laventeli'} background={true} size={'medium'}>
+    <Container theme={theme} background={background} size={size}>
       <div className="Paragraph_container">
-        <h2 className="Paragraph_title">{title}</h2>
+        {title && <h2 className="Paragraph_title">{title}</h2>}
         {paragraphText && (
           <div
             dangerouslySetInnerHTML={{

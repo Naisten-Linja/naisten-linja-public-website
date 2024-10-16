@@ -9,12 +9,12 @@ import ContentfulContentBoxGroup from './ContentfulContentBoxGroup/ContentfulCon
 import ContentfulOpenLetterForm from './contentfulOpenLetterForm/contentfulOpenLetterForm';
 import ContentfulExternalForm from './contentfulExternalForm/contentfulExternalForm';
 import ContentfulGoogleFormsIframe from './contentfulGoogleFormsIframe/contentfulGoogleFormsIframe';
-import ContentfulServiceBoxGroup from './contentfulServiceBoxGroup/contentfulServiceBoxGroup';
+import ContentfulServiceBoxGroup from './ContentfulServiceBoxGroup/ContentfulServiceBoxGroup';
 import ContentfulPagePreview from './contentfulPagePreview/ContentfulPagePreview';
 import ContentfulPersonIntroductionGrid from './contentfulPersonIntroductionGrid/ContentfulPersonIntroductionGrid';
 import ContentfulImageAndText from './ContentfulImageAndText/ContentfulImageAndText';
 
-const ContentfulComponents = ({ pageContent }) => {
+const ContentfulComponents = ({ pageContent, theme }) => {
   return (pageContent || []).map((component, index) => {
     const componentType = component.internal ? component.internal.type : null;
     switch (componentType) {
@@ -23,6 +23,7 @@ const ContentfulComponents = ({ pageContent }) => {
           <ContentfulParagraph
             key={index}
             content={component}
+            theme={theme}
           ></ContentfulParagraph>
         );
 
@@ -49,7 +50,13 @@ const ContentfulComponents = ({ pageContent }) => {
         return <ContentfulContentBoxGroup key={index} content={component} />;
 
       case 'ContentfulServiceBoxGroup':
-        return <ContentfulServiceBoxGroup key={index} content={component} />;
+        return (
+          <ContentfulServiceBoxGroup
+            key={index}
+            content={component}
+            theme={theme}
+          />
+        );
 
       case 'ContentfulOpenLetterForm':
         return <ContentfulOpenLetterForm key={index} content={component} />;
@@ -67,6 +74,7 @@ const ContentfulComponents = ({ pageContent }) => {
         return (
           <ContentfulPersonIntroductionGrid key={index} content={component} />
         );
+
       case 'ContentfulImageAndText':
         return <ContentfulImageAndText key={index} content={component} />;
 

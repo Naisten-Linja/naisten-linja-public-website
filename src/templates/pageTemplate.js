@@ -15,6 +15,9 @@ const PageTemplate = ({ data }) => {
     seoTitle,
     seoDescription,
     ogImage,
+    showUpdateInfo,
+    updatedAt,
+    theme,
     heroTitle,
     heroIngress,
     heroImage,
@@ -23,6 +26,7 @@ const PageTemplate = ({ data }) => {
   } = data.contentfulPages;
   console.log(data.contentfulPages);
   const cookiebotId = process.env.GATSBY_COOKIEBOT_ID;
+  console.log('updateInfo: ', showUpdateInfo, updatedAt);
 
   function isBrowser() {
     return typeof window === 'object';
@@ -53,8 +57,14 @@ const PageTemplate = ({ data }) => {
     backLink,
     heroServiceLinks,
   };
+
+  const updateInfo = {
+    showUpdateInfo,
+    updatedAt,
+  };
+
   return (
-    <Layout hero={hero} lang={pageLanguage}>
+    <Layout hero={hero} updateInfo={updateInfo} lang={pageLanguage}>
       <Seo
         title={seoTitle || pageName}
         description={seoDescription}
@@ -62,6 +72,7 @@ const PageTemplate = ({ data }) => {
         lang={pageLanguage}
       />
       <ContentfulComponents
+        theme={theme}
         pageContent={data.contentfulPages.pageContent}
       ></ContentfulComponents>
       {pageName === 'Evästeseloste' && (

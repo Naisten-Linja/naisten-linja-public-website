@@ -5,6 +5,10 @@
   display: grid;
   gap: 1rem;
 
+  p {
+    margin: 1rem 0;
+  }
+
   ul {
     list-style: disc;
     margin-left: 2rem;
@@ -27,10 +31,12 @@
   }
 
   blockquote {
-    background-color: $persikka;
-
-    cite {
-      margin-left: 2rem;
+    // background-color: $persikka;
+    p {
+      display: grid;
+      cite {
+        justify-self: end;
+      }
     }
   }
 

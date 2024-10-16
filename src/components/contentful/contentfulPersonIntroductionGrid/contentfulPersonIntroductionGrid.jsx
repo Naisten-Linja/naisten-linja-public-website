@@ -7,13 +7,11 @@ const ContentfulPersonIntroductionGrid = ({ content }) => {
   const personIntroductions = content.personIntroductions;
 
   return (
-    <Container theme={'white'} size={'large'} background={true}>
-      <PersonIntroductionGrid title={content.title}>
-        {personIntroductions?.map((person, index) => (
-          <PersonIntroductionCard key={index} {...person} />
-        ))}
-      </PersonIntroductionGrid>
-    </Container>
+    <PersonIntroductionGrid title={content.title}>
+      {personIntroductions?.map((person, index) => (
+        <PersonIntroductionCard key={index} {...person} />
+      ))}
+    </PersonIntroductionGrid>
   );
 };
 
