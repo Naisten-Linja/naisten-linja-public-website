@@ -44,7 +44,7 @@ export const ContenfulPage = graphql`
     pageContent {
       __typename
       ... on ContentfulParagraph {
-        title
+        paragraphTitle
         background
         size
         internal {
