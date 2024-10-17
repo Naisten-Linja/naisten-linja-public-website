@@ -44,7 +44,7 @@ There are plans to make this automatic, but because of the time limits, we haven
 | ----------------------- | -------------------------- | --------------------------------- | --------------------------------- |
 | URL address             | https://naistenlinja.fi    | https://dev.naistenlinja.fi       | https://preview.naistenlinja.fi   |
 | Heroku application name | naisten-linja-production   | naistenlinja-dev                  | naisten-linja-preview             |
-| Git branch              | production                 | master                            | production                        |
+| Git branch              | production                 | dev                               | production                        |
 | NODE_ENV (important)    | production                 | production                        | development                       |
 | How it is served        | Nginx serving static build | Nginx serving static build + auth | `gatsby develop` + Nginx for auth |
 | Contentful environment  | master                     | master                            | master                            |
