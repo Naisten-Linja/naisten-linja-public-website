@@ -9,7 +9,7 @@ import ContentfulContentBoxGroup from './contentfulContentBoxGroup/contentfulCon
 import ContentfulOpenLetterForm from './contentfulOpenLetterForm/contentfulOpenLetterForm';
 import ContentfulExternalForm from './contentfulExternalForm/contentfulExternalForm';
 import ContentfulGoogleFormsIframe from './contentfulGoogleFormsIframe/contentfulGoogleFormsIframe';
-import ContentfulServiceBoxGroup from './ContentfulServiceBoxGroup/ContentfulServiceBoxGroup';
+import ContentfulServiceBoxGroup from './contentfulServiceBoxGroup/contentfulServiceBoxGroup';
 import ContentfulPagePreview from './contentfulPagePreview/ContentfulPagePreview';
 import ContentfulPersonIntroductionGrid from './contentfulPersonIntroductionGrid/ContentfulPersonIntroductionGrid';
 import ContentfulImageAndText from './ContentfulImageAndText/ContentfulImageAndText';
