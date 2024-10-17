@@ -2,7 +2,7 @@ import React from 'react';
 
 import ContentfulParagraph from './contentfulParagraph/contentfulParagraph';
 import ContentfulQuote from './contentfulQuote/contentfulQuote';
-import ContentfulReadMore from './contentfulReadMore/contentfulReadMore';
+// import ContentfulReadMore from './contentfulReadMore/contentfulReadMore';
 import ContentfulVideo from './contentfulVideo/contentfulVideo';
 import ContentfulFullWidthImage from './contentfulFullWidthImage/contentfulFullWidthImage';
 import ContentfulPersonIntroduction from './contentfulPersonIntroduction/contentfulPersonIntroduction';
@@ -29,13 +29,13 @@ const ContentfulComponents = ({ pageContent }) => {
           <ContentfulQuote key={index} content={component}></ContentfulQuote>
         );
 
-      case 'ContentfulReadMore':
-        return (
-          <ContentfulReadMore
-            key={index}
-            content={component}
-          ></ContentfulReadMore>
-        );
+      // case 'ContentfulReadMore':
+      //   return (
+      //     <ContentfulReadMore
+      //       key={index}
+      //       content={component}
+      //     ></ContentfulReadMore>
+      //   );
 
       case 'ContentfulVideo':
         return <ContentfulVideo key={index} content={component} />;
