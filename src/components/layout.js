@@ -8,15 +8,15 @@ import ContentfulFooter from './contentful/ContentfulFooter/ContentfulFooter';
 import Hero from './ui/Hero/Hero';
 import UpdateInfo from './ui/UpdateInfo/UpdateInfo';
 
-const scrollToTop = () => {
-  window ??
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    });
-};
+// const scrollToTop = () => {
+//   window ??
+//     window.scrollTo({
+//       top: 0,
+//       behavior: 'smooth',
+//     });
+// };
 
-scrollToTop();
+// scrollToTop();
 
 const Layout = ({ children, lang, scrollToTop, hero, updateInfo }) => {
   console.log('updateInfo:', updateInfo);
