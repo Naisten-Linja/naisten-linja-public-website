@@ -179,7 +179,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       | ContentfulOpenLetterForm
       | ContentfulParagraph
       | ContentfulQuote
-      | ContentfulReadMore
+
       | ContentfulVideo
       | ContentfulPagePreviewGrid
       | ContentfulPersonIntroductionGrid

@@ -2,10 +2,10 @@ import React from 'react';
 
 import ContentfulParagraph from './contentfulParagraph/contentfulParagraph';
 import ContentfulQuote from './contentfulQuote/contentfulQuote';
-import ContentfulReadMore from './contentfulReadMore/contentfulReadMore';
+//import ContentfulReadMore from './contentfulReadMore/contentfulReadMore';
 import ContentfulVideo from './contentfulVideo/contentfulVideo';
 import ContentfulFullWidthImage from './contentfulFullWidthImage/contentfulFullWidthImage';
-import ContentfulContentBoxGroup from './ContentfulContentBoxGroup/ContentfulContentBoxGroup';
+import ContentfulContentBoxGroup from './contentfulContentBoxGroup/contentfulContentBoxGroup';
 import ContentfulOpenLetterForm from './contentfulOpenLetterForm/contentfulOpenLetterForm';
 import ContentfulExternalForm from './contentfulExternalForm/contentfulExternalForm';
 import ContentfulGoogleFormsIframe from './contentfulGoogleFormsIframe/contentfulGoogleFormsIframe';
@@ -32,13 +32,13 @@ const ContentfulComponents = ({ pageContent, theme }) => {
           <ContentfulQuote key={index} content={component}></ContentfulQuote>
         );
 
-      case 'ContentfulReadMore':
-        return (
-          <ContentfulReadMore
-            key={index}
-            content={component}
-          ></ContentfulReadMore>
-        );
+      // case 'ContentfulReadMore':
+      //   return (
+      //     <ContentfulReadMore
+      //       key={index}
+      //       content={component}
+      //     ></ContentfulReadMore>
+      //   );
 
       case 'ContentfulVideo':
         return <ContentfulVideo key={index} content={component} />;
