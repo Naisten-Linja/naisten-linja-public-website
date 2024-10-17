@@ -5,7 +5,8 @@
   "version": "0.1.0",
   "author": "Naisten Linja",
   "engines": {
-    "node": "20.x"
+    "node": "20.x",
+    "npm":"10.x"
   },
   "dependencies": {
     "@contentful/rich-text-react-renderer": "^15.12.1",
