@@ -57,13 +57,15 @@ nav {
         list-style: none;
         padding: 0;
         li.service-link {
-          margin: 0;
-          margin: 0.5rem 0.5rem 0.5rem 1rem;
-          display: grid;
-          grid-template-columns: 1rem 1fr;
+          display: flex;
           align-items: center;
-          gap: 0.5rem;
           a {
+            margin: 0;
+            margin: 0.5rem 0.5rem 0.5rem 1rem;
+            display: grid;
+            grid-template-columns: 1rem 1fr;
+            align-items: center;
+            gap: 0.5rem;
             color: $black;
             &:hover {
               text-decoration: underline;
@@ -165,16 +167,19 @@ nav {
           display: grid;
           grid-template-columns: 1fr 1fr 1fr 1fr;
           li.service-link {
-            grid-template-columns: 1fr;
             justify-content: center;
-            gap: 0.2rem;
-            margin: 0.5rem;
-            font-size: 14px;
-            text-align: center;
-            svg {
-              margin: auto;
-              width: 1.25rem;
-              height: 1.25rem;
+            a {
+              grid-template-columns: 1fr;
+              justify-content: center;
+              gap: 0.2rem;
+              margin: 0.5rem;
+              font-size: 14px;
+              text-align: center;
+              svg {
+                margin: auto;
+                width: 1.25rem;
+                height: 1.25rem;
+              }
             }
           }
         }

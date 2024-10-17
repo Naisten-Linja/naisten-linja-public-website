@@ -63,17 +63,27 @@ const Menu = ({ lang }) => {
                 (service) =>
                   service && (
                     <li key={service.id} className="service-link">
-                      {service.iconKey ? findIcon(service.iconKey) : <div />}
                       {service.linkToCustomUrl ? (
                         <a
                           target="_blank"
                           rel="noreferrer"
                           href={service.linkToCustomUrl}
                         >
+                          {service.iconKey ? (
+                            findIcon(service.iconKey)
+                          ) : (
+                            <div />
+                          )}
+
                           {service.serviceName}
                         </a>
                       ) : service.linkToInternalPage ? (
                         <Link to={`/${service.linkToInternalPage?.slug}`}>
+                          {service.iconKey ? (
+                            findIcon(service.iconKey)
+                          ) : (
+                            <div />
+                          )}
                           {service.serviceName}
                         </Link>
                       ) : null}
