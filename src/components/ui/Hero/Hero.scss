@@ -24,6 +24,7 @@
     padding: 0 0 2rem 2rem;
     position: relative;
     display: flex;
+    flex-flow: column;
     &.withoutBgImage {
       padding: 0 2rem 2rem 2rem;
     }
@@ -63,6 +64,10 @@
         font-size: 44px;
         font-weight: bold;
         line-height: 1.1;
+        -webkit-hyphens: auto;
+        -moz-hyphens: auto;
+        -ms-hyphens: auto;
+        hyphens: auto;
       }
       .ingress p {
         font-size: 20px;
@@ -70,7 +75,7 @@
     }
     .buttons {
       gap: 1rem;
-      margin: auto;
+      margin: 1rem auto;
       max-width: 960px;
       width: 100%;
       display: grid;

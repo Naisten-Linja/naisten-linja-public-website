@@ -1,16 +1,22 @@
 import React from 'react';
 import { BsFillTelephoneFill } from 'react-icons/bs';
-import { CiChat1 } from 'react-icons/ci';
-import { FaHeart } from 'react-icons/fa';
+import {
+  IoCalendarClear,
+  IoCall,
+  IoChatbox,
+  IoHeartSharp,
+} from 'react-icons/io5';
 
 export const findIcon = (iconKey) => {
   switch (iconKey) {
     case 'puhelin':
-      return <BsFillTelephoneFill />;
+      return <IoCall />;
     case 'chat':
-      return <CiChat1 />;
+      return <IoChatbox />;
     case 'sydän':
-      return <FaHeart />;
+      return <IoHeartSharp />;
+    case 'kalenteri':
+      return <IoCalendarClear />;
     default:
       return;
   }
