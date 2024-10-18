@@ -11,7 +11,7 @@ import ContentfulExternalForm from './contentfulExternalForm/contentfulExternalF
 import ContentfulGoogleFormsIframe from './contentfulGoogleFormsIframe/contentfulGoogleFormsIframe';
 import ContentfulServiceBoxGroup from './contentfulServiceBoxGroup/contentfulServiceBoxGroup';
 import ContentfulPagePreview from './contentfulPagePreview/ContentfulPagePreview';
-import ContentfulPersonIntroductionGrid from './contentfulPersonIntroductionGrid/ContentfulPersonIntroductionGrid';
+import ContentfulPersonIntroductionGrid from './contentfulPersonIntroductionGrid/contentfulPersonIntroductionGrid';
 import ContentfulImageAndText from './ContentfulImageAndText/ContentfulImageAndText';
 
 const ContentfulComponents = ({ pageContent, theme }) => {
