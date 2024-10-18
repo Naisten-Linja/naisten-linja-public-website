@@ -96,9 +96,9 @@ const Menu = ({ lang }) => {
             {/* TODO: Tähän CTA nappi sit kun valmistuu */}
             <Link to={`/${cta.slug}`}>{cta.pageName}</Link>
           </div>
-          <div className="menu-icon" onClick={() => setIsOpen(!isOpen)}>
+          <button className="menu-icon" onClick={() => setIsOpen(!isOpen)}>
             {isOpen ? <IoMdClose /> : <IoMdMenu />}
-          </div>
+          </button>
         </div>
       </div>
 
@@ -127,7 +127,7 @@ export default Menu;
 
 const query = graphql`
   query MenuQuery {
-    contentfulMainMenu(slug: { eq: "header-menu" }) {
+    contentfulMainMenu(slug: { eq: "header-menu-2024" }) {
       id
       slug
       mainMenuName
