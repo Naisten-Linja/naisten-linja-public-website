@@ -28,7 +28,7 @@ async function main() {
     .filter((b) => b.status === 'pending') // Only delete builds that are running
     .slice(1); // Do not delete the latest build
 
-  console.log(builds);
+  //console.log(builds);
   console.log(previousStillPending);
 
   for (const build of previousStillPending) {

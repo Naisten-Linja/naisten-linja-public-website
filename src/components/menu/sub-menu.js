@@ -1,6 +1,5 @@
 import React from 'react';
 import MenuLink from './menu-link';
-import SubMenuItems from './sub-menu-items';
 
 const SubMenu = ({ page, itemName }) => {
   return (

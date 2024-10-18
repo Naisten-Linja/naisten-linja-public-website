@@ -1,7 +1,6 @@
 import React from 'react';
 import PersonIntroductionGrid from '../../ui/PersonIntroduction/PersonIntroductionGrid';
 import PersonIntroductionCard from '../../ui/PersonIntroduction/PersonIntroductionCard';
-import Container from '../../ui/utils/Container/Container';
 
 const ContentfulPersonIntroductionGrid = ({ content }) => {
   const personIntroductions = content.personIntroductions;

@@ -1,6 +1,8 @@
 import React from 'react';
 
-export function ContentfulPersonIntroductionGrid({ personIntroductions }) {
+export default function ContentfulPersonIntroductionGrid({
+  personIntroductions,
+}) {
   console.log('personIntroductions:', personIntroductions);
 
   return (

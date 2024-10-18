@@ -33,7 +33,7 @@ const Footer = ({
           <div className="Footer_naisten_linja_logo">
             <Link to="/">
               {' '}
-              <img src="/images/Naisten_Linja.svg" />
+              <img src="/images/Naisten_Linja.svg" alt="" />
             </Link>
           </div>
           <button className="Footer_scrolltotop">

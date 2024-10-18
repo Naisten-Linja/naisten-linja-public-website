@@ -48,7 +48,9 @@ const ContentBox = ({
         ) : (
           <div className="ContentBox__image">
             {showImages && image && <img src={image.file.url} alt={''} />}
-            {showImages && !image && <img src={'/images/placeholder.png'} />}
+            {showImages && !image && (
+              <img src={'/images/placeholder.png'} alt="" />
+            )}
           </div>
         )}
         {linkToInternalPage ? (

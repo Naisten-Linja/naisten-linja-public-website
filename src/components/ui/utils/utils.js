@@ -1,5 +1,4 @@
 import React from 'react';
-import { BsFillTelephoneFill } from 'react-icons/bs';
 import {
   IoCalendarClear,
   IoCall,

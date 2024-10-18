@@ -1,12 +1,8 @@
 import { Link } from 'gatsby';
-import React, { useState } from 'react';
-import { useIsMobile } from '../../hooks/useIsMobile';
-import ArrowIcon from './icons/arrow';
+import React from 'react';
 import SubMenu from './sub-menu';
 
-const MenuItem = ({ page, index, activeItem, setActiveItem }) => {
-  const [isExpanded, setIsExpanded] = useState(false);
-
+const MenuItem = ({ page, index }) => {
   const itemName = page.pageContainerName
     ? page.pageContainerName
     : page.menuPage.pageName;
