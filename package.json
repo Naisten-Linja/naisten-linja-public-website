@@ -6,7 +6,7 @@
   "author": "Naisten Linja",
   "engines": {
     "node": "20.x",
-    "npm":"10.x"
+    "npm":"10.5"
   },
   "dependencies": {
     "@contentful/rich-text-react-renderer": "^15.12.1",
