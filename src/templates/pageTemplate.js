@@ -56,6 +56,7 @@ const PageTemplate = ({ data }) => {
     heroIngress,
     backLink,
     heroServiceLinks,
+    theme,
   };
 
   const updateInfo = {
