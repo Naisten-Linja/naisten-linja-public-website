@@ -40,6 +40,9 @@
 
         .Footer_contact_box {
           display: grid;
+          a {
+            text-decoration: underline;
+          }
         }
 
         .Footer_socials {
@@ -57,11 +60,22 @@
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 3rem;
+        a {
+          text-decoration: underline;
+        }
 
         .Footer_links_col {
           display: grid;
           gap: 1rem;
         }
+      }
+    }
+
+    .Footer_language_links {
+      display: flex;
+      gap: 1rem;
+      a {
+        text-decoration: underline;
       }
     }
 
@@ -72,6 +86,9 @@
       .Footer_bottom_links {
         display: flex;
         gap: 1rem;
+        a {
+          text-decoration: underline;
+        }
       }
     }
   }

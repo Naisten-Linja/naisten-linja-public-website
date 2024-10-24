@@ -184,6 +184,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       | ContentfulPagePreviewGrid
       | ContentfulPersonIntroductionGrid
       | ContentfulImageAndText
+      | ContentfulCtaHighlight
 
 
     type ContentfulPages implements Node {

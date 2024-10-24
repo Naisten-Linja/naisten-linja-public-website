@@ -15,7 +15,7 @@ const Paragraph = ({
 
   return (
     <Container theme={theme} background={background} size={size}>
-      <div className="Paragraph_container">
+      <div className={`Paragraph_container ${!background ? theme : 'white'}`}>
         {title && <h2 className="Paragraph_title">{title}</h2>}
         {paragraphText && (
           <div

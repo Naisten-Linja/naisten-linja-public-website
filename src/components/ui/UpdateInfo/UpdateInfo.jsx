@@ -1,10 +1,11 @@
 import React from 'react';
 import Container from '../utils/Container/Container';
+import './UpdateInfo.scss';
 
 const UpdateInfo = ({ updatedAt }) => {
   return (
     <Container theme={''} background={false} size={'large'}>
-      <p>Päivitetty viimeksi {updatedAt}</p>
+      <p className="UpdateInfo_container">Päivitetty viimeksi {updatedAt}</p>
     </Container>
   );
 };
