@@ -2,7 +2,7 @@ import React from 'react';
 import './Hero.scss';
 import { FaArrowLeft, FaArrowRight, FaExternalLinkAlt } from 'react-icons/fa';
 import { Link } from 'gatsby';
-import NIcon from '../../icons/nicon';
+import NIcon from '../../icons/nIcon';
 import Wave from '../../icons/wave';
 
 const Hero = (props) => {
