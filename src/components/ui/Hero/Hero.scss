@@ -73,6 +73,9 @@
         gap: 0.5rem;
         align-items: center;
         color: $ruukku-750;
+        path {
+          fill: $ruukku-750;
+        }
         &:hover {
           text-decoration: underline;
         }
