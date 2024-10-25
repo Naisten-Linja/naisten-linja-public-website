@@ -16,6 +16,8 @@
   }
 
   .ContentBox__title {
+    display: flex;
+    justify-content: space-between;
     background-color: black;
     color: white;
     padding: 1rem;

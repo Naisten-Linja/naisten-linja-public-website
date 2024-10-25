@@ -3,7 +3,7 @@ import './ContentBox.scss';
 import { Link } from 'gatsby';
 import { renderRichText } from 'gatsby-source-contentful/rich-text';
 import { INLINES } from '@contentful/rich-text-types';
-import { FaArrowRight } from 'react-icons/fa';
+import { FaArrowRight, FaExternalLinkAlt } from 'react-icons/fa';
 import { FaDownload } from 'react-icons/fa6';
 
 const ContentBox = ({
@@ -55,14 +55,16 @@ const ContentBox = ({
         )}
         {linkToInternalPage ? (
           <Link
-            // className="ContentBox__title"
+            className="ContentBox__title"
             to={`/${linkToInternalPage.slug}`}
           >
-            <div className="ContentBox__title">{title}</div>
+            {title}
+            <FaArrowRight />
           </Link>
         ) : (
-          <a href={linkToCustomUrl}>
-            <div className="ContentBox__title">{title}</div>
+          <a href={linkToCustomUrl} className="ContentBox__title">
+            {title}
+            <FaExternalLinkAlt />
           </a>
         )}
       </div>
