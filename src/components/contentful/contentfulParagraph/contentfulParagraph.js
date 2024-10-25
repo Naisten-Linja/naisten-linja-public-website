@@ -13,15 +13,19 @@ const ContentfulParagraph = ({ content, theme }) => {
   } = content;
 
   return (
-    <Paragraph
-      title={paragraphTitle}
-      paragraphText={paragraphText?.childMarkdownRemark.html}
-      backgroundColor={backgroundColor}
-      cta={cta}
-      background={background}
-      size={size}
-      theme={theme}
-    />
+    <>
+      {paragraphText && (
+        <Paragraph
+          title={paragraphTitle}
+          paragraphText={paragraphText?.childMarkdownRemark.html}
+          backgroundColor={backgroundColor}
+          cta={cta}
+          background={background}
+          size={size}
+          theme={theme}
+        />
+      )}
+    </>
   );
 };
 
