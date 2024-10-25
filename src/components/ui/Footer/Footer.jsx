@@ -77,7 +77,7 @@ const Footer = ({
               {linksGroupOne?.map((link) => {
                 return (
                   <li key={link.id}>
-                    <a href={link.slug}>{link.pageName}</a>
+                    <a href={'/' + link.slug}>{link.pageName}</a>
                   </li>
                 );
               })}
@@ -86,7 +86,7 @@ const Footer = ({
               {linksGroupTwo?.map((link) => {
                 return (
                   <li key={link.id}>
-                    <a href={link.slug}>{link.pageName}</a>
+                    <a href={'/' + link.slug}>{link.pageName}</a>
                   </li>
                 );
               })}
@@ -95,14 +95,26 @@ const Footer = ({
               {linksGroupThree?.map((link) => {
                 return (
                   <li key={link.id}>
-                    <a href={link.slug}>{link.pageName}</a>
+                    <a href={'/' + link.slug}>{link.pageName}</a>
                   </li>
                 );
               })}
             </ul>
           </div>
         </div>
-        <div className="Footer_language_links">FI | EN</div>
+        <ul className="Footer_language_links">
+          <li>
+            <Link to={'/'}>FI</Link>
+          </li>
+          <span>|</span>
+          <li>
+            <Link to={'/pa-svenska'}>SV</Link>
+          </li>
+          <span>|</span>
+          <li>
+            <Link to={'/in-english'}>EN</Link>
+          </li>
+        </ul>
         <hr className="Footer_breakline" />
         <div className="Footer_bottom_section">
           <div>© {new Date().getFullYear()} Naisten Linja Suomessa ry</div>
@@ -110,7 +122,7 @@ const Footer = ({
             {legals.map((link) => {
               return (
                 <li key={link.id}>
-                  <a href={link.slug}>{link.pageName}</a>
+                  <a href={'/' + link.slug}>{link.pageName}</a>
                 </li>
               );
             })}

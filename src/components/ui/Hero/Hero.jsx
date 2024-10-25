@@ -2,6 +2,9 @@ import React from 'react';
 import './Hero.scss';
 import { FaArrowLeft, FaArrowRight, FaExternalLinkAlt } from 'react-icons/fa';
 import { Link } from 'gatsby';
+import NIcon from '../../icons/nicon';
+import Wave from '../../icons/wave';
+
 const Hero = (props) => {
   const {
     pageName,
@@ -9,17 +12,19 @@ const Hero = (props) => {
     heroIngress,
     heroImage,
     backLink,
+    theme,
     heroServiceLinks,
   } = props;
 
   return (
     <div
-      className="Hero"
+      className={`Hero ${theme}`}
       style={heroImage && { backgroundImage: `url( ${heroImage.file.url})` }}
     >
       <div className="wave">
+        <Wave />
         <div className={`n-image ${heroImage ? 'default' : 'narrow'}`}>
-          <img src="/images/N.svg" alt="" />
+          <NIcon />
         </div>
         <div
           className={`container ${

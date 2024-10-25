@@ -348,6 +348,7 @@ export const ContenfulPage = graphql`
           type
         }
         title
+        imageDecoration
         image {
           file {
             url
@@ -357,6 +358,35 @@ export const ContenfulPage = graphql`
           childMarkdownRemark {
             html
           }
+        }
+        ctaLabel
+        cta {
+          slug
+          pageName
+        }
+      }
+      ... on ContentfulCtaHighlight {
+        internal {
+          type
+        }
+        title
+        text {
+          childMarkdownRemark {
+            html
+          }
+        }
+        image {
+          file {
+            url
+          }
+        }
+        secondaryCtaLabel
+        secondaryCta {
+          slug
+        }
+        primaryCtaLabel
+        primaryCta {
+          slug
         }
       }
     }

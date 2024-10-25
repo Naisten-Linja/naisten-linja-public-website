@@ -13,6 +13,7 @@ import ContentfulServiceBoxGroup from './contentfulServiceBoxGroup/contentfulSer
 import ContentfulPagePreview from './contentfulPagePreview/ContentfulPagePreview';
 import ContentfulPersonIntroductionGrid from './contentfulPersonIntroductionGrid/contentfulPersonIntroductionGrid';
 import ContentfulImageAndText from './ContentfulImageAndText/ContentfulImageAndText';
+import ContentfulCtaHighlight from './ContentfulCtaHighlight/ContentfulCtaHighlight';
 
 const ContentfulComponents = ({ pageContent, theme }) => {
   return (pageContent || []).map((component, index) => {
@@ -76,7 +77,15 @@ const ContentfulComponents = ({ pageContent, theme }) => {
         );
 
       case 'ContentfulImageAndText':
-        return <ContentfulImageAndText key={index} content={component} />;
+        return (
+          <ContentfulImageAndText
+            key={index}
+            content={component}
+            theme={theme}
+          />
+        );
+      case 'ContentfulCtaHighlight':
+        return <ContentfulCtaHighlight key={index} content={component} />;
 
       default:
         console.log('componentType', componentType);

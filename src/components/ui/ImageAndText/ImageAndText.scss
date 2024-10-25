@@ -1,0 +1,57 @@
+@import '../../styles/variables';
+
+.ImageAndText_container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+
+  .ImageAndText_image {
+    width: 100%; /* or a specific width */
+    aspect-ratio: 1 / 1; /* 1:1 aspect ratio */
+    overflow: hidden;
+    position: relative;
+
+    &.persikka {
+      fill: $persikka;
+    }
+    &.laventeli {
+      fill: $laventeli;
+    }
+    &.pioni {
+      fill: $pioni;
+    }
+    &.aurinko {
+      fill: $aurinko;
+    }
+  }
+  .ImageAndText_image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .ImageAndText_content {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 1rem;
+
+    .ImageAndText_cta {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      a {
+        background-color: $black;
+        padding: 0.5rem 1rem;
+        border-radius: 2rem;
+        color: $white;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}

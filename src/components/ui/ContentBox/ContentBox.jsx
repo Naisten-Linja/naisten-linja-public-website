@@ -24,7 +24,7 @@ const ContentBox = ({
     renderNode: {
       [INLINES.ENTRY_HYPERLINK]: (node, children) => {
         return (
-          <Link href={node.data.target?.slug} className="inline-link">
+          <Link href={'/' + node.data.target?.slug} className="inline-link">
             <FaArrowRight /> {node.content[0].value}
           </Link>
         );

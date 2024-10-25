@@ -19,10 +19,41 @@
     margin-left: 2rem;
   }
 
-  u {
-    background-color: $persikka;
-    text-decoration: none;
-    padding: 0.25rem 0.5rem;
+  &.white {
+    u {
+      background-color: $white;
+      text-decoration: none;
+      padding: 0.25rem 0.5rem;
+    }
+  }
+
+  &.persikka {
+    u {
+      background-color: $persikka;
+      text-decoration: none;
+      padding: 0.25rem 0.5rem;
+    }
+  }
+  &.laventeli {
+    u {
+      background-color: $laventeli;
+      text-decoration: none;
+      padding: 0.25rem 0.5rem;
+    }
+  }
+  &.pioni {
+    u {
+      background-color: $pioni;
+      text-decoration: none;
+      padding: 0.25rem 0.5rem;
+    }
+  }
+  &.aurinko {
+    u {
+      background-color: $aurinko;
+      text-decoration: none;
+      padding: 0.25rem 0.5rem;
+    }
   }
 
   a {

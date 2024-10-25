@@ -5,4 +5,7 @@
   font-size: 18px;
   display: flex;
   gap: 1rem;
+  :hover {
+    text-decoration: underline;
+  }
 }
