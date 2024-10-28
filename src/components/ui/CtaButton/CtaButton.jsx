@@ -10,7 +10,6 @@ const CtaButton = ({
 }) => {
   return (
     <div>
-      <p>Ctabutton</p>
       {linkToInternalPage ? (
         <div className="CtaButton_container">
           <Link to={`/${linkToInternalPage.slug}`}>

@@ -389,6 +389,52 @@ export const ContenfulPage = graphql`
           slug
         }
       }
+      ... on ContentfulKeyPointsList {
+        internal {
+          type
+        }
+        title
+        ingress {
+          childMarkdownRemark {
+            html
+          }
+        }
+        ctaLabel
+        cta {
+          slug
+          pageName
+        }
+        keyPoint1 {
+          childMarkdownRemark {
+            html
+          }
+        }
+        keyPoint2 {
+          childMarkdownRemark {
+            html
+          }
+        }
+        keyPoint3 {
+          childMarkdownRemark {
+            html
+          }
+        }
+        keyPoint4 {
+          childMarkdownRemark {
+            html
+          }
+        }
+        keyPoint5 {
+          childMarkdownRemark {
+            html
+          }
+        }
+        keyPoint6 {
+          childMarkdownRemark {
+            html
+          }
+        }
+      }
     }
   }
 `;
