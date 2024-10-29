@@ -25,6 +25,7 @@ const ContentfulKeyPointsList = ({ content, theme }) => {
           ingress={ingress?.childMarkdownRemark.html}
           ctaLabel={ctaLabel}
           cta={cta}
+          theme={theme}
           keyPoint1={keyPoint1?.childMarkdownRemark.html}
           keyPoint2={keyPoint2?.childMarkdownRemark.html}
           keyPoint3={keyPoint3?.childMarkdownRemark.html}

@@ -90,7 +90,13 @@ const ContentfulComponents = ({ pageContent, theme }) => {
         return <ContentfulCtaHighlight key={index} content={component} />;
 
       case 'ContentfulKeyPointsList':
-        return <ContentfulKeyPointsList key={index} content={component} />;
+        return (
+          <ContentfulKeyPointsList
+            key={index}
+            content={component}
+            theme={theme}
+          />
+        );
 
       default:
         console.log('componentType', componentType);

@@ -77,7 +77,7 @@ const Footer = ({
               {linksGroupOne?.map((link) => {
                 return (
                   <li key={link.id}>
-                    <a href={'/' + link.slug}>{link.pageName}</a>
+                    <Link to={'/' + link.slug}>{link.pageName}</Link>
                   </li>
                 );
               })}
@@ -86,7 +86,7 @@ const Footer = ({
               {linksGroupTwo?.map((link) => {
                 return (
                   <li key={link.id}>
-                    <a href={'/' + link.slug}>{link.pageName}</a>
+                    <Link to={'/' + link.slug}>{link.pageName}</Link>
                   </li>
                 );
               })}
@@ -95,7 +95,7 @@ const Footer = ({
               {linksGroupThree?.map((link) => {
                 return (
                   <li key={link.id}>
-                    <a href={'/' + link.slug}>{link.pageName}</a>
+                    <Link to={'/' + link.slug}>{link.pageName}</Link>
                   </li>
                 );
               })}

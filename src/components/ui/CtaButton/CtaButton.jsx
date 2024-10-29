@@ -7,17 +7,18 @@ const CtaButton = ({
   linkToInternalPage,
   linkToCustomUrl,
   theme,
+  secondary,
 }) => {
   return (
     <div>
       {linkToInternalPage ? (
-        <div className="CtaButton_container">
+        <div className={`CtaButton_container ${secondary ? 'secondary' : ''}`}>
           <Link to={`/${linkToInternalPage.slug}`}>
             {ctaLabel ? ctaLabel : linkToInternalPage.pageName}
           </Link>
         </div>
       ) : (
-        <div className="CtaButton_container">
+        <div className={`CtaButton_container ${secondary ? 'secondary' : ''}`}>
           <a href={linkToCustomUrl}>{ctaLabel}</a>
         </div>
       )}
