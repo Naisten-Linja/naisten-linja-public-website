@@ -41,7 +41,9 @@
         .Footer_contact_box {
           display: grid;
           a {
-            text-decoration: underline;
+            &:hover {
+              text-decoration: underline;
+            }
           }
         }
 
@@ -59,9 +61,12 @@
       .Footer_links {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
+        align-items: start;
         gap: 3rem;
         a {
-          text-decoration: underline;
+          &:hover {
+            text-decoration: underline;
+          }
         }
 
         .Footer_links_col {
@@ -75,7 +80,9 @@
       display: flex;
       gap: 1rem;
       a {
-        text-decoration: underline;
+        &:hover {
+          text-decoration: underline;
+        }
       }
     }
 
@@ -87,7 +94,9 @@
         display: flex;
         gap: 1rem;
         a {
-          text-decoration: underline;
+          &:hover {
+            text-decoration: underline;
+          }
         }
       }
     }

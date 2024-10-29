@@ -1,0 +1,52 @@
+@import '../../styles/variables';
+
+.KeyPointsList_container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+
+  .KeyPointsList_left {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 1rem;
+  }
+  .KeyPointsList_right {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: start;
+
+    &.persikka {
+      li p:first-of-type {
+        display: inline-block;
+        padding: 0.5rem;
+        background-color: $persikka;
+      }
+    }
+
+    &.laventeli {
+      li p:first-of-type {
+        display: inline-block;
+        padding: 0.5rem;
+        background-color: $laventeli;
+      }
+    }
+
+    &.pioni {
+      li p:first-of-type {
+        display: inline-block;
+        padding: 0.5rem;
+        background-color: $pioni;
+      }
+    }
+
+    &.aurinko {
+      li p:first-of-type {
+        display: inline-block;
+        padding: 0.5rem;
+        background-color: $aurinko;
+      }
+    }
+  }
+}

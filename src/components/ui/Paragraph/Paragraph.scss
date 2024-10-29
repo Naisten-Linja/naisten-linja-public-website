@@ -7,6 +7,11 @@
 
   p {
     margin: 1rem 0;
+
+    u {
+      text-decoration: none;
+      padding: 0.25rem 0.5rem;
+    }
   }
 
   ul {
@@ -22,37 +27,30 @@
   &.white {
     u {
       background-color: $white;
-      text-decoration: none;
-      padding: 0.25rem 0.5rem;
     }
   }
 
   &.persikka {
     u {
       background-color: $persikka;
-      text-decoration: none;
-      padding: 0.25rem 0.5rem;
     }
   }
+
   &.laventeli {
     u {
       background-color: $laventeli;
-      text-decoration: none;
-      padding: 0.25rem 0.5rem;
     }
   }
+
   &.pioni {
     u {
       background-color: $pioni;
-      text-decoration: none;
-      padding: 0.25rem 0.5rem;
     }
   }
+
   &.aurinko {
     u {
       background-color: $aurinko;
-      text-decoration: none;
-      padding: 0.25rem 0.5rem;
     }
   }
 

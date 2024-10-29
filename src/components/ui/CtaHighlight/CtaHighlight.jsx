@@ -1,6 +1,6 @@
-import { Link } from 'gatsby';
 import React from 'react';
 import './CtaHighlight.scss';
+import CtaButton from '../CtaButton/CtaButton';
 
 const CtaHighlight = ({
   title,
@@ -21,18 +21,17 @@ const CtaHighlight = ({
         {text && <div dangerouslySetInnerHTML={{ __html: text }} />}
         <div className="CtaHighlight_cta_container">
           {primaryCta && (
-            <div className="CtaHighlight_cta">
-              <Link to={`/${primaryCta.slug}`}>
-                {primaryCtaLabel ? primaryCtaLabel : primaryCta.pageName}
-              </Link>
-            </div>
+            <CtaButton
+              ctaLabel={primaryCtaLabel}
+              linkToInternalPage={primaryCta}
+            />
           )}
           {secondaryCta && (
-            <div className="CtaHighlight_cta">
-              <Link to={`/${primaryCta.slug}`}>
-                {secondaryCtaLabel ? secondaryCtaLabel : secondaryCta.pageName}
-              </Link>
-            </div>
+            <CtaButton
+              ctaLabel={secondaryCtaLabel}
+              linkToInternalPage={secondaryCta}
+              secondary={true}
+            />
           )}
         </div>
       </div>

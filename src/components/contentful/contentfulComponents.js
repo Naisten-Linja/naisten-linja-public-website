@@ -14,6 +14,7 @@ import ContentfulPagePreview from './contentfulPagePreview/ContentfulPagePreview
 import ContentfulPersonIntroductionGrid from './contentfulPersonIntroductionGrid/contentfulPersonIntroductionGrid';
 import ContentfulImageAndText from './ContentfulImageAndText/ContentfulImageAndText';
 import ContentfulCtaHighlight from './ContentfulCtaHighlight/ContentfulCtaHighlight';
+import ContentfulKeyPointsList from './ContentfulKeyPointsList/ContentfulKeyPointsList';
 
 const ContentfulComponents = ({ pageContent, theme }) => {
   return (pageContent || []).map((component, index) => {
@@ -84,8 +85,18 @@ const ContentfulComponents = ({ pageContent, theme }) => {
             theme={theme}
           />
         );
+
       case 'ContentfulCtaHighlight':
         return <ContentfulCtaHighlight key={index} content={component} />;
+
+      case 'ContentfulKeyPointsList':
+        return (
+          <ContentfulKeyPointsList
+            key={index}
+            content={component}
+            theme={theme}
+          />
+        );
 
       default:
         console.log('componentType', componentType);

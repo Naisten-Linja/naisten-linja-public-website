@@ -26,3 +26,17 @@ strong {
 body {
   font-family: $primary-font;
 }
+@media only screen and (max-width: $mobile-breakpoint) {
+  h1 {
+    font-size: 32px;
+    font-weight: 600;
+  }
+  h2 {
+    font-size: 28px;
+    font-weight: 600;
+  }
+  h3 {
+    font-size: 24px;
+    font-weight: 600;
+  }
+}

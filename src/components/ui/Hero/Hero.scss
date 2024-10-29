@@ -104,6 +104,9 @@
       width: 100%;
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
+      svg path {
+        fill: $white;
+      }
       a {
         background-color: $black;
         color: $white;

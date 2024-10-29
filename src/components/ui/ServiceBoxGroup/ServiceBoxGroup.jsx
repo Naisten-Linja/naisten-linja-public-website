@@ -3,17 +3,11 @@ import ServiceBox from '../ServiceBox/ServiceBox';
 import './ServiceBoxGroup.scss';
 import Container from '../utils/Container/Container';
 
-const ServiceBoxGroup = ({
-  services,
-  title,
-  ingress,
-  backgroundColor,
-  background,
-}) => {
+const ServiceBoxGroup = ({ services, title, ingress, theme }) => {
   // console.log('service ingress: ', ingress);
   //TODO: get background from page theme
   return (
-    <Container theme={'persikka'} background={true} size={'large'}>
+    <Container theme={theme} background={true} size={'large'}>
       <div className="ServiceBoxGroup_container">
         {title && <h2 className="">{title}</h2>}
         {ingress && <div dangerouslySetInnerHTML={{ __html: ingress }} />}

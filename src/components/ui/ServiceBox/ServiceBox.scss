@@ -4,7 +4,9 @@
   padding: 1rem;
   font-size: 18px;
   display: flex;
+  align-items: center;
   gap: 1rem;
+
   :hover {
     text-decoration: underline;
   }

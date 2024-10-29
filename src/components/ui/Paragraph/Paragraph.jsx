@@ -2,15 +2,7 @@ import React from 'react';
 import './Paragraph.scss';
 import Container from '../utils/Container/Container';
 
-const Paragraph = ({
-  title,
-  paragraphText,
-  backgroundColor,
-  cta,
-  background,
-  theme,
-  size,
-}) => {
+const Paragraph = ({ title, paragraphText, cta, background, theme, size }) => {
   console.log('paragraphText', paragraphText);
 
   return (
