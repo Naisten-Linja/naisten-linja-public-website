@@ -6,6 +6,7 @@ export const ContenfulPage = graphql`
     pageName
     theme
     showUpdateInfo
+    showTableOfContents
     updatedAt(formatString: "DD.MM.YYYY, HH:MM")
     pageLanguage
     heroTitle
