@@ -16,6 +16,7 @@ const PageTemplate = ({ data }) => {
     seoDescription,
     ogImage,
     showUpdateInfo,
+    showTableOfContents,
     updatedAt,
     theme,
     heroTitle,
@@ -65,7 +66,12 @@ const PageTemplate = ({ data }) => {
   };
 
   return (
-    <Layout hero={hero} updateInfo={updateInfo} lang={pageLanguage}>
+    <Layout
+      hero={hero}
+      updateInfo={updateInfo}
+      lang={pageLanguage}
+      showTableOfContents={showTableOfContents}
+    >
       <Seo
         title={seoTitle || pageName}
         description={seoDescription}

@@ -7,6 +7,7 @@ import './globals.scss';
 import ContentfulFooter from './contentful/ContentfulFooter/ContentfulFooter';
 import Hero from './ui/Hero/Hero';
 import UpdateInfo from './ui/UpdateInfo/UpdateInfo';
+import TableOfContents from './ui/TableOfContents/TableOfContents';
 
 // const scrollToTop = () => {
 //   window ??
@@ -18,13 +19,21 @@ import UpdateInfo from './ui/UpdateInfo/UpdateInfo';
 
 // scrollToTop();
 
-const Layout = ({ children, lang, scrollToTop, hero, updateInfo }) => {
+const Layout = ({
+  children,
+  lang,
+  scrollToTop,
+  hero,
+  updateInfo,
+  showTableOfContents,
+}) => {
   console.log('updateInfo:', updateInfo);
 
   return (
     <>
       <Header lang={lang} />
       <Hero {...hero} />
+      {showTableOfContents && <TableOfContents />}
       {updateInfo?.showUpdateInfo && (
         <UpdateInfo updatedAt={updateInfo.updatedAt} />
       )}
