@@ -19,7 +19,9 @@ const CtaButton = ({
         </div>
       ) : (
         <div className={`CtaButton_container ${secondary ? 'secondary' : ''}`}>
-          <a href={linkToCustomUrl}>{ctaLabel}</a>
+          <a href={linkToCustomUrl.url}>
+            {ctaLabel ? ctaLabel : linkToCustomUrl.label}
+          </a>
         </div>
       )}
     </div>
