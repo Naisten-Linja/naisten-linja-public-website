@@ -6,8 +6,7 @@ import CtaButton from '../CtaButton/CtaButton';
 const KeyPointsList = ({
   title,
   ingress,
-  ctaLabel,
-  cta,
+  button,
   theme,
   keyPoint1,
   keyPoint2,
@@ -22,7 +21,7 @@ const KeyPointsList = ({
         <div className="KeyPointsList_left">
           {title && <h2 className="">{title}</h2>}
           {ingress && <div dangerouslySetInnerHTML={{ __html: ingress }} />}
-          {cta && <CtaButton ctaLabel={ctaLabel} linkToInternalPage={cta} />}
+          {button && button}
         </div>
         <ul className={`KeyPointsList_right ${theme}`}>
           {keyPoint1 && <li dangerouslySetInnerHTML={{ __html: keyPoint1 }} />}
