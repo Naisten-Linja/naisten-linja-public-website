@@ -61,11 +61,13 @@ const ContentBox = ({
             {title}
             <FaArrowRight />
           </Link>
-        ) : (
+        ) : linkToCustomUrl ? (
           <a href={linkToCustomUrl} className="ContentBox__title">
             {title}
             <FaExternalLinkAlt />
           </a>
+        ) : (
+          <div className="ContentBox__title">{title}</div>
         )}
       </div>
       {content && (

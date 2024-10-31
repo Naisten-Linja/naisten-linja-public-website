@@ -1,6 +1,7 @@
 import { Link } from 'gatsby';
 import React from 'react';
 import './CtaButton.scss';
+import { FaExternalLinkAlt } from 'react-icons/fa';
 
 const CtaButton = ({
   ctaLabel,
@@ -12,15 +13,20 @@ const CtaButton = ({
   return (
     <div>
       {linkToInternalPage ? (
-        <div className={`CtaButton_container ${secondary ? 'secondary' : ''}`}>
-          <Link to={`/${linkToInternalPage.slug}`}>
-            {ctaLabel ? ctaLabel : linkToInternalPage.pageName}
-          </Link>
-        </div>
+        <Link
+          to={`/${linkToInternalPage.slug}`}
+          className={`CtaButton_container ${secondary ? 'secondary' : ''}`}
+        >
+          {ctaLabel ? ctaLabel : linkToInternalPage.pageName}
+        </Link>
       ) : (
-        <div className={`CtaButton_container ${secondary ? 'secondary' : ''}`}>
-          <a href={linkToCustomUrl}>{ctaLabel}</a>
-        </div>
+        <a
+          href={linkToCustomUrl?.url}
+          className={`CtaButton_container ${secondary ? 'secondary' : ''}`}
+        >
+          {ctaLabel ? ctaLabel : linkToCustomUrl?.label}
+          <FaExternalLinkAlt />
+        </a>
       )}
     </div>
   );
