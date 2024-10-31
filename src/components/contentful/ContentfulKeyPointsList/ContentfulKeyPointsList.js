@@ -1,5 +1,6 @@
 import React from 'react';
 import KeyPointsList from '../../ui/KeyPointsList/KeyPointsList';
+import CtaButton from '../../ui/CtaButton/CtaButton';
 
 const ContentfulKeyPointsList = ({ content, theme }) => {
   const {
@@ -17,6 +18,13 @@ const ContentfulKeyPointsList = ({ content, theme }) => {
   //   const textHtml = ingress?.childMarkdownRemark.html;
   //   const keyPoint1Html = keyPoint1?.childMarkdownRemark.html;
 
+  const button =
+    cta?.__typename === 'ContentfulPages' ? (
+      <CtaButton ctaLabel={ctaLabel} linkToInternalPage={cta} />
+    ) : (
+      <CtaButton ctaLabel={ctaLabel} linkToCustomUrl={cta} />
+    );
+
   return (
     <>
       {keyPoint1 && (
@@ -24,7 +32,7 @@ const ContentfulKeyPointsList = ({ content, theme }) => {
           title={title}
           ingress={ingress?.childMarkdownRemark.html}
           ctaLabel={ctaLabel}
-          cta={cta}
+          button={button}
           theme={theme}
           keyPoint1={keyPoint1?.childMarkdownRemark.html}
           keyPoint2={keyPoint2?.childMarkdownRemark.html}

@@ -2,7 +2,6 @@ import React from 'react';
 import './ImageAndText.scss';
 import Container from '../utils/Container/Container';
 import ImageDecorationRight from '../../../images/image-decoration-right.svg';
-import CtaButton from '../CtaButton/CtaButton';
 
 const ImageAndText = ({
   title,
@@ -12,6 +11,8 @@ const ImageAndText = ({
   imageDecoration,
   button,
 }) => {
+  console.log('button: ', button);
+
   return (
     <Container theme={''} size={'extra-large'} background={true}>
       <div className="ImageAndText_container">
