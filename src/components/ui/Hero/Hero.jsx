@@ -3,6 +3,7 @@ import './Hero.scss';
 import { FaArrowLeft, FaArrowRight, FaExternalLinkAlt } from 'react-icons/fa';
 import { Link } from 'gatsby';
 import NIcon from '../../icons/nIcon';
+import NIconWide from '../../icons/nIcon-wide';
 import Wave from '../../icons/wave';
 
 const Hero = (props) => {
@@ -24,7 +25,7 @@ const Hero = (props) => {
       <div className="wave">
         <Wave />
         <div className={`n-image ${heroImage ? 'default' : 'narrow'}`}>
-          <NIcon />
+          {heroImage ? <NIcon /> : <NIconWide />}
         </div>
         <div
           className={`container ${
