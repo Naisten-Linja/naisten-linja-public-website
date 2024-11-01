@@ -194,3 +194,15 @@ nav {
     }
   }
 }
+@media only screen and (max-width: 375px) {
+  nav {
+    .service-bar {
+      .container {
+        grid-template-columns: 140px 1fr 7rem 4rem;
+        .services li.service-link a {
+          font-size: 12px;
+        }
+      }
+    }
+  }
+}
