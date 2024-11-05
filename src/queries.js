@@ -398,11 +398,33 @@ export const ContenfulPage = graphql`
         }
         secondaryCtaLabel
         secondaryCta {
-          slug
+          ... on ContentfulExternalLink {
+            __typename
+            id
+            url
+            label
+          }
+          ... on ContentfulPages {
+            __typename
+            id
+            pageName
+            slug
+          }
         }
         primaryCtaLabel
         primaryCta {
-          slug
+          ... on ContentfulExternalLink {
+            __typename
+            id
+            url
+            label
+          }
+          ... on ContentfulPages {
+            __typename
+            id
+            pageName
+            slug
+          }
         }
       }
       ... on ContentfulKeyPointsList {
