@@ -1,5 +1,6 @@
 import React from 'react';
 import CtaHighlight from '../../ui/CtaHighlight/CtaHighlight';
+import CtaButton from '../../ui/CtaButton/CtaButton';
 
 const ContentfulCtaHighlight = ({ content }) => {
   const {
@@ -14,15 +15,35 @@ const ContentfulCtaHighlight = ({ content }) => {
   const textHtml = text?.childMarkdownRemark.html;
   const imageUrl = image?.file.url;
 
+  const primaryButton =
+    primaryCta?.__typename === 'ContentfulPages' ? (
+      <CtaButton ctaLabel={primaryCtaLabel} linkToInternalPage={primaryCta} />
+    ) : primaryCta?.__typename === 'ContentfulExternalLink' ? (
+      <CtaButton ctaLabel={primaryCtaLabel} linkToCustomUrl={primaryCta} />
+    ) : null;
+
+  const secondaryButton =
+    secondaryCta?.__typename === 'ContentfulPages' ? (
+      <CtaButton
+        ctaLabel={secondaryCtaLabel}
+        linkToInternalPage={secondaryCta}
+        secondary={true}
+      />
+    ) : secondaryCta?.__typename === 'ContentfulExternalLink' ? (
+      <CtaButton
+        ctaLabel={secondaryCtaLabel}
+        linkToCustomUrl={secondaryCta}
+        secondary={true}
+      />
+    ) : null;
+
   return (
     <CtaHighlight
       title={title}
       text={textHtml}
       imageUrl={imageUrl}
-      primaryCtaLabel={primaryCtaLabel}
-      primaryCta={primaryCta}
-      secondaryCtaLabel={secondaryCtaLabel}
-      secondaryCta={secondaryCta}
+      primaryCta={primaryButton}
+      secondaryCta={secondaryButton}
     />
   );
 };
