@@ -305,6 +305,11 @@ export const ContenfulPage = graphql`
           type
         }
         title
+        ingress {
+          childMarkdownRemark {
+            html
+          }
+        }
         page {
           ... on ContentfulPages {
             slug

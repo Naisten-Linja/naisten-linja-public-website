@@ -5,7 +5,10 @@ import PagePreviewCard from '../../ui/PagePreview/PagePreviewCard';
 const ContentfulPagePreview = ({ content }) => {
   const pages = content.page;
   return (
-    <PagePreviewGrid title={content.title}>
+    <PagePreviewGrid
+      title={content.title}
+      ingress={content.ingress?.childMarkdownRemark.html}
+    >
       {pages?.map((page, index) => (
         <PagePreviewCard key={index} {...page} />
       ))}
