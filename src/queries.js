@@ -327,6 +327,7 @@ export const ContenfulPage = graphql`
       }
       ... on ContentfulPersonIntroductionGrid {
         title
+        listView
         internal {
           type
         }

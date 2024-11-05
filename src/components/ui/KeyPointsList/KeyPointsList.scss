@@ -5,6 +5,10 @@
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
 
+  @media (max-width: 800px) {
+    grid-template-columns: 1fr;
+  }
+
   .KeyPointsList_left {
     display: flex;
     flex-direction: column;
