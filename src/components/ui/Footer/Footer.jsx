@@ -11,6 +11,7 @@ import {
 import { FaXTwitter } from 'react-icons/fa6';
 import { BsArrowUpCircleFill } from 'react-icons/bs';
 import Container from '../utils/Container/Container';
+import ExternalLinkIcon from '../../icons/externalLink';
 
 const Footer = ({
   onClick,
@@ -95,7 +96,14 @@ const Footer = ({
               {linksGroupThree?.map((link) => {
                 return (
                   <li key={link.id}>
-                    <Link to={'/' + link.slug}>{link.pageName}</Link>
+                    {link?.__typename === 'ContentfulPages' ? (
+                      <Link to={'/' + link.slug}>{link.pageName}</Link>
+                    ) : (
+                      <a href={link.url}>
+                        {link.label}
+                        <ExternalLinkIcon />
+                      </a>
+                    )}
                   </li>
                 );
               })}

@@ -43,9 +43,18 @@ const query = graphql`
         id
       }
       linksGroupThree {
-        slug
-        pageName
-        id
+        ... on ContentfulExternalLink {
+          __typename
+          id
+          url
+          label
+        }
+        ... on ContentfulPages {
+          __typename
+          id
+          pageName
+          slug
+        }
       }
       legals {
         slug
