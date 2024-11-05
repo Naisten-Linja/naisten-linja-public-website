@@ -21,9 +21,9 @@ const ContentfulKeyPointsList = ({ content, theme }) => {
   const button =
     cta?.__typename === 'ContentfulPages' ? (
       <CtaButton ctaLabel={ctaLabel} linkToInternalPage={cta} />
-    ) : (
+    ) : cta?.__typename === 'ContentfulExternalLink' ? (
       <CtaButton ctaLabel={ctaLabel} linkToCustomUrl={cta} />
-    );
+    ) : null;
 
   return (
     <>
