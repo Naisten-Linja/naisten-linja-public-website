@@ -63,9 +63,14 @@
         grid-template-columns: repeat(3, 1fr);
         align-items: start;
         gap: 3rem;
-        a {
+        li > a {
           &:hover {
             text-decoration: underline;
+          }
+          svg {
+            display: inline;
+            height: 14px;
+            margin-top: 4px;
           }
         }
 
