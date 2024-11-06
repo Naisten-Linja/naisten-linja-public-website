@@ -45,16 +45,31 @@ export const ContenfulPage = graphql`
     pageContent {
       __typename
       ... on ContentfulParagraph {
-        paragraphTitle
-        background
-        size
         internal {
           type
         }
+        paragraphTitle
+        background
+        size
         id
         paragraphText {
           childMarkdownRemark {
             html
+          }
+        }
+        ctaLabel
+        cta {
+          # ... on ContentfulExternalLink {
+          #   __typename
+          #   id
+          #   url
+          #   label
+          # }
+          ... on ContentfulPages {
+            __typename
+            id
+            pageName
+            slug
           }
         }
       }

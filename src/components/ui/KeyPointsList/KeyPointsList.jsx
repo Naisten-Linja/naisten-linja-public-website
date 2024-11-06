@@ -1,7 +1,6 @@
 import React from 'react';
 import './KeyPointsList.scss';
 import Container from '../utils/Container/Container';
-import CtaButton from '../CtaButton/CtaButton';
 
 const KeyPointsList = ({
   title,
