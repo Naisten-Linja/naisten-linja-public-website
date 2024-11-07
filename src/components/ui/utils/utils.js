@@ -9,13 +9,25 @@ import { BsArrowUpCircleFill } from 'react-icons/bs';
 import {
   FaArrowLeft,
   FaArrowRight,
+  FaBell,
+  FaCheckCircle,
   FaExternalLinkAlt,
   FaFacebook,
+  FaHandHoldingHeart,
+  FaHandsHelping,
   FaInstagram,
+  FaLink,
   FaLinkedin,
+  FaStar,
   FaTiktok,
 } from 'react-icons/fa';
-import { FaDownload, FaThreads, FaX, FaYoutube } from 'react-icons/fa6';
+import {
+  FaDownload,
+  FaThreads,
+  FaX,
+  FaYoutube,
+  FaLaptop,
+} from 'react-icons/fa6';
 
 export const findIcon = (iconKey) => {
   switch (iconKey) {
@@ -51,6 +63,20 @@ export const findIcon = (iconKey) => {
       return <FaTiktok />;
     case 'x':
       return <FaX />;
+    case 'check-circle':
+      return <FaCheckCircle />;
+    case 'bell':
+      return <FaBell />;
+    case 'link':
+      return <FaLink />;
+    case 'star':
+      return <FaStar />;
+    case 'laptop':
+      return <FaLaptop />;
+    case 'helping-hand':
+      return <FaHandsHelping />;
+    case 'hand-holding-heart':
+      return <FaHandHoldingHeart />;
     default:
       return;
   }
