@@ -18,6 +18,7 @@ const Paragraph = ({
         {title && <h2 className="Paragraph_title">{title}</h2>}
         {paragraphText && (
           <div
+            className="paragraphText"
             dangerouslySetInnerHTML={{
               __html: paragraphText,
             }}

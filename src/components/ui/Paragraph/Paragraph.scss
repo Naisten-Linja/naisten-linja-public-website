@@ -28,28 +28,36 @@
     u {
       background-color: $white;
     }
+    table > thead {
+      background-color: $black;
+      color: $white;
+    }
   }
 
   &.persikka {
-    u {
+    u,
+    table > thead {
       background-color: $persikka;
     }
   }
 
   &.laventeli {
-    u {
+    u,
+    table > thead {
       background-color: $laventeli;
     }
   }
 
   &.pioni {
-    u {
+    u,
+    table > thead {
       background-color: $pioni;
     }
   }
 
   &.aurinko {
-    u {
+    u,
+    table > thead {
       background-color: $aurinko;
     }
   }
@@ -68,20 +76,28 @@
       }
     }
   }
-
+  .paragraphText {
+    max-width: 100%;
+    overflow-x: scroll;
+  }
   table {
     // border: none;
     // border-spacing: 1rem 2rem;
     width: 100%;
+    max-width: 100%;
+    overflow-x: scroll;
     text-align: left;
-    border-collapse: separate !important;
-    & thead {
-      background-color: peachpuff;
+    background: $white;
+    th,
+    td {
+      padding: 0.75rem;
     }
-
-    & tbody {
-      & tr {
-        border-bottom: 1px solid black;
+    tbody > tr {
+      border-bottom: 1px solid $black;
+    }
+    @media (max-width: 768px) {
+      th {
+        padding: 0.5rem;
       }
     }
   }
