@@ -6,8 +6,16 @@ import {
   IoHeartSharp,
 } from 'react-icons/io5';
 import { BsArrowUpCircleFill } from 'react-icons/bs';
-import { FaArrowLeft, FaArrowRight, FaExternalLinkAlt } from 'react-icons/fa';
-import { FaDownload } from 'react-icons/fa6';
+import {
+  FaArrowLeft,
+  FaArrowRight,
+  FaExternalLinkAlt,
+  FaFacebook,
+  FaInstagram,
+  FaLinkedin,
+  FaTiktok,
+} from 'react-icons/fa';
+import { FaDownload, FaThreads, FaX, FaYoutube } from 'react-icons/fa6';
 
 export const findIcon = (iconKey) => {
   switch (iconKey) {
@@ -29,6 +37,20 @@ export const findIcon = (iconKey) => {
       return <FaDownload />;
     case 'nuoli-ylös-ympyrä':
       return <BsArrowUpCircleFill />;
+    case 'instagram':
+      return <FaInstagram />;
+    case 'facebook':
+      return <FaFacebook />;
+    case 'threads':
+      return <FaThreads />;
+    case 'linkedin':
+      return <FaLinkedin />;
+    case 'youtube':
+      return <FaYoutube />;
+    case 'tiktok':
+      return <FaTiktok />;
+    case 'x':
+      return <FaX />;
     default:
       return;
   }
