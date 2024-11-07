@@ -8,7 +8,7 @@ import {
   FaLinkedin,
   FaTiktok,
 } from 'react-icons/fa';
-import { FaXTwitter } from 'react-icons/fa6';
+import { FaThreads } from 'react-icons/fa6';
 import { BsArrowUpCircleFill } from 'react-icons/bs';
 import Container from '../utils/Container/Container';
 import ExternalLinkIcon from '../../icons/externalLink';
@@ -60,7 +60,7 @@ const Footer = ({
                 <FaInstagram />
               </a>
               <a href={twitterX}>
-                <FaXTwitter />
+                <FaThreads />
               </a>
               <a href={linkedIn}>
                 <FaLinkedin />
