@@ -12,16 +12,24 @@
     position: relative;
 
     &.persikka {
-      fill: $persikka;
+      svg path {
+        fill: $persikka;
+      }
     }
     &.laventeli {
-      fill: $laventeli;
+      svg path {
+        fill: $laventeli;
+      }
     }
     &.pioni {
-      fill: $pioni;
+      svg path {
+        fill: $pioni;
+      }
     }
     &.aurinko {
-      fill: $aurinko;
+      svg path {
+        fill: $aurinko;
+      }
     }
   }
   .ImageAndText_image img {
