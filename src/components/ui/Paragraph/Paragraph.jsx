@@ -2,7 +2,14 @@ import React from 'react';
 import './Paragraph.scss';
 import Container from '../utils/Container/Container';
 
-const Paragraph = ({ title, paragraphText, cta, background, theme, size }) => {
+const Paragraph = ({
+  title,
+  paragraphText,
+  button,
+  background,
+  theme,
+  size,
+}) => {
   console.log('paragraphText', paragraphText);
 
   return (
@@ -16,6 +23,7 @@ const Paragraph = ({ title, paragraphText, cta, background, theme, size }) => {
             }}
           />
         )}
+        {button & button}
       </div>
     </Container>
   );

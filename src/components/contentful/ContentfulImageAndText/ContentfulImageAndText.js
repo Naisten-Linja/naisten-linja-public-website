@@ -7,11 +7,11 @@ const ContentfulImageAndText = ({ content, theme }) => {
   const textHtml = text?.childMarkdownRemark.html;
   const imageUrl = image?.file.url;
   // const button =
-  //   cta?.__typename === 'ContentfulPages' ? (
-  //     <CtaButton ctaLabel={ctaLabel} linkToInternalPage={cta} />
-  //   ) : (
-  //     <CtaButton ctaLabel={ctaLabel} linkToCustomUrl={cta} />
-  //   );
+  // cta.__typename === 'ContentfulPages' ? (
+  //   <CtaButton ctaLabel={ctaLabel} linkToInternalPage={cta} />
+  // ) : (
+  //   <CtaButton ctaLabel={ctaLabel} linkToCustomUrl={cta} />
+  // );
 
   const typename = cta?.__typename;
 
@@ -32,7 +32,6 @@ const ContentfulImageAndText = ({ content, theme }) => {
       text={textHtml}
       imageUrl={imageUrl}
       imageDecoration={imageDecoration}
-      ctaLabel={ctaLabel}
       button={checkCta(typename)}
       theme={theme}
     />

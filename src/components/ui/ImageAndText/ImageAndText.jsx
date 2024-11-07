@@ -1,7 +1,8 @@
 import React from 'react';
 import './ImageAndText.scss';
 import Container from '../utils/Container/Container';
-import ImageDecorationRight from '../../../images/image-decoration-right.svg';
+import ImageDecorationRight from '../../icons/imageDecorationRight';
+// import ImageDecorationRight from '../../../images/image-decoration-right.svg';
 
 const ImageAndText = ({
   title,
@@ -24,9 +25,8 @@ const ImageAndText = ({
         {imageUrl && (
           <div className={`ImageAndText_image ${imageDecoration ? theme : ''}`}>
             <img src={imageUrl} alt={''} />
-            {imageDecoration && theme && (
-              <img src={ImageDecorationRight} alt={''} />
-            )}
+            {/* {imageDecoration && theme && ImageDecorationRight} */}
+            {imageDecoration && theme && <ImageDecorationRight />}
           </div>
         )}
       </div>
