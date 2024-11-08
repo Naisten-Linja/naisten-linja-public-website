@@ -40,7 +40,7 @@
     "heroku-client": "^3.1.0",
     "prettier": "^2.8.8",
     "sass": "^1.80.6"
-  },
+  }, "optionalDependencies": {"@parcel/watcher-linux-x64-glibc":"2.5.0"},
   "keywords": [
     "gatsby"
   ],
