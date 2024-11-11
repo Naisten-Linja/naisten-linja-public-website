@@ -11,6 +11,13 @@
     overflow: hidden;
     position: relative;
 
+    svg {
+      z-index: 1;
+      bottom: 0;
+      position: absolute;
+      right: 0;
+    }
+
     &.persikka {
       svg path {
         fill: $persikka;
@@ -33,6 +40,7 @@
     }
   }
   .ImageAndText_image img {
+    z-index: -1;
     width: 100%;
     height: 100%;
     object-fit: cover;

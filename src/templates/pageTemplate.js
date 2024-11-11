@@ -26,6 +26,8 @@ const PageTemplate = ({ data }) => {
     heroServiceLinks,
   } = data.contentfulPages;
   console.log(data.contentfulPages);
+  console.log('alert: ', data.contentfulMainMenu.alertLink.slug);
+
   const cookiebotId = process.env.GATSBY_COOKIEBOT_ID;
   console.log('updateInfo: ', showUpdateInfo, updatedAt);
 
@@ -95,6 +97,16 @@ export const pageQuery = graphql`
   query ($slug: String!) {
     contentfulPages(slug: { eq: $slug }) {
       ...ContentfulPageFragment
+    }
+    contentfulMainMenu(slug: { eq: "header-menu-2024" }) {
+      id
+      mainMenuName
+      alertText {
+        alertText
+      }
+      alertLink {
+        slug
+      }
     }
   }
 `;
