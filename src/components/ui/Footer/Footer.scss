@@ -56,6 +56,11 @@
             width: 1rem;
             height: 1rem;
           }
+          a svg {
+            &:hover {
+              fill: $ruukku-750;
+            }
+          }
         }
       }
 
@@ -95,7 +100,7 @@
     .Footer_bottom_section {
       display: flex;
       justify-content: space-between;
-
+      padding-bottom: 3rem;
       .Footer_bottom_links {
         display: flex;
         gap: 1rem;
