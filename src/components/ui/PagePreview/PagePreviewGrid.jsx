@@ -1,7 +1,7 @@
 import React from 'react';
 import './PagePreview.scss';
 import Container from '../utils/Container/Container';
-const PagePreviewGrid = ({ title, children, ingress }) => {
+const PagePreviewGrid = ({ title, children, ingress, button }) => {
   return (
     <Container theme={''} size={'large'} background={false}>
       <div className="PagePreviewGrid_container">
@@ -9,6 +9,7 @@ const PagePreviewGrid = ({ title, children, ingress }) => {
         {ingress && <div dangerouslySetInnerHTML={{ __html: ingress }} />}
         <div className="page-preview-grid">{children}</div>
       </div>
+      {button && button}
     </Container>
   );
 };
