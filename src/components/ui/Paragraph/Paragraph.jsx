@@ -24,7 +24,7 @@ const Paragraph = ({
             }}
           />
         )}
-        {button & button}
+        {button && button}
       </div>
     </Container>
   );

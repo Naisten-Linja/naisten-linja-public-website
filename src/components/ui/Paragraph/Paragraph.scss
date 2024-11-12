@@ -83,14 +83,19 @@
   table {
     // border: none;
     // border-spacing: 1rem 2rem;
-    width: 100%;
-    max-width: 100%;
-    overflow-x: scroll;
+    display: block;
+    max-width: -moz-fit-content;
+    max-width: fit-content;
+    overflow-x: auto;
+
+    margin: 0 0 1rem 0;
     text-align: left;
     background: $white;
+    width: 100%;
     th,
     td {
       padding: 0.75rem;
+      min-width: 8rem;
     }
     tbody > tr {
       border-bottom: 1px solid $black;

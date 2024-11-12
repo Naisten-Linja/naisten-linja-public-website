@@ -6,11 +6,7 @@ const ContentfulFooter = (onClick) => {
   const footerData = useStaticQuery(query);
   console.log('footerData: ', footerData);
 
-  return (
-    <Container theme={'ruis'} background={true} size={'extra-large'}>
-      <Footer onClick={onClick} {...footerData.contentfulFooter} />
-    </Container>
-  );
+  return <Footer onClick={onClick} {...footerData.contentfulFooter} />;
 };
 
 export default ContentfulFooter;
