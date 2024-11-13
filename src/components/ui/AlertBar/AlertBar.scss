@@ -4,3 +4,11 @@
   color: $white;
   text-align: center;
 }
+
+.AlertBar_container_link {
+  color: $white;
+  text-align: center;
+  &:hover {
+    text-decoration: underline;
+  }
+}

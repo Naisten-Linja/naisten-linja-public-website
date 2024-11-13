@@ -59,12 +59,12 @@ export const ContenfulPage = graphql`
         }
         ctaLabel
         cta {
-          # ... on ContentfulExternalLink {
-          #   __typename
-          #   id
-          #   url
-          #   label
-          # }
+          ... on ContentfulExternalLink {
+            __typename
+            id
+            url
+            label
+          }
           ... on ContentfulPages {
             __typename
             id
