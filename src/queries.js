@@ -45,16 +45,31 @@ export const ContenfulPage = graphql`
     pageContent {
       __typename
       ... on ContentfulParagraph {
-        paragraphTitle
-        background
-        size
         internal {
           type
         }
+        paragraphTitle
+        background
+        size
         id
         paragraphText {
           childMarkdownRemark {
             html
+          }
+        }
+        ctaLabel
+        cta {
+          ... on ContentfulExternalLink {
+            __typename
+            id
+            url
+            label
+          }
+          ... on ContentfulPages {
+            __typename
+            id
+            pageName
+            slug
           }
         }
       }
@@ -305,6 +320,26 @@ export const ContenfulPage = graphql`
           type
         }
         title
+        ingress {
+          childMarkdownRemark {
+            html
+          }
+        }
+        ctaLabel
+        cta {
+          ... on ContentfulExternalLink {
+            __typename
+            id
+            url
+            label
+          }
+          ... on ContentfulPages {
+            __typename
+            id
+            pageName
+            slug
+          }
+        }
         page {
           ... on ContentfulPages {
             slug
@@ -322,6 +357,7 @@ export const ContenfulPage = graphql`
       }
       ... on ContentfulPersonIntroductionGrid {
         title
+        listView
         internal {
           type
         }
@@ -393,11 +429,33 @@ export const ContenfulPage = graphql`
         }
         secondaryCtaLabel
         secondaryCta {
-          slug
+          ... on ContentfulExternalLink {
+            __typename
+            id
+            url
+            label
+          }
+          ... on ContentfulPages {
+            __typename
+            id
+            pageName
+            slug
+          }
         }
         primaryCtaLabel
         primaryCta {
-          slug
+          ... on ContentfulExternalLink {
+            __typename
+            id
+            url
+            label
+          }
+          ... on ContentfulPages {
+            __typename
+            id
+            pageName
+            slug
+          }
         }
       }
       ... on ContentfulKeyPointsList {
@@ -454,6 +512,18 @@ export const ContenfulPage = graphql`
           childMarkdownRemark {
             html
           }
+        }
+      }
+      ... on ContentfulLogoGrid {
+        internal {
+          type
+        }
+        title
+        logos {
+          file {
+            url
+          }
+          title
         }
       }
     }

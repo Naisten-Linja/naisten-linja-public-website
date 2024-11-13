@@ -21,6 +21,7 @@
       }
 
       .Footer_scrolltotop {
+        border: 0;
         svg {
           width: 2rem;
           height: 2rem;
@@ -55,6 +56,11 @@
             width: 1rem;
             height: 1rem;
           }
+          a svg {
+            &:hover {
+              fill: $ruukku-750;
+            }
+          }
         }
       }
 
@@ -63,9 +69,14 @@
         grid-template-columns: repeat(3, 1fr);
         align-items: start;
         gap: 3rem;
-        a {
+        li > a {
           &:hover {
             text-decoration: underline;
+          }
+          svg {
+            display: inline;
+            height: 14px;
+            margin-top: 4px;
           }
         }
 
@@ -89,7 +100,7 @@
     .Footer_bottom_section {
       display: flex;
       justify-content: space-between;
-
+      padding-bottom: 3rem;
       .Footer_bottom_links {
         display: flex;
         gap: 1rem;

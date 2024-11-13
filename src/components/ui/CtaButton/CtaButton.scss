@@ -1,7 +1,7 @@
 @import '../../styles/variables';
 
-.CtaButton_container {
-  display: flex;
+a.CtaButton_container {
+  display: inline-flex;
   align-items: center;
   gap: 1rem;
   justify-content: center;
@@ -9,6 +9,7 @@
   padding: 0.75rem 1.5rem;
   border-radius: 2rem;
   color: $white;
+  text-decoration: none;
   &:hover {
     text-decoration: underline;
   }

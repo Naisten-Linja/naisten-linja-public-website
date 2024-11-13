@@ -16,19 +16,40 @@
       grid-template-columns: repeat(1, 1fr);
       place-items: center;
     }
+
+    &.listView {
+      @media (min-width: 768px) {
+        grid-template-columns: 1fr;
+        .person-introduction-card-content-container {
+          background-color: $white;
+          color: $black;
+          padding: 0;
+          h3 {
+            font-size: 20px;
+          }
+        }
+        .person-introduction-card {
+          display: grid;
+          grid-template-columns: 1fr 2fr;
+          width: 100%;
+          max-width: 100%;
+          gap: 1.5rem;
+        }
+      }
+    }
   }
 }
 
 .person-introduction-card {
   display: flex;
   flex-direction: column;
+  width: 100%;
   max-width: 350px;
 }
 
 .person-introduction-card-content-container {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
   background-color: #0d0c0c;
   color: #fff;
   padding: 0.75rem;
@@ -36,11 +57,22 @@
 
   h3 {
     font-weight: 500;
-    font-size: 1.15rem;
+    font-family: $primary-font;
+    font-size: 18px;
   }
 
   p {
     font-size: 1rem;
+  }
+}
+@media (max-width: 576px) {
+  .person-introduction-card-content-container h3 {
+    font-size: 16px;
+  }
+
+  .person-introduction-card-content-container > p,
+  .person-introduction-card-content p {
+    font-size: 14px;
   }
 }
 

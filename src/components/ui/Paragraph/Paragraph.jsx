@@ -2,8 +2,15 @@ import React from 'react';
 import './Paragraph.scss';
 import Container from '../utils/Container/Container';
 
-const Paragraph = ({ title, paragraphText, cta, background, theme, size }) => {
-  console.log('paragraphText', paragraphText);
+const Paragraph = ({
+  title,
+  paragraphText,
+  button,
+  background,
+  theme,
+  size,
+}) => {
+  // console.log('paragraphText', paragraphText);
 
   return (
     <Container theme={theme} background={background} size={size}>
@@ -11,11 +18,13 @@ const Paragraph = ({ title, paragraphText, cta, background, theme, size }) => {
         {title && <h2 className="Paragraph_title">{title}</h2>}
         {paragraphText && (
           <div
+            className="paragraphText"
             dangerouslySetInnerHTML={{
               __html: paragraphText,
             }}
           />
         )}
+        {button && button}
       </div>
     </Container>
   );

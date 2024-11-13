@@ -17,22 +17,24 @@ const PersonIntroductionCard = ({
           alt={personName}
         />
       </div>
-      <div className="person-introduction-card-content-container">
-        <h3>{personName}</h3>
-        <p>{title}</p>
-      </div>
-      <div className="person-introduction-card-content">
-        {(phone || email) && (
-          <div style={{ marginBottom: '1rem' }}>
-            <p>{phone}</p>
-            <p>{email}</p>
-          </div>
-        )}
-        <div
-          dangerouslySetInnerHTML={{
-            __html: personIntroduction?.childMarkdownRemark?.html,
-          }}
-        />
+      <div>
+        <div className="person-introduction-card-content-container">
+          <h3>{personName}</h3>
+          <p>{title}</p>
+        </div>
+        <div className="person-introduction-card-content">
+          {(phone || email) && (
+            <div style={{ marginBottom: '1rem' }}>
+              <p>{phone}</p>
+              <p>{email}</p>
+            </div>
+          )}
+          <div
+            dangerouslySetInnerHTML={{
+              __html: personIntroduction?.childMarkdownRemark?.html,
+            }}
+          />
+        </div>
       </div>
     </div>
   );

@@ -47,7 +47,7 @@
     display: flex;
     flex-flow: column;
     &.withoutBgImage {
-      padding: 0 2rem 2rem 2rem;
+      padding: 0 2rem 4rem 2rem;
     }
     &.withBgImage {
       display: flex;
@@ -125,9 +125,13 @@
   .Hero {
     margin-top: 6rem;
     padding: 0;
+    background-position: 25%;
     .container {
       .text-container {
         padding: 2rem 1rem;
+        .back-link {
+          font-size: 14px;
+        }
         h1 {
           font-size: 32px;
         }

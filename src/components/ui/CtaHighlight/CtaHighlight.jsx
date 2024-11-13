@@ -1,16 +1,7 @@
 import React from 'react';
 import './CtaHighlight.scss';
-import CtaButton from '../CtaButton/CtaButton';
 
-const CtaHighlight = ({
-  title,
-  text,
-  imageUrl,
-  primaryCtaLabel,
-  primaryCta,
-  secondaryCtaLabel,
-  secondaryCta,
-}) => {
+const CtaHighlight = ({ title, text, imageUrl, primaryCta, secondaryCta }) => {
   return (
     <div
       className="CtaHighlight_container"
@@ -20,19 +11,8 @@ const CtaHighlight = ({
         {title && <h2 className="">{title}</h2>}
         {text && <div dangerouslySetInnerHTML={{ __html: text }} />}
         <div className="CtaHighlight_cta_container">
-          {primaryCta && (
-            <CtaButton
-              ctaLabel={primaryCtaLabel}
-              linkToInternalPage={primaryCta}
-            />
-          )}
-          {secondaryCta && (
-            <CtaButton
-              ctaLabel={secondaryCtaLabel}
-              linkToInternalPage={secondaryCta}
-              secondary={true}
-            />
-          )}
+          {primaryCta && primaryCta}
+          {secondaryCta && secondaryCta}
         </div>
       </div>
     </div>

@@ -11,20 +11,36 @@
     overflow: hidden;
     position: relative;
 
+    svg {
+      z-index: 1;
+      bottom: 0;
+      position: absolute;
+      right: 0;
+    }
+
     &.persikka {
-      fill: $persikka;
+      svg path {
+        fill: $persikka;
+      }
     }
     &.laventeli {
-      fill: $laventeli;
+      svg path {
+        fill: $laventeli;
+      }
     }
     &.pioni {
-      fill: $pioni;
+      svg path {
+        fill: $pioni;
+      }
     }
     &.aurinko {
-      fill: $aurinko;
+      svg path {
+        fill: $aurinko;
+      }
     }
   }
   .ImageAndText_image img {
+    z-index: -1;
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -37,7 +53,11 @@
     display: flex;
     flex-direction: column;
     align-items: start;
-    gap: 1rem;
+    //gap: 1rem;
+
+    p {
+      margin: 1rem 0;
+    }
 
     .ImageAndText_cta {
       display: flex;
@@ -53,5 +73,13 @@
         }
       }
     }
+  }
+}
+
+@media only screen and (max-width: $m-screen) {
+  .ImageAndText_container {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 1rem;
   }
 }

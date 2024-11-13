@@ -3,11 +3,12 @@
   color: white;
   padding: 1rem;
   font-size: 18px;
-  display: flex;
+  display: grid;
   align-items: center;
   gap: 1rem;
-
-  :hover {
+  grid-template-columns: 1rem 1fr 1.5rem;
+  transform: none;
+  &:hover {
     text-decoration: underline;
   }
 }

@@ -33,7 +33,7 @@ const ContentBox = ({
         return (
           <a href={node.data.target?.file.url} className="inline-link">
             <FaDownload />
-            {node.data.target.title}
+            {node.content[0].value}
           </a>
         );
       },

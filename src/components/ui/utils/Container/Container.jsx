@@ -7,7 +7,11 @@ const Container = ({ background, children, theme, size }) => {
       className={`Container_background ${background ? theme : ''}`}
       // style={{ ...(background ? { backgroundColor: backgroundColor } : '') }}
     >
-      <div className={`Container_content ${size ? size : 'medium'}`}>
+      <div
+        className={`Container_content ${size ? size : 'medium'} ${
+          theme === 'alert' ? theme : ''
+        }`}
+      >
         {children}
       </div>
     </div>

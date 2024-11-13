@@ -16,40 +16,48 @@
 
   ul {
     list-style: disc;
-    margin-left: 2rem;
+    margin: 1rem 0 1rem 2rem;
   }
 
   ol {
     list-style: decimal;
-    margin-left: 2rem;
+    margin: 1rem 0 1rem 2rem;
   }
 
   &.white {
     u {
       background-color: $white;
     }
+    table > thead {
+      background-color: $black;
+      color: $white;
+    }
   }
 
   &.persikka {
-    u {
+    u,
+    table > thead {
       background-color: $persikka;
     }
   }
 
   &.laventeli {
-    u {
+    u,
+    table > thead {
       background-color: $laventeli;
     }
   }
 
   &.pioni {
-    u {
+    u,
+    table > thead {
       background-color: $pioni;
     }
   }
 
   &.aurinko {
-    u {
+    u,
+    table > thead {
       background-color: $aurinko;
     }
   }
@@ -68,20 +76,33 @@
       }
     }
   }
-
+  .paragraphText {
+    max-width: 100%;
+    overflow-x: scroll;
+  }
   table {
     // border: none;
     // border-spacing: 1rem 2rem;
-    width: 100%;
-    text-align: left;
-    border-collapse: separate !important;
-    & thead {
-      background-color: peachpuff;
-    }
+    display: block;
+    max-width: -moz-fit-content;
+    max-width: fit-content;
+    overflow-x: auto;
 
-    & tbody {
-      & tr {
-        border-bottom: 1px solid black;
+    margin: 0 0 1rem 0;
+    text-align: left;
+    background: $white;
+    width: 100%;
+    th,
+    td {
+      padding: 0.75rem;
+      min-width: 8rem;
+    }
+    tbody > tr {
+      border-bottom: 1px solid $black;
+    }
+    @media (max-width: 768px) {
+      th {
+        padding: 0.5rem;
       }
     }
   }

@@ -92,6 +92,7 @@ nav {
         align-items: center;
         justify-content: center;
         cursor: pointer;
+        border: none;
         svg {
           width: 2rem;
           height: 2rem;
@@ -148,6 +149,22 @@ nav {
   }
 }
 
+@media only screen and (max-width: 900px) {
+  nav {
+    .service-bar {
+      .container {
+        ul.services {
+          li.service-link {
+            a {
+              margin: 0.5rem 0.25rem 0.5rem 0.5rem;
+              font-size: 15px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
 @media only screen and (max-width: 800px) {
   nav {
     .escape {
@@ -188,6 +205,18 @@ nav {
         }
         .menu-icon {
           grid-column: 4;
+        }
+      }
+    }
+  }
+}
+@media only screen and (max-width: 375px) {
+  nav {
+    .service-bar {
+      .container {
+        grid-template-columns: 140px 1fr 7rem 4rem;
+        .services li.service-link a {
+          font-size: 12px;
         }
       }
     }

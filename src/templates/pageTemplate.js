@@ -26,6 +26,10 @@ const PageTemplate = ({ data }) => {
     heroServiceLinks,
   } = data.contentfulPages;
   console.log(data.contentfulPages);
+  console.log('alert slug: ', data.contentfulMainMenu.alertLink.slug);
+  const { alertLink, alertText } = data.contentfulMainMenu;
+  console.log('alert text: ', alertText);
+
   const cookiebotId = process.env.GATSBY_COOKIEBOT_ID;
   console.log('updateInfo: ', showUpdateInfo, updatedAt);
 
@@ -64,6 +68,12 @@ const PageTemplate = ({ data }) => {
     showUpdateInfo,
     updatedAt,
   };
+  const alert = {
+    alertLink,
+    alertText,
+  };
+
+  console.log('alert full: ', alert);
 
   return (
     <Layout
@@ -71,6 +81,7 @@ const PageTemplate = ({ data }) => {
       updateInfo={updateInfo}
       lang={pageLanguage}
       showTableOfContents={showTableOfContents}
+      alert={alert}
     >
       <Seo
         title={seoTitle || pageName}
@@ -95,6 +106,16 @@ export const pageQuery = graphql`
   query ($slug: String!) {
     contentfulPages(slug: { eq: $slug }) {
       ...ContentfulPageFragment
+    }
+    contentfulMainMenu(slug: { eq: "header-menu-2024" }) {
+      id
+      mainMenuName
+      alertText {
+        alertText
+      }
+      alertLink {
+        slug
+      }
     }
   }
 `;
