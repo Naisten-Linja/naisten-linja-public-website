@@ -18,6 +18,14 @@ const IndexPage = ({ data }) => {
     heroIngress,
     heroServiceLinks,
   } = data.contentfulPages;
+
+  const { alertLink, alertText } = data.contentfulMainMenu;
+
+  const alert = {
+    alertLink,
+    alertText,
+  };
+
   const hero = {
     pageName,
     heroTitle,
@@ -27,7 +35,7 @@ const IndexPage = ({ data }) => {
     heroServiceLinks,
   };
   return (
-    <Layout hero={hero} lang={pageLanguage}>
+    <Layout hero={hero} lang={pageLanguage} alert={alert}>
       <Seo title={pageName} lang={pageLanguage} />
       <ContentfulComponents
         pageContent={data.contentfulPages.pageContent}
@@ -42,6 +50,16 @@ export const pageQuery = graphql`
   query {
     contentfulPages(slug: { eq: "etusivu" }) {
       ...ContentfulPageFragment
+    }
+    contentfulMainMenu(slug: { eq: "header-menu-2024" }) {
+      id
+      mainMenuName
+      alertText {
+        alertText
+      }
+      alertLink {
+        slug
+      }
     }
   }
 `;

@@ -5,15 +5,14 @@ import { Link } from 'gatsby';
 
 const AlertBar = ({ alertText, alertLink }) => {
   return (
-    <Container
-      theme={'black'}
-      background={true}
-      size={'medium'}
-      style={'padding: "1rem 1rem"'}
-    >
-      <Link to={`/${alertLink}`}>
+    <Container theme={'alert'} background={true} size={'large'}>
+      {alertLink ? (
+        <Link to={`/${alertLink}`}>
+          <p className="AlertBar_container_link">{alertText}</p>
+        </Link>
+      ) : (
         <p className="AlertBar_container">{alertText}</p>
-      </Link>
+      )}
     </Container>
   );
 };
