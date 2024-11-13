@@ -1,7 +1,22 @@
 @import '../../styles/variables';
 
-.KeyPointsList_container {
-  display: flex;
-  flex-wrap: wrap;
+.LogoGrid_container {
+  display: grid;
+  gap: 2rem;
   justify-content: center;
+
+  .LogoGrid_title {
+    text-align: center;
+  }
+
+  .LogoGrid_logos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2.5rem;
+  }
+}
+
+.LogoGridItem {
+  height: 100px;
 }

@@ -26,7 +26,9 @@ const PageTemplate = ({ data }) => {
     heroServiceLinks,
   } = data.contentfulPages;
   console.log(data.contentfulPages);
-  console.log('alert: ', data.contentfulMainMenu.alertLink.slug);
+  console.log('alert slug: ', data.contentfulMainMenu.alertLink.slug);
+  const { alertLink, alertText } = data.contentfulMainMenu;
+  console.log('alert text: ', alertText);
 
   const cookiebotId = process.env.GATSBY_COOKIEBOT_ID;
   console.log('updateInfo: ', showUpdateInfo, updatedAt);
@@ -66,6 +68,12 @@ const PageTemplate = ({ data }) => {
     showUpdateInfo,
     updatedAt,
   };
+  const alert = {
+    alertLink,
+    alertText,
+  };
+
+  console.log('alert full: ', alert);
 
   return (
     <Layout
@@ -73,6 +81,7 @@ const PageTemplate = ({ data }) => {
       updateInfo={updateInfo}
       lang={pageLanguage}
       showTableOfContents={showTableOfContents}
+      alert={alert}
     >
       <Seo
         title={seoTitle || pageName}
