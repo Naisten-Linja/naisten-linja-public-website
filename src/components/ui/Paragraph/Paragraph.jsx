@@ -10,7 +10,7 @@ const Paragraph = ({
   theme,
   size,
 }) => {
-  console.log('paragraphText', paragraphText);
+  // console.log('paragraphText', paragraphText);
 
   return (
     <Container theme={theme} background={background} size={size}>

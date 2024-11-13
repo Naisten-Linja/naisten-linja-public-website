@@ -8,6 +8,7 @@ import ContentfulFooter from './contentful/ContentfulFooter/ContentfulFooter';
 import Hero from './ui/Hero/Hero';
 import UpdateInfo from './ui/UpdateInfo/UpdateInfo';
 import TableOfContents from './ui/TableOfContents/TableOfContents';
+import AlertBar from './ui/AlertBar/AlertBar';
 
 // const scrollToTop = () => {
 //   window ??
@@ -25,14 +26,21 @@ const Layout = ({
   scrollToTop,
   hero,
   updateInfo,
+  alert,
   showTableOfContents,
 }) => {
-  console.log('updateInfo:', updateInfo);
+  console.log('Alert layout level:', alert);
 
   return (
     <>
       <Header lang={lang} />
       <Hero {...hero} />
+      {alert && (
+        <AlertBar
+          alertLink={alert.alertLink.slug}
+          alertText={alert.alertText.alertText}
+        />
+      )}
       {showTableOfContents && <TableOfContents />}
       {updateInfo?.showUpdateInfo && (
         <UpdateInfo updatedAt={updateInfo.updatedAt} />

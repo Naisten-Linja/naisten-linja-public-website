@@ -187,6 +187,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       | ContentfulCtaHighlight
       | ContentfulKeyPointsList
       | ContentfulExternalLink
+      | ContentfulLogoGrid
 
 
     type ContentfulPages implements Node {

@@ -15,6 +15,7 @@ import ContentfulPersonIntroductionGrid from './contentfulPersonIntroductionGrid
 import ContentfulImageAndText from './ContentfulImageAndText/ContentfulImageAndText';
 import ContentfulCtaHighlight from './ContentfulCtaHighlight/ContentfulCtaHighlight';
 import ContentfulKeyPointsList from './ContentfulKeyPointsList/ContentfulKeyPointsList';
+import ContentfulLogoGrid from './ContentfulLogoGrid/ContentfulLogoGrid';
 
 const ContentfulComponents = ({ pageContent, theme }) => {
   return (pageContent || []).map((component, index) => {
@@ -97,6 +98,9 @@ const ContentfulComponents = ({ pageContent, theme }) => {
             theme={theme}
           />
         );
+
+      case 'ContentfulLogoGrid':
+        return <ContentfulLogoGrid key={index} content={component} />;
 
       default:
         console.log('componentType', componentType);

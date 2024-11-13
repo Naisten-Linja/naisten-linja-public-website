@@ -514,6 +514,18 @@ export const ContenfulPage = graphql`
           }
         }
       }
+      ... on ContentfulLogoGrid {
+        internal {
+          type
+        }
+        title
+        logos {
+          file {
+            url
+          }
+          title
+        }
+      }
     }
   }
 `;
