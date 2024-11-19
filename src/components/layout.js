@@ -33,12 +33,12 @@ const Layout = ({
     <>
       <Header lang={lang} />
       <Hero {...hero} />
-      {alert?.showAlert && (
+      {/* {alert?.showAlert && (
         <AlertBar
-          alertLink={alert.alertLink.slug}
-          alertText={alert.alertText.alertText}
+          alertLink={alert?.alertLink.slug}
+          alertText={alert?.alertText.alertText}
         />
-      )}
+      )} */}
       {showTableOfContents && <TableOfContents />}
       {updateInfo?.showUpdateInfo && (
         <UpdateInfo updatedAt={updateInfo.updatedAt} />
