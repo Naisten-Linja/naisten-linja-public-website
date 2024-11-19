@@ -29,13 +29,11 @@ const Layout = ({
   alert,
   showTableOfContents,
 }) => {
-  console.log('Alert layout level:', alert);
-
   return (
     <>
       <Header lang={lang} />
       <Hero {...hero} />
-      {alert && (
+      {alert.showAlert && (
         <AlertBar
           alertLink={alert.alertLink.slug}
           alertText={alert.alertText.alertText}
