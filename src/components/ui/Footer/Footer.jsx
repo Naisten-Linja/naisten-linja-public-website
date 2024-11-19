@@ -28,8 +28,8 @@ const Footer = ({
   legals,
 }) => {
   return (
-    <Container theme={'ruis'} background={true} size={'extra-large'}>
-      <footer className="Footer_container">
+    <footer className="Footer_container">
+      <div className="Footer_content">
         <div className="Footer_layout">
           <div className="Footer_logos">
             <div className="Footer_naisten_linja_logo">
@@ -38,9 +38,9 @@ const Footer = ({
                 <img src="/images/Naisten_Linja.svg" alt="" />
               </Link>
             </div>
-            <button className="Footer_scrolltotop">
+            {/* <button className="Footer_scrolltotop">
               <BsArrowUpCircleFill />
-            </button>
+              </button> */}
           </div>
           <div className="Footer_main_content">
             <div className="Footer_contacts">
@@ -138,8 +138,8 @@ const Footer = ({
             </ul>
           </div>
         </div>
-      </footer>
-    </Container>
+      </div>
+    </footer>
   );
 };
 

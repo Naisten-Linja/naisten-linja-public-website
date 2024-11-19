@@ -1,6 +1,7 @@
 import React from 'react';
 import './PagePreview.scss';
 import { Link } from 'gatsby';
+import { IoArrowForwardSharp } from 'react-icons/io5';
 
 const PagePreviewCard = ({
   seoTitle,
@@ -18,7 +19,10 @@ const PagePreviewCard = ({
         />
       </div>
       <div className="page-preview-card-content">
-        <h3>{seoTitle ? seoTitle : pageName}</h3>
+        <div className="PagePreviewCard_title">
+          <h3>{seoTitle ? seoTitle : pageName}</h3>
+          <IoArrowForwardSharp />
+        </div>
         <p>{seoDescription}</p>
       </div>
     </Link>

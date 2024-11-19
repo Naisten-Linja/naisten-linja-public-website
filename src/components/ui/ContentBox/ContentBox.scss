@@ -1,4 +1,6 @@
 @import '../../styles/variables';
+@import '../../styles/variables';
+
 .ContentBox_container {
   display: grid;
   gap: 1rem;
@@ -19,11 +21,25 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: black;
+    background-color: $black;
+    color: white;
+    padding: 1rem;
+    box-sizing: border-box;
+    &:hover {
+      background-color: $black-400;
+    }
+  }
+
+  .ContentBox__title_nolink {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $black;
     color: white;
     padding: 1rem;
     box-sizing: border-box;
   }
+
   .inline-link {
     display: grid;
     grid-template-columns: 2rem 1fr;
@@ -31,7 +47,7 @@
     margin: 1rem;
     align-items: center;
     &:hover {
-      color: $black;
+      text-decoration: underline;
     }
   }
 }

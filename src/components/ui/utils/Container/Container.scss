@@ -34,8 +34,18 @@
 
     &.alert {
       padding: 1rem 1rem;
+      margin: auto;
     }
 
+    &.update-info {
+      margin: auto;
+      padding-top: 1.25rem;
+      padding-bottom: 0px;
+    }
+
+    &.xx-large {
+      max-width: $max-width-2xl;
+    }
     &.extra-large {
       max-width: $max-width-xl;
     }
@@ -57,7 +67,7 @@
       width: 100%;
       height: 100%;
       margin: auto;
-      padding: 1rem 1rem;
+      padding: 2rem 1rem;
     }
   }
 }

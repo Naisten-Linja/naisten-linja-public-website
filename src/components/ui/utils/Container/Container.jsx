@@ -10,7 +10,7 @@ const Container = ({ background, children, theme, size }) => {
       <div
         className={`Container_content ${size ? size : 'medium'} ${
           theme === 'alert' ? theme : ''
-        }`}
+        } ${theme === 'update-info' ? theme : ''}`}
       >
         {children}
       </div>
