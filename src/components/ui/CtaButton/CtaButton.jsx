@@ -2,6 +2,7 @@ import { Link } from 'gatsby';
 import React from 'react';
 import './CtaButton.scss';
 import { FaExternalLinkAlt } from 'react-icons/fa';
+import { LiaExternalLinkAltSolid } from 'react-icons/lia';
 
 const CtaButton = ({
   ctaLabel,
@@ -25,7 +26,7 @@ const CtaButton = ({
           className={`CtaButton_container ${secondary ? 'secondary' : ''}`}
         >
           {ctaLabel ? ctaLabel : linkToCustomUrl?.label}
-          <FaExternalLinkAlt />
+          <LiaExternalLinkAltSolid />
         </a>
       )}
     </div>

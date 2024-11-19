@@ -27,7 +27,7 @@ const PageTemplate = ({ data }) => {
   } = data.contentfulPages;
   console.log(data.contentfulPages);
   console.log('alert slug: ', data.contentfulMainMenu.alertLink.slug);
-  const { alertLink, alertText } = data.contentfulMainMenu;
+  const { alertLink, alertText, showAlert } = data.contentfulMainMenu;
   console.log('alert text: ', alertText);
 
   const cookiebotId = process.env.GATSBY_COOKIEBOT_ID;
@@ -69,6 +69,7 @@ const PageTemplate = ({ data }) => {
     updatedAt,
   };
   const alert = {
+    showAlert,
     alertLink,
     alertText,
   };
@@ -110,6 +111,7 @@ export const pageQuery = graphql`
     contentfulMainMenu(slug: { eq: "header-menu-2024" }) {
       id
       mainMenuName
+      showAlert
       alertText {
         alertText
       }

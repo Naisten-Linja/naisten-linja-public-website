@@ -1,4 +1,5 @@
 @import '../../styles/styles.scss';
+@import '../../styles/variables';
 
 .PagePreviewGrid_container {
   display: grid;
@@ -24,6 +25,11 @@
   gap: 1rem;
   text-decoration: none;
   color: #0d0c0c;
+  :hover {
+    h3 {
+      text-decoration: underline;
+    }
+  }
 }
 
 .page-preview-card-image {
@@ -45,9 +51,20 @@
 }
 
 .page-preview-card-content h3 {
-  font-size: 1.5rem;
-  font-weight: 700;
-  font-family: $heading-font;
+  font-size: 24px;
+  // font-weight: 700;
+  // font-family: $heading-font;
+}
+
+.PagePreviewCard_title {
+  display: flex;
+  justify-content: space-between;
+  // Arrow custom positioning
+  svg {
+    margin-top: 0.6rem;
+    height: 1.25rem;
+    width: 1.25rem;
+  }
 }
 
 .page-preview-card-content p {
@@ -57,4 +74,19 @@
   color: #0d0c0c;
   opacity: 0.6;
   line-height: 1.6;
+}
+
+@media only screen and (max-width: $m-screen) {
+  // .page-preview-card {
+  //   text-decoration: underline;
+  // }
+  .page-preview-card-content h3 {
+    font-size: 20px;
+  }
+  .PagePreviewCard_title {
+    // Arrow custom positioning
+    svg {
+      margin-top: 0.4rem;
+    }
+  }
 }

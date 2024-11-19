@@ -5,6 +5,10 @@
   display: grid;
   gap: 1rem;
 
+  h3 {
+    font-family: $primary-font;
+  }
+
   p {
     margin: 1rem 0;
 

@@ -19,9 +19,10 @@ const IndexPage = ({ data }) => {
     heroServiceLinks,
   } = data.contentfulPages;
 
-  const { alertLink, alertText } = data.contentfulMainMenu;
+  const { alertLink, alertText, showAlert } = data.contentfulMainMenu;
 
   const alert = {
+    showAlert,
     alertLink,
     alertText,
   };
@@ -54,6 +55,7 @@ export const pageQuery = graphql`
     contentfulMainMenu(slug: { eq: "header-menu-2024" }) {
       id
       mainMenuName
+      showAlert
       alertText {
         alertText
       }

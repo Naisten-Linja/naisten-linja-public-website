@@ -3,8 +3,10 @@ import './ContentBox.scss';
 import { Link } from 'gatsby';
 import { renderRichText } from 'gatsby-source-contentful/rich-text';
 import { INLINES } from '@contentful/rich-text-types';
-import { FaArrowRight, FaExternalLinkAlt } from 'react-icons/fa';
+import { LiaExternalLinkAltSolid } from 'react-icons/lia';
+import { IoArrowForwardSharp } from 'react-icons/io5';
 import { FaDownload } from 'react-icons/fa6';
+import { GrDownload } from 'react-icons/gr';
 
 const ContentBox = ({
   title,
@@ -25,14 +27,14 @@ const ContentBox = ({
       [INLINES.ENTRY_HYPERLINK]: (node, children) => {
         return (
           <Link href={'/' + node.data.target?.slug} className="inline-link">
-            <FaArrowRight /> {node.content[0].value}
+            <IoArrowForwardSharp /> {node.content[0].value}
           </Link>
         );
       },
       [INLINES.ASSET_HYPERLINK]: (node, children) => {
         return (
           <a href={node.data.target?.file.url} className="inline-link">
-            <FaDownload />
+            <GrDownload />
             {node.content[0].value}
           </a>
         );
@@ -59,15 +61,15 @@ const ContentBox = ({
             to={`/${linkToInternalPage.slug}`}
           >
             {title}
-            <FaArrowRight />
+            <IoArrowForwardSharp />
           </Link>
         ) : linkToCustomUrl ? (
           <a href={linkToCustomUrl} className="ContentBox__title">
             {title}
-            <FaExternalLinkAlt />
+            <LiaExternalLinkAltSolid />
           </a>
         ) : (
-          <div className="ContentBox__title">{title}</div>
+          <div className="ContentBox__title_nolink">{title}</div>
         )}
       </div>
       {content && (
