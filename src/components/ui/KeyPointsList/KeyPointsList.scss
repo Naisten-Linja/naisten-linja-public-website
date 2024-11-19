@@ -4,6 +4,9 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
+  // display: flex;
+  // flex-direction: row;
+  // gap: 2rem;
 
   @media (max-width: 800px) {
     grid-template-columns: 1fr;
@@ -14,12 +17,20 @@
     flex-direction: column;
     align-items: start;
     gap: 1rem;
+
+    // .KeyPointsList_button {
+    //   order: 0;
+    // }
   }
   .KeyPointsList_right {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
     align-items: start;
+
+    @media (max-width: $max-width-s) {
+      grid-template-columns: 1fr;
+    }
 
     &.persikka {
       li p:first-of-type {
@@ -54,3 +65,13 @@
     }
   }
 }
+
+// @media only screen and (max-width: $max-width-s) {
+//   .KeyPointsList_container {
+//     .KeyPointsList_left {
+//       .KeyPointsList_button {
+//         order: 1;
+//       }
+//     }
+//   }
+// }
