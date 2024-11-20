@@ -88,9 +88,9 @@
         font-size: 44px;
         font-weight: bold;
         line-height: 1.1;
-        -webkit-hyphens: auto;
-        -moz-hyphens: auto;
-        -ms-hyphens: auto;
+        -webkit-hyphens: none;
+        -moz-hyphens: none;
+        -ms-hyphens: none;
         hyphens: none;
       }
       .ingress p {
@@ -138,6 +138,10 @@
         }
         h1 {
           font-size: 32px;
+          -webkit-hyphens: auto;
+          -moz-hyphens: auto;
+          -ms-hyphens: auto;
+          hyphens: auto;
         }
         .ingress p {
           font-size: 18px;
