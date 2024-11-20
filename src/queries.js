@@ -106,19 +106,19 @@ export const ContenfulPage = graphql`
         backgroundColor
         textColor
       }
-      ... on ContentfulQuote {
-        internal {
-          type
-        }
-        id
-        quoteAuthor
-        quoteText {
-          quoteText
-          childMarkdownRemark {
-            html
-          }
-        }
-      }
+      # ... on ContentfulQuote {
+      #   internal {
+      #     type
+      #   }
+      #   id
+      #   quoteAuthor
+      #   quoteText {
+      #     quoteText
+      #     childMarkdownRemark {
+      #       html
+      #     }
+      #   }
+      # }
       # ... on ContentfulReadMore {
       #   internal {
       #     type
