@@ -4,14 +4,16 @@ import {
   IoCall,
   IoChatbox,
   IoHeartSharp,
+  IoArrowForwardSharp,
+  IoArrowBackSharp,
 } from 'react-icons/io5';
 import { BsArrowUpCircleFill } from 'react-icons/bs';
 import {
-  FaArrowLeft,
-  FaArrowRight,
+  // FaArrowLeft,
+  // FaArrowRight,
   FaBell,
   FaCheckCircle,
-  FaExternalLinkAlt,
+  // FaExternalLinkAlt,
   FaFacebook,
   FaHandHoldingHeart,
   FaHandsHelping,
@@ -22,12 +24,14 @@ import {
   FaTiktok,
 } from 'react-icons/fa';
 import {
-  FaDownload,
+  // FaDownload,
   FaThreads,
   FaX,
   FaYoutube,
   FaLaptop,
 } from 'react-icons/fa6';
+import { LiaExternalLinkAltSolid } from 'react-icons/lia';
+import { GrDownload } from 'react-icons/gr';
 
 export const findIcon = (iconKey) => {
   switch (iconKey) {
@@ -40,13 +44,13 @@ export const findIcon = (iconKey) => {
     case 'kalenteri':
       return <IoCalendarClear />;
     case 'ulkoinen-linkki':
-      return <FaExternalLinkAlt />;
+      return <LiaExternalLinkAltSolid />;
     case 'nuoli-oikea':
-      return <FaArrowRight />;
+      return <IoArrowForwardSharp />;
     case 'nuoli-vasen':
-      return <FaArrowLeft />;
+      return <IoArrowBackSharp />;
     case 'lataa':
-      return <FaDownload />;
+      return <GrDownload />;
     case 'nuoli-ylös-ympyrä':
       return <BsArrowUpCircleFill />;
     case 'instagram':

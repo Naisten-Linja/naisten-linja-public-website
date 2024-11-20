@@ -1,6 +1,7 @@
 import React from 'react';
 import './Hero.scss';
-import { FaArrowLeft, FaArrowRight, FaExternalLinkAlt } from 'react-icons/fa';
+import { LiaExternalLinkAltSolid } from 'react-icons/lia';
+import { IoArrowForwardSharp, IoArrowBackSharp } from 'react-icons/io5';
 import { Link } from 'gatsby';
 import NIcon from '../../icons/nIcon';
 import NIconWide from '../../icons/nIcon-wide';
@@ -35,7 +36,7 @@ const Hero = (props) => {
           <div className={`text-container`}>
             {backLink && (
               <Link className="back-link" to={'/' + backLink.slug}>
-                <FaArrowLeft /> {backLink.pageName}
+                <IoArrowBackSharp /> {backLink.pageName}
               </Link>
             )}
             <h1>{heroTitle ? heroTitle : pageName}</h1>
@@ -60,11 +61,11 @@ const Hero = (props) => {
                         href={service.linkToCustomUrl}
                       >
                         {service.serviceName}
-                        <FaExternalLinkAlt />
+                        <LiaExternalLinkAltSolid />
                       </a>
                     ) : service.linkToInternalPage ? (
                       <Link to={`/${service.linkToInternalPage?.slug}`}>
-                        {service.serviceName} <FaArrowRight />
+                        {service.serviceName} <IoArrowForwardSharp />
                       </Link>
                     ) : null}
                   </>

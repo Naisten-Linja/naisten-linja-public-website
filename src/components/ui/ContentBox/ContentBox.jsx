@@ -5,7 +5,6 @@ import { renderRichText } from 'gatsby-source-contentful/rich-text';
 import { INLINES } from '@contentful/rich-text-types';
 import { LiaExternalLinkAltSolid } from 'react-icons/lia';
 import { IoArrowForwardSharp } from 'react-icons/io5';
-import { FaDownload } from 'react-icons/fa6';
 import { GrDownload } from 'react-icons/gr';
 
 const ContentBox = ({

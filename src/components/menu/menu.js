@@ -4,7 +4,7 @@ import './menu.scss';
 
 import MenuItem from './menu-item';
 
-import { FaArrowRight } from 'react-icons/fa';
+import { IoArrowForwardSharp } from 'react-icons/io5';
 import { IoMdClose, IoMdMenu } from 'react-icons/io';
 import { findIcon } from '../ui/utils/utils';
 
@@ -44,8 +44,8 @@ const Menu = ({ lang }) => {
     <nav className={`MainMenu`} aria-label="Naisten Linja Menu">
       <div className="escape">
         <div className="container">
-          <a href="/">
-            Poistu sivustolta nopeasti <FaArrowRight />
+          <a href="https://www.google.com/">
+            Poistu sivustolta nopeasti <IoArrowForwardSharp />
           </a>
         </div>
       </div>

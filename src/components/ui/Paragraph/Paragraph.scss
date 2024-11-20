@@ -14,7 +14,7 @@
 
     u {
       text-decoration: none;
-      padding: 0.25rem 0.5rem;
+      padding: 0.25rem 0;
     }
   }
 
@@ -82,7 +82,7 @@
   }
   .paragraphText {
     max-width: 100%;
-    overflow-x: scroll;
+    overflow-x: auto;
   }
   table {
     // border: none;

@@ -15,7 +15,7 @@ const ImageAndText = ({
   console.log('button: ', button);
 
   return (
-    <Container theme={''} size={'extra-large'} background={true}>
+    <Container theme={''} size={'large'} background={true}>
       <div className="ImageAndText_container">
         <div className="ImageAndText_content">
           {title && <h2 className="">{title}</h2>}

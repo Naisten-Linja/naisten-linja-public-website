@@ -39,6 +39,8 @@ nav {
         svg {
           display: inline;
           margin: 0 0.5rem;
+          width: 1.25rem;
+          height: 1.25rem;
         }
       }
     }
@@ -169,6 +171,9 @@ nav {
   nav {
     .escape {
       display: none;
+    }
+    .logo {
+      margin-left: 1rem;
     }
     .service-bar {
       .container {

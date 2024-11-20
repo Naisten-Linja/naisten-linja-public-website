@@ -3,8 +3,7 @@ import React from 'react';
 import './ServiceBox.scss';
 import { Link } from 'gatsby';
 import { findIcon } from '../utils/utils';
-import ExternalLinkIcon from '../../icons/externalLink';
-import { FaExternalLinkAlt } from 'react-icons/fa';
+import { LiaExternalLinkAltSolid } from 'react-icons/lia';
 
 const ServiceBox = ({
   serviceName,
@@ -36,7 +35,7 @@ const ServiceBox = ({
         <a href={linkToCustomUrl} className="ServiceBox_container">
           <div>{findIcon(iconKey)}</div>
           {serviceName}
-          <FaExternalLinkAlt />
+          <LiaExternalLinkAltSolid />
         </a>
       )}
     </>
