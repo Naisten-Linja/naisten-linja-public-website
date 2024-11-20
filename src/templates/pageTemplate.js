@@ -25,13 +25,9 @@ const PageTemplate = ({ data }) => {
     backLink,
     heroServiceLinks,
   } = data.contentfulPages;
-  console.log(data.contentfulPages);
-  console.log('alert slug: ', data.contentfulMainMenu.alertLink.slug);
   const { alertLink, alertText, showAlert } = data.contentfulMainMenu;
-  console.log('alert text: ', alertText);
 
   const cookiebotId = process.env.GATSBY_COOKIEBOT_ID;
-  console.log('updateInfo: ', showUpdateInfo, updatedAt);
 
   function isBrowser() {
     return typeof window === 'object';

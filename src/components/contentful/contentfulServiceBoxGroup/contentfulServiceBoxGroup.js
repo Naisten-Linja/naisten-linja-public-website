@@ -5,7 +5,6 @@ import ServiceBoxGroup from '../../ui/ServiceBoxGroup/ServiceBoxGroup';
 const ContentfulServiceBoxGroup = ({ content, theme }) => {
   const { services = [], title, ingress } = content;
   const ingressHtml = ingress?.childMarkdownRemark.html;
-  console.log('theme: ', theme);
 
   return (
     <ServiceBoxGroup

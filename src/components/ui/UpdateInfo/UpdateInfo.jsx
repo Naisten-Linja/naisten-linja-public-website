@@ -4,7 +4,7 @@ import './UpdateInfo.scss';
 
 const UpdateInfo = ({ updatedAt }) => {
   return (
-    <Container theme={'update-info'} background={false} size={'large'}>
+    <Container theme={'update-info'} background={false} size={'medium'}>
       <p className="UpdateInfo_container">Päivitetty viimeksi {updatedAt}</p>
     </Container>
   );

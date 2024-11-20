@@ -12,8 +12,6 @@ const ImageAndText = ({
   imageDecoration,
   button,
 }) => {
-  console.log('button: ', button);
-
   return (
     <Container theme={''} size={'large'} background={true}>
       <div className="ImageAndText_container">

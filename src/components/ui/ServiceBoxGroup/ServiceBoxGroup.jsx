@@ -4,8 +4,6 @@ import './ServiceBoxGroup.scss';
 import Container from '../utils/Container/Container';
 
 const ServiceBoxGroup = ({ services, title, ingress, theme }) => {
-  // console.log('service ingress: ', ingress);
-  //TODO: get background from page theme
   return (
     <Container theme={theme} background={true} size={'large'}>
       <div className="ServiceBoxGroup_container">

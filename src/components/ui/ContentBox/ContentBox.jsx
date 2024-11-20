@@ -15,11 +15,6 @@ const ContentBox = ({
   linkToInternalPage,
   showImages,
 }) => {
-  console.log('showImages: ', showImages);
-
-  console.log(content);
-  //   const isLink = linkToCustomUrl || linkToInternalPage;
-
   const options = {
     renderMark: {},
     renderNode: {

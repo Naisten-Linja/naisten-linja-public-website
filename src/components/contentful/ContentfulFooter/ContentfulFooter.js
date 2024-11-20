@@ -4,7 +4,6 @@ import { useStaticQuery, graphql } from 'gatsby';
 import Container from '../../ui/utils/Container/Container';
 const ContentfulFooter = (onClick) => {
   const footerData = useStaticQuery(query);
-  console.log('footerData: ', footerData);
 
   return <Footer onClick={onClick} {...footerData.contentfulFooter} />;
 };

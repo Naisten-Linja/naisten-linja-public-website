@@ -10,8 +10,6 @@ const Paragraph = ({
   theme,
   size,
 }) => {
-  // console.log('paragraphText', paragraphText);
-
   return (
     <Container theme={theme} background={background} size={size}>
       <div className={`Paragraph_container ${!background ? theme : 'white'}`}>

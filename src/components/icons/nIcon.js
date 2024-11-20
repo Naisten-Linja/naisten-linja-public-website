@@ -4,8 +4,11 @@ const NIcon = () => {
   return (
     <svg
       className="n-icon"
-      width="66"
-      height="144"
+      // width="66"
+      // height="144"
+      // viewBox="0 0 66 144"
+      width="86"
+      height="164"
       viewBox="0 0 66 144"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

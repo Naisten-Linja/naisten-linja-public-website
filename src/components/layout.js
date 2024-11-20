@@ -33,7 +33,7 @@ const Layout = ({
     <>
       <Header lang={lang} />
       <Hero {...hero} />
-      {alert.alertText && alert?.showAlert && (
+      {alert?.alertText && alert?.showAlert && (
         <AlertBar
           alertLink={alert?.alertLink.slug}
           alertText={alert?.alertText.alertText}
