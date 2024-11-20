@@ -8,7 +8,11 @@ const TableOfContents = () => {
 
   useEffect(() => {
     // Find all h2 elements on the page
-    const h2Elements = Array.from(document.querySelectorAll('h2'));
+
+    // There was empty h2 elements that were causing issues
+    const h2Elements = Array.from(document.querySelectorAll('h2')).filter(
+      (element) => element.textContent.length > 1,
+    );
 
     // Map over each h2 element to store its text content and id, remove first as it is the h2 of the TOC
     const headingsData = h2Elements.slice(1).map((element, index) => {
