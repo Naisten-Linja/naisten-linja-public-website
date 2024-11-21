@@ -70,7 +70,7 @@ const PageTemplate = ({ data }) => {
     alertText,
   };
 
-  console.log('alert full: ', alert);
+  // console.log('alert full: ', alert);
 
   return (
     <Layout
