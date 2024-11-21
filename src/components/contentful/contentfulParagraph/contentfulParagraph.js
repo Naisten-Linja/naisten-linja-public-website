@@ -1,87 +1,38 @@
 import React from 'react';
+import Paragraph from '../../ui/Paragraph/Paragraph';
+import CtaButton from '../../ui/CtaButton/CtaButton';
 
-import Background from '../../background/background';
+const ContentfulParagraph = ({ content, theme }) => {
+  const { paragraphTitle, paragraphText, background, size, cta, ctaLabel } =
+    content;
 
-import '../../../scss/grid.scss';
-import './contentfulParagraph.scss';
+  const typename = cta?.__typename;
 
-const selectParagraphCols = (paragraphColumns) => {
-  switch (paragraphColumns) {
-    case 'two columns':
-      return 2;
-    case 'three columns':
-      return 3;
-    default:
-      return 1;
-  }
-};
-
-const ContentfulParagraph = ({ content }) => {
-  const paragraphColumns =
-    !!content.paragraphColumns && content.sideImage === null
-      ? selectParagraphCols(content.paragraphColumns.toLowerCase())
-      : 1;
-
-  const { backgroundStyle, backgroundColor, textColor } = content;
-
-  const paragraphImagePosition = !!content.sideImagePosition
-    ? content.sideImagePosition.toLowerCase()
-    : !!content.sideImage
-    ? 'right'
-    : undefined;
-
-  const paragraphColumnCount =
-    paragraphColumns > 1 ? 'column-count-' + paragraphColumns : '';
-
-  const paragraphGrid =
-    content.sideImage !== null ? ' col-12 col-md-6 col-lg-8 col-xl-8 p-0' : '';
+  const checkCta = (typename) => {
+    switch (typename) {
+      case 'ContentfulPages':
+        return <CtaButton ctaLabel={ctaLabel} linkToInternalPage={cta} />;
+      case 'ContentfulExternalLink':
+        return <CtaButton ctaLabel={ctaLabel} linkToCustomUrl={cta} />;
+      default:
+        return null;
+    }
+  };
 
   return (
-    <Background
-      color={backgroundColor}
-      backgroundStyle={backgroundStyle}
-      textColor={content.textColor}
-    >
-      <div className="full-width-section">
-        <div className={`Paragraph ${textColor || 'light'} layout-container`}>
-          {!!content.paragraphTitle && content.paragraphTitle !== '' && (
-            <div className="row">
-              <h2 className="Paragraph__title">{content.paragraphTitle}</h2>
-            </div>
-          )}
-          <div className="row">
-            {paragraphImagePosition === 'left' &&
-              content.sideImage &&
-              content.sideImage.file && (
-                <div className="col-xs-12 col-md-6 col-lg-4 col-xl-4 image-col p-0">
-                  <img
-                    src={content.sideImage.file.url}
-                    alt={content.sideImage.description || ''}
-                  />
-                </div>
-              )}
-            {content.paragraphText && (
-              <div
-                className={paragraphColumnCount + paragraphGrid}
-                dangerouslySetInnerHTML={{
-                  __html: content.paragraphText.childMarkdownRemark.html,
-                }}
-              />
-            )}
-            {paragraphImagePosition === 'right' &&
-              content.sideImage &&
-              content.sideImage.file && (
-                <div className="col-xs-12 col-md-6 col-lg-4 col-xl-4 image-col p-0">
-                  <img
-                    src={content.sideImage.file.url}
-                    alt={content.sideImage.description || ''}
-                  />
-                </div>
-              )}
-          </div>
-        </div>
-      </div>
-    </Background>
+    <>
+      {paragraphText && (
+        <Paragraph
+          title={paragraphTitle}
+          paragraphText={paragraphText?.childMarkdownRemark.html}
+          cta={cta}
+          background={background}
+          size={size}
+          theme={theme}
+          button={checkCta(typename)}
+        />
+      )}
+    </>
   );
 };
 

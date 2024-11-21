@@ -9,10 +9,34 @@ import ContentfulComponents from '../components/contentful/contentfulComponents'
 import { ContentfulPage } from '../queries';
 
 const IndexPage = ({ data }) => {
-  const { pageName, pageLanguage } = data.contentfulPages;
+  const {
+    pageName,
+    pageLanguage,
+    heroTitle,
+    heroImage,
+    backLink,
+    heroIngress,
+    heroServiceLinks,
+  } = data.contentfulPages;
 
+  const { alertLink, alertText, showAlert } = data.contentfulMainMenu;
+
+  const alert = {
+    showAlert,
+    alertLink,
+    alertText,
+  };
+
+  const hero = {
+    pageName,
+    heroTitle,
+    heroImage,
+    heroIngress,
+    backLink,
+    heroServiceLinks,
+  };
   return (
-    <Layout lang={pageLanguage}>
+    <Layout hero={hero} lang={pageLanguage} alert={alert}>
       <Seo title={pageName} lang={pageLanguage} />
       <ContentfulComponents
         pageContent={data.contentfulPages.pageContent}
@@ -27,6 +51,17 @@ export const pageQuery = graphql`
   query {
     contentfulPages(slug: { eq: "etusivu" }) {
       ...ContentfulPageFragment
+    }
+    contentfulMainMenu(slug: { eq: "header-menu-2024" }) {
+      id
+      mainMenuName
+      showAlert
+      alertText {
+        alertText
+      }
+      alertLink {
+        slug
+      }
     }
   }
 `;

@@ -1,0 +1,94 @@
+@import '../../styles/styles.scss';
+@import '../../styles/variables';
+
+.PagePreviewGrid_container {
+  display: grid;
+  gap: 2rem;
+  margin-bottom: 1rem;
+
+  .page-preview-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    @media (max-width: 768px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @media (max-width: 576px) {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+}
+
+.page-preview-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  text-decoration: none;
+  color: #0d0c0c;
+  :hover {
+    h3 {
+      text-decoration: underline;
+    }
+  }
+}
+
+.page-preview-card-image {
+  width: 100%;
+  height: 230px;
+  overflow: hidden;
+}
+
+.page-preview-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.page-preview-card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.page-preview-card-content h3 {
+  font-size: 24px;
+  // font-weight: 700;
+  font-family: $heading-font;
+}
+
+.PagePreviewCard_title {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  // Arrow custom positioning
+  svg {
+    margin-top: 0.6rem;
+    height: 1.25rem;
+    width: 1.25rem;
+    min-width: fit-content;
+  }
+}
+
+.page-preview-card-content p {
+  font-size: 1rem;
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+  color: #0d0c0c;
+  opacity: 0.6;
+  line-height: 1.6;
+}
+
+@media only screen and (max-width: $m-screen) {
+  // .page-preview-card {
+  //   text-decoration: underline;
+  // }
+  .page-preview-card-content h3 {
+    font-size: 20px;
+  }
+  .PagePreviewCard_title {
+    // Arrow custom positioning
+    svg {
+      margin-top: 0.4rem;
+    }
+  }
+}

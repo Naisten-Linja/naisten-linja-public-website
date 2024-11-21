@@ -1,0 +1,23 @@
+@import '../../styles/variables';
+
+.ContentBoxGroup_container {
+  background-color: white;
+  color: black;
+  display: grid;
+  gap: 1rem;
+
+  .ContentBoxGroup_grid {
+    display: grid;
+    align-items: start;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+}
+
+@media only screen and (max-width: $mobile-breakpoint) {
+  .ContentBoxGroup_container {
+    .ContentBoxGroup_grid {
+      grid-template-columns: 1fr;
+    }
+  }
+} ;

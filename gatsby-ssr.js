@@ -7,7 +7,7 @@ export const onRenderBody = ({ setPostBodyComponents, setHeadComponents }) => {
       key="facebook-domain-verification"
       name="facebook-domain-verification"
       content="8lnrf1d0ch8i4fqblko7e0iibhafpc"
-    />
+    />,
   ]);
   setPostBodyComponents([
     <script

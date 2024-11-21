@@ -1,0 +1,18 @@
+.ServiceBox_container {
+  background-color: black;
+  color: white;
+  padding: 1rem;
+  font-size: 18px;
+  display: grid;
+  align-items: center;
+  gap: 1rem;
+  grid-template-columns: 1rem 1fr 1.5rem;
+  transform: none;
+  svg {
+    height: 1.25rem;
+    width: 1.25rem;
+  }
+  &:hover {
+    text-decoration: underline;
+  }
+}

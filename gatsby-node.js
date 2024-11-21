@@ -34,16 +34,6 @@ exports.createPages = ({ graphql, actions }) => {
             }
           }
         }
-        allContentfulBlogPost {
-          edges {
-            node {
-              blogPostLanguage
-              blogPostTitle
-              id
-              slug
-            }
-          }
-        }
       }
     `,
   )
@@ -53,28 +43,13 @@ exports.createPages = ({ graphql, actions }) => {
       }
       // Resolve the paths to our template
       const projectTemplate = path.resolve('./src/templates/pageTemplate.js');
-      const blogPostTemplate = path.resolve(
-        './src/templates/blogPostTemplate.js',
-      );
 
-      const { allContentfulPages, allContentfulBlogPost } = result.data;
+      const { allContentfulPages } = result.data;
       // Then for each result we create a page.
       allContentfulPages.edges.forEach((edge) => {
         createPage({
           path: `/${edge.node.slug}/`,
           component: slash(projectTemplate),
-          context: {
-            slug: edge.node.slug,
-            id: edge.node.id,
-          },
-        });
-      });
-
-      // Create a page for blog post.
-      allContentfulBlogPost.edges.forEach((edge) => {
-        createPage({
-          path: `/${edge.node.slug}/`,
-          component: slash(blogPostTemplate),
           context: {
             slug: edge.node.slug,
             id: edge.node.id,
@@ -140,6 +115,9 @@ exports.createSchemaCustomization = ({ actions }) => {
       backgroundStyle: String
       backgroundColor: String
     }
+    type ContentfulServiceBoxGroup implements Node {
+      title: String
+    }
     type ContentfulBlogPost implements Node {
       blogPostTitle: String
       blogPostDate(
@@ -188,16 +166,28 @@ exports.createSchemaCustomization = ({ actions }) => {
       embedHtml: String
     }
 
+    type ContentfulPagePreviewGrid implements Node {
+      pages: [ContentfulPages] @link(by: "id", from: "pages___NODE")
+    }
+ 
     union ContentfulPagesPageContent = ContentfulBlogPost
       | ContentfulContentBoxGroup
+      | ContentfulServiceBoxGroup
       | ContentfulExternalForm
       | ContentfulFullWidthImage
       | ContentfulGoogleFormsIframe
       | ContentfulOpenLetterForm
       | ContentfulParagraph
-      | ContentfulPersonIntroduction
       | ContentfulQuote
       | ContentfulVideo
+      | ContentfulPagePreviewGrid
+      | ContentfulPersonIntroductionGrid
+      | ContentfulImageAndText
+      | ContentfulCtaHighlight
+      | ContentfulKeyPointsList
+      | ContentfulExternalLink
+      | ContentfulLogoGrid
+
 
     type ContentfulPages implements Node {
       slug: String

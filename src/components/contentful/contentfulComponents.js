@@ -2,17 +2,22 @@ import React from 'react';
 
 import ContentfulParagraph from './contentfulParagraph/contentfulParagraph';
 import ContentfulQuote from './contentfulQuote/contentfulQuote';
-// import ContentfulReadMore from './contentfulReadMore/contentfulReadMore';
+//import ContentfulReadMore from './contentfulReadMore/contentfulReadMore';
 import ContentfulVideo from './contentfulVideo/contentfulVideo';
 import ContentfulFullWidthImage from './contentfulFullWidthImage/contentfulFullWidthImage';
-import ContentfulPersonIntroduction from './contentfulPersonIntroduction/contentfulPersonIntroduction';
 import ContentfulContentBoxGroup from './contentfulContentBoxGroup/contentfulContentBoxGroup';
 import ContentfulOpenLetterForm from './contentfulOpenLetterForm/contentfulOpenLetterForm';
 import ContentfulExternalForm from './contentfulExternalForm/contentfulExternalForm';
 import ContentfulGoogleFormsIframe from './contentfulGoogleFormsIframe/contentfulGoogleFormsIframe';
-import ContentfulBlogPostCard from './contentfulBlogPost/contentfulBlogPostCard';
+import ContentfulServiceBoxGroup from './contentfulServiceBoxGroup/contentfulServiceBoxGroup';
+import ContentfulPagePreview from './contentfulPagePreview/ContentfulPagePreview';
+import ContentfulPersonIntroductionGrid from './contentfulPersonIntroductionGrid/contentfulPersonIntroductionGrid';
+import ContentfulImageAndText from './ContentfulImageAndText/ContentfulImageAndText';
+import ContentfulCtaHighlight from './ContentfulCtaHighlight/ContentfulCtaHighlight';
+import ContentfulKeyPointsList from './ContentfulKeyPointsList/ContentfulKeyPointsList';
+import ContentfulLogoGrid from './ContentfulLogoGrid/ContentfulLogoGrid';
 
-const ContentfulComponents = ({ pageContent }) => {
+const ContentfulComponents = ({ pageContent, theme }) => {
   return (pageContent || []).map((component, index) => {
     const componentType = component.internal ? component.internal.type : null;
     switch (componentType) {
@@ -21,6 +26,7 @@ const ContentfulComponents = ({ pageContent }) => {
           <ContentfulParagraph
             key={index}
             content={component}
+            theme={theme}
           ></ContentfulParagraph>
         );
 
@@ -43,11 +49,17 @@ const ContentfulComponents = ({ pageContent }) => {
       case 'ContentfulFullWidthImage':
         return <ContentfulFullWidthImage key={index} content={component} />;
 
-      case 'ContentfulPersonIntroduction':
-        return <ContentfulPersonIntroduction key={index} content={component} />;
-
       case 'ContentfulContentBoxGroup':
         return <ContentfulContentBoxGroup key={index} content={component} />;
+
+      case 'ContentfulServiceBoxGroup':
+        return (
+          <ContentfulServiceBoxGroup
+            key={index}
+            content={component}
+            theme={theme}
+          />
+        );
 
       case 'ContentfulOpenLetterForm':
         return <ContentfulOpenLetterForm key={index} content={component} />;
@@ -58,10 +70,40 @@ const ContentfulComponents = ({ pageContent }) => {
       case 'ContentfulGoogleFormsIframe':
         return <ContentfulGoogleFormsIframe key={index} content={component} />;
 
-      case 'ContentfulBlogPost':
-        return <ContentfulBlogPostCard key={index} content={component} />;
+      case 'ContentfulPagePreviewGrid':
+        return <ContentfulPagePreview key={index} content={component} />;
+
+      case 'ContentfulPersonIntroductionGrid':
+        return (
+          <ContentfulPersonIntroductionGrid key={index} content={component} />
+        );
+
+      case 'ContentfulImageAndText':
+        return (
+          <ContentfulImageAndText
+            key={index}
+            content={component}
+            theme={theme}
+          />
+        );
+
+      case 'ContentfulCtaHighlight':
+        return <ContentfulCtaHighlight key={index} content={component} />;
+
+      case 'ContentfulKeyPointsList':
+        return (
+          <ContentfulKeyPointsList
+            key={index}
+            content={component}
+            theme={theme}
+          />
+        );
+
+      case 'ContentfulLogoGrid':
+        return <ContentfulLogoGrid key={index} content={component} />;
 
       default:
+        console.log('componentType', componentType);
         return null;
     }
   });

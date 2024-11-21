@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'gatsby';
 
-import './contentfulContentBoxGroup.scss';
 import LeftArrow from '../../icons/leftArrow';
 
 const ContentBoxOverlayLink = ({

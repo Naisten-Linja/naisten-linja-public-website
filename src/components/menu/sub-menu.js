@@ -1,6 +1,5 @@
 import React from 'react';
 import MenuLink from './menu-link';
-import SubMenuItems from './sub-menu-items';
 
 const SubMenu = ({ page, itemName }) => {
   return (
@@ -13,7 +12,7 @@ const SubMenu = ({ page, itemName }) => {
               className="top-level-item"
               id={`sub-menu-item-${i}`}
             />
-            {subPage.menuPageSubpages && <SubMenuItems page={subPage} />}
+            {/* {subPage.menuPageSubpages && <SubMenuItems page={subPage} />} */}
           </li>
         ))}
       </ul>

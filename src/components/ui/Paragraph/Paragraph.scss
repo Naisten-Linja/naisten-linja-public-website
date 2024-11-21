@@ -1,0 +1,109 @@
+@import '../../styles/variables';
+
+.Paragraph_container {
+  position: relative;
+  display: grid;
+  gap: 1rem;
+
+  p {
+    margin: 1rem 0;
+
+    u {
+      text-decoration: none;
+      padding: 0.25rem 0;
+    }
+  }
+
+  ul {
+    list-style: disc;
+    margin: 1rem 0 1rem 2rem;
+  }
+
+  ol {
+    list-style: decimal;
+    margin: 1rem 0 1rem 2rem;
+  }
+
+  &.white {
+    u {
+      background-color: $white;
+    }
+    table > thead {
+      background-color: $black;
+      color: $white;
+    }
+  }
+
+  &.persikka {
+    u,
+    table > thead {
+      background-color: $persikka;
+    }
+  }
+
+  &.laventeli {
+    u,
+    table > thead {
+      background-color: $laventeli;
+    }
+  }
+
+  &.pioni {
+    u,
+    table > thead {
+      background-color: $pioni;
+    }
+  }
+
+  &.aurinko {
+    u,
+    table > thead {
+      background-color: $aurinko;
+    }
+  }
+
+  a {
+    color: $ruukku-750;
+    text-decoration: underline;
+  }
+
+  blockquote {
+    // background-color: $persikka;
+    p {
+      display: grid;
+      cite {
+        justify-self: end;
+      }
+    }
+  }
+  .paragraphText {
+    max-width: 100%;
+    overflow-x: auto;
+  }
+  table {
+    // border: none;
+    // border-spacing: 1rem 2rem;
+    display: block;
+    max-width: -moz-fit-content;
+    max-width: fit-content;
+    overflow-x: auto;
+
+    margin: 0 0 1rem 0;
+    text-align: left;
+    background: $white;
+    width: 100%;
+    th,
+    td {
+      padding: 0.75rem;
+      min-width: 8rem;
+    }
+    tbody > tr {
+      border-bottom: 1px solid $black;
+    }
+    @media (max-width: 768px) {
+      th {
+        padding: 0.5rem;
+      }
+    }
+  }
+}

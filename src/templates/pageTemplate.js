@@ -9,8 +9,23 @@ import ContentfulComponents from '../components/contentful/contentfulComponents'
 import { pageQueryBySlug } from '../queries';
 
 const PageTemplate = ({ data }) => {
-  const { pageName, pageLanguage, seoTitle, seoDescription, ogImage } =
-    data.contentfulPages;
+  const {
+    pageName,
+    pageLanguage,
+    seoTitle,
+    seoDescription,
+    ogImage,
+    showUpdateInfo,
+    showTableOfContents,
+    updatedAt,
+    theme,
+    heroTitle,
+    heroIngress,
+    heroImage,
+    backLink,
+    heroServiceLinks,
+  } = data.contentfulPages;
+  const { alertLink, alertText, showAlert } = data.contentfulMainMenu;
 
   const cookiebotId = process.env.GATSBY_COOKIEBOT_ID;
 
@@ -35,8 +50,36 @@ const PageTemplate = ({ data }) => {
     [cookiebotId],
   );
 
+  const hero = {
+    pageName,
+    heroTitle,
+    heroImage,
+    heroIngress,
+    backLink,
+    heroServiceLinks,
+    theme,
+  };
+
+  const updateInfo = {
+    showUpdateInfo,
+    updatedAt,
+  };
+  const alert = {
+    showAlert,
+    alertLink,
+    alertText,
+  };
+
+  console.log('alert full: ', alert);
+
   return (
-    <Layout lang={pageLanguage}>
+    <Layout
+      hero={hero}
+      updateInfo={updateInfo}
+      lang={pageLanguage}
+      showTableOfContents={showTableOfContents}
+      alert={alert}
+    >
       <Seo
         title={seoTitle || pageName}
         description={seoDescription}
@@ -44,6 +87,7 @@ const PageTemplate = ({ data }) => {
         lang={pageLanguage}
       />
       <ContentfulComponents
+        theme={theme}
         pageContent={data.contentfulPages.pageContent}
       ></ContentfulComponents>
       {pageName === 'Evästeseloste' && (
@@ -59,6 +103,17 @@ export const pageQuery = graphql`
   query ($slug: String!) {
     contentfulPages(slug: { eq: $slug }) {
       ...ContentfulPageFragment
+    }
+    contentfulMainMenu(slug: { eq: "header-menu-2024" }) {
+      id
+      mainMenuName
+      showAlert
+      alertText {
+        alertText
+      }
+      alertLink {
+        slug
+      }
     }
   }
 `;

@@ -1,0 +1,20 @@
+@import '../../styles/variables';
+
+.ServiceBoxGroup_container {
+  display: grid;
+  gap: 1rem;
+  .ServiceBoxGroup_grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+}
+
+@media only screen and (max-width: $mobile-breakpoint) {
+  .ServiceBoxGroup_container {
+    .ServiceBoxGroup_grid {
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+  }
+}

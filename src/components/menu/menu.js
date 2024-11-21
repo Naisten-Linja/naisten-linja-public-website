@@ -1,115 +1,124 @@
 import React, { useState } from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
+import { useStaticQuery, graphql, Link } from 'gatsby';
 import './menu.scss';
-import { useIsMobile } from '../../hooks/useIsMobile';
-import HamburgerIcon from './icons/hamburger';
-import CrossIcon from './icons/cross';
+
 import MenuItem from './menu-item';
-import MenuLanguage from './menu-language';
 
-const languages = [
-  {
-    abv: 'FI',
-    label: 'Suomeksi (FI)',
-    value: 'fi',
-    link: '/etusivu',
-  },
-  {
-    abv: 'SV',
-    label: 'På svenska (SV)',
-    value: 'sv',
-    link: '/pa-svenska',
-  },
-  {
-    abv: 'EN',
-    label: 'In English (EN)',
-    value: 'en',
-    link: '/in-english',
-  },
-];
+import { IoArrowForwardSharp } from 'react-icons/io5';
+import { IoMdClose, IoMdMenu } from 'react-icons/io';
+import { findIcon } from '../ui/utils/utils';
 
-const Menu = ({lang}) => {
+// const languages = [
+//   {
+//     abv: 'FI',
+//     label: 'Suomeksi (FI)',
+//     value: 'fi',
+//     link: '/etusivu',
+//   },
+//   {
+//     abv: 'SV',
+//     label: 'På svenska (SV)',
+//     value: 'sv',
+//     link: '/pa-svenska',
+//   },
+//   {
+//     abv: 'EN',
+//     label: 'In English (EN)',
+//     value: 'en',
+//     link: '/in-english',
+//   },
+// ];
+
+const Menu = ({ lang }) => {
   const headerMenuData = useStaticQuery(query);
   const [isOpen, setIsOpen] = useState(false);
   const [activeItem, setActiveItem] = useState(0);
-  const isMobile = useIsMobile();
-
-  const toggleMobileMenu = (e) => {
-    e.stopPropagation();
-    setIsOpen(!isOpen);
-  };
-
-  const handleFocusing = (nextItem) => {
-    setActiveItem(nextItem);
-    document.getElementById(`top-level-item-${nextItem}`).focus();
-  };
-
-  const handleEsc = async (event) => {
-    if (event.key === 'Escape') {
-      await setIsOpen(false);
-      if (isMobile) {
-        document.getElementById('mobile-open-button').focus();
-      } else {
-        document.getElementById(`top-level-item-${activeItem}`).focus();
-      }
-    } else if (event.key === 'ArrowRight') {
-      const nextItem =
-        activeItem === topLevelPages.length - 1 ? 0 : activeItem + 1;
-      handleFocusing(nextItem);
-    } else if (event.key === 'ArrowLeft') {
-      const nextItem =
-        activeItem === 0 ? topLevelPages.length - 1 : activeItem - 1;
-      handleFocusing(nextItem);
-    }
-  };
 
   const topLevelPages = headerMenuData.contentfulMainMenu.topLevelPages;
-
+  const services = headerMenuData.contentfulMainMenu.services;
+  const cta = headerMenuData.contentfulMainMenu.cta;
+  //console.log(services);
   return (
     /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
-    <nav
-      className={`MainMenu ${isOpen ? 'mobile-menu-open' : ''}`}
-      aria-label="Naisten Linja Menu"
-      onKeyUp={handleEsc}
-    >
-      {isOpen ? (
-        <button
-          className="MainMenu__mobile-close-button"
-          onClick={toggleMobileMenu}
-        >
-          <CrossIcon />
-        </button>
-      ) : (
-        <button
-          className="MainMenu__mobile-open-button"
-          id="mobile-open-button"
-          onClick={toggleMobileMenu}
-        >
-          <HamburgerIcon />
-        </button>
-      )}
-      <ul
-        id="menubar"
-        aria-label="Naisten Linja Menu"
-        className={`menu${isOpen ? ' mobile-active' : ''}`}
+
+    <nav className={`MainMenu`} aria-label="Naisten Linja Menu">
+      <div className="escape">
+        <div className="container">
+          <a href="https://www.google.com/">
+            Poistu sivustolta nopeasti <IoArrowForwardSharp />
+          </a>
+        </div>
+      </div>
+      <div className="service-bar">
+        <div className="container">
+          <div className="logo">
+            <Link to="/">
+              {' '}
+              <img src="/images/Naisten_Linja.svg" alt="" />
+            </Link>
+          </div>
+          <ul className="services">
+            {services &&
+              services.map(
+                (service) =>
+                  service && (
+                    <li key={service.id} className="service-link">
+                      {service.linkToCustomUrl ? (
+                        <a
+                          target="_blank"
+                          rel="noreferrer"
+                          href={service.linkToCustomUrl}
+                        >
+                          {service.iconKey ? (
+                            findIcon(service.iconKey)
+                          ) : (
+                            <div />
+                          )}
+
+                          {service.serviceName}
+                        </a>
+                      ) : service.linkToInternalPage ? (
+                        <Link to={`/${service.linkToInternalPage?.slug}`}>
+                          {service.iconKey ? (
+                            findIcon(service.iconKey)
+                          ) : (
+                            <div />
+                          )}
+                          {service.serviceName}
+                        </Link>
+                      ) : null}
+                    </li>
+                  ),
+              )}
+          </ul>
+          <div className="menu-cta">
+            {' '}
+            {/* TODO: Tähän CTA nappi sit kun valmistuu */}
+            <Link to={`/${cta.slug}`}>{cta.pageName}</Link>
+          </div>
+          <button className="menu-icon" onClick={() => setIsOpen(!isOpen)}>
+            {isOpen ? <IoMdClose /> : <IoMdMenu />}
+          </button>
+        </div>
+      </div>
+
+      <div
+        className={`menu-background ${isOpen ? 'menu-open' : 'menu-closed'}`}
       >
-        {topLevelPages.map((topLevelPage, i) => (
-          <MenuItem
-            key={topLevelPage.id}
-            page={topLevelPage}
-            index={i}
-            activeItem={activeItem}
-            setActiveItem={setActiveItem}
-          />
-        ))}
-        <MenuLanguage
-          language={lang || 'fi'}
-          languages={languages}
-          index={99}
-          activeItem={activeItem}
-          setActiveItem={setActiveItem}
-        />
-      </ul>
+        <div className="menubar-container">
+          <ul id="menubar" aria-label="Naisten Linja Menu" className={`menu`}>
+            {topLevelPages.map((topLevelPage, i) => (
+              <MenuItem
+                key={topLevelPage.id}
+                page={topLevelPage}
+                index={i}
+                activeItem={activeItem}
+                setActiveItem={setActiveItem}
+              />
+            ))}
+          </ul>
+        </div>
+      </div>
     </nav>
   );
 };
@@ -118,10 +127,26 @@ export default Menu;
 
 const query = graphql`
   query MenuQuery {
-    contentfulMainMenu(slug: { eq: "header-menu" }) {
+    contentfulMainMenu(slug: { eq: "header-menu-2024" }) {
       id
       slug
       mainMenuName
+      services {
+        id
+        iconKey
+        serviceName
+        # serviceInformation
+        textColor
+        backgroundColor
+        linkToInternalPage {
+          slug
+        }
+        linkToCustomUrl
+      }
+      cta {
+        pageName
+        slug
+      }
       topLevelPages {
         id
         linkToExternalUrl

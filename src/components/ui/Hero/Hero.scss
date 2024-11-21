@@ -1,0 +1,172 @@
+@import '../../styles/variables';
+.Hero {
+  margin-top: 6rem;
+  background-color: $ruis;
+
+  background-size: cover;
+  &.pioni {
+    .n-image svg path,
+    .wave svg path {
+      fill: $pioni;
+    }
+  }
+
+  &.laventeli {
+    .n-image svg path,
+    .wave svg path {
+      fill: $laventeli;
+    }
+  }
+
+  &.aurinko {
+    .n-image svg path,
+    .wave svg path {
+      fill: $aurinko;
+    }
+  }
+
+  .wave {
+    overflow: hidden;
+    position: relative;
+    .wave {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
+    .n-image {
+      width: 100%;
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-end;
+    }
+  }
+  .container {
+    max-width: $max-width-xl;
+    padding: 0 0 2rem 2rem;
+    position: relative;
+    display: flex;
+    flex-flow: column;
+    &.withoutBgImage {
+      padding: 0 2rem 4rem 2rem;
+    }
+    &.withBgImage {
+      display: flex;
+      flex-flow: column;
+      align-items: flex-end;
+      padding: 0 0 2rem 2rem;
+      .text-container {
+        max-width: 700px;
+        margin: 0 0 2rem 1rem;
+      }
+    }
+    .text-container {
+      background-color: $white;
+      max-width: 960px;
+      width: 100%;
+      margin: auto;
+      padding: 2rem 4rem;
+
+      .back-link {
+        display: grid;
+        font-size: 16px;
+        grid-template-columns: 1rem 1fr;
+        gap: 0.5rem;
+        align-items: center;
+        color: $ruukku-750;
+        path {
+          fill: $ruukku-750;
+        }
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+      h1 {
+        font-family: $primary-font;
+        text-transform: uppercase;
+        font-style: italic;
+        margin: 1rem 0;
+        font-size: 44px;
+        font-weight: bold;
+        line-height: 1.1;
+        -webkit-hyphens: none;
+        -moz-hyphens: none;
+        -ms-hyphens: none;
+        hyphens: none;
+      }
+      .ingress p {
+        font-size: 20px;
+      }
+    }
+    .buttons {
+      gap: 1rem;
+      margin: 1rem auto;
+      max-width: 960px;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      svg {
+        width: 1.25rem;
+        height: 1.25rem;
+      }
+      svg path {
+        fill: $white;
+      }
+      a {
+        background-color: $black;
+        color: $white;
+        padding: 1rem;
+        display: grid;
+        grid-template-columns: 1fr 1rem;
+        gap: 1rem;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+@media only screen and (max-width: 800px) {
+  .Hero {
+    margin-top: 6rem;
+    padding: 0;
+    background-position: 25%;
+    .container {
+      .text-container {
+        padding: 2rem 1rem;
+        .back-link {
+          font-size: 14px;
+        }
+        h1 {
+          font-size: 32px;
+        }
+        .ingress p {
+          font-size: 18px;
+        }
+      }
+      .buttons {
+        grid-template-columns: 1fr;
+      }
+    }
+  }
+}
+@media only screen and (max-width: 500px) {
+  .Hero {
+    .container {
+      .text-container {
+        h1 {
+          font-size: 24px;
+          -webkit-hyphens: none;
+          -moz-hyphens: none;
+          -ms-hyphens: none;
+          hyphens: none;
+        }
+        .ingress p {
+          font-size: 18px;
+        }
+      }
+      .buttons {
+        grid-template-columns: 1fr;
+      }
+    }
+  }
+}

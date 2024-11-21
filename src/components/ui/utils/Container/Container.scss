@@ -1,0 +1,73 @@
+@import '../../../styles/variables.scss';
+
+.Container_background {
+  &.white {
+    background-color: $white;
+  }
+  &.persikka {
+    background-color: $persikka;
+  }
+  &.laventeli {
+    background-color: $laventeli;
+  }
+  &.pioni {
+    background-color: $pioni;
+  }
+  &.aurinko {
+    background-color: $aurinko;
+  }
+  &.ruis {
+    background-color: $ruis;
+  }
+  &.ruis-300 {
+    background-color: $ruis-300;
+  }
+  &.alert {
+    background-color: $black;
+  }
+
+  .Container_content {
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    padding: 2.5rem 1rem;
+
+    &.alert {
+      padding: 1rem 1rem;
+      margin: auto;
+    }
+
+    &.update-info {
+      margin: auto;
+      padding-top: 1.25rem;
+      padding-bottom: 1.25rem;
+    }
+
+    &.xx-large {
+      max-width: $max-width-2xl;
+    }
+    &.extra-large {
+      max-width: $max-width-xl;
+    }
+    &.large {
+      max-width: $max-width-l;
+    }
+    &.medium {
+      max-width: $max-width-m;
+    }
+    &.small {
+      max-width: $max-width-s;
+    }
+  }
+}
+
+@media only screen and (max-width: $max-width-xl) {
+  .Container_background {
+    .Container_content {
+      width: 100%;
+      height: 100%;
+      margin: auto;
+      padding: 2rem 1rem;
+    }
+  }
+}

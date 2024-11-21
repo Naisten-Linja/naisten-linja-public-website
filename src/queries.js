@@ -1,75 +1,39 @@
 import { graphql } from 'gatsby';
 
-export const ContentfulBlogPost = graphql`
-  fragment ContentfulBlogPostFragment on ContentfulBlogPost {
-    internal {
-      type
-    }
-    blogPostTitle
-    blogPostLanguage
-    slug
-    blogPostDate
-    blogPostDescription
-    coverImage {
-      file {
-        url
-        fileName
-      }
-      title
-    }
-    blogPostContent {
-      raw
-      references {
-        __typename
-        ... on ContentfulAsset {
-          id
-          contentful_id
-          file {
-            url
-            fileName
-            details {
-              image {
-                height
-                width
-              }
-            }
-          }
-          title
-        }
-        ... on ContentfulVideo {
-          internal {
-            type
-          }
-          contentful_id
-          videoTitle
-          videoUrl
-          videoTopDescription {
-            videoTopDescription
-            childMarkdownRemark {
-              html
-            }
-          }
-          videoBottomDescription {
-            videoBottomDescription
-            childMarkdownRemark {
-              html
-            }
-          }
-        }
-      }
-    }
-    blogPostBackgroundStyle
-    blogPostBackgroundColor
-    blogPostTextColor
-  }
-`;
-
 export const ContenfulPage = graphql`
   fragment ContentfulPageFragment on ContentfulPages {
     slug
     pageName
+    theme
+    showUpdateInfo
+    showTableOfContents
+    updatedAt(formatString: "DD.MM.YYYY, HH:MM")
     pageLanguage
+    heroTitle
+    heroIngress {
+      childMarkdownRemark {
+        html
+      }
+    }
+    heroImage {
+      file {
+        url
+      }
+    }
     seoTitle
+    backLink {
+      slug
+      pageName
+    }
+    heroServiceLinks {
+      ... on ContentfulServiceBox {
+        serviceName
+        linkToInternalPage {
+          slug
+        }
+        linkToCustomUrl
+      }
+    }
     seoDescription
     ogImage {
       file {
@@ -84,53 +48,31 @@ export const ContenfulPage = graphql`
         internal {
           type
         }
-        id
         paragraphTitle
-        paragraphText {
-          paragraphText
-          childMarkdownRemark {
-            html
-          }
-        }
-        paragraphColumns
-        sideImagePosition
-        sideImage {
-          description
-          file {
-            url
-          }
-          title
-        }
-        paragraphBackgroundStyle
-        backgroundStyle
-        backgroundColor
-        textColor
-      }
-      ... on ContentfulQuote {
-        internal {
-          type
-        }
+        background
+        size
         id
-        quoteAuthor
-        quoteText {
-          quoteText
+        paragraphText {
           childMarkdownRemark {
             html
           }
         }
+        ctaLabel
+        cta {
+          ... on ContentfulExternalLink {
+            __typename
+            id
+            url
+            label
+          }
+          ... on ContentfulPages {
+            __typename
+            id
+            pageName
+            slug
+          }
+        }
       }
-      # ... on ContentfulReadMore {
-      #   internal {
-      #     type
-      #   }
-      #   id
-      #   readMoreContent {
-      #     readMoreContent
-      #     childMarkdownRemark {
-      #       html
-      #     }
-      #   }
-      # }
       ... on ContentfulVideo {
         internal {
           type
@@ -161,23 +103,6 @@ export const ContenfulPage = graphql`
           description
           file {
             url
-          }
-        }
-      }
-      ... on ContentfulPersonIntroduction {
-        internal {
-          type
-        }
-        personName
-        personPicture {
-          file {
-            url
-          }
-        }
-        personIntroduction {
-          personIntroduction
-          childMarkdownRemark {
-            html
           }
         }
       }
@@ -217,9 +142,15 @@ export const ContenfulPage = graphql`
       }
       ... on ContentfulContentBoxGroup {
         title
+        ingress {
+          childMarkdownRemark {
+            html
+          }
+        }
         internal {
           type
         }
+        showImages
         backgroundStyle
         backgroundColor
         contentBoxes {
@@ -231,6 +162,29 @@ export const ContenfulPage = graphql`
             title
             content {
               raw
+              references {
+                ... on ContentfulAsset {
+                  contentful_id
+                  __typename
+                  title
+                  file {
+                    url
+                  }
+                }
+                ... on ContentfulPages {
+                  contentful_id
+                  __typename
+                  slug
+                  pageName
+                }
+              }
+            }
+            image {
+              file {
+                url
+                fileName
+              }
+              title
             }
             textColor
             backgroundColor
@@ -248,10 +202,44 @@ export const ContenfulPage = graphql`
                 url
               }
             }
+            iconKey
             serviceName
-            serviceInformation
+            # serviceInformation
             textColor
             backgroundColor
+            linkToInternalPage {
+              slug
+            }
+            linkToCustomUrl
+          }
+        }
+      }
+      ... on ContentfulServiceBoxGroup {
+        title
+        ingress {
+          childMarkdownRemark {
+            html
+          }
+        }
+        internal {
+          type
+        }
+        services {
+          __typename
+          ... on ContentfulServiceBox {
+            internal {
+              type
+            }
+            # serviceIcon {
+            #   file {
+            #     url
+            #   }
+            # }
+            serviceName
+            # serviceInformation
+            textColor
+            backgroundColor
+            iconKey
             linkToInternalPage {
               slug
             }
@@ -326,6 +314,217 @@ export const ContenfulPage = graphql`
         blogPostBackgroundStyle
         blogPostBackgroundColor
         blogPostTextColor
+      }
+      ... on ContentfulPagePreviewGrid {
+        internal {
+          type
+        }
+        title
+        ingress {
+          childMarkdownRemark {
+            html
+          }
+        }
+        ctaLabel
+        cta {
+          ... on ContentfulExternalLink {
+            __typename
+            id
+            url
+            label
+          }
+          ... on ContentfulPages {
+            __typename
+            id
+            pageName
+            slug
+          }
+        }
+        page {
+          ... on ContentfulPages {
+            slug
+            pageName
+            seoTitle
+            seoDescription
+            ogImage {
+              file {
+                url
+              }
+              title
+            }
+          }
+        }
+      }
+      ... on ContentfulPersonIntroductionGrid {
+        title
+        listView
+        internal {
+          type
+        }
+        personIntroductions {
+          ... on ContentfulPersonIntroduction {
+            personName
+            title
+            phone
+            email
+            personIntroduction {
+              childMarkdownRemark {
+                html
+              }
+            }
+            personPicture {
+              file {
+                url
+              }
+            }
+          }
+        }
+      }
+      ... on ContentfulImageAndText {
+        internal {
+          type
+        }
+        title
+        imageDecoration
+        image {
+          file {
+            url
+          }
+        }
+        text {
+          childMarkdownRemark {
+            html
+          }
+        }
+        ctaLabel
+        cta {
+          ... on ContentfulExternalLink {
+            __typename
+            id
+            url
+            label
+          }
+          ... on ContentfulPages {
+            __typename
+            id
+            pageName
+            slug
+          }
+        }
+      }
+      ... on ContentfulCtaHighlight {
+        internal {
+          type
+        }
+        title
+        text {
+          childMarkdownRemark {
+            html
+          }
+        }
+        image {
+          file {
+            url
+          }
+        }
+        secondaryCtaLabel
+        secondaryCta {
+          ... on ContentfulExternalLink {
+            __typename
+            id
+            url
+            label
+          }
+          ... on ContentfulPages {
+            __typename
+            id
+            pageName
+            slug
+          }
+        }
+        primaryCtaLabel
+        primaryCta {
+          ... on ContentfulExternalLink {
+            __typename
+            id
+            url
+            label
+          }
+          ... on ContentfulPages {
+            __typename
+            id
+            pageName
+            slug
+          }
+        }
+      }
+      ... on ContentfulKeyPointsList {
+        internal {
+          type
+        }
+        title
+        ingress {
+          childMarkdownRemark {
+            html
+          }
+        }
+        ctaLabel
+        cta {
+          ... on ContentfulExternalLink {
+            __typename
+            id
+            url
+            label
+          }
+          ... on ContentfulPages {
+            __typename
+            id
+            pageName
+            slug
+          }
+        }
+        keyPoint1 {
+          childMarkdownRemark {
+            html
+          }
+        }
+        keyPoint2 {
+          childMarkdownRemark {
+            html
+          }
+        }
+        keyPoint3 {
+          childMarkdownRemark {
+            html
+          }
+        }
+        keyPoint4 {
+          childMarkdownRemark {
+            html
+          }
+        }
+        keyPoint5 {
+          childMarkdownRemark {
+            html
+          }
+        }
+        keyPoint6 {
+          childMarkdownRemark {
+            html
+          }
+        }
+      }
+      ... on ContentfulLogoGrid {
+        internal {
+          type
+        }
+        title
+        logos {
+          file {
+            url
+          }
+          title
+        }
       }
     }
   }
