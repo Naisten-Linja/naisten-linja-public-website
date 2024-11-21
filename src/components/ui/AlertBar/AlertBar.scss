@@ -25,3 +25,22 @@
     text-decoration: underline;
   }
 }
+
+// TODO: scrolling text
+// @media only screen and (max-width: 800px) {
+//   .AlertBar_link_wrapper {
+//     display: inline-block; /* Ensure the text is treated as a block for animation */
+//     white-space: nowrap; /* Prevent text from wrapping */
+//     overflow: hidden; /* Hide overflow text */
+//     animation: scrollText 10s linear infinite; /* Apply the animation */
+//   }
+
+//   @keyframes scrollText {
+//     0% {
+//       transform: translateX(-100%); /* Start from the right */
+//     }
+//     100% {
+//       transform: translateX(100%); /* Move to the left */
+//     }
+//   }
+// }
