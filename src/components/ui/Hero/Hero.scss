@@ -138,10 +138,27 @@
         }
         h1 {
           font-size: 32px;
-          -webkit-hyphens: auto;
-          -moz-hyphens: auto;
-          -ms-hyphens: auto;
-          hyphens: auto;
+        }
+        .ingress p {
+          font-size: 18px;
+        }
+      }
+      .buttons {
+        grid-template-columns: 1fr;
+      }
+    }
+  }
+}
+@media only screen and (max-width: 500px) {
+  .Hero {
+    .container {
+      .text-container {
+        h1 {
+          font-size: 24px;
+          -webkit-hyphens: none;
+          -moz-hyphens: none;
+          -ms-hyphens: none;
+          hyphens: none;
         }
         .ingress p {
           font-size: 18px;

@@ -53,17 +53,19 @@
 .page-preview-card-content h3 {
   font-size: 24px;
   // font-weight: 700;
-  // font-family: $heading-font;
+  font-family: $heading-font;
 }
 
 .PagePreviewCard_title {
   display: flex;
   justify-content: space-between;
+  gap: 1rem;
   // Arrow custom positioning
   svg {
     margin-top: 0.6rem;
     height: 1.25rem;
     width: 1.25rem;
+    min-width: fit-content;
   }
 }
 
