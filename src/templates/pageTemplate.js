@@ -12,7 +12,7 @@ const PageTemplate = ({ data }) => {
   const { pageName, pageLanguage, seoTitle, seoDescription, ogImage } =
     data.contentfulPages;
 
-  const cookiebotId = process.env.COOKIEBOT_ID;
+  const cookiebotId = process.env.GATSBY_COOKIEBOT_ID;
 
   function isBrowser() {
     return typeof window === 'object';
