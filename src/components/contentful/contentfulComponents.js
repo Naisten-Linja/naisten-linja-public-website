@@ -1,13 +1,10 @@
 import React from 'react';
 
 import ContentfulParagraph from './contentfulParagraph/contentfulParagraph';
-import ContentfulQuote from './contentfulQuote/contentfulQuote';
-//import ContentfulReadMore from './contentfulReadMore/contentfulReadMore';
 import ContentfulVideo from './contentfulVideo/contentfulVideo';
 import ContentfulFullWidthImage from './contentfulFullWidthImage/contentfulFullWidthImage';
 import ContentfulContentBoxGroup from './contentfulContentBoxGroup/contentfulContentBoxGroup';
 import ContentfulOpenLetterForm from './contentfulOpenLetterForm/contentfulOpenLetterForm';
-import ContentfulExternalForm from './contentfulExternalForm/contentfulExternalForm';
 import ContentfulGoogleFormsIframe from './contentfulGoogleFormsIframe/contentfulGoogleFormsIframe';
 import ContentfulServiceBoxGroup from './contentfulServiceBoxGroup/contentfulServiceBoxGroup';
 import ContentfulPagePreview from './contentfulPagePreview/ContentfulPagePreview';
@@ -30,19 +27,6 @@ const ContentfulComponents = ({ pageContent, theme }) => {
           ></ContentfulParagraph>
         );
 
-      case 'ContentfulQuote':
-        return (
-          <ContentfulQuote key={index} content={component}></ContentfulQuote>
-        );
-
-      // case 'ContentfulReadMore':
-      //   return (
-      //     <ContentfulReadMore
-      //       key={index}
-      //       content={component}
-      //     ></ContentfulReadMore>
-      //   );
-
       case 'ContentfulVideo':
         return <ContentfulVideo key={index} content={component} />;
 
@@ -63,9 +47,6 @@ const ContentfulComponents = ({ pageContent, theme }) => {
 
       case 'ContentfulOpenLetterForm':
         return <ContentfulOpenLetterForm key={index} content={component} />;
-
-      case 'ContentfulExternalForm':
-        return <ContentfulExternalForm key={index} content={component} />;
 
       case 'ContentfulGoogleFormsIframe':
         return <ContentfulGoogleFormsIframe key={index} content={component} />;
