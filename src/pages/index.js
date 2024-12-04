@@ -17,6 +17,9 @@ const IndexPage = ({ data }) => {
     backLink,
     heroIngress,
     heroServiceLinks,
+    seoTitle,
+    seoDescription,
+    ogImage,
   } = data.contentfulPages;
 
   const { alertLink, alertText, showAlert } = data.contentfulMainMenu;
@@ -37,7 +40,12 @@ const IndexPage = ({ data }) => {
   };
   return (
     <Layout hero={hero} lang={pageLanguage} alert={alert}>
-      <Seo title={pageName} lang={pageLanguage} />
+      <Seo
+        title={seoTitle || pageName}
+        description={seoDescription}
+        previewImage={ogImage}
+        lang={pageLanguage}
+      />
       <ContentfulComponents
         pageContent={data.contentfulPages.pageContent}
       ></ContentfulComponents>
