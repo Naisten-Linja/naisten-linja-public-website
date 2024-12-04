@@ -9,7 +9,6 @@ const activeEnv =
 dotenv.config({
   path: `.env.${activeEnv}`,
 });
-
 // load env variables from generic `.env` file
 // this adds but doesn't replace previously defined values
 dotenv.config({

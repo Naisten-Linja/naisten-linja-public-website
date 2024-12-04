@@ -6,16 +6,46 @@ import { IoArrowForwardSharp } from 'react-icons/io5';
 
 const AlertBar = ({ alertText, alertLink }) => {
   return (
-    <Container theme={'alert'} background={true} size={'xx-large'}>
+    <div className="AlertBar_container">
       {alertLink ? (
-        <Link to={`/${alertLink}`} className="AlertBar_link_wrapper">
-          <p className="AlertBar_container_link">{alertText}</p>
-          <IoArrowForwardSharp />
-        </Link>
+        <>
+          <Link to={`/${alertLink}`} className="AlertBar_link">
+            <p className="AlertBar_content">
+              {alertText} <IoArrowForwardSharp />
+            </p>
+          </Link>
+          <Link
+            aria-hidden={true}
+            to={`/${alertLink}`}
+            className="AlertBar_link"
+          >
+            <p className="AlertBar_content">
+              {alertText} <IoArrowForwardSharp />
+            </p>
+          </Link>
+          <Link
+            aria-hidden={true}
+            to={`/${alertLink}`}
+            className="AlertBar_link"
+          >
+            <p className="AlertBar_content">
+              {alertText} <IoArrowForwardSharp />
+            </p>
+          </Link>
+          <Link
+            aria-hidden={true}
+            to={`/${alertLink}`}
+            className="AlertBar_link"
+          >
+            <p className="AlertBar_content">
+              {alertText} <IoArrowForwardSharp />
+            </p>
+          </Link>
+        </>
       ) : (
-        <p className="AlertBar_container">{alertText}</p>
+        <p className="AlertBar_text">{alertText}</p>
       )}
-    </Container>
+    </div>
   );
 };
 

@@ -132,14 +132,6 @@ export const ContenfulPage = graphql`
           }
         }
       }
-      ... on ContentfulExternalForm {
-        internal {
-          type
-        }
-        formUrl
-        openInNewTab
-        linkText
-      }
       ... on ContentfulContentBoxGroup {
         title
         ingress {
@@ -193,20 +185,34 @@ export const ContenfulPage = graphql`
             }
             linkToCustomUrl
           }
+        }
+      }
+      ... on ContentfulServiceBoxGroup {
+        title
+        ingress {
+          childMarkdownRemark {
+            html
+          }
+        }
+        internal {
+          type
+        }
+        services {
+          __typename
           ... on ContentfulServiceBox {
             internal {
               type
             }
-            serviceIcon {
-              file {
-                url
-              }
-            }
-            iconKey
+            # serviceIcon {
+            #   file {
+            #     url
+            #   }
+            # }
             serviceName
             # serviceInformation
             textColor
             backgroundColor
+            iconKey
             linkToInternalPage {
               slug
             }

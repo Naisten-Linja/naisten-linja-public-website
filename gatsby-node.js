@@ -173,13 +173,10 @@ exports.createSchemaCustomization = ({ actions }) => {
     union ContentfulPagesPageContent = ContentfulBlogPost
       | ContentfulContentBoxGroup
       | ContentfulServiceBoxGroup
-      | ContentfulExternalForm
       | ContentfulFullWidthImage
       | ContentfulGoogleFormsIframe
       | ContentfulOpenLetterForm
       | ContentfulParagraph
-      | ContentfulQuote
-
       | ContentfulVideo
       | ContentfulPagePreviewGrid
       | ContentfulPersonIntroductionGrid
