@@ -12,6 +12,10 @@
   padding: 1rem 0;
   --gap: 2rem;
 
+  &:hover {
+    text-decoration: underline;
+  }
+
   & .AlertBar_link,
   .AlertBar_text {
     flex-shrink: 0;
@@ -52,28 +56,6 @@
   }
   to {
     transform: translateX(calc(-100% - var(--gap)));
-  }
-}
-
-.AlertBar_link_wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  color: $white;
-
-  // svg {
-  //   width: 1.25rem;
-  //   height: 1.25rem;
-  //   min-width: fit-content;
-  // }
-}
-
-.AlertBar_container_link {
-  color: $white;
-  text-align: center;
-  &:hover {
-    text-decoration: underline;
   }
 }
 
