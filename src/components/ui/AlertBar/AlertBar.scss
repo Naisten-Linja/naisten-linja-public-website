@@ -2,7 +2,57 @@
 
 .AlertBar_container {
   color: $white;
-  text-align: center;
+  display: flex;
+  flex-flow: row nowrap;
+
+  overflow: hidden;
+  background-color: $black;
+
+  user-select: none;
+  padding: 1rem 0;
+  --gap: 2rem;
+
+  & .AlertBar_link,
+  .AlertBar_text {
+    flex-shrink: 0;
+    display: flex;
+    justify-content: space-around;
+    flex-flow: row nowrap;
+    gap: var(--gap);
+
+    margin: 0 2rem;
+    min-width: 100%;
+
+    animation-name: scroll;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-duration: 20s;
+
+    & .AlertBar_content {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+
+      svg {
+        min-width: 1.25rem;
+        width: 1.25rem;
+        height: 1.25rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      animation-play-state: paused !important;
+    }
+  }
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-100% - var(--gap)));
+  }
 }
 
 .AlertBar_link_wrapper {
@@ -12,11 +62,11 @@
   gap: 1rem;
   color: $white;
 
-  svg {
-    width: 1.25rem;
-    height: 1.25rem;
-    min-width: fit-content;
-  }
+  // svg {
+  //   width: 1.25rem;
+  //   height: 1.25rem;
+  //   min-width: fit-content;
+  // }
 }
 
 .AlertBar_container_link {
@@ -27,21 +77,4 @@
   }
 }
 
-// TODO: scrolling text
-// @media only screen and (max-width: 800px) {
-//   .AlertBar_link_wrapper {
-//     display: inline-block; /* Ensure the text is treated as a block for animation */
-//     white-space: nowrap; /* Prevent text from wrapping */
-//     overflow: hidden; /* Hide overflow text */
-//     animation: scrollText 10s linear infinite; /* Apply the animation */
-//   }
-
-//   @keyframes scrollText {
-//     0% {
-//       transform: translateX(-100%); /* Start from the right */
-//     }
-//     100% {
-//       transform: translateX(100%); /* Move to the left */
-//     }
-//   }
-// }
+// https://ryanmulligan.dev/blog/css-marquee/
