@@ -35,7 +35,7 @@ const Footer = ({
             <div className="Footer_naisten_linja_logo">
               <Link to="/">
                 {' '}
-                <img src="/images/Naisten_Linja.svg" alt="" />
+                <img src="/images/Naisten_Linja.svg" alt="Siirry etusivulle" />
               </Link>
             </div>
             {/* <button className="Footer_scrolltotop">
@@ -54,22 +54,22 @@ const Footer = ({
                 )}
               </div>
               <div className="Footer_socials">
-                <a href={facebook}>
+                <a aria-label="Avaa Naisten Linjan Facebook" href={facebook}>
                   <FaFacebook />
                 </a>
-                <a href={instagram}>
+                <a aria-label="Avaa Naisten Linjan Instagram" href={instagram}>
                   <FaInstagram />
                 </a>
-                <a href={twitterX}>
+                <a aria-label="Avaa Naisten Linjan Threads" href={twitterX}>
                   <FaThreads />
                 </a>
-                <a href={linkedIn}>
+                <a aria-label="Avaa Naisten Linjan Linkedin" href={linkedIn}>
                   <FaLinkedin />
                 </a>
-                <a href={youtube}>
+                <a aria-label="Avaa Naisten Linjan Youtube" href={youtube}>
                   <FaYoutube />
                 </a>
-                <a href={tikTok}>
+                <a aria-label="Avaa Naisten Linjan TikTok" href={tikTok}>
                   <FaTiktok />
                 </a>
               </div>

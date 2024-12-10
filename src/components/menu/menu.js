@@ -54,7 +54,7 @@ const Menu = ({ lang }) => {
           <div className="logo">
             <Link to="/">
               {' '}
-              <img src="/images/Naisten_Linja.svg" alt="" />
+              <img src="/images/Naisten_Linja.svg" alt="Siirry etusivulle" />
             </Link>
           </div>
           <ul className="services">
@@ -96,7 +96,11 @@ const Menu = ({ lang }) => {
             {/* TODO: Tähän CTA nappi sit kun valmistuu */}
             <Link to={`/${cta.slug}`}>{cta.pageName}</Link>
           </div>
-          <button className="menu-icon" onClick={() => setIsOpen(!isOpen)}>
+          <button
+            aria-label={isOpen ? 'Close menu' : 'Open menu'}
+            className="menu-icon"
+            onClick={() => setIsOpen(!isOpen)}
+          >
             {isOpen ? <IoMdClose /> : <IoMdMenu />}
           </button>
         </div>
