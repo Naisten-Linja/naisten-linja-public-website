@@ -1,19 +1,19 @@
-@import '../../../scss/grid.scss';
+// @import '../../../scss/grid.scss';
 
-.ReadMore {
-  padding: 0 21px;
-  font-size: 25px;
-  line-height: 28px;
-  font-weight: normal;
+// .ReadMore {
+//   padding: 0 21px;
+//   font-size: 25px;
+//   line-height: 28px;
+//   font-weight: normal;
 
-  .image-col {
-    text-align: center;
-    img {
-      max-width: 40%;
-      height: auto;
-      @include media-breakpoint-up(md) {
-        max-width: 100%;
-      }
-    }
-  }
-}
+//   .image-col {
+//     text-align: center;
+//     img {
+//       max-width: 40%;
+//       height: auto;
+//       @include media-breakpoint-up(md) {
+//         max-width: 100%;
+//       }
+//     }
+//   }
+// }

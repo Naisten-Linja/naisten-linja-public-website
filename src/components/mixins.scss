@@ -1,19 +1,19 @@
-@mixin layout-container-mixin {
-  max-width: 100%;
-  width: map-get($container-max-widths, md);
-  margin: 0 auto;
+// @mixin layout-container-mixin {
+//   max-width: 100%;
+//   width: map-get($container-max-widths, md);
+//   margin: 0 auto;
 
-  @include media-breakpoint-up(lg) {
-    width: map-get($container-max-widths, lg);
-  }
+//   @include media-breakpoint-up(lg) {
+//     width: map-get($container-max-widths, lg);
+//   }
 
-  @include media-breakpoint-up(xl) {
-    width: map-get($container-max-widths, xl);
-  }
-}
+//   @include media-breakpoint-up(xl) {
+//     width: map-get($container-max-widths, xl);
+//   }
+// }
 
-@mixin sansita-font {
-  font-family: 'Sansita';
-  font-weight: 800;
-  font-style: italic;
-}
+// @mixin sansita-font {
+//   font-family: 'Sansita';
+//   font-weight: 800;
+//   font-style: italic;
+// }
