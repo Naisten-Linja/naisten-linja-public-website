@@ -22,6 +22,8 @@ const CtaButton = ({
       ) : (
         <a
           href={linkToCustomUrl?.url}
+          target="_blank"
+          rel="noopener noreferrer"
           className={`CtaButton_container ${secondary ? 'secondary' : ''}`}
         >
           {ctaLabel ? ctaLabel : linkToCustomUrl?.label}
