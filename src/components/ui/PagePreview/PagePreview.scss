@@ -6,6 +6,12 @@
   gap: 2rem;
   margin-bottom: 1rem;
 
+  .PagePreviewGrid_ingress {
+    p {
+      margin: 1rem 0;
+    }
+  }
+
   .page-preview-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
