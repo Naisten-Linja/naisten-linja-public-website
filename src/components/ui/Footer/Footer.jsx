@@ -9,9 +9,8 @@ import {
   FaTiktok,
 } from 'react-icons/fa';
 import { FaThreads } from 'react-icons/fa6';
-import { BsArrowUpCircleFill } from 'react-icons/bs';
-import Container from '../utils/Container/Container';
 import ExternalLinkIcon from '../../icons/externalLink';
+import ScrollToTop from '../utils/ScrollToTop/ScrollToTop';
 
 const Footer = ({
   onClick,
@@ -38,9 +37,7 @@ const Footer = ({
                 <img src="/images/Naisten_Linja.svg" alt="Siirry etusivulle" />
               </Link>
             </div>
-            {/* <button className="Footer_scrolltotop">
-              <BsArrowUpCircleFill />
-              </button> */}
+            <ScrollToTop />
           </div>
           <div className="Footer_main_content">
             <div className="Footer_contacts">
