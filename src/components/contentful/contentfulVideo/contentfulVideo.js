@@ -2,51 +2,33 @@ import React from 'react';
 import ReactPlayer from 'react-player/lazy';
 import '../../../scss/grid.scss';
 import './contentfulVideo.scss';
+import Container from '../../ui/utils/Container/Container';
 
 const ContentfulVideo = ({ content }) => {
   return (
-    <section className="full-width-section">
-      <div className="Video layout-container">
-        {!!content.videoTitle && content.videoTitle !== '' && (
-          <div className="row">
+    <Container size={'xx-large'}>
+      <div className="Video">
+        <div className="Video_text">
+          {!!content.videoTitle && content.videoTitle !== '' && (
             <h2>{content.videoTitle}</h2>
-          </div>
-        )}
-        <div className="container-flex-column">
-          {!!content.videoTopDescription && content.videoTopDescription !== '' && (
-            <div className="col-xs-12 p-0">
-              <div
-                dangerouslySetInnerHTML={{
-                  __html: content.videoTopDescription.childMarkdownRemark.html,
-                }}
-              ></div>
-            </div>
           )}
-
-          <div className="col-xs-12 p-0 video-player-container">
-            <ReactPlayer
-              width="100%"
-              height="100%"
-              className="react-player"
-              url={content.videoUrl}
-              controls={false}
-            />
-          </div>
-
-          {!!content.videoBottomDescription &&
-            content.videoBottomDescription !== '' && (
-              <div className="col-xs-12 p-0">
-                <div
-                  dangerouslySetInnerHTML={{
-                    __html:
-                      content.videoBottomDescription.childMarkdownRemark.html,
-                  }}
-                ></div>
-              </div>
-            )}
+          {!!content.videoTopDescription && content.videoTopDescription !== '' && (
+            <div
+              dangerouslySetInnerHTML={{
+                __html: content.videoTopDescription.childMarkdownRemark.html,
+              }}
+            ></div>
+          )}
         </div>
+        <ReactPlayer
+          width="100%"
+          height="100%"
+          className="react-player"
+          url={content.videoUrl}
+          controls={false}
+        />
       </div>
-    </section>
+    </Container>
   );
 };
 

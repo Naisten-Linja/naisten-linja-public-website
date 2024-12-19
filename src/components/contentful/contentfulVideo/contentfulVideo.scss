@@ -1,34 +1,18 @@
 @import '../../../scss/grid.scss';
 
 .Video {
-  padding: 0 21px;
-  margin-bottom: 50px;
-  font-size: 25px;
-  line-height: 28px;
-  font-weight: normal;
+  display: grid;
+  gap: 2rem;
 
-  .video-player-container {
-    width: 100%;
-    max-width: 650px;
-    height: auto; // Reset height
-    margin: 0 auto;
-    margin-bottom: 25px;
-    text-align: center;
-    overflow: hidden;
-    border: 5px solid #ffffff;
+  .Video_text {
+    display: grid;
+    gap: 1rem;
   }
-
-  .container-flex-column {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-  }
-
   .react-player {
     width: 100%;
     margin: 0 auto;
-    padding-top: 56.25%; 
-    position: relative; 
+    padding-top: 56.25%;
+    position: relative;
   }
 
   .react-player > div {
