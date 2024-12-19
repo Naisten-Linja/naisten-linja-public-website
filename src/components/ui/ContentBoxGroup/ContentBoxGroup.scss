@@ -6,6 +6,12 @@
   display: grid;
   gap: 1rem;
 
+  .ContentBoxGroup_ingress {
+    p {
+      margin: 1rem 0;
+    }
+  }
+
   .ContentBoxGroup_grid {
     display: grid;
     align-items: start;

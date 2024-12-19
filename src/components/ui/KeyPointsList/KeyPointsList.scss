@@ -18,9 +18,11 @@
     align-items: start;
     gap: 1rem;
 
-    // .KeyPointsList_button {
-    //   order: 0;
-    // }
+    .KeyPointsList_ingress {
+      p {
+        margin: 1rem 0;
+      }
+    }
   }
   .KeyPointsList_right {
     display: grid;

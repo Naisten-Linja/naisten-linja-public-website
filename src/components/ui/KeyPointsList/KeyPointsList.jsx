@@ -19,7 +19,12 @@ const KeyPointsList = ({
       <div className="KeyPointsList_container">
         <div className="KeyPointsList_left">
           {title && <h2 className="">{title}</h2>}
-          {ingress && <div dangerouslySetInnerHTML={{ __html: ingress }} />}
+          {ingress && (
+            <div
+              className="KeyPointsList_ingress"
+              dangerouslySetInnerHTML={{ __html: ingress }}
+            />
+          )}
           {button && button}
         </div>
         <ul className={`KeyPointsList_right ${theme}`}>

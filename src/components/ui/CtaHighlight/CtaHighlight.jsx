@@ -11,7 +11,12 @@ const CtaHighlight = ({ title, text, imageUrl, primaryCta, secondaryCta }) => {
       <Container size={'large'}>
         <div className="CtaHighlight_text_content">
           {title && <h2 className="">{title}</h2>}
-          {text && <div dangerouslySetInnerHTML={{ __html: text }} />}
+          {text && (
+            <div
+              className="CtaHighlight_text"
+              dangerouslySetInnerHTML={{ __html: text }}
+            />
+          )}
           <div className="CtaHighlight_cta_container">
             {primaryCta && primaryCta}
             {secondaryCta && secondaryCta}

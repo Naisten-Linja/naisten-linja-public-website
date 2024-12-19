@@ -16,7 +16,12 @@ const ContentBoxGroup = ({
     <Container backgroundColor={backgroundColor} theme={''} size={'large'}>
       <div className="ContentBoxGroup_container">
         {title && <h2 className="">{title}</h2>}
-        {ingress && <div dangerouslySetInnerHTML={{ __html: ingress }} />}
+        {ingress && (
+          <div
+            className="ContentBoxGroup_ingress"
+            dangerouslySetInnerHTML={{ __html: ingress }}
+          />
+        )}
         <div className="ContentBoxGroup_grid">
           {contentBoxes?.map((content, idx) => (
             <ContentBox {...content} showImages={showImages} key={idx} />
