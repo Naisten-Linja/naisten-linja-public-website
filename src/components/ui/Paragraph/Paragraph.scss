@@ -68,7 +68,21 @@
   }
 
   blockquote {
-    // background-color: $persikka;
+    position: relative;
+    padding-left: 2.5rem; // Add some padding to make space for the quote sign
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1.5rem; // Adjust width as needed
+      height: 1.5rem; // Adjust height as needed
+      background-image: url('../../../images/IoMdQuote.svg'); // Path to your SVG
+      background-size: contain; // Ensure the SVG fits within the dimensions
+      background-repeat: no-repeat; // Prevent repeating the SVG
+    }
+
     p {
       display: grid;
       cite {
