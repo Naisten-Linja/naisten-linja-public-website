@@ -38,8 +38,8 @@ module.exports = {
         name: `naisten-linja-public-website`,
         short_name: `Naisten Linja`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: `white`,
+        theme_color: `white`,
         display: `minimal-ui`,
         icon: `src/images/naisten-linja.svg`, // This path is relative to the root of the site.
       },
