@@ -41,7 +41,7 @@ module.exports = {
         background_color: `white`,
         theme_color: `white`,
         display: `minimal-ui`,
-        icon: `src/images/naisten-linja.svg`, // This path is relative to the root of the site.
+        icon: `src/images/favicon2.svg`, // This path is relative to the root of the site.
       },
     },
     {
