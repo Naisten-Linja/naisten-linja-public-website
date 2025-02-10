@@ -20,7 +20,7 @@ module.exports = {
     title: `Naisten Linja`,
     description: `Maksutonta tukea ja neuvontaa väkivaltaa kokeneille naisille, tytöille ja heidän läheisilleen.`,
     url: 'https://naistenlinja.fi',
-    image: '/images/NaistenLinja.png',
+    image: '/images/Logotapetti.png',
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
