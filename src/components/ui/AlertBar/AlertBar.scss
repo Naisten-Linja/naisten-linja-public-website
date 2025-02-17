@@ -4,6 +4,7 @@
   color: $white;
   display: flex;
   flex-flow: row nowrap;
+  justify-content: center;
 
   overflow: hidden;
   background-color: $black;
@@ -27,11 +28,6 @@
     margin: 0 2rem;
     min-width: 100%;
 
-    animation-name: scroll;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-duration: 20s;
-
     & .AlertBar_content {
       display: flex;
       align-items: center;
@@ -47,6 +43,12 @@
     @media (prefers-reduced-motion: reduce) {
       animation-play-state: paused !important;
     }
+  }
+  & .scroll_animation {
+    animation-name: scroll;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-duration: 15s;
   }
 }
 

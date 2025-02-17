@@ -10,16 +10,6 @@ import UpdateInfo from './ui/UpdateInfo/UpdateInfo';
 import TableOfContents from './ui/TableOfContents/TableOfContents';
 import AlertBar from './ui/AlertBar/AlertBar';
 
-// const scrollToTop = () => {
-//   window ??
-//     window.scrollTo({
-//       top: 0,
-//       behavior: 'smooth',
-//     });
-// };
-
-// scrollToTop();
-
 const Layout = ({
   children,
   lang,
