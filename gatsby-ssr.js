@@ -16,5 +16,6 @@ export const onRenderBody = ({ setPostBodyComponents, setHeadComponents }) => {
       charSet="UTF-8"
       type="text/javascript"
     />,
+    <script src="https://lahjoita.naistenlinja.fi/libs.iraiser.eu/libs/payment/frame/1.5/IRaiserFrame.js"></script>,
   ]);
 };
