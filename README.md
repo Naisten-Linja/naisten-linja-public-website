@@ -40,15 +40,15 @@ There are plans to make this automatic, but because of the time limits, we haven
 
 ## Environments and configuration in Heroku
 
-|                         | Production                 | Development                       | Preview                           |
+|                         | Production                 | Development                       | Preview (removed)                 |
 | ----------------------- | -------------------------- | --------------------------------- | --------------------------------- |
 | URL address             | https://naistenlinja.fi    | https://dev.naistenlinja.fi       | https://preview.naistenlinja.fi   |
 | Heroku application name | naisten-linja-production   | naistenlinja-dev                  | naisten-linja-preview             |
-| Git branch              | production                 | dev                               | production                        |
+| Git branch              | production                 | dev-preview                       | production                        |
 | NODE_ENV (important)    | production                 | production                        | development                       |
 | How it is served        | Nginx serving static build | Nginx serving static build + auth | `gatsby develop` + Nginx for auth |
 | Contentful environment  | master                     | master                            | master                            |
-| Contentful API          | cdn.contentful.com         | cdn.contentful.com                | preview.contentful.com            |
+| Contentful API          | cdn.contentful.com         | preview.contentful.com            | preview.contentful.com            |
 
 In all environments Heroku should have buildpacks `nodejs` and `heroku-buildpack-nginx`.
 
