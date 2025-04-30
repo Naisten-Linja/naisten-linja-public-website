@@ -7,6 +7,7 @@ import ContentfulComponents from '../components/contentful/contentfulComponents'
 // Although we're not using pageQueryBySlug, the queries file need to be imported so ContentfulPageFragment is available inside pageQuery.
 // eslint-disable-next-line no-unused-vars
 import { pageQueryBySlug } from '../queries';
+import Container from '../components/ui/utils/Container/Container';
 
 const PageTemplate = ({ data }) => {
   const {
@@ -90,8 +91,11 @@ const PageTemplate = ({ data }) => {
         theme={theme}
         pageContent={data.contentfulPages.pageContent}
       ></ContentfulComponents>
+
       {pageName === 'Evästeseloste' && (
-        <div className="layout-container" ref={targetRef}></div>
+        <Container size={'xx-large'}>
+          <div className="layout-container" ref={targetRef}></div>
+        </Container>
       )}
     </Layout>
   );

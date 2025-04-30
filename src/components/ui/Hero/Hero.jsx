@@ -52,8 +52,8 @@ const Hero = (props) => {
           {heroServiceLinks && (
             <div className="buttons">
               {heroServiceLinks &&
-                heroServiceLinks.map((service) => (
-                  <>
+                heroServiceLinks.map((service, i) => (
+                  <div key={i}>
                     {service.linkToCustomUrl ? (
                       <a
                         target="_blank"
@@ -68,7 +68,7 @@ const Hero = (props) => {
                         {service.serviceName} <IoArrowForwardSharp />
                       </Link>
                     ) : null}
-                  </>
+                  </div>
                 ))}
             </div>
           )}
