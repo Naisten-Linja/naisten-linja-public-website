@@ -1,5 +1,4 @@
-@import '../../styles/variables';
-@import '../../styles/variables';
+@use '../../styles/variables' as *;
 
 .ContentBox_container {
   display: grid;

@@ -1,4 +1,5 @@
-@import '../../styles/styles.scss';
+@use '../../styles/variables' as *;
+
 .PersonIntroductionGrid_container {
   display: grid;
   gap: 2rem;

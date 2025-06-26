@@ -29,6 +29,10 @@ module.exports = {
     {
       resolve: `gatsby-plugin-sass`,
       options: {
+        sassOptions: {
+          api: 'modern',
+          silenceDeprecations: ['legacy-js-api'],
+        },
         implementation: require('sass'),
       },
     },

@@ -1,4 +1,4 @@
-@import '../../styles/variables';
+@use '../../styles/variables' as *;
 
 .ContentBoxGroup_container {
   background-color: white;
@@ -26,4 +26,4 @@
       grid-template-columns: 1fr;
     }
   }
-} ;
+}

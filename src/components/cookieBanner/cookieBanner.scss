@@ -1,5 +1,5 @@
-@import '../../scss/grid.scss';
-@import '../mixins.scss';
+@use '../../scss/grid.scss';
+@use '../mixins.scss';
 
 .cookie-banner {
   color: #2e303a;
