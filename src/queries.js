@@ -364,6 +364,11 @@ export const ContenfulPage = graphql`
       ... on ContentfulPersonIntroductionGrid {
         title
         listView
+        ingress {
+          childMarkdownRemark {
+            html
+          }
+        }
         internal {
           type
         }

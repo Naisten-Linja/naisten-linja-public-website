@@ -6,7 +6,11 @@ const ContentfulPersonIntroductionGrid = ({ content }) => {
   const personIntroductions = content.personIntroductions;
 
   return (
-    <PersonIntroductionGrid title={content.title} listView={content.listView}>
+    <PersonIntroductionGrid
+      title={content.title}
+      ingress={content.ingress}
+      listView={content.listView}
+    >
       {personIntroductions?.map((person, index) => (
         <PersonIntroductionCard key={index} {...person} />
       ))}
