@@ -43,7 +43,9 @@ const ContentBox = ({
           ''
         ) : (
           <div className="ContentBox__image">
-            {showImages && image && <img src={image.file.url} alt={''} />}
+            {showImages && image && (
+              <img src={image.file.url + '?fm=webp&q=90&h=300'} alt={''} />
+            )}
             {showImages && !image && (
               <img src={'/images/placeholder.png'} alt="" />
             )}

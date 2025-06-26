@@ -22,7 +22,7 @@ const ImageAndText = ({
         </div>
         {imageUrl && (
           <div className={`ImageAndText_image ${imageDecoration ? theme : ''}`}>
-            <img src={imageUrl} alt={''} />
+            <img src={imageUrl + '?fm=webp&q=90&h=600'} alt={''} />
             {/* {imageDecoration && theme && ImageDecorationRight} */}
             {imageDecoration && theme && <ImageDecorationRight />}
           </div>

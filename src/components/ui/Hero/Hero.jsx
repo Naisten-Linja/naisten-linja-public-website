@@ -21,7 +21,13 @@ const Hero = (props) => {
   return (
     <div
       className={`Hero ${theme}`}
-      style={heroImage && { backgroundImage: `url( ${heroImage.file.url})` }}
+      style={
+        heroImage && {
+          backgroundImage: `url( ${
+            heroImage.file.url + '?fm=webp&q=95&h=700'
+          })`,
+        }
+      }
     >
       <div className="wave">
         <Wave />

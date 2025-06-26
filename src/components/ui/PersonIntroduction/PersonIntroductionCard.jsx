@@ -13,7 +13,10 @@ const PersonIntroductionCard = ({
     <div className="person-introduction-card">
       <div className="person-introduction-card-image">
         <img
-          src={personPicture?.file?.url ?? '/images/placeholder.png'}
+          src={
+            personPicture?.file?.url + '?fm=webp&q=95&h=500' ??
+            '/images/placeholder.png'
+          }
           alt={personName}
         />
       </div>

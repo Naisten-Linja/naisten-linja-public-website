@@ -12,7 +12,10 @@ const ContentfulFullWidthImage = ({ content }) => {
           </div>
         )}
         <div className="row">
-          <img src={content.image?.file.url} alt={altText} />
+          <img
+            src={content.image?.file.url + '?fm=jpg&q=90&h=700'}
+            alt={altText}
+          />
         </div>
       </div>
     </section>

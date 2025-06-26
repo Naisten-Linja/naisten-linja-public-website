@@ -6,7 +6,7 @@ const CtaHighlight = ({ title, text, imageUrl, primaryCta, secondaryCta }) => {
   return (
     <div
       className="CtaHighlight_container"
-      style={{ backgroundImage: `url( ${imageUrl})` }}
+      style={{ backgroundImage: `url( ${imageUrl + '?fm=webp&q=95&h=800'})` }}
     >
       <Container size={'large'}>
         <div className="CtaHighlight_text_content">

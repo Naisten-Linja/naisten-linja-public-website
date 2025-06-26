@@ -14,7 +14,10 @@ const PagePreviewCard = ({
     <Link className="page-preview-card" to={`/${slug}`}>
       <div className="page-preview-card-image">
         <img
-          src={ogImage?.file?.url ?? '/images/placeholder.png'}
+          src={
+            ogImage?.file?.url + '?fm=webp&q=90&h=300' ??
+            '/images/placeholder.png'
+          }
           alt={pageName}
         />
       </div>
