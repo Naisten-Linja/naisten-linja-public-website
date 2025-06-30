@@ -1,5 +1,6 @@
 import React from 'react';
 import './PersonIntroduction.scss';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
 const PersonIntroductionCard = ({
   personName,
@@ -9,16 +10,11 @@ const PersonIntroductionCard = ({
   email,
   title,
 }) => {
+  const img = getImage(personPicture?.gatsbyImageData);
   return (
     <div className="person-introduction-card">
       <div className="person-introduction-card-image">
-        <img
-          src={
-            personPicture?.file?.url + '?fm=webp&q=95&h=500' ??
-            '/images/placeholder.png'
-          }
-          alt={personName}
-        />
+        <GatsbyImage image={img} alt={personName} />
       </div>
       <div>
         <div className="person-introduction-card-content-container">

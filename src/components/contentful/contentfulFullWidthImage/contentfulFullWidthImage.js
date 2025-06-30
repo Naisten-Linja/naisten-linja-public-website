@@ -1,8 +1,11 @@
 import React from 'react';
 import './contentfulFullWidthImage.scss';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
 const ContentfulFullWidthImage = ({ content }) => {
   const altText = content.imageTitle || '';
+  const img = getImage(content?.image?.gatsbyImageData);
+  console.log(content);
   return (
     <section className="full-width-section">
       <div className="FullWidthImage layout-container">
@@ -12,10 +15,7 @@ const ContentfulFullWidthImage = ({ content }) => {
           </div>
         )}
         <div className="row">
-          <img
-            src={content.image?.file.url + '?fm=jpg&q=90&h=700'}
-            alt={altText}
-          />
+          <GatsbyImage image={img} alt={altText} />
         </div>
       </div>
     </section>

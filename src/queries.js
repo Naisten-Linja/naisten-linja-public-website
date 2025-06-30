@@ -101,6 +101,12 @@ export const ContenfulPage = graphql`
         showTitle
         image {
           description
+          gatsbyImageData(
+            width: 600
+            quality: 80
+            placeholder: BLURRED
+            formats: [AUTO, WEBP]
+          )
           file {
             url
           }
@@ -353,6 +359,12 @@ export const ContenfulPage = graphql`
             seoTitle
             seoDescription
             ogImage {
+              gatsbyImageData(
+                width: 600
+                quality: 80
+                placeholder: BLURRED
+                formats: [AUTO, WEBP]
+              )
               file {
                 url
               }
@@ -384,6 +396,12 @@ export const ContenfulPage = graphql`
               }
             }
             personPicture {
+              gatsbyImageData(
+                width: 600
+                quality: 80
+                placeholder: BLURRED
+                formats: [AUTO, WEBP]
+              )
               file {
                 url
               }
