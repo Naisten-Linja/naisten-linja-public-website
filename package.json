@@ -14,7 +14,6 @@
     "@uiw/react-md-editor": "^3.25.6",
     "dotenv": "^16.4.5",
     "gatsby": "^5.0.0",
-
     "gatsby-plugin-google-tagmanager": "^5.14.0",
     "gatsby-plugin-image": "^3.14.0",
     "gatsby-plugin-manifest": "^5.14.0",
@@ -22,6 +21,7 @@
     "gatsby-plugin-react-helmet": "^6.14.0",
     "gatsby-plugin-sass": "^6.14.0",
     "gatsby-plugin-sharp": "^5.14.0",
+    "gatsby-plugin-sitemap": "^6.14.0",
     "gatsby-source-contentful": "^8.15.0",
     "gatsby-transformer-remark": "^6.14.0",
     "gatsby-transformer-sharp": "^5.14.0",
@@ -40,7 +40,10 @@
     "heroku-client": "^3.1.0",
     "prettier": "^2.8.8",
     "sass": "^1.80.6"
-  }, "optionalDependencies": {"@parcel/watcher-linux-x64-glibc":"2.5.0"},
+  },
+  "optionalDependencies": {
+    "@parcel/watcher-linux-x64-glibc": "2.5.0"
+  },
   "keywords": [
     "gatsby"
   ],
