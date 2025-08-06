@@ -15,6 +15,7 @@ dotenv.config({
   path: `.envrc`,
 });
 
+const siteUrl = `https://naistenlinja.fi`;
 module.exports = {
   siteMetadata: {
     title: `Naisten Linja`,
@@ -27,7 +28,48 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
-    `gatsby-plugin-sitemap`,
+    {
+      resolve: 'gatsby-plugin-sitemap',
+      options: {
+        query: `
+    {
+        allSitePage {
+          nodes {
+            path
+          }
+        }
+        allContentfulPages {
+          nodes {
+            slug
+            updatedAt
+          }
+        }
+      }
+      `,
+        resolveSiteUrl: () => siteUrl,
+        resolvePages: ({
+          allSitePage: { nodes: allPages },
+          allContentfulPages: { nodes: allCPages },
+        }) => {
+          const contentfulMap = allCPages.reduce((acc, node) => {
+            const { slug } = node;
+            acc[`/${slug}/`] = node;
+
+            return acc;
+          }, {});
+
+          return allPages.map((page) => {
+            return { ...page, ...contentfulMap[page.path] };
+          });
+        },
+        serialize: ({ path, updatedAt }) => {
+          return {
+            url: path,
+            lastmod: updatedAt,
+          };
+        },
+      },
+    },
     {
       resolve: `gatsby-plugin-sass`,
       options: {
