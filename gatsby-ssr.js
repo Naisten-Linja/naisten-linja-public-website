@@ -8,6 +8,10 @@ export const onRenderBody = ({ setPostBodyComponents, setHeadComponents }) => {
       name="facebook-domain-verification"
       content="8lnrf1d0ch8i4fqblko7e0iibhafpc"
     />,
+    <script
+      src="https://lahjoita.naistenlinja.fi/libs.iraiser.eu/libs/payment/frame/1.5/IRaiserFrame.js"
+      type="text/javascript"
+    ></script>,
   ]);
   setPostBodyComponents([
     <script
@@ -16,9 +20,5 @@ export const onRenderBody = ({ setPostBodyComponents, setHeadComponents }) => {
       charSet="UTF-8"
       type="text/javascript"
     />,
-    <script
-      src="https://lahjoita.naistenlinja.fi/libs.iraiser.eu/libs/payment/frame/1.5/IRaiserFrame.js"
-      type="text/javascript"
-    ></script>,
   ]);
 };
