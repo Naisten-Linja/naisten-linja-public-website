@@ -51,6 +51,19 @@ const PageTemplate = ({ data }) => {
     [cookiebotId],
   );
 
+  const iRaiserRef = useCallback((node) => {
+    if (!node || typeof window === 'undefined') return;
+
+    // Prevent duplicates
+    if (document.querySelector("script[src*='IRaiserFrame.js']")) return;
+
+    const script = document.createElement('script');
+    script.src =
+      'https://lahjoita.naistenlinja.fi/libs.iraiser.eu/libs/payment/frame/1.5/IRaiserFrame.js';
+    script.async = true;
+    document.body.appendChild(script);
+  }, []);
+
   const hero = {
     pageName,
     heroTitle,
@@ -71,8 +84,6 @@ const PageTemplate = ({ data }) => {
     alertText,
   };
 
-  // console.log('alert full: ', alert);
-
   return (
     <Layout
       hero={hero}
@@ -80,6 +91,7 @@ const PageTemplate = ({ data }) => {
       lang={pageLanguage}
       showTableOfContents={showTableOfContents}
       alert={alert}
+      ref={iRaiserRef}
     >
       <Seo
         title={seoTitle || pageName}
