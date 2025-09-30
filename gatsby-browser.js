@@ -12,6 +12,5 @@ export const onRouteUpdate = () => {
 
   const script = document.createElement('script');
   script.src = IRASER_SRC;
-  script.async = true;
-  document.body.appendChild(script);
+  document.head.appendChild(script);
 };
