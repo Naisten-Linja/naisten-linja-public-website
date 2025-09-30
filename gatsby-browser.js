@@ -1,16 +1,12 @@
 // gatsby-browser.js
-const IRASER_SRC =
-  'https://lahjoita.naistenlinja.fi/libs.iraiser.eu/libs/payment/frame/1.5/IRaiserFrame.js';
-
 export const onRouteUpdate = () => {
+  if (typeof window === 'undefined') return;
+
+  // Ensure the placeholder <a href="...#iraiser_native"> is already in the DOM
   const link = document.querySelector('a[href*="#iraiser_native"]');
-  if (!link) return; // only inject if placeholder is present
+  if (!link) return;
 
-  // remove existing script if already there
-  const old = document.querySelector(`script[src^="${IRASER_SRC}"]`);
-  if (old) old.remove();
-
-  const script = document.createElement('script');
-  script.src = IRASER_SRC;
-  document.head.appendChild(script);
+  // Manually trigger a window load event so iRaiser re-initializes
+  const event = new Event('load');
+  window.dispatchEvent(event);
 };
