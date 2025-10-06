@@ -70,6 +70,7 @@ module.exports = {
         },
       },
     },
+
     {
       resolve: `gatsby-plugin-sass`,
       options: {
@@ -112,7 +113,20 @@ module.exports = {
         // GitHub Flavored Markdown mode (default: true)
         gfm: true,
         // Plugins configs
-        plugins: [],
+        plugins: [
+          {
+            resolve: `gatsby-remark-images-contentful`,
+            options: {
+              maxWidth: 1200, // page content width
+              quality: 70, // default quality
+              withWebp: true, // WebP variants
+              loading: 'lazy', // lazy load
+              linkImagesToOriginal: false,
+              backgroundColor: 'transparent',
+              showCaptions: ['title', 'alt'],
+            },
+          },
+        ],
       },
     },
     {
