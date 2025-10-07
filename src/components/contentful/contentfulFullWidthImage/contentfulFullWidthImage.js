@@ -5,7 +5,6 @@ import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 const ContentfulFullWidthImage = ({ content }) => {
   const altText = content.imageTitle || '';
   const img = getImage(content?.image?.gatsbyImageData);
-  console.log(content);
   return (
     <section className="full-width-section">
       <div className="FullWidthImage layout-container">
@@ -15,7 +14,9 @@ const ContentfulFullWidthImage = ({ content }) => {
           </div>
         )}
         <div className="row">
-          <GatsbyImage image={img} alt={altText} />
+          {img ? (
+            <GatsbyImage image={img} alt={altText} />
+          ) : null}
         </div>
       </div>
     </section>

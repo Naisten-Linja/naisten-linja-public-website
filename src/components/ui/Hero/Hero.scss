@@ -1,4 +1,4 @@
-@import '../../styles/variables';
+@use '../../styles/variables' as *;
 .Hero {
   margin-top: 6rem;
   background-color: $ruis;
