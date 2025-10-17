@@ -102,7 +102,7 @@ export const ContenfulPage = graphql`
         image {
           description
           gatsbyImageData(
-            width: 600
+            width: 1200
             quality: 80
             placeholder: BLURRED
             formats: [AUTO, WEBP]
