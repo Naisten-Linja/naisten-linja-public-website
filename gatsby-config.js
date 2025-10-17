@@ -117,13 +117,13 @@ module.exports = {
           {
             resolve: `gatsby-remark-images-contentful`,
             options: {
-              maxWidth: 1200, // page content width
-              quality: 70, // default quality
+              maxWidth: 800, // page content width
+              quality: 65, // default quality
               withWebp: true, // WebP variants
               loading: 'lazy', // lazy load
               linkImagesToOriginal: false,
               backgroundColor: 'transparent',
-              showCaptions: ['title', 'alt'],
+              showCaptions: false,
             },
           },
         ],
