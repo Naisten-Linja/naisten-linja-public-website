@@ -8,6 +8,7 @@ import ContentfulComponents from '../components/contentful/contentfulComponents'
 // eslint-disable-next-line no-unused-vars
 import { pageQueryBySlug } from '../queries';
 import Container from '../components/ui/utils/Container/Container';
+import { SpreadshopEmbed } from '../components/spreadshopEmbed';
 
 const PageTemplate = ({ data }) => {
   const {
@@ -85,6 +86,7 @@ const PageTemplate = ({ data }) => {
         previewImage={ogImage}
         lang={pageLanguage}
       />
+      {pageName === 'Kauppa' && <SpreadshopEmbed />}
       <ContentfulComponents
         theme={theme}
         pageContent={data.contentfulPages.pageContent}
