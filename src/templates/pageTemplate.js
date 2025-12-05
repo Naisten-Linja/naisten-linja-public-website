@@ -86,7 +86,10 @@ const PageTemplate = ({ data }) => {
         previewImage={ogImage}
         lang={pageLanguage}
       />
-      {pageName === 'Kauppa' && <SpreadshopEmbed />}
+      {pageName === 'Kauppa' && <SpreadshopEmbed shopId="naistenlinja" />}
+      {pageName === 'Opiskelijakauppa' && (
+        <SpreadshopEmbed shopId="naistenlinjan-opiskelijakauppa" />
+      )}
       <ContentfulComponents
         theme={theme}
         pageContent={data.contentfulPages.pageContent}
