@@ -10,7 +10,14 @@ import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
 
-function Seo({ description, lang, meta, title, previewImage }) {
+function Seo({
+  description,
+  lang,
+  meta,
+  title,
+  previewImage,
+  canonicalPath,
+}) {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -39,6 +46,12 @@ function Seo({ description, lang, meta, title, previewImage }) {
   const metaImageAlt = previewImage
     ? previewImage.title
     : `${site.siteMetadata.title}`;
+
+  const canonicalUrl =
+    canonicalPath && site.siteMetadata.url
+      ? `${site.siteMetadata.url}${canonicalPath}`
+      : null;
+
   return (
     <Helmet
       htmlAttributes={{
@@ -77,6 +90,16 @@ function Seo({ description, lang, meta, title, previewImage }) {
           content: 'fi_FI',
         },
       ].concat(meta)}
+      link={
+        canonicalUrl
+          ? [
+              {
+                rel: 'canonical',
+                href: canonicalUrl,
+              },
+            ]
+          : []
+      }
     />
   );
 }
@@ -92,6 +115,7 @@ Seo.propTypes = {
   lang: PropTypes.string,
   meta: PropTypes.arrayOf(PropTypes.object),
   title: PropTypes.string.isRequired,
+  canonicalPath: PropTypes.string,
 };
 
 export default Seo;

@@ -45,6 +45,7 @@ const IndexPage = ({ data }) => {
         description={seoDescription}
         previewImage={ogImage}
         lang={pageLanguage}
+        canonicalPath="/etusivu"
       />
       <ContentfulComponents
         pageContent={data.contentfulPages.pageContent}

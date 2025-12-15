@@ -12,6 +12,7 @@ import { SpreadshopEmbed } from '../components/spreadshopEmbed';
 
 const PageTemplate = ({ data }) => {
   const {
+    slug,
     pageName,
     pageLanguage,
     seoTitle,
@@ -85,6 +86,7 @@ const PageTemplate = ({ data }) => {
         description={seoDescription}
         previewImage={ogImage}
         lang={pageLanguage}
+        canonicalPath={slug === 'etusivu' ? '/etusivu' : undefined} // Canonical URL
       />
       {pageName === 'Kauppa' && <SpreadshopEmbed shopId="naistenlinja" />}
       {pageName === 'Opiskelijakauppa' && (
