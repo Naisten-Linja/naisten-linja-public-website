@@ -1,7 +1,12 @@
 import React, { useEffect } from 'react';
-export const SpreadshopEmbed = (props) => {
-  const shopId = props.shopId;
+
+export const SpreadshopEmbed = ({ shopId }) => {
   useEffect(() => {
+    // Guard against SSR / non-browser environments
+    if (typeof window === 'undefined' || typeof document === 'undefined') {
+      return undefined;
+    }
+
     // Set global config
     window.spread_shop_config = {
       shopName: shopId,
@@ -17,9 +22,11 @@ export const SpreadshopEmbed = (props) => {
     document.body.appendChild(script);
 
     return () => {
-      document.body.removeChild(script);
+      if (document.body.contains(script)) {
+        document.body.removeChild(script);
+      }
     };
-  }, []);
+  }, [shopId]);
 
   return (
     <div id="myShop">
