@@ -56,6 +56,9 @@ const query = graphql`
         pageName
         id
       }
+      jsonLd {
+        jsonLd
+      }
     }
   }
 `;

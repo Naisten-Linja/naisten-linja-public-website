@@ -25,9 +25,39 @@ const Footer = ({
   linksGroupTwo,
   linksGroupThree,
   legals,
+  jsonLd,
 }) => {
+  // Parse the JSON-LD data if it's stored as a string
+  const getJsonLdContent = () => {
+    if (!jsonLd) return null;
+
+    // If jsonLd has a jsonLd property (from Contentful), extract and parse it
+    if (jsonLd.jsonLd) {
+      try {
+        // If it's already a string, parse it; if it's already an object, use it directly
+        return typeof jsonLd.jsonLd === 'string'
+          ? JSON.parse(jsonLd.jsonLd)
+          : jsonLd.jsonLd;
+      } catch (e) {
+        console.error('Error parsing JSON-LD:', e);
+        return null;
+      }
+    }
+
+    // If jsonLd is already a parsed object, use it directly
+    return jsonLd;
+  };
+
+  const jsonLdContent = getJsonLdContent();
+
   return (
     <footer className="Footer_container">
+      {jsonLdContent && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdContent) }}
+        />
+      )}
       <div className="Footer_content">
         <div className="Footer_layout">
           <div className="Footer_logos">
