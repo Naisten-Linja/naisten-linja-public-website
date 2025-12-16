@@ -2,6 +2,7 @@ import React, { useCallback } from 'react';
 import { graphql } from 'gatsby';
 import Layout from '../components/layout';
 import Seo from '../components/seo';
+import JsonLd from '../components/jsonLd';
 import ContentfulComponents from '../components/contentful/contentfulComponents';
 
 // Although we're not using pageQueryBySlug, the queries file need to be imported so ContentfulPageFragment is available inside pageQuery.
@@ -88,6 +89,7 @@ const PageTemplate = ({ data }) => {
         lang={pageLanguage}
         canonicalPath={slug === 'etusivu' ? '/etusivu' : undefined} // Canonical URL
       />
+      <JsonLd data={data.contentfulPages} pageUrl={slug ? `/${slug}/` : '/'} />
       {pageName === 'Kauppa' && <SpreadshopEmbed shopId="naistenlinja" />}
       {pageName === 'Opiskelijakauppa' && (
         <SpreadshopEmbed shopId="naistenlinjan-opiskelijakauppa" />
