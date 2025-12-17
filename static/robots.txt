@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://naistenlinja.fi/sitemap.xml
+Sitemap: https://naistenlinja.fi/sitemap-0.xml
