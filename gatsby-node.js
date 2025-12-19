@@ -169,6 +169,11 @@ exports.createSchemaCustomization = ({ actions }) => {
     type ContentfulPagePreviewGrid implements Node {
       pages: [ContentfulPages] @link(by: "id", from: "pages___NODE")
     }
+
+    type ContentfulFaqGroup implements Node {
+      title: String
+      backgroundColor: String
+    }
  
     union ContentfulPagesPageContent = ContentfulBlogPost
       | ContentfulContentBoxGroup
@@ -185,6 +190,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       | ContentfulKeyPointsList
       | ContentfulExternalLink
       | ContentfulLogoGrid
+      | ContentfulFaqGroup
 
 
     type ContentfulPages implements Node {

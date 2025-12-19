@@ -1,0 +1,21 @@
+@use '../../styles/variables' as *;
+
+.FAQGroup_container {
+  display: grid;
+  gap: 2rem;
+
+  .FAQGroup_title {
+    margin: 0;
+  }
+
+  .FAQGroup_ingress {
+    p {
+      margin: 1rem 0;
+    }
+  }
+
+  .FAQGroup_list {
+    display: grid;
+    gap: 0;
+  }
+}

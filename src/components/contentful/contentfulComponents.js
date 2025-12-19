@@ -13,6 +13,7 @@ import ContentfulImageAndText from './ContentfulImageAndText/ContentfulImageAndT
 import ContentfulCtaHighlight from './ContentfulCtaHighlight/ContentfulCtaHighlight';
 import ContentfulKeyPointsList from './ContentfulKeyPointsList/ContentfulKeyPointsList';
 import ContentfulLogoGrid from './ContentfulLogoGrid/ContentfulLogoGrid';
+import ContentfulFAQGroup from './contentfulFAQGroup/contentfulFAQGroup';
 
 const ContentfulComponents = ({ pageContent, theme }) => {
   return (pageContent || []).map((component, index) => {
@@ -82,6 +83,9 @@ const ContentfulComponents = ({ pageContent, theme }) => {
 
       case 'ContentfulLogoGrid':
         return <ContentfulLogoGrid key={index} content={component} />;
+
+      case 'ContentfulFaqGroup':
+        return <ContentfulFAQGroup key={index} content={component} />;
 
       default:
         console.log('componentType', componentType);

@@ -193,6 +193,35 @@ export const ContenfulPage = graphql`
           }
         }
       }
+      ... on ContentfulFaqGroup {
+        internal {
+          type
+        }
+        id
+        title
+        content {
+          question
+          answer {
+            raw
+            references {
+              ... on ContentfulAsset {
+                contentful_id
+                __typename
+                title
+                file {
+                  url
+                }
+              }
+              ... on ContentfulPages {
+                contentful_id
+                __typename
+                slug
+                pageName
+              }
+            }
+          }
+        }
+      }
       ... on ContentfulServiceBoxGroup {
         title
         ingress {
@@ -558,3 +587,6 @@ export const ContenfulPage = graphql`
     }
   }
 `;
+
+// Export alias for pageQueryBySlug to make fragment available
+export const pageQueryBySlug = ContenfulPage;
