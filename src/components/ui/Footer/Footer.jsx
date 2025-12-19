@@ -122,6 +122,7 @@ const Footer = ({
               </ul>
               <ul className="Footer_links_col">
                 {linksGroupThree?.map((link) => {
+                  const isTelLink = link.url?.startsWith('tel:');
                   return (
                     <li key={link.id}>
                       {link?.__typename === 'ContentfulPages' ? (
@@ -129,7 +130,7 @@ const Footer = ({
                       ) : (
                         <a href={link.url}>
                           {link.label}
-                          <ExternalLinkIcon />
+                          {!isTelLink && <ExternalLinkIcon />}
                         </a>
                       )}
                     </li>

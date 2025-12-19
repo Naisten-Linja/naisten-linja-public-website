@@ -1,7 +1,8 @@
 import { Link } from 'gatsby';
 import React from 'react';
 import './CtaButton.scss';
-import { LiaExternalLinkAltSolid } from 'react-icons/lia';
+import { LiaExternalLinkAltSolid, LiaPhoneAltSolid } from 'react-icons/lia';
+import { IoCall } from 'react-icons/io5';
 
 const CtaButton = ({
   ctaLabel,
@@ -10,6 +11,8 @@ const CtaButton = ({
   theme,
   secondary,
 }) => {
+  const isTelLink = linkToCustomUrl?.url?.startsWith('tel:');
+
   return (
     <div>
       {linkToInternalPage ? (
@@ -22,12 +25,12 @@ const CtaButton = ({
       ) : (
         <a
           href={linkToCustomUrl?.url}
-          target="_blank"
-          rel="noopener noreferrer"
+          {...(!isTelLink && { target: '_blank', rel: 'noopener noreferrer' })}
           className={`CtaButton_container ${secondary ? 'secondary' : ''}`}
         >
-          {ctaLabel ? ctaLabel : linkToCustomUrl?.label}
-          <LiaExternalLinkAltSolid />
+          {ctaLabel ? ctaLabel : linkToCustomUrl?.label}{' '}
+          {isTelLink && <IoCall />}
+          {!isTelLink && <LiaExternalLinkAltSolid />}
         </a>
       )}
     </div>

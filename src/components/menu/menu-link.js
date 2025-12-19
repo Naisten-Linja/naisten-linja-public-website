@@ -7,9 +7,14 @@ const MenuLink = ({ page, className, id }) => {
     ? page.pageContainerName
     : page.menuPage.pageName;
 
+  const isTelLink = page.linkToExternalUrl?.startsWith('tel:');
+
   return page.linkToExternalUrl ? (
     <a href={page.linkToExternalUrl} className={className} id={id}>
-      {itemName} <ExternalLinkIcon aria-label="Linkki vie toiseen palveluun" />
+      {itemName}{' '}
+      {!isTelLink && (
+        <ExternalLinkIcon aria-label="Linkki vie toiseen palveluun" />
+      )}
     </a>
   ) : (
     <Link
