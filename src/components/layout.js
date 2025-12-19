@@ -25,8 +25,8 @@ const Layout = ({
       <Hero {...hero} />
       {alert?.alertText && alert?.showAlert && (
         <AlertBar
-          alertLink={alert?.alertLink.slug}
-          alertText={alert?.alertText.alertText}
+          alertLink={alert?.alertLink ? alert?.alertLink.slug : null}
+          alertText={alert?.alertText ? alert?.alertText.alertText : null}
         />
       )}
       {showTableOfContents && <TableOfContents />}
