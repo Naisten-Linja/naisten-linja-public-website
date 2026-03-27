@@ -1,6 +1,7 @@
 import React from 'react';
 import './ContentBox.scss';
 import { Link } from 'gatsby';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import { renderRichText } from 'gatsby-source-contentful/rich-text';
 import { INLINES } from '@contentful/rich-text-types';
 import { LiaExternalLinkAltSolid } from 'react-icons/lia';
@@ -43,8 +44,8 @@ const ContentBox = ({
           ''
         ) : (
           <div className="ContentBox__image">
-            {showImages && image && (
-              <img src={image.file.url + '?fm=webp&q=90&h=300'} alt={''} />
+            {showImages && image && getImage(image.gatsbyImageData) && (
+              <GatsbyImage image={getImage(image.gatsbyImageData)} alt={image.title || ''} />
             )}
             {showImages && !image && (
               <img src={'/images/placeholder.png'} alt="" />

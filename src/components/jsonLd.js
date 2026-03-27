@@ -63,7 +63,7 @@ const JsonLd = ({ data, pageUrl }) => {
     : baseUrl;
 
   const imageUrl = data.ogImage?.file?.url
-    ? `${protocol}${data.ogImage.file.url}`
+    ? `${protocol}${data.ogImage.file.url}?w=1200&q=70&fm=webp`
     : null;
 
   const publishedDate = formatDateToISO(data.updatedAt);

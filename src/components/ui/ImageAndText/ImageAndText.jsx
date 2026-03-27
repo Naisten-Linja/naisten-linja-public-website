@@ -2,16 +2,18 @@ import React from 'react';
 import './ImageAndText.scss';
 import Container from '../utils/Container/Container';
 import ImageDecorationRight from '../../icons/imageDecorationRight';
-// import ImageDecorationRight from '../../../images/image-decoration-right.svg';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
 const ImageAndText = ({
   title,
   text,
-  imageUrl,
+  image,
   theme,
   imageDecoration,
   button,
 }) => {
+  const img = getImage(image?.gatsbyImageData);
+
   return (
     <Container theme={''} size={'large'} background={true}>
       <div className="ImageAndText_container">
@@ -20,10 +22,9 @@ const ImageAndText = ({
           {text && <div dangerouslySetInnerHTML={{ __html: text }} />}
           {button && button}
         </div>
-        {imageUrl && (
+        {img && (
           <div className={`ImageAndText_image ${imageDecoration ? theme : ''}`}>
-            <img src={imageUrl + '?fm=webp&q=90&h=600'} alt={''} />
-            {/* {imageDecoration && theme && ImageDecorationRight} */}
+            <GatsbyImage image={img} alt={''} />
             {imageDecoration && theme && <ImageDecorationRight />}
           </div>
         )}

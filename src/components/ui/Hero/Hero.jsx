@@ -24,7 +24,7 @@ const Hero = (props) => {
       style={
         heroImage && {
           backgroundImage: `url( ${
-            heroImage.file.url + '?fm=webp&q=95&h=700'
+            heroImage.file.url + '?fm=webp&q=70&w=1600&h=700'
           })`,
         }
       }

@@ -178,10 +178,12 @@ export const ContenfulPage = graphql`
               }
             }
             image {
-              file {
-                url
-                fileName
-              }
+              gatsbyImageData(
+                width: 400
+                quality: 75
+                placeholder: BLURRED
+                formats: [AUTO, WEBP]
+              )
               title
             }
             textColor
@@ -445,9 +447,12 @@ export const ContenfulPage = graphql`
         title
         imageDecoration
         image {
-          file {
-            url
-          }
+          gatsbyImageData(
+            width: 800
+            quality: 75
+            placeholder: BLURRED
+            formats: [AUTO, WEBP]
+          )
         }
         text {
           childMarkdownRemark {

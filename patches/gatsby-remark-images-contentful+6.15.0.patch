@@ -1,0 +1,73 @@
+diff --git a/node_modules/gatsby-remark-images-contentful/index.js b/node_modules/gatsby-remark-images-contentful/index.js
+index a2df241..a7d8c13 100644
+--- a/node_modules/gatsby-remark-images-contentful/index.js
++++ b/node_modules/gatsby-remark-images-contentful/index.js
+@@ -94,7 +94,7 @@ module.exports = async ({
+ 
+     // Calculate the paddingBottom %
+     const ratio = `${1 / responsiveSizesResult.aspectRatio * 100}%`;
+-    const fallbackSrc = originalImg;
++    const fallbackSrc = responsiveSizesResult.src;
+     const srcSet = responsiveSizesResult.srcSet;
+     const presentationWidth = responsiveSizesResult.presentationWidth;
+ 
+diff --git a/node_modules/gatsby-remark-images-contentful/utils/index.js b/node_modules/gatsby-remark-images-contentful/utils/index.js
+index 96f93a6..a74f171 100644
+--- a/node_modules/gatsby-remark-images-contentful/utils/index.js
++++ b/node_modules/gatsby-remark-images-contentful/utils/index.js
+@@ -35,28 +35,38 @@ const buildResponsiveSizes = async ({
+     maxWidth,
+     sizes
+   } = options;
++  const quality = options.quality || 80;
+   const aspectRatio = width / height;
+   const presentationWidth = Math.min(maxWidth, width);
+   const presentationHeight = Math.round(presentationWidth * (height / width));
+   const sizesQuery = sizes || `(max-width: ${presentationWidth}px) 100vw, ${presentationWidth}px`;
++  // Cap srcset sizes at 2x maxWidth for retina, never exceed original width
++  const maxSrcSetWidth = Math.min(maxWidth * 2, width);
+   const images = [];
+-  images.push(metadata.width / 4);
+-  images.push(metadata.width / 2);
+-  images.push(metadata.width);
+-  images.push(metadata.width * 1.5);
+-  images.push(metadata.width * 2);
+-  images.push(metadata.width * 3);
+-  const filteredSizes = images.filter(size => size < width);
+-  filteredSizes.push(width);
++  images.push(maxWidth / 4);
++  images.push(maxWidth / 2);
++  images.push(maxWidth);
++  images.push(maxWidth * 1.5);
++  images.push(maxWidth * 2);
++  const filteredSizes = images.filter(size => size <= maxSrcSetWidth);
++  if (filteredSizes[filteredSizes.length - 1] !== maxSrcSetWidth) {
++    filteredSizes.push(maxSrcSetWidth);
++  }
+   imageURL.searchParams.set(`w`, `40`);
++  imageURL.searchParams.set(`q`, `${quality}`);
+   const base64Img = await getBase64Img(imageURL.href, reporter);
+   const getSrcSetUrl = size => {
+     imageURL.searchParams.set(`w`, `${Math.round(size)}`);
++    imageURL.searchParams.set(`q`, `${quality}`);
+     return `${imageURL.href} ${Math.round(size)}w`;
+   };
+   const srcSet = filteredSizes.map(getSrcSetUrl).join(`,\n`);
+   imageURL.searchParams.set(`fm`, `webp`);
+   const webpSrcSet = filteredSizes.map(getSrcSetUrl).join(`,\n`);
++  // Build optimized fallback src
++  const fallbackURL = new URL(imageUrl.indexOf(`/`) === 0 ? `https:${imageUrl}` : imageUrl);
++  fallbackURL.searchParams.set(`w`, `${presentationWidth}`);
++  fallbackURL.searchParams.set(`q`, `${quality}`);
+ 
+   // TODO think about a better structure to save srcset types instead of adding them to the root
+   return {
+@@ -64,7 +74,7 @@ const buildResponsiveSizes = async ({
+     aspectRatio,
+     srcSet,
+     webpSrcSet,
+-    src: imageUrl,
++    src: fallbackURL.href,
+     sizes: sizesQuery,
+     density,
+     presentationWidth,

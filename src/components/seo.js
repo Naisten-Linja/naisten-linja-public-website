@@ -40,7 +40,7 @@ function Seo({
 
   const metaImage =
     previewImage && previewImage.file?.url
-      ? `${protocol}${previewImage.file.url}`
+      ? `${protocol}${previewImage.file.url}?w=1200&q=70&fm=webp`
       : `${site.siteMetadata.url}${site.siteMetadata.image}`;
 
   const metaImageAlt = previewImage

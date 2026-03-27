@@ -5,7 +5,6 @@ import CtaButton from '../../ui/CtaButton/CtaButton';
 const ContentfulImageAndText = ({ content, theme }) => {
   const { title, text, image, imageDecoration, cta, ctaLabel } = content;
   const textHtml = text?.childMarkdownRemark.html;
-  const imageUrl = image?.file.url;
   // const button =
   // cta.__typename === 'ContentfulPages' ? (
   //   <CtaButton ctaLabel={ctaLabel} linkToInternalPage={cta} />
@@ -30,7 +29,7 @@ const ContentfulImageAndText = ({ content, theme }) => {
     <ImageAndText
       title={title}
       text={textHtml}
-      imageUrl={imageUrl}
+      image={image}
       imageDecoration={imageDecoration}
       button={checkCta(typename)}
       theme={theme}
