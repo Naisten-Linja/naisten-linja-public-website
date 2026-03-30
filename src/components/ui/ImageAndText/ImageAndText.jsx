@@ -24,7 +24,12 @@ const ImageAndText = ({
         </div>
         {img && (
           <div className={`ImageAndText_image ${imageDecoration ? theme : ''}`}>
-            <GatsbyImage image={img} alt={''} />
+            <GatsbyImage
+              image={img}
+              alt={image?.title || ''}
+              style={{ width: '100%', height: '100%' }}
+              imgStyle={{ objectFit: 'cover' }}
+            />
             {imageDecoration && theme && <ImageDecorationRight />}
           </div>
         )}

@@ -16,6 +16,8 @@ const ContentBox = ({
   linkToInternalPage,
   showImages,
 }) => {
+  const optimizedImage = getImage(image?.gatsbyImageData);
+
   const options = {
     renderMark: {},
     renderNode: {
@@ -44,8 +46,13 @@ const ContentBox = ({
           ''
         ) : (
           <div className="ContentBox__image">
-            {showImages && image && getImage(image.gatsbyImageData) && (
-              <GatsbyImage image={getImage(image.gatsbyImageData)} alt={image.title || ''} />
+            {showImages && optimizedImage && (
+              <GatsbyImage
+                image={optimizedImage}
+                alt={image.title || ''}
+                style={{ width: '100%', height: '100%' }}
+                imgStyle={{ objectFit: 'cover' }}
+              />
             )}
             {showImages && !image && (
               <img src={'/images/placeholder.png'} alt="" />
