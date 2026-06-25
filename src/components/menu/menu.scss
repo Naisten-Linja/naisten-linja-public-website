@@ -117,31 +117,122 @@ nav {
 
     .menubar-container {
       background-color: white;
-      width: 500px;
+      box-sizing: border-box;
+      width: 410px;
+      min-height: 100vh;
+      padding: 3rem 2.25rem;
       position: relative;
       .menu {
         list-style: none;
         font-size: 16px;
-        font-weight: 500;
-        padding: 1rem;
+        font-weight: 600;
+        padding: 0;
+        margin: 0;
         position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: 1.75rem;
 
-        li {
-          padding: 1rem;
+        .menu-item {
+          padding: 0;
+
+          &__row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.75rem;
+          }
+
+          &__link {
+            flex: 1 1 auto;
+            min-width: 0;
+
+            a,
+            span {
+              color: $black;
+              display: block;
+              line-height: 1.6;
+            }
+
+            a {
+              text-decoration: none;
+
+              &:hover {
+                text-decoration: underline;
+              }
+            }
+          }
+
+          .submenu-toggle {
+            align-items: center;
+            background: transparent;
+            border: 0;
+            color: $black;
+            cursor: pointer;
+            display: flex;
+            flex: 0 0 32px;
+            height: 32px;
+            justify-content: center;
+            padding: 0;
+            width: 32px;
+
+            svg {
+              height: 32px;
+              transition: transform 0.2s ease;
+              width: 32px;
+            }
+
+            &:hover,
+            &:focus-visible {
+              color: $ruukku-750;
+            }
+          }
+
+          &.submenu-expanded {
+            .submenu-toggle svg {
+              transform: rotate(180deg);
+            }
+          }
+        }
+
+        .MainMenu__submenu-container {
+          margin-top: 0.75rem;
+        }
+
+        .submenu {
+          display: flex;
+          flex-direction: column;
+          gap: 0.5rem;
+          list-style: none;
+          margin: 0;
+          padding: 0 0 0 1rem;
+          font-size: 14px;
+          font-weight: 400;
+
+          li {
+            padding: 0;
+
+            a {
+              align-items: center;
+              color: $black;
+              display: inline-flex;
+              gap: 0.35rem;
+
+              &:hover {
+                text-decoration: underline;
+              }
+            }
+          }
+        }
+
+        li:not(.menu-item) {
+          padding: 0;
+
           a {
             color: $black;
             &:hover {
               text-decoration: underline;
             }
-          }
-        }
-        .submenu {
-          list-style: none;
-          padding: 0.5rem 0 0 1rem;
-          font-size: 14px;
-          font-weight: 400;
-          li {
-            padding: 0.5rem;
           }
         }
       }
@@ -209,6 +300,26 @@ nav {
         }
         .menu-icon {
           grid-column: 4;
+        }
+      }
+    }
+    .menu-background {
+      justify-content: stretch;
+
+      .menubar-container {
+        min-height: calc(100vh - 96px);
+        padding: 1.375rem 1.125rem;
+        width: 100vw;
+
+        .menu {
+          gap: 1.75rem;
+
+          .menu-item__link {
+            a,
+            span {
+              font-size: 16px;
+            }
+          }
         }
       }
     }

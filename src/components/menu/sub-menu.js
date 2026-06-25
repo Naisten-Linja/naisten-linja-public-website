@@ -1,9 +1,9 @@
 import React from 'react';
 import MenuLink from './menu-link';
 
-const SubMenu = ({ page, itemName }) => {
+const SubMenu = ({ id, isExpanded, page, itemName }) => {
   return (
-    <div className="MainMenu__submenu-container">
+    <div className="MainMenu__submenu-container" id={id} hidden={!isExpanded}>
       <ul aria-label={itemName} className="submenu">
         {page.menuPageSubpages.map((subPage, i) => (
           <li key={subPage.id}>
