@@ -32,7 +32,7 @@ import { findIcon } from '../ui/utils/utils';
 const Menu = ({ lang }) => {
   const headerMenuData = useStaticQuery(query);
   const [isOpen, setIsOpen] = useState(false);
-  const [activeItem, setActiveItem] = useState(0);
+  const [activeItem, setActiveItem] = useState(null);
 
   const topLevelPages = headerMenuData.contentfulMainMenu.topLevelPages;
   const services = headerMenuData.contentfulMainMenu.services;

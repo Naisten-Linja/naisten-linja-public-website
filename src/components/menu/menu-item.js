@@ -1,14 +1,14 @@
 import { Link } from 'gatsby';
-import React, { useState } from 'react';
+import React from 'react';
 import { BiChevronDown } from 'react-icons/bi';
 import SubMenu from './sub-menu';
 
-const MenuItem = ({ page, index }) => {
-  const [isExpanded, setIsExpanded] = useState(false);
+const MenuItem = ({ page, index, activeItem, setActiveItem }) => {
   const itemName = page.pageContainerName
     ? page.pageContainerName
     : page.menuPage.pageName;
   const hasSubPages = page.menuPageSubpages?.length > 0;
+  const isExpanded = activeItem === index;
   const subMenuId = `sub-menu-${index}`;
 
   const topLevelLink = page.linkToExternalUrl ? (
@@ -44,7 +44,7 @@ const MenuItem = ({ page, index }) => {
             aria-label={`${
               isExpanded ? 'Piilota' : 'Näytä'
             } alavalikko: ${itemName}`}
-            onClick={() => setIsExpanded(!isExpanded)}
+            onClick={() => setActiveItem(isExpanded ? null : index)}
           >
             <BiChevronDown aria-hidden="true" />
           </button>
